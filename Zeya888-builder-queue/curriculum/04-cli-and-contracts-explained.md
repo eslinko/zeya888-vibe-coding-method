@@ -38,6 +38,15 @@
 **Зелёный:** `ok N paths` — можно P2/P3 (после выбора slice).  
 **Красный:** битый path, пустой pointer, несуществующий pkg — **исправить YAML/дерево**, не execution.
 
+#### When FAIL is expected vs “stop”
+
+| Situation | Meaning of FAIL | What to do | Forbidden |
+|-----------|-----------------|------------|-----------|
+| **Bootstrap / new profile** before first real `pkg-*.yaml` | Often **normal**: queue not created yet (see [`queue-manual.md`](../cli/queue-manual.md) for the profile) | Finish profile/intake via [`add-builder-profile.md`](../guides/add-builder-profile.md); don’t panic | Don’t “fix” by inventing paths; don’t start P3 |
+| **Execution session** (starter §3.5: step 0 verify) when green was expected | **Stop** — queue contract broken | Fix YAML / paths / pointer; re-run verify | Don’t execute; don’t ignore FAIL in chat |
+
+Learning link: [`../prompts/training/03a-connect-your-project-tech.md`](../prompts/training/03a-connect-your-project-tech.md).
+
 ### Build window — производный артеfact
 
 Окно — **снимок** очереди для одного чата. После смены pkg или task tree — перегенерировать. Symlink `latest-cursor-build-window.md` — UX для Cursor (Cmd+P), не SSOT.

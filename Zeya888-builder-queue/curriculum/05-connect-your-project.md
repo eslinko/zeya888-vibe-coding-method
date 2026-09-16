@@ -5,6 +5,8 @@
 
 Метод переносится в **ваш** репозиторий без привязки к DOGEstonia — архитектор настраивает три опоры: Method layer, Tool layer, Runtime layer.
 
+**Learning (route A):** before operative connect, prefer [`../prompts/training/03a-connect-your-project-tech.md`](../prompts/training/03a-connect-your-project-tech.md) · entry: [`human-entry-manual.md`](./human-entry-manual.md).
+
 ---
 
 ## Шаг 1 — Скопировать методологию

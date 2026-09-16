@@ -1,9 +1,9 @@
 # Модуль 6 — Architect Studio и три входа P1
 
 **Operative SSOT:** [`../core/workflow.md`](../core/workflow.md) §**PA** + §P1.1–P1.3 · [`../contracts/identity-operator-contract.md`](../contracts/identity-operator-contract.md) §4–§5  
-**Контекст:** [`00-guide-for-humans.md`](./00-guide-for-humans.md)
+**Context:** [`00-guide-for-humans.md`](./00-guide-for-humans.md) · learning entry: [`human-entry-manual.md`](./human-entry-manual.md) · bridge after tech training: [`../prompts/training/04a-first-managed-work-session.md`](../prompts/training/04a-first-managed-work-session.md)
 
-Architect Studio — **рекомендуемый отдельный чат** для operative фазы **PA (Intake Analysis)**. Human layer здесь объясняет *зачем*; промпты PA — только в workflow. P1 здесь **не дублируется**.
+Architect Studio — **recommended separate chat** for operative phase **PA (Intake Analysis)**. Human layer here explains *why*; PA prompts live only in workflow. P1 is **not** duplicated here.
 
 Перед PA по одному проекту можно стартовать с cross-project orientation: карта gateway / identity / spa / GPT UI и analytics по корневому `docs/` → кандидаты нисходящих story (без materialize). Промпт: [`../prompts/architect/cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md). Incoming parent REQs, которые режут всю систему микросервисов (`docs/requirements backlog/`): сначала session lock [`../prompts/architect/cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md). Индекс useful prompts: [`../prompts/INDEX.md`](../prompts/INDEX.md).
 

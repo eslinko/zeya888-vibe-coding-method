@@ -9,6 +9,7 @@
 | **architect/** | До PA / cross-project analytics / system map | [`architect/`](./architect/) |
 | **operator/** | Root OP bootstrap / wave / subagent overnight | [`operator/`](./operator/) |
 | **migration/** | Быстрый restore контекста роли (BLD/VAL/OP) по `builder_project` | [`migration/`](./migration/) |
+| **training/** | Training dialogues (teaching; not operative) | [`training/`](./training/) |
 | **operator-wave** | P0–P8 + PA.1–PA.3 happy path fences | SSOT: [`../core/workflow.md`](../core/workflow.md) (не мигрировать сюда без явного решения) |
 | **housekeeping** | Dashboard focus, git commit plan | см. таблицу ниже |
 
@@ -48,6 +49,17 @@
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |
+
+## training/
+
+| Prompt | Purpose |
+|--------|---------|
+| [`training/INDEX.md`](./training/INDEX.md) | Dialog order, routes A/B, transition rules |
+| [`training/01-how-the-system-works.md`](./training/01-how-the-system-works.md) | Training: how the system works |
+| [`training/02-how-the-operator-steers.md`](./training/02-how-the-operator-steers.md) | Training: steering a wave |
+| [`training/03a-connect-your-project-tech.md`](./training/03a-connect-your-project-tech.md) | Tech: project adaptation plan |
+| [`training/03b-project-brief-fintech.md`](./training/03b-project-brief-fintech.md) | Fintech: brief for guided adoption |
+| [`training/04a-first-managed-work-session.md`](./training/04a-first-managed-work-session.md) | Tech: first managed session |
 
 ## operator-wave
 

@@ -125,7 +125,7 @@ P1 | P2 | … — жду указание оператора. (PA — в отд�
 | Шаг 0 | `builder_resolve_queue.py --project {builder_project} --verify` — FAIL = стоп |
 | YAML SSOT | immutable `pkg-*.yaml`; не переписывать без оператора |
 | `run_mode` | Только по явной команде |
-| P4 | Scaffold only — без pytest/runtime |
+| P5 | Scaffold only — no pytest/runtime (P4 = external audit; see §3.4 and workflow.md) |
 | Plans | `.cursor/plans/*.plan.md` — не редактировать без запроса |
 | Fixed builder plans | `*_builder.plan.md` — @attach + workflow P3/P6; **не** Build / Execute plan ([fixed-builder-plan-execution.md](../guides/fixed-builder-plan-execution.md)) |
 | Commits | git-commit.md; push только по запросу |

@@ -1,8 +1,14 @@
-# Zeya888 Builder Queue — гид для человека
+# Zeya888 Builder Queue — guide for humans
 
-Этот документ — **обёртка** над методологией. Здесь нет operative промптов для вставки в Cursor: они живут в [`../core/workflow.md`](../core/workflow.md) и [`../core/session-starter.md`](../core/session-starter.md). Здесь — смысл, ценность и роль архитектора-оператора.
+This document is a **meaning wrapper** (why the method exists).  
+**Practical first entry** (which chat to open, which prompt to paste): [`human-entry-manual.md`](./human-entry-manual.md).  
+Training dialogues: [`../prompts/training/INDEX.md`](../prompts/training/INDEX.md).
 
-**Аудитория:** AI-driven developer, solo builder, архитектор, который хочет строить сложные системы с агентом, не превращаясь в «промпт-оператора без системы».
+There are no operative prompts to paste into Cursor here: those live in [`../core/workflow.md`](../core/workflow.md) and [`../core/session-starter.md`](../core/session-starter.md). Here — meaning, value, and the architect-operator role.
+
+**Audience:** AI-driven developers, solo builders, architects who want to build complex systems with an agent without becoming a “prompt operator without a system”; also fintech vibe-coders on overview route B.
+
+> **Note:** Older sections below may still be in Russian. The **entry path** (human-entry-manual, learning-path dual routes, `prompts/training/`, consultation memo) is English.
 
 ---
 
@@ -119,21 +125,23 @@ Solo builder не обязан помнить 40 task README — достато�
 
 ---
 
-## 8. Учебный маршрут
+## 8. Learning path
 
-| # | Для человека | Operative (когда готовы) |
-|---|--------------|---------------------------|
-| 0 | Этот документ | [`../MANIFEST.md`](../MANIFEST.md) |
-| 1 | [`01-first-session.md`](./01-first-session.md) | [`../core/session-starter.md`](../core/session-starter.md) |
+**Start:** [`human-entry-manual.md`](./human-entry-manual.md) → training 01–02 → route A or B ([`learning-path.md`](./learning-path.md)).
+
+| # | For humans | Operative (when ready) |
+|---|------------|------------------------|
+| 0 | This document (meaning) | [`../MANIFEST.md`](../MANIFEST.md) |
+| 1 | [`01-first-session.md`](./01-first-session.md) — **operative** Phase 0 | [`../core/session-starter.md`](../core/session-starter.md) |
 | 2 | [`02-first-package-and-window.md`](./02-first-package-and-window.md) | [`../specs/input-package-spec.md`](../specs/input-package-spec.md) |
 | 3 | [`03-workflow-phases-explained.md`](./03-workflow-phases-explained.md) | [`../core/workflow.md`](../core/workflow.md) |
 | 4 | [`04-cli-and-contracts-explained.md`](./04-cli-and-contracts-explained.md) | [`../cli/queue-manual.md`](../cli/queue-manual.md) |
 | 5 | [`05-connect-your-project.md`](./05-connect-your-project.md) | [`../integration/cursor-setup.md`](../integration/cursor-setup.md) |
 | 6 | [`06-architect-studio-and-p1-intakes.md`](./06-architect-studio-and-p1-intakes.md) | [`../core/workflow.md`](../core/workflow.md) §P1 |
 
-**Architect Studio vs Builder:** отдельный per-project чат для **PA (Intake Analysis)** — дозреть intake-файл; без pkg и без P3. Builder-сессия: P1+ с одним `input_mode`. Подробно — модуль 6 · operative §PA в [`workflow.md`](../core/workflow.md).
+**Architect Studio vs Builder:** a separate per-project chat for **PA (Intake Analysis)** — mature the intake file; no pkg and no P3. Builder session: P1+ with one `input_mode`. Details — module 6 · operative §PA in [`workflow.md`](../core/workflow.md).
 
-Полная карта: [`learning-path.md`](./learning-path.md).
+Full map (two routes + modules): [`learning-path.md`](./learning-path.md).
 
 ---
 

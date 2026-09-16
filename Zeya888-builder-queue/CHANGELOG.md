@@ -1,5 +1,18 @@
 # Changelog — Zeya888 Builder Queue
 
+# Changelog — Zeya888 Builder Queue
+
+## 1.4.44 — 2026-09-16
+
+- Translate human learning entry layer to **English**: `curriculum/human-entry-manual.md`, `curriculum/learning-path.md`, `guides/consultation-positioning.md`, `prompts/training/*`, README first-entry, related routing strings
+- Note: older curriculum modules 01–06 body text may remain Russian; entry path is EN
+
+## 1.4.43 — 2026-09-16
+
+- Human learning layer: [`curriculum/human-entry-manual.md`](./curriculum/human-entry-manual.md); dual routes in [`curriculum/learning-path.md`](./curriculum/learning-path.md); [`prompts/training/`](./prompts/training/) (01–02–03A/03B–04A); [`guides/consultation-positioning.md`](./guides/consultation-positioning.md)
+- Canon: session-starter §3.5 P5 scaffold (not P4); verify FAIL semantics in curriculum/04; cursor-setup delivery composition
+- Sync: README first-entry, prompts/INDEX training/, MANIFEST; reconcile note [`analysis/zeya888.product-docs-gap-reconcile-local-2026-09-16.md`](./analysis/zeya888.product-docs-gap-reconcile-local-2026-09-16.md)
+
 ## 1.4.42 — 2026-09-13
 
 - Architect interview: Decision-point protocol in [`req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) and [`req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) — on every choice question: options analytics + architecture/project fit + mandatory recommendation; operator decides
