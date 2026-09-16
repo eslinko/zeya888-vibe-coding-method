@@ -27,6 +27,13 @@
 | `gpt` | `GPT UI/docs/analysis/tasks` | `gpt-active-package.current.yaml` | `gpt-active-packages/` |
 | `spa` | `spa-app/docs/tasks` | `spa-active-package.current.yaml` (будущее) | `spa-active-packages/` |
 | `identity` | `doge-identity-service/docs/tasks` | `identity-active-package.current.yaml` | `identity-active-packages/` |
+| `scripts` | `scripts/docs/tasks` | `scripts-active-package.current.yaml` | `scripts-active-packages/` |
+| `capybara` | `capybara/docs/tasks` | `capybara-active-package.current.yaml` | `capybara-active-packages/` |
+| `landing` | `landing/docs/tasks` | `landing-active-package.current.yaml` | `landing-active-packages/` |
+| `zeya888` | `zeya888.me/docs/tasks` | `zeya888-active-package.current.yaml` | `zeya888-active-packages/` |
+| `arweave` | `dogestonia-arweave-uploader/docs/tasks` | `arweave-active-package.current.yaml` | `arweave-active-packages/` |
+| `dogestonia` | `dogestonia-app/docs/tasks` | `dogestonia-active-package.current.yaml` | `dogestonia-active-packages/` |
+| `aibridge` | `doge-ai-bridge/docs/tasks` | `aibridge-active-package.current.yaml` | `aibridge-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -49,7 +56,7 @@ story_groups:
 |------|--------|
 | `schema_version` | `1` |
 | `package_sequence` | Монотонный номер пакета |
-| `created_at` | ISO-8601 |
+| `created_at` | ISO-8601 UTC; **date-part = scaffold session**; время из `builder_resolve_queue.py --print-utc-now`; см. [`guides/builder-artifact-dates.md`](../guides/builder-artifact-dates.md) |
 | `label` | Короткое имя волны |
 | `input_kind` | §4 |
 | `tasks_root` | Префикс зоны тасков от корня workspace (см. `pkg_path_prefix` в `profiles.yaml`) |
@@ -57,6 +64,10 @@ story_groups:
 Опционально: `gim_keys` (GPT), `decision_ref`, `epic_file`.
 
 Пути — **от корня workspace** (каталог с `docs/methodology/Zeya888-builder-queue/`).
+
+**Имя файла pkg:** `pkg-<package_sequence>-<YYYYMMDD>-<slug>.yaml` — сегмент `YYYYMMDD` **обязан** совпадать с date-part поля `created_at`.
+
+**Проверка дат:** `--verify --check-dates` (см. guide + [`date-gate-grandfather.txt`](./date-gate-grandfather.txt)).
 
 ---
 
@@ -141,6 +152,10 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | gateway | `gateway_input_package` |
 | gpt | `gpt_input_package`, `task_batch_gim_keys` |
 | spa | `spa_input_package` (будущее) |
+| zeya888 | `zeya888_input_package` |
+| arweave | `arweave_input_package` |
+| dogestonia | `dogestonia_input_package` |
+| aibridge | `aibridge_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

@@ -12,6 +12,8 @@
 
 **Перед** batch-run, Build window или P3/P6 Execute:
 
+**Fixed plan:** `@attach` [`.cursor/plans/GPT_builder.plan.md`](../../../.cursor/plans/GPT_builder.plan.md) + workflow §P3/P6 в **этом** чате — **не** Build / Execute plan на файле ([fixed-builder-plan-execution.md](../guides/fixed-builder-plan-execution.md)).
+
 1. Прочитать [`GPT UI/docs/analysis/tasks/bullrun-launch-index.md`](../../../GPT UI/docs/analysis/tasks/bullrun-launch-index.md) §«Актуальная точка» и таблицы волн (GIM-*).
 2. Прочитать [`gpt-active-package.current.yaml`](../../../GPT UI/docs/analysis/tasks/gpt-active-package.current.yaml) → `package_file`.
 3. Из корня workspace:  
@@ -47,7 +49,8 @@
 
 1. Обновить статус строки в [`bullrun-launch-index.md`](../../../GPT UI/docs/analysis/tasks/bullrun-launch-index.md) (task table, gap queue, §«Актуальная точка»).
 2. При дубле GIM — [`gpt-interview-module1-tasks-index.md`](../../../GPT UI/docs/analysis/tasks/gpt-interview-module1-tasks-index.md).
-3. Не откладывать синхронизацию на «конец сессии».
+3. Пересчитать [`gpt-mvp-dashboard.md`](../../../GPT%20UI/docs/tasks/gpt-mvp-dashboard.md) + `npm run dashboard:aggregate` (см. [backlog-dashboard-template.md](../workflow/backlog-dashboard-template.md)).
+4. Не откладывать синхронизацию на «конец сессии».
 
 Артефакты таска (`acceptance-verification-*.md`, `run-summary`) **не** заменяют индекс.
 
@@ -59,10 +62,26 @@
 
 | `run_mode` | Порядок | Paths (от корня `DOGEstonia/`) |
 |------------|---------|--------------------------------|
+| `req43_audit_followup` | GIM-185 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-02-interview-dialogue-experience/stories/STORY-M1-02-11-req43-acceptance-evidence/task-doc-req43-req43-namespace-disambiguation/README.md` |
+| `req42_audit_followup` | GIM-181 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-06-orchestrator-openapi-web2/stories/STORY-M1-06-24-req42-acceptance-evidence/task-doc-req42-req42-namespace-disambiguation/README.md` |
+| `req40_audit_followup` | GIM-174 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-06-orchestrator-openapi-web2/stories/STORY-M1-06-16-req40-evidence-severity-sidecar/task-fix-req40-evidence-summary-flag-nesting/README.md` |
+| `req39_audit_followup` | GIM-170 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-05-issue-normalizer-strict-artifacts/stories/STORY-GM5-11-req39-city-level-canonicalization/task-fix-req39-changelog-version-order/README.md` |
+| `req38_audit_followup` | GIM-166 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-08-label-extraction-axes-controlled-vocabulary/stories/STORY-GM8-17-req38-normalizer-ecosystem-classification/task-fix-req38-anti-collapse-triplet-dedup/README.md` |
 | `req36_audit_followup` | GIM-161 → GIM-162 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-08-label-extraction-axes-controlled-vocabulary/stories/STORY-GM8-12-req36-promote-affected-deep-desired/task-fix-req36-affected-scope-dedup-promotion/README.md` · 2. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-08-label-extraction-axes-controlled-vocabulary/stories/STORY-GM8-13-req36-ecosystem-governance-axes/task-fix-req36-brain-drain-cross-axis-dedup/README.md` |
 | `req33_audit_followup` | GIM-147 → GIM-148 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-08-label-extraction-axes-controlled-vocabulary/stories/STORY-GM8-10-req33-audit-followup-gap-closure/task-fix-req33-multi-axis-per-axis-rule/README.md` · 2. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-08-label-extraction-axes-controlled-vocabulary/stories/STORY-GM8-10-req33-audit-followup-gap-closure/task-fix-req33-traceability-header-l10/README.md` |
+| `gpt_ssr_09_audit_followup` | GIM-317 → GIM-319 | 1. `…/STORY-GPT-SSR-09-…/task-fix-manual-section2-wave2-bundle/README.md` · 2. `…/task-fix-manual-sections-9-10-11-wave2/README.md` · 3. `…/task-fix-orchestrator-demo-pack-json-wording/README.md` (full paths in `GPT_builder.plan.md`) |
+| `gpt_ssr_08_audit_followup` | GIM-320 → GIM-321 | 1. `…/STORY-GPT-SSR-08-…/task-sync-backlog-verified-asbuilt-post-gw27/README.md` · 2. `…/task-sync-backlog-conceptual-asbuilt-oos/README.md` (full paths in `GPT_builder.plan.md`) |
+| `gpt_ssr_11_audit_followup` | GIM-339 → GIM-340 | 1. `…/STORY-GPT-SSR-11-…/task-resync-flat-pack-json-from-gateway/README.md` · 2. `…/task-fix-flat-pack-md-internal-links/README.md` (full paths in `GPT_builder.plan.md`) |
+| `gpt_ssr_12_audit_followup` | GIM-348 → GIM-349 | 1. `…/STORY-GPT-SSR-12-…/task-sync-backlog-status-ac-verified/README.md` · 2. `…/task-sync-ssr-index-wave4-ssr12-done/README.md` (full paths in `GPT_builder.plan.md`) |
+| `gpt_ssr_13_audit_followup` | GIM-355 → GIM-356 | 1. `…/STORY-GPT-SSR-13-…/task-fix-operator-manual-section3-section5-flat-layout/README.md` · 2. `…/task-fix-operator-manual-intro-section4-locale-sixfile/README.md` (full paths in `GPT_builder.plan.md`) |
+| `gpt_pb_04_audit_followup` | GIM-377 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-04-wrapper-pin-and-standards-hash/task-fix-standards-set-hash-match-algorithm/README.md` |
+| `gpt_pb_06_audit_followup` | GIM-386 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-06-harden-exact-lenses-and-civic-clustering-meta/task-sync-node-onboarding-index-done-todo-counts/README.md` |
+| `gpt_pb_11_audit_followup` | GIM-420 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-11-primary-prompt-enforce-load-gate-emit/task-sync-node-onboarding-index-story-only-wording/README.md` |
+| `gpt_pb_12_audit_followup` | GIM-427 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-12-primary-prompt-geo-load-gate-vocabulary/task-amend-pb12-meta-claim-post-scr02/README.md` |
+| `gpt_pb_13_audit_followup` | GIM-434 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-13-node-onboarding-standards-geo-gate-alignment/task-sync-node-onboarding-index-pb13-sequence-wording/README.md` |
+| `gpt_ssr_17_audit_followup` | GIM-441 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-01-issue-domain-instruction-foundation/stories/STORY-GPT-SSR-17-retire-activity-legacy-paths-inventory/task-sync-parent-backlog-index-ssr17-status/README.md` |
 
-Любой другой `run_mode` — только если есть одноимённый § в plan; иначе → YAML default.
+Любой другой `run_mode` — только если есть одноимённый § в plan; иначе → YAML default (`pkg-000023`).
 
 ---
 
@@ -71,11 +90,11 @@
 ```markdown
 ## GPT session resolve
 
-- verify: ok N paths (pkg-000017 …)
+- verify: ok 3 paths (pkg-000023 …)
 - index: bullrun-launch-index §Актуальная точка
-- active pkg: gpt-active-package.current.yaml → pkg-000017
+- active pkg: gpt-active-package.current.yaml → pkg-000023 (GIM-182…184 🟢)
 - run_mode: (оператор) | default pkg queue
-- next work: <из --print-next, run_mode list, или индекса — не из памяти>
+- next work: GIM-185 ⚪ via run_mode=req43_audit_followup | или --print-next / первая ⚪ (режим B)
 ```
 
 ---

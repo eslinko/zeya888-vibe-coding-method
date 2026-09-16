@@ -1,0 +1,14 @@
+# Profile intake — dogestonia (materialize 2026-09-02)
+# After bootstrap success → move to done/dogestonia.yaml
+
+profile_key: dogestonia
+focus_folder: dogestonia-app
+
+stack_label: "React Native (Expo) — iOS / Android / web"
+execution_skill_primary: react-native-expert
+execution_skill_fallback: react-expert
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md
+test_command: "cd dogestonia-app && npx expo doctor"
+default_input_kind: epic_story_tree
+plan_title_case: DOGEstonia
+has_ux_pipeline: true

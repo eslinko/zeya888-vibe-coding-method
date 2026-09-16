@@ -11,6 +11,8 @@
 
 **Перед** batch-run, Build window или P3 Execute:
 
+**Fixed plan:** `@attach` [`.cursor/plans/ID_builder.plan.md`](../../../.cursor/plans/ID_builder.plan.md) + workflow §P3/P6 в **этом** чате — **не** Build / Execute plan на файле ([fixed-builder-plan-execution.md](../guides/fixed-builder-plan-execution.md)).
+
 1. Прочитать [`doge-identity-service/docs/tasks/bullrun-launch-index.md`](../../../doge-identity-service/docs/tasks/bullrun-launch-index.md) §«Актуальная точка» и §«Epic registry».
 2. Прочитать [`identity-active-package.current.yaml`](../../../doge-identity-service/docs/tasks/identity-active-package.current.yaml) → `package_file`.
 3. Из корня workspace:  
@@ -44,8 +46,10 @@
 После **каждого** закрытого task (🟢 Done / acceptance) или story gate:
 
 1. Обновить статус строки в `bullrun-launch-index.md` (task table или gap queue).
-2. При необходимости — §«Актуальная точка» (следующая story, override, epic gate).
-3. Не откладывать синхронизацию на «конец сессии».
+2. Обновить package [`backlog-stories/*/INDEX.md`](../../../doge-identity-service/docs/tasks/backlog-stories/) и root [`backlog-stories/INDEX.md`](../../../doge-identity-service/docs/tasks/backlog-stories/INDEX.md).
+3. Пересчитать [`identity-backlog-dashboard.md`](../../../doge-identity-service/docs/tasks/identity-backlog-dashboard.md) (derived snapshot; см. [backlog-dashboard-maintenance.md](../workflow/backlog-dashboard-maintenance.md)).
+4. При необходимости — §«Актуальная точка» (следующая story, override, epic gate).
+5. Не откладывать синхронизацию на «конец сессии».
 
 Артефакты таска (`acceptance-verification-*.md`, `run-summary`) **не** заменяют индекс.
 
@@ -87,9 +91,10 @@ Override-волна (`run_mode=epic_ids_*_audit_*` / `*_reaudit_*`) — отде
 
 1. `run_mode` override list (если оператор явно указал)  
 2. Active `identity-active-packages/pkg-*.yaml` + `--verify`  
-3. `bullrun-launch-index.md`  
-4. **Epic mode:** `EPIC-IDS-*.md` · **Requirement mode:** `docs/requirements/` → эпик по ссылкам/индексу · **Backlog mode:** `backlog-stories/` → после P1.3 pipeline story в `epics/`  
-5. Task `README.md` + acceptance-verification
+3. `bullrun-launch-index.md` + `backlog-stories/INDEX.md` + package `INDEX.md`  
+4. `identity-backlog-dashboard.md` (derived)  
+5. **Epic mode:** `EPIC-IDS-*.md` · **Requirement mode:** `docs/requirements/` → эпик по ссылкам/индексу · **Backlog mode:** `backlog-stories/` → после P1.3 pipeline story в `epics/`  
+6. Task `README.md` + acceptance-verification
 
 ---
 
@@ -105,3 +110,27 @@ Override-волна (`run_mode=epic_ids_*_audit_*` / `*_reaudit_*`) — отде
 | `run_mode=…` (audit override) | Факт-код vs findings в audit report + AC тасков override-списка | workflow §P4b по audit report |
 
 Build plan (`ID_builder.plan.md`) **не** содержит таблицу P4 — только эта секция и workflow.
+
+---
+
+## 6. P1.3 `backlog_story` (identity appendix)
+
+Используется с [workflow.md](../core/workflow.md) §P1.3 (`$p13Appendix` для `builder_project: identity`).
+
+| Параметр | Значение |
+|----------|----------|
+| Epic prefix | `EPIC-IDS-*` |
+| Materialize path | `doge-identity-service/docs/tasks/epics/` |
+| Pipeline story | `epics/<EPIC>/stories/<STORY-KEY>/STORY-*.md` |
+| Task naming | `task-ids-NN-YY-tNN-<slug>/README.md` |
+| Active pointer | `identity-active-package.current.yaml` |
+| Execution skill | `python-pro` |
+
+**Epic materialize (из backlog Meta.Epic):**
+
+- EPIC уже в `epics/` → использовать.
+- EPIC только в `backlog-stories/EPIC-*.md` → materialize `EPIC-IDS-NN-*.md` (следующий свободный номер) + bullrun.
+- EPIC только «в коде» (AUTH-CORE/OAUTH/EID) → `EPIC-IDS-NN-<slug>.md` по Meta + runtime-docs из «Парадигма-якорь»; не дублировать EPIC-IDS-01..06.
+
+**Пример:** `STORY-IDS-EID-01` → `EPIC-IDS-09` / `pkg-000015`.
+

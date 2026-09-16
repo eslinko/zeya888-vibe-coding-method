@@ -19,6 +19,9 @@ projects:
     artifact_kind: gateway_cursor_build_window
     build_window_title: Gateway Cursor build window
     test_command: "cd doge-complaints-gateway && python3 -m pytest -q"
+    stack_label: Python
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
 
   gpt:
     enabled: true
@@ -37,9 +40,12 @@ projects:
     artifact_kind: gpt_cursor_build_window
     build_window_title: GPT Cursor build window
     test_command: "cd \"GPT UI\" && npm test"
+    stack_label: GPT Actions
+    execution_skill_primary: openai-custom-gpt-builder
+    execution_skill_path: .cursor/skills/openai-custom-gpt-builder/SKILL.md
 
   spa:
-    enabled: false
+    enabled: true
     focus_folder: spa-app
     tasks_dir: spa-app/docs/tasks
     active_packages_dir: spa-active-packages
@@ -50,11 +56,34 @@ projects:
     pkg_path_prefix: spa-app/docs/tasks/
     plan_file: .cursor/plans/Spa_builder.plan.md
     pipeline_doc: spa-app/docs/tasks/spa-story-execution-pipeline.md
+    ui_visual_pipeline_doc: docs/methodology/Zeya888-builder-queue/guides/spa-ui-visual-pipeline.md
     default_input_kind: task_list_linear
     input_package_yaml_key: spa_input_package
     artifact_kind: spa_cursor_build_window
     build_window_title: Spa Cursor build window
     test_command: "cd spa-app && npm test"
+    stack_label: React/JS
+    execution_skill_primary: react-expert
+    execution_skill_fallback: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-expert/SKILL.md
+
+  taxonomy:
+    enabled: true
+    queueless: true
+    focus_folder: doge-complaints-gateway
+    tasks_dir: doge-complaints-gateway/docs/tasks
+    plan_file: .cursor/plans/Taxonomy_builder.plan.md
+    test_command: "cd doge-complaints-gateway && python3 -m pytest -q tests/test_supabase_required_tables.py tests/test_taxonomy_classify_candidates.py"
+    verify_paths:
+      - doge-complaints-gateway/scripts/taxonomy_fetch_misses.py
+      - doge-complaints-gateway/scripts/taxonomy_classify_candidates.py
+      - doge-complaints-gateway/scripts/taxonomy_apply_gateway.py
+      - doge-complaints-gateway/scripts/taxonomy_apply_spa_i18n.py
+      - doge-complaints-gateway/docs/runtime-docs/appendix/taxonomy-decisions-schema.md
+      - doge-complaints-gateway/docs/tasks/run-reports/taxonomy-cycles/README.md
+    stack_label: Python (scripts)
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
 
   identity:
     enabled: true
@@ -73,3 +102,158 @@ projects:
     artifact_kind: identity_cursor_build_window
     build_window_title: Identity Cursor build window
     test_command: 'cd doge-identity-service && python3 -m pytest -q -m "not live_integration"'
+    stack_label: Python
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  scripts:
+    enabled: true
+    focus_folder: scripts
+    tasks_dir: scripts/docs/tasks
+    active_packages_dir: scripts-active-packages
+    current_pointer: scripts-active-package.current.yaml
+    build_windows_subdir: run-reports/scripts-build-windows
+    build_window_prefix: scripts-cursor-build-window
+    next_readme_dotfile: .scripts-next-readme
+    pkg_path_prefix: scripts/docs/tasks/
+    plan_file: .cursor/plans/Scripts_builder.plan.md
+    pipeline_doc: scripts/docs/tasks/scripts-story-execution-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: scripts_input_package
+    artifact_kind: scripts_cursor_build_window
+    build_window_title: Scripts Cursor build window
+    test_command: npm run test:unit
+    stack_label: Node.js / Hardhat / Web3
+    execution_skill_primary: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+
+  capybara:
+    enabled: true
+    focus_folder: capybara
+    tasks_dir: capybara/docs/tasks
+    active_packages_dir: capybara-active-packages
+    current_pointer: capybara-active-package.current.yaml
+    build_windows_subdir: run-reports/capybara-build-windows
+    build_window_prefix: capybara-cursor-build-window
+    next_readme_dotfile: .capybara-next-readme
+    pkg_path_prefix: capybara/docs/tasks/
+    plan_file: .cursor/plans/Capybara_builder.plan.md
+    pipeline_doc: capybara/docs/tasks/capybara-story-execution-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: capybara_input_package
+    artifact_kind: capybara_cursor_build_window
+    build_window_title: Capybara Cursor build window
+    test_command: 'npx mocha scripts/tests/unit/capybara/**/*.test.js --config scripts/tests/.mocharc.json'
+    stack_label: Vue 3 + Node.js (UI + API monolith)
+    execution_skill_primary: vue-expert
+    execution_skill_fallback: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/vue-expert/SKILL.md
+
+  landing:
+    enabled: true
+    focus_folder: landing
+    tasks_dir: landing/docs/tasks
+    active_packages_dir: landing-active-packages
+    current_pointer: landing-active-package.current.yaml
+    build_windows_subdir: run-reports/landing-build-windows
+    build_window_prefix: landing-cursor-build-window
+    next_readme_dotfile: .landing-next-readme
+    pkg_path_prefix: landing/docs/tasks/
+    plan_file: .cursor/plans/Landing_builder.plan.md
+    pipeline_doc: landing/docs/tasks/landing-story-execution-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: landing_input_package
+    artifact_kind: landing_cursor_build_window
+    build_window_title: Landing Cursor build window
+    test_command: 'cd landing && npm run build'
+    stack_label: Astro + TypeScript + Tailwind
+    execution_skill_primary: typescript-pro
+    execution_skill_fallback: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/typescript-pro/SKILL.md
+
+  zeya888:
+    enabled: true
+    focus_folder: zeya888.me
+    tasks_dir: zeya888.me/docs/tasks
+    active_packages_dir: zeya888-active-packages
+    current_pointer: zeya888-active-package.current.yaml
+    build_windows_subdir: run-reports/zeya888-build-windows
+    build_window_prefix: zeya888-cursor-build-window
+    next_readme_dotfile: .zeya888-next-readme
+    pkg_path_prefix: zeya888.me/docs/tasks/
+    plan_file: .cursor/plans/Zeya888_builder.plan.md
+    pipeline_doc: zeya888.me/docs/tasks/zeya888-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: zeya888_input_package
+    artifact_kind: zeya888_cursor_build_window
+    build_window_title: Zeya888 Cursor build window
+    test_command: 'cd zeya888.me && php -v'
+    stack_label: WordPress (PHP)
+    execution_skill_primary: wordpress-pro
+    execution_skill_fallback: php-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/wordpress-pro/SKILL.md
+
+  arweave:
+    enabled: true
+    focus_folder: dogestonia-arweave-uploader
+    tasks_dir: dogestonia-arweave-uploader/docs/tasks
+    active_packages_dir: arweave-active-packages
+    current_pointer: arweave-active-package.current.yaml
+    build_windows_subdir: run-reports/arweave-build-windows
+    build_window_prefix: arweave-cursor-build-window
+    next_readme_dotfile: .arweave-next-readme
+    pkg_path_prefix: dogestonia-arweave-uploader/docs/tasks/
+    plan_file: .cursor/plans/Arweave_builder.plan.md
+    pipeline_doc: dogestonia-arweave-uploader/docs/tasks/arweave-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: arweave_input_package
+    artifact_kind: arweave_cursor_build_window
+    build_window_title: Arweave Cursor build window
+    test_command: 'cd dogestonia-arweave-uploader && node -v'
+    stack_label: Node.js (Arweave / cryptography)
+    execution_skill_primary: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+
+  dogestonia:
+    enabled: true
+    focus_folder: dogestonia-app
+    tasks_dir: dogestonia-app/docs/tasks
+    active_packages_dir: dogestonia-active-packages
+    current_pointer: dogestonia-active-package.current.yaml
+    build_windows_subdir: run-reports/dogestonia-build-windows
+    build_window_prefix: dogestonia-cursor-build-window
+    next_readme_dotfile: .dogestonia-next-readme
+    pkg_path_prefix: dogestonia-app/docs/tasks/
+    plan_file: .cursor/plans/DOGEstonia_builder.plan.md
+    pipeline_doc: dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md
+    ui_visual_pipeline_doc: docs/methodology/Zeya888-builder-queue/guides/spa-ui-visual-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: dogestonia_input_package
+    artifact_kind: dogestonia_cursor_build_window
+    build_window_title: DOGEstonia Cursor build window
+    test_command: 'cd dogestonia-app && npx expo doctor'
+    stack_label: React Native (Expo) — iOS / Android / web
+    execution_skill_primary: react-native-expert
+    execution_skill_fallback: react-expert
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md
+
+  aibridge:
+    enabled: true
+    focus_folder: doge-ai-bridge
+    tasks_dir: doge-ai-bridge/docs/tasks
+    active_packages_dir: aibridge-active-packages
+    current_pointer: aibridge-active-package.current.yaml
+    build_windows_subdir: run-reports/aibridge-build-windows
+    build_window_prefix: aibridge-cursor-build-window
+    next_readme_dotfile: .aibridge-next-readme
+    pkg_path_prefix: doge-ai-bridge/docs/tasks/
+    plan_file: .cursor/plans/aibridge_builder.plan.md
+    pipeline_doc: doge-ai-bridge/docs/tasks/aibridge-story-execution-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: aibridge_input_package
+    artifact_kind: aibridge_cursor_build_window
+    build_window_title: AI Bridge Cursor build window
+    test_command: 'cd doge-ai-bridge && python3 -V'
+    stack_label: Python (Responses → Story Intake bridge)
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md

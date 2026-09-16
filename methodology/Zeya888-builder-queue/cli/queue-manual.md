@@ -6,7 +6,7 @@
 
 ## 0. Откуда всё читается
 
-1. Выберите `--project` (`gateway`, `gpt`, `identity`, …).
+1. Выберите `--project` (`gateway`, `gpt`, `identity`, `spa`, `taxonomy`, …).
 2. Скрипт читает `{tasks_dir}/*-active-package.current.yaml` → `package_file` → `pkg-*.yaml`.
 3. Запуск **из корня workspace** (где есть `docs/methodology/Zeya888-builder-queue/specs/profiles.yaml`).
 
@@ -25,6 +25,21 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 ```
 
 Успех: `ok N paths (project=gateway, pkg …)`.
+
+**Дисциплина дат (P1 scaffold / перед story Done):**
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --print-utc-now
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project gateway --verify --check-dates
+```
+
+| Режим | Exit code | Поведение |
+|-------|-----------|-----------|
+| `--verify --check-dates` | 0 | ok paths; только WARN (grandfather allowlist) допустим |
+| `--verify --check-dates` | 1 | есть FAIL — стоп P2/P3 |
+| `--verify --check-dates --strict-dates` | 1 | allowlist игнорируется; remediation mode |
+
+SSOT: [`guides/builder-artifact-dates.md`](../guides/builder-artifact-dates.md) · allowlist: [`date-gate-grandfather.txt`](../specs/date-gate-grandfather.txt).
 
 ### Шаг 2 — build window
 
@@ -65,6 +80,9 @@ Story parent AC / epic AC по pipeline проекта. Следующая story
 | Задача | Команда |
 |--------|---------|
 | Verify | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project {proj} --verify` |
+| Verify + dates | `… --project {proj} --verify --check-dates` |
+| UTC now (P1/P3) | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --print-utc-now` |
+| Strict dates | `… --verify --check-dates --strict-dates` |
 | List | `… --project {proj} --list` |
 | ACTIVE_TASK_PATH | `… --project {proj} --export-active-task-path` |
 | Next path | `… --project {proj} --print-next` |
@@ -127,11 +145,191 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ## 5. Профиль `spa`
 
-`--project spa` завершится ошибкой, пока в `profiles.yaml` стоит `enabled: false`. Включите после `spa-active-packages/` и Build plan.
+`--project spa` — активен. До первого **P1.3** `pkg-bootstrap-pending.yaml` даёт пустую очередь; `--verify` → **FAIL** (ожидаемо). После P1 — flat window: `--write-build-window --window-flat-start 1 --window-flat-end N`. Контракт: [spa-operator-contract.md](../contracts/spa-operator-contract.md). Runtime plan: `.cursor/plans/Spa_builder.plan.md`.
+
+**UI Visual Pipeline (visual pkg):** SSOT процесса — [guides/spa-ui-visual-pipeline.md](../guides/spa-ui-visual-pipeline.md). Build window **автоматически** вставляет блок из [workflow.md](../core/workflow.md) §P3 spa UI appendix (`ui_gate`, `@mockup`, UI-0..UI-3). Флаг `--ui-appendix auto|force|off` (default `auto`). P3 шаг **0b:** `cd spa-app && npx puppeteer browsers install chrome` + `npm run <puppeteer_gate>` — см. [frontend-run-and-environment.md](../../../spa-app/docs/runtime-docs/frontend-run-and-environment.md) §8 и [spa-story-execution-pipeline.md](../../../spa-app/docs/tasks/spa-story-execution-pipeline.md) §P3 attach checklist.
 
 ---
 
-## 6. Troubleshooting
+## 5b. Профиль `scripts` (operator tooling)
+
+`--project scripts` — активен (scope: `EPIC-SCR-02-tooling`). Active pkg: `pkg-000005-wfconsole` → **ok 6 paths**. Capybara work — профиль `capybara`. Контракт: [scripts-operator-contract.md](../contracts/scripts-operator-contract.md). Runtime plan: `.cursor/plans/Scripts_builder.plan.md`.
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project scripts --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project scripts --list
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project scripts \
+  --write-build-window --story-key STORY-SCR-WFCONSOLE-01-workflow-prompt-console
+```
+
+Pipeline — [scripts-story-execution-pipeline.md](../../../scripts/docs/tasks/scripts-story-execution-pipeline.md).
+
+---
+
+## 5c. Профиль `capybara` (Vue 3 + Node monolith + CLI)
+
+`--project capybara` — активен. Active pkg: `pkg-000007-capy-05-charge` → **ok 9 paths**. Контракт: [capybara-operator-contract.md](../contracts/capybara-operator-contract.md). Runtime plan: `.cursor/plans/Capybara_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле.
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project capybara --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project capybara --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project capybara \
+  --write-build-window --story-key STORY-SCR-CAPY-05-charge-child-to-pool-with-split
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project capybara \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `npx mocha scripts/tests/unit/capybara/**/*.test.js --config scripts/tests/.mocharc.json`. Pipeline — [capybara-story-execution-pipeline.md](../../../capybara/docs/tasks/capybara-story-execution-pipeline.md). New profile SSOT: [add-builder-profile.md](../guides/add-builder-profile.md).
+
+---
+
+## 5d. Профиль `landing` (Astro + TypeScript + Tailwind)
+
+`--project landing` — активен. Active pkg: `pkg-000000-bootstrap` → **ok 1 paths** (profile marker). Контракт: [landing-operator-contract.md](../contracts/landing-operator-contract.md). Runtime plan: `.cursor/plans/Landing_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** P1.1 EPIC-01 INFRA from [bullrun-landing-index.md](../../../landing/docs/tasks/bullrun-landing-index.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project landing --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project landing --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project landing \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd landing && npm run build` (FAIL until INFRA-1). Pipeline — [landing-story-execution-pipeline.md](../../../landing/docs/tasks/landing-story-execution-pipeline.md).
+
+---
+
+## 5e. Профиль `zeya888` (WordPress / PHP — focus `zeya888.me`)
+
+`--project zeya888` — активен. Active pkg: `pkg-000000-20260814-bootstrap` → **ok 1 paths** (profile marker). Контракт: [zeya888-operator-contract.md](../contracts/zeya888-operator-contract.md). Runtime plan: `.cursor/plans/Zeya888_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-ZEYA-BUG-*` from audit → P1.3. Schema: [BUG-STORY-SCHEMA.md](../../../zeya888.me/docs/tasks/backlog-stories/BUG-STORY-SCHEMA.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888 --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888 --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888 \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd zeya888.me && php -v`. Pipeline — [zeya888-story-execution-pipeline.md](../../../zeya888.me/docs/tasks/zeya888-story-execution-pipeline.md).
+
+---
+
+## 5f. Профиль `arweave` (Node.js Arweave / cryptography — focus `dogestonia-arweave-uploader`)
+
+`--project arweave` — активен. Active pkg: `pkg-000000-20260902-bootstrap` → **ok 1 paths** (profile marker). Контракт: [arweave-operator-contract.md](../contracts/arweave-operator-contract.md). Runtime plan: `.cursor/plans/Arweave_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AU-*` from REQ-AU → P1.3, или `input_mode=requirement` на REQ-AU-*. Requirements: [INDEX.md](../../../dogestonia-arweave-uploader/docs/requirements/INDEX.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd dogestonia-arweave-uploader && node -v`. Pipeline — [arweave-story-execution-pipeline.md](../../../dogestonia-arweave-uploader/docs/tasks/arweave-story-execution-pipeline.md).
+
+---
+
+## 5g. Профиль `dogestonia` (React Native / Expo — focus `dogestonia-app`)
+
+`--project dogestonia` — активен. Active pkg: `pkg-000000-20260902-bootstrap` → **ok 1 paths** (profile marker). Контракт: [dogestonia-operator-contract.md](../contracts/dogestonia-operator-contract.md). Runtime plan: `.cursor/plans/DOGEstonia_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `EPIC-DOGE-*` / `STORY-DOGE-*` from REQ-APP → P1, или `input_mode=requirement` на REQ-APP-*. UX: spa-ui-visual-pipeline (`hasUxPipeline: true`). Requirements: [INDEX.md](../../../dogestonia-app/docs/requirements/INDEX.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd dogestonia-app && npx expo doctor` (FAIL until Expo scaffold). Pipeline — [dogestonia-story-execution-pipeline.md](../../../dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md).
+
+---
+
+## 5h. Профиль `aibridge` (Python Responses bridge — focus `doge-ai-bridge`)
+
+`--project aibridge` — активен. Active pkg: `pkg-000000-20260910-bootstrap` → **ok 1 paths** (profile marker). Контракт: [aibridge-operator-contract.md](../contracts/aibridge-operator-contract.md). Runtime plan: `.cursor/plans/aibridge_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** `input_mode=requirement` на REQ-01, или author `STORY-AIBRIDGE-*` → P1.3. **Не** смешивать с `gpt`. Remote: https://github.com/DOGE-Complaints/doge-ai-bridge. REQ: [REQ-01](../../../doge-ai-bridge/docs/requirements/REQ-01-doge-ai-bridge-runtime.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd doge-ai-bridge && python3 -V`. Pipeline — [aibridge-story-execution-pipeline.md](../../../doge-ai-bridge/docs/tasks/aibridge-story-execution-pipeline.md).
+
+---
+
+## 6. Профиль `taxonomy` (queueless meta-script)
+
+**Taxonomy Cycle Builder** — ручной цикл обновления меток (телеметрия → решения → патчи gateway + spa). **Не** pkg-очередь: нет `--list`, `--write-build-window`, `pkg-*.yaml`.
+
+Runtime plan: [`.cursor/plans/Taxonomy_builder.plan.md`](../../../../.cursor/plans/Taxonomy_builder.plan.md)  
+Runbook: `doge-complaints-gateway/docs/runtime-docs/appendix/taxonomy-update-process-ru.md`
+
+### Verify (единственная CLI-команда для профиля)
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project taxonomy --verify
+```
+
+Успех: `ok taxonomy verify (N paths)` — plan + scripts + schema + `taxonomy-cycles/README.md` на диске.
+
+Любой другой флаг → ошибка: *«Профиль taxonomy (queueless) поддерживает только --verify»*.
+
+### Запуск цикла в Cursor
+
+```text
+@.cursor/plans/Taxonomy_builder.plan.md
+@doge-complaints-gateway/docs/runtime-docs/appendix/taxonomy-update-process-ru.md
+Taxonomy cycle TC0–TC7. cycle_id=YYYYMMDD. Claims из кода.
+```
+
+**Зависимости:** GW-L10N-03 (`POST /telemetry/label-misses`); SPA-отправитель telemetry (GL-5) — отдельная spa-задача. До GL-5 operational cycle (TC1+) ждёт живых misses или ручного POST.
+
+---
+
+## 7. Troubleshooting
 
 | Симптом | Действие |
 |---------|----------|
@@ -143,13 +341,13 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ---
 
-## 7. Override в Build plan
+## 8. Override в Build plan
 
 YAML — default. Hardcoded override в `*_builder.plan.md` — только по **явной** команде оператора в чате. После mini-wave — убрать override, снова verify + list.
 
 ---
 
-## 8. Связанные файлы
+## 9. Связанные файлы
 
 | Файл | Зачем |
 |------|-------|

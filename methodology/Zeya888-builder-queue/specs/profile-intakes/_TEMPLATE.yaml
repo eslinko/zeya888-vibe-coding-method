@@ -1,0 +1,18 @@
+# Profile intake — copy to <profile_key>.yaml in this folder (not done/).
+# Required: profile_key + focus_folder. Derived paths: guides/add-builder-profile.md §0.
+# Do not duplicate tasks_dir / plan_file / current_pointer here.
+
+profile_key: your_project          # alias = CLI --project = builder_project
+focus_folder: your_project         # path from workspace root (code root); may differ from key
+
+# --- optional overrides ---
+# stack_label: "Python"
+# execution_skill_primary: python-pro
+# execution_skill_fallback: javascript-pro
+# execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+# test_command: "cd your_project && npm test"
+# default_input_kind: epic_story_tree   # or task_list_linear | backlog_story
+# plan_title_case: Your_project         # only if TitleCase(profile_key) is wrong (e.g. GPT)
+# source_profile: scripts               # if split-from-existing
+# source_split: partial                 # full | partial
+# has_ux_pipeline: false                # true only for spa-like UX console flag
