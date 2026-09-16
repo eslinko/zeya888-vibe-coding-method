@@ -234,6 +234,72 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ---
 
+## 5f. Профиль `arweave` (Node.js Arweave / cryptography — focus `dogestonia-arweave-uploader`)
+
+`--project arweave` — активен. Active pkg: `pkg-000000-20260902-bootstrap` → **ok 1 paths** (profile marker). Контракт: [arweave-operator-contract.md](../contracts/arweave-operator-contract.md). Runtime plan: `.cursor/plans/Arweave_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AU-*` from REQ-AU → P1.3, или `input_mode=requirement` на REQ-AU-*. Requirements: [INDEX.md](../../../dogestonia-arweave-uploader/docs/requirements/INDEX.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd dogestonia-arweave-uploader && node -v`. Pipeline — [arweave-story-execution-pipeline.md](../../../dogestonia-arweave-uploader/docs/tasks/arweave-story-execution-pipeline.md).
+
+---
+
+## 5g. Профиль `dogestonia` (React Native / Expo — focus `dogestonia-app`)
+
+`--project dogestonia` — активен. Active pkg: `pkg-000000-20260902-bootstrap` → **ok 1 paths** (profile marker). Контракт: [dogestonia-operator-contract.md](../contracts/dogestonia-operator-contract.md). Runtime plan: `.cursor/plans/DOGEstonia_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `EPIC-DOGE-*` / `STORY-DOGE-*` from REQ-APP → P1, или `input_mode=requirement` на REQ-APP-*. UX: spa-ui-visual-pipeline (`hasUxPipeline: true`). Requirements: [INDEX.md](../../../dogestonia-app/docs/requirements/INDEX.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd dogestonia-app && npx expo doctor` (FAIL until Expo scaffold). Pipeline — [dogestonia-story-execution-pipeline.md](../../../dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md).
+
+---
+
+## 5h. Профиль `aibridge` (Python Responses bridge — focus `doge-ai-bridge`)
+
+`--project aibridge` — активен. Active pkg: `pkg-000000-20260910-bootstrap` → **ok 1 paths** (profile marker). Контракт: [aibridge-operator-contract.md](../contracts/aibridge-operator-contract.md). Runtime plan: `.cursor/plans/aibridge_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** `input_mode=requirement` на REQ-01, или author `STORY-AIBRIDGE-*` → P1.3. **Не** смешивать с `gpt`. Remote: https://github.com/DOGE-Complaints/doge-ai-bridge. REQ: [REQ-01](../../../doge-ai-bridge/docs/requirements/REQ-01-doge-ai-bridge-runtime.md).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd doge-ai-bridge && python3 -V`. Pipeline — [aibridge-story-execution-pipeline.md](../../../doge-ai-bridge/docs/tasks/aibridge-story-execution-pipeline.md).
+
+---
+
 ## 6. Профиль `taxonomy` (queueless meta-script)
 
 **Taxonomy Cycle Builder** — ручной цикл обновления меток (телеметрия → решения → патчи gateway + spa). **Не** pkg-очередь: нет `--list`, `--write-build-window`, `pkg-*.yaml`.

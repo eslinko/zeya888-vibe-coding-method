@@ -1,0 +1,15 @@
+# Profile intake — aibridge (materialize 2026-09-10)
+# After bootstrap success → move to done/aibridge.yaml
+
+profile_key: aibridge
+focus_folder: doge-ai-bridge
+
+stack_label: "Python (Responses → Story Intake bridge)"
+execution_skill_primary: python-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+test_command: "cd doge-ai-bridge && python3 -V"
+default_input_kind: epic_story_tree
+plan_title_case: aibridge
+has_ux_pipeline: false
+# Remote: https://github.com/DOGE-Complaints/doge-ai-bridge (branch dev)
+# REQ-01 live at doge-ai-bridge/docs/requirements/REQ-01-doge-ai-bridge-runtime.md (relocated from GPT UI REQ-47.1)

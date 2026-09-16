@@ -32,6 +32,8 @@
 
 ## Добавление нового проекта
 
-**SSOT:** [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md) — Intake Form, Checklist, Gateway clone, operative prompt.
+**Куда писать alias + path:** [`profile-intakes/<profile_key>.yaml`](./profile-intakes/) (`profile_key` + `focus_folder`).  
+**Operative:** [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md).  
+**Checklist SSOT:** [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md).
 
-Кратко: скопировать блок в `profiles.yaml` → bootstrap `{tasks_dir}` → operator contract → Gateway-clone plan → `--verify`.
+Кратко: intake YAML → migration prompt → `profiles.yaml` + bootstrap `{tasks_dir}` → operator contract → Gateway-clone plan → `--verify` → intake в `profile-intakes/done/`.

@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -130,6 +130,48 @@
 | Schema / audit  | `backlog-stories/BUG-STORY-SCHEMA.md` · `zeya888.me/docs/backdoor-audit-2026-08-14.md`                  |
 
 
+
+|                 | `arweave` (Node.js Arweave / cryptography — focus `dogestonia-arweave-uploader`)                        |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Arweave_builder.plan.md`                                                                 |
+| `$tasksRoot`    | `dogestonia-arweave-uploader/docs/tasks`                                                                |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AU-*.md` (`input_mode=backlog_story`)                                  |
+| `$requirementDoc` | напр. `dogestonia-arweave-uploader/docs/requirements/REQ-AU-01-….md` (`input_mode=requirement`)       |
+| `$backlogIndex` | `dogestonia-arweave-uploader/docs/tasks/backlog-stories/INDEX.md`                                       |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `dogestonia-arweave-uploader/docs/tasks/arweave-story-execution-pipeline.md`                            |
+| Requirements    | `dogestonia-arweave-uploader/docs/requirements/` (REQ-AU-01…04 + CONTEXT)                               |
+
+
+
+|                 | `dogestonia` (React Native / Expo — focus `dogestonia-app`)                                              |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/DOGEstonia_builder.plan.md`                                                              |
+| `$tasksRoot`    | `dogestonia-app/docs/tasks`                                                                             |
+| `$epicFile`     | напр. `dogestonia-app/docs/tasks/epics/EPIC-DOGE-*.md` (`input_mode=epic_story`)                        |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-DOGE-*.md` (`input_mode=backlog_story`)                                 |
+| `$requirementDoc` | напр. `dogestonia-app/docs/requirements/REQ-APP-01-….md` (`input_mode=requirement`)                   |
+| `$backlogIndex` | `dogestonia-app/docs/tasks/backlog-stories/INDEX.md`                                                    |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md`                                      |
+| UI Visual       | `docs/methodology/Zeya888-builder-queue/guides/spa-ui-visual-pipeline.md` (`hasUxPipeline`)              |
+| Requirements    | `dogestonia-app/docs/requirements/` (REQ-APP-01…04 + CONTEXT)                                           |
+
+
+
+|                 | `aibridge` (Python Responses bridge — focus `doge-ai-bridge`)                                           |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/aibridge_builder.plan.md`                                                                |
+| `$tasksRoot`    | `doge-ai-bridge/docs/tasks`                                                                             |
+| `$epicFile`     | напр. `doge-ai-bridge/docs/tasks/epics/EPIC-AIBRIDGE-*.md` (`input_mode=epic_story`)                    |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AIBRIDGE-*.md` (`input_mode=backlog_story`)                             |
+| `$requirementDoc` | напр. `doge-ai-bridge/docs/requirements/REQ-01-….md` (`input_mode=requirement`)        |
+| `$backlogIndex` | `doge-ai-bridge/docs/tasks/backlog-stories/INDEX.md`                                                    |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `doge-ai-bridge/docs/tasks/aibridge-story-execution-pipeline.md`                                        |
+| Requirements    | REQ-01 in doge-ai-bridge (+ parent REQ-47 framing in GPT UI)                                                            |
+
+
 ---
 
 
@@ -167,7 +209,7 @@
 | Analysis | `.cursor/rules/analysis.mdc`                |
 
 
-Rule подмешивается при работе в `doge-complaints-gateway/`**,** `GPT UI/`, `doge-identity-service/`**,** `spa-app/`, `scripts/`, `capybara/`, `landing/`, `zeya888.me/`**.
+Rule подмешивается при работе в `doge-complaints-gateway/`**,** `GPT UI/`, `doge-identity-service/`**,** `spa-app/`, `scripts/`, `capybara/`, `landing/`, `zeya888.me/`, `dogestonia-arweave-uploader/`, `dogestonia-app/`, `doge-ai-bridge/`**.
 
 ### Wave checkpoint
 
@@ -194,7 +236,7 @@ Wave checkpoint — $storyKey (builder_project: $builderProject)
 
 ### PA — Intake Analysis (перед P1)
 
-**Pre-PA (опц.):** cross-project system map + docs analytics → story candidates (без materialize) — [`../prompts/architect/cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md). Parent product REQ → per-project child REQs (link matrix; materialize по команде) — [`../prompts/architect/parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md). Per-project REQ → backlog STORY package (non-UI) или UI ADMIN-01…06 — [`../prompts/architect/req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) / [`../prompts/architect/req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md). Не заменяет PA.1–PA.3.
+**Pre-PA (опц.):** cross-project system map + docs analytics → story candidates (без materialize) — [`../prompts/architect/cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md). Session lock для parent REQs из `docs/requirements backlog/` across gateway/identity/spa/gpt — [`../prompts/architect/cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md). Parent product REQ → per-project child REQs (link matrix; materialize по команде) — [`../prompts/architect/parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md). Write-after-impact scatter в `{project}/docs/requirements/` (без STORY/pkg) — [`../prompts/architect/cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md). Аудит согласованности parent+child vs операторская цель (отчёт `docs/analysis/`) — [`../prompts/architect/cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md). Functional REQ → target tech architecture of focus — [`../prompts/architect/req-to-target-tech-architecture.md`](../prompts/architect/req-to-target-tech-architecture.md). Узкий infra/deployability interview (до story package) — [`../prompts/architect/req-to-tech-architecture.md`](../prompts/architect/req-to-tech-architecture.md). Per-project REQ → backlog STORY package (non-UI), UI ADMIN-01…06, или FE mixed (ADMIN + STORY) — [`../prompts/architect/req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) / [`../prompts/architect/req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) / [`../prompts/architect/req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md). Не заменяет PA.1–PA.3.
 
 **Режим:** Analysis / shaping only — без pkg, без task README, без P3, без `$verifyCmd` pkg.  
 **Выход:** запись `$intakeArtifact` на диск → handoff «PA завершён → P1.x, @file».
@@ -460,6 +502,9 @@ SSOT: guides/builder-artifact-dates.md
 | `scripts`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project scripts --write-build-window --window-flat-start 1 --window-flat-end K``--write-build-window --story-key $storyKey`                                                                                               |
 | `landing`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project landing --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                          |
 | `zeya888`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888 --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                          |
+| `arweave`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                          |
+| `dogestonia`      | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                       |
+| `aibridge`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                         |
 
 
 1. В stdout после `ok build-window`: `**build_window_abs:`** / `**vscode_file_uri:`** — открыть из терминала (Cmd+click); `**quick_open_basename:`** или `**quick_open_pointer:`** (`latest-cursor-build-window.md` в `*-active-packages/`) — для **Cmd+P**; `**cursor_attach:`** — для P3. Symlink обновляется при каждой генерации. **Не** вставлять путь в Go-to-File целиком — `GPT UI/…` обрезается до `UI/docs/…`.

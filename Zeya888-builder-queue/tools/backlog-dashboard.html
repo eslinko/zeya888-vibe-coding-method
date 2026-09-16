@@ -294,28 +294,28 @@
   <script>
     /* DASHBOARD_DATA_START */
     const DASHBOARD_DATA = {
-  "generated_at": "2026-07-25T11:25:39.862Z",
+  "generated_at": "2026-09-02T14:23:42.842Z",
   "projects": [
     {
       "key": "gateway",
       "label": "Gateway",
-      "updated": "2026-07-24",
+      "updated": "2026-08-10",
       "summary": {
-        "packages": 7,
-        "stories": 30,
-        "done": 30,
-        "todo": 0,
-        "deferred": 2,
+        "packages": 8,
+        "stories": 35,
+        "done": 34,
+        "todo": null,
+        "deferred": 3,
         "accumulating": null,
-        "progress_pct": 100,
-        "progress_bar": "████████████"
+        "progress_pct": 97,
+        "progress_bar": "████████████░"
       },
       "packages": [
         {
           "name": "story-draft-handoff",
           "link": "backlog-stories/story-draft-handoff/INDEX.md",
-          "stories": 6,
-          "done": 6,
+          "stories": 7,
+          "done": 7,
           "todo": 0,
           "deferred": 0,
           "accum": null,
@@ -386,26 +386,38 @@
         {
           "name": "taxonomy-fidelity",
           "link": "backlog-stories/taxonomy-fidelity/INDEX.md",
-          "stories": 2,
-          "done": 2,
+          "stories": 4,
+          "done": 3,
           "todo": 0,
-          "deferred": 0,
+          "deferred": 1,
           "accum": null,
           "progress_pct": 100,
           "progress_bar": "████████████",
-          "raw_progress": "100% `████████████`"
+          "raw_progress": "100% active `████████████`"
+        },
+        {
+          "name": "early-signal-pre-cluster",
+          "link": "backlog-stories/early-signal-pre-cluster/INDEX.md",
+          "stories": 4,
+          "done": 3,
+          "todo": 1,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 75,
+          "progress_bar": "█████████░░░",
+          "raw_progress": "75% `█████████░░░`"
         }
       ],
       "epics": [
         {
           "name": "[EPIC-M2-21](epics/)",
-          "status": "In Progress",
-          "notes": "GW-DRAFT-06 Done pkg-000050; package story-draft-handoff closed"
+          "status": "Done (Awaiting Commits)",
+          "notes": "DRAFT-01..07 Done; pkg-000056"
         },
         {
           "name": "EPIC-M2-06",
-          "status": "In Progress",
-          "notes": "PUBLIC-01 Done; issues-read-contract closed"
+          "status": "Done (package)",
+          "notes": "PUBLIC-01 Done; L10N-04 deferred"
         },
         {
           "name": "EPIC-M2-19",
@@ -424,8 +436,13 @@
         },
         {
           "name": "EPIC-M2-23",
-          "status": "In Progress",
-          "notes": "TAX-01/02 Done pkg-000054/000055; GPT-TAX-01 **Done** (GPT UI pkg-000027)"
+          "status": "Done active / Deferred hygiene",
+          "notes": "TAX-01/02/03 Done; **TAX-04 Deferred**"
+        },
+        {
+          "name": "[EPIC-M2-24](epics/EPIC-M2-24-early-signal-pre-cluster.md)",
+          "status": "ES-02/ES-03 Done",
+          "notes": "ES-02 pkg-000059; ES-03 pkg-000060 Done; TASK-ES-04 Todo"
         }
       ],
       "next_waves": [],
@@ -434,16 +451,16 @@
     {
       "key": "gpt",
       "label": "GPT",
-      "updated": "2026-07-25",
+      "updated": "2026-09-01",
       "summary": {
-        "packages": 2,
-        "stories": 28,
-        "done": 27,
-        "todo": 1,
+        "packages": 4,
+        "stories": 36,
+        "done": 34,
+        "todo": 2,
         "deferred": 1,
         "accumulating": null,
-        "progress_pct": 96,
-        "progress_bar": "████████████"
+        "progress_pct": 94,
+        "progress_bar": "███████████░"
       },
       "packages": [
         {
@@ -463,6 +480,30 @@
           "link": "backlog-stories/taxonomy-contract/INDEX.md",
           "stories": 1,
           "done": 1,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "intake-hardening",
+          "link": "backlog-stories/intake-hardening/INDEX.md",
+          "stories": 4,
+          "done": 4,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "semantic-schema-runtime",
+          "link": "backlog-stories/semantic-schema-runtime/INDEX.md",
+          "stories": 10,
+          "done": 10,
           "todo": 0,
           "deferred": 0,
           "accum": null,
@@ -493,7 +534,7 @@
           "notes": "4 stories — policy gate"
         },
         {
-          "name": "[EPIC-M1-05](../analysis/tasks/epics/EPIC-M1-05-issue-normalizer-strict-artifacts/EPIC-M1-05-issue-normalizer-strict-artifacts.md)",
+          "name": "[EPIC-M1-05](../analysis/tasks/epics/EPIC-M1-05-issue-normalizer-strict-codes/EPIC-M1-05-issue-normalizer-strict-codes.md)",
           "status": "Done",
           "notes": "13 stories — normalizer / REQ-34/35/39"
         },
@@ -546,6 +587,46 @@
           "name": "[GPT-TAX-01](backlog-stories/taxonomy-contract/STORY-GPT-TAX-01-per-axis-taxonomy-contract.md)",
           "status": "Done · pkg-000027 · GM8-19 · OpenAPI 0.7.0",
           "notes": ""
+        },
+        {
+          "name": "[GPT-MISSION-01](backlog-stories/intake-hardening/STORY-GPT-MISSION-01-mission-aligned-content-cleanliness.md)",
+          "status": "Done · pkg-000029 · EPIC-M1-04",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-TAX-02](backlog-stories/intake-hardening/STORY-GPT-TAX-02-taxonomy-label-key-sync.md)",
+          "status": "Done · pkg-000033 · EPIC-M1-08",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-GUARD-01](backlog-stories/intake-hardening/STORY-GPT-GUARD-01-zero-junk-throughput.md)",
+          "status": "Done · pkg-000034 · EPIC-M1-06",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-PII-01](backlog-stories/intake-hardening/STORY-GPT-PII-01-zero-pii-on-wire.md)",
+          "status": "Done · pkg-000035 · EPIC-M1-10",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-SSR-04](backlog-stories/semantic-schema-runtime/STORY-GPT-SSR-04-literal-gateway-json-copy-paste.md)",
+          "status": "Done · pkg-000040 · EPIC-M1-01 · G-FMT-01 layout lock",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-SSR-05](backlog-stories/semantic-schema-runtime/STORY-GPT-SSR-05-taxonomy-json-pack-copy-paste.md)",
+          "status": "Done · pkg-000041 · EPIC-M1-01 · G-TAX-01 taxonomy JSON copy-paste",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-SSR-06](backlog-stories/semantic-schema-runtime/STORY-GPT-SSR-06-inbound-validation-post-ssr-delta.md)",
+          "status": "Done · pkg-000043 · EPIC-M1-01 · inbound v1.3 dual-contour delta",
+          "notes": ""
+        },
+        {
+          "name": "[GPT-SSR-10](backlog-stories/semantic-schema-runtime/STORY-GPT-SSR-10-core-taxonomy-ssot-retire-md.md)",
+          "status": "Done · pkg-000047 · EPIC-M1-01 · taxonomy SSOT retire MD",
+          "notes": ""
         }
       ],
       "next_waves": [],
@@ -554,16 +635,16 @@
     {
       "key": "identity",
       "label": "Identity",
-      "updated": "2026-07-25",
+      "updated": "2026-08-20",
       "summary": {
-        "packages": 9,
-        "stories": 38,
-        "done": 37,
-        "todo": 1,
+        "packages": 10,
+        "stories": 42,
+        "done": 40,
+        "todo": 2,
         "deferred": 9,
         "accumulating": null,
-        "progress_pct": 97,
-        "progress_bar": "████████████"
+        "progress_pct": 95,
+        "progress_bar": "███████████░"
       },
       "packages": [
         {
@@ -613,6 +694,18 @@
           "progress_pct": 100,
           "progress_bar": "████████████",
           "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "smspm",
+          "link": "backlog-stories/smspm/INDEX.md",
+          "stories": 4,
+          "done": 3,
+          "todo": 1,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 75,
+          "progress_bar": "█████████░░░",
+          "raw_progress": "75% `█████████░░░`"
         },
         {
           "name": "cleanup",
@@ -715,6 +808,11 @@
           "name": "[EPIC-IDS-13](epics/EPIC-IDS-13-onboarding/EPIC-IDS-13-onboarding.md)",
           "status": "In Progress",
           "notes": "DOC-ONB-01…05 🟢; ONB-01 🟢; onboarding docs closed"
+        },
+        {
+          "name": "[EPIC-IDS-14](epics/EPIC-IDS-14-smspm/EPIC-IDS-14-smspm.md) (alias EPIC-IDS-SMSPM)",
+          "status": "In Progress",
+          "notes": "SMSPM-01 🟢 pkg-000046; SMSPM-02 🟢 pkg-000047; SMSPM-04 🟢 pkg-000049; SMSPM-03 ⚪; SPIKE-01 ops"
         }
       ],
       "next_waves": [],
@@ -723,16 +821,16 @@
     {
       "key": "spa",
       "label": "SPA",
-      "updated": "2026-07-25",
+      "updated": "2026-08-18",
       "summary": {
-        "packages": 9,
-        "stories": 39,
-        "done": 29,
-        "todo": 10,
+        "packages": 12,
+        "stories": 72,
+        "done": 67,
+        "todo": 5,
         "deferred": 1,
         "accumulating": null,
-        "progress_pct": 74,
-        "progress_bar": "█████████░░░"
+        "progress_pct": 93,
+        "progress_bar": "███████████░"
       },
       "packages": [
         {
@@ -762,14 +860,14 @@
         {
           "name": "identity-auth",
           "link": "backlog-stories/identity-auth/INDEX.md",
-          "stories": 13,
-          "done": 12,
-          "todo": 1,
+          "stories": 14,
+          "done": 14,
+          "todo": 0,
           "deferred": 0,
           "accum": null,
-          "progress_pct": 92,
-          "progress_bar": "███████████░",
-          "raw_progress": "92% `███████████░`"
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
         },
         {
           "name": "railway-deploy",
@@ -798,26 +896,26 @@
         {
           "name": "design-foundation",
           "link": "backlog-stories/design-foundation/INDEX.md",
-          "stories": 4,
-          "done": 1,
-          "todo": 3,
+          "stories": 7,
+          "done": 7,
+          "todo": 0,
           "deferred": 0,
           "accum": null,
-          "progress_pct": 25,
-          "progress_bar": "███░░░░░░░░░",
-          "raw_progress": "25% `███░░░░░░░░░`"
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
         },
         {
           "name": "cabinet",
           "link": "backlog-stories/cabinet/INDEX.md",
           "stories": 7,
-          "done": 1,
-          "todo": 6,
+          "done": 7,
+          "todo": 0,
           "deferred": 0,
           "accum": null,
-          "progress_pct": 14,
-          "progress_bar": "██░░░░░░░░░░",
-          "raw_progress": "14% `██░░░░░░░░░░`"
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
         },
         {
           "name": "housekeeping",
@@ -832,16 +930,52 @@
           "raw_progress": "— Accumulating"
         },
         {
-          "name": "bugs",
-          "link": "backlog-stories/bugs/INDEX.md",
-          "stories": 0,
-          "done": 0,
+          "name": "public-home",
+          "link": "backlog-stories/public-home/INDEX.md",
+          "stories": 10,
+          "done": 10,
           "todo": 0,
           "deferred": 0,
           "accum": null,
-          "progress_pct": null,
-          "progress_bar": null,
-          "raw_progress": "— inbox only"
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "hardening-cto-audit-2026-08",
+          "link": "backlog-stories/hardening-cto-audit-2026-08/INDEX.md",
+          "stories": 8,
+          "done": 5,
+          "todo": 3,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 63,
+          "progress_bar": "████████░░░░",
+          "raw_progress": "63% `████████░░░░`"
+        },
+        {
+          "name": "bugs",
+          "link": "backlog-stories/bugs/INDEX.md",
+          "stories": 6,
+          "done": 4,
+          "todo": 2,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 67,
+          "progress_bar": "████████░░░░",
+          "raw_progress": "67% `████████░░░░`"
+        },
+        {
+          "name": "early-signal-dashboard",
+          "link": "backlog-stories/early-signal-dashboard/INDEX.md",
+          "stories": 5,
+          "done": 5,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · ADMIN **6/6** (вне %)"
         }
       ],
       "epics": [
@@ -863,7 +997,7 @@
         {
           "name": "[EPIC-SPA-04](epics/EPIC-SPA-04-identity-and-auth/EPIC-SPA-04-identity-and-auth.md)",
           "status": "Done",
-          "notes": "ID-01…12 Done; ID-13 Todo (gate)"
+          "notes": "ID-01…14 Done (`pkg-000055` ID-14 · P7 WAVE COMPLETE)"
         },
         {
           "name": "[EPIC-SPA-05](epics/EPIC-SPA-05-security-hardening/EPIC-SPA-05-security-hardening.md)",
@@ -877,8 +1011,33 @@
         },
         {
           "name": "[EPIC-SPA-07](epics/EPIC-SPA-07-user-cabinet/EPIC-SPA-07-user-cabinet.md)",
-          "status": "In Progress",
-          "notes": "CAB-02 Done; CAB-01/03–07 Todo; FE stubs 04–06"
+          "status": "Done",
+          "notes": "CAB-01…07 Done (`pkg-000037`)"
+        },
+        {
+          "name": "[EPIC-SPA-08](epics/EPIC-SPA-08-design-foundation/EPIC-SPA-08-design-foundation.md)",
+          "status": "Done",
+          "notes": "G4–G11 Done (`pkg-000044` G10)"
+        },
+        {
+          "name": "[EPIC-SPA-09](epics/EPIC-SPA-09-public-shell-home/EPIC-SPA-09-public-shell-home.md)",
+          "status": "Done",
+          "notes": "PH-01…07/10 Done (`pkg-000056` PH-10 · P7 WAVE COMPLETE)"
+        },
+        {
+          "name": "[EPIC-SPA-10](epics/EPIC-SPA-10-hardening-cto-audit/EPIC-SPA-10-hardening-cto-audit.md)",
+          "status": "In progress",
+          "notes": "HL-01…05 Done (`pkg-000059`…`000064`) · **BUG-05 In Progress** (`pkg-000065`) · **BUG-06 In Progress** (`pkg-000071`) · **BUG-07 Done** (`pkg-000072` P3) · **BUG-08 Done** (`pkg-000073` P3) · HL-06…08 Todo · HL-09 draft"
+        },
+        {
+          "name": "[EPIC-SPA-11](epics/EPIC-SPA-11-uat-inbound-2026-08/EPIC-SPA-11-uat-inbound-2026-08.md)",
+          "status": "Done (demo stories)",
+          "notes": "BUG-01/02 · PH-08/09 **Done** · ID-14 Done"
+        },
+        {
+          "name": "[EPIC-SPA-12](epics/EPIC-SPA-12-early-signal-dashboard/EPIC-SPA-12-early-signal-dashboard.md)",
+          "status": "Done",
+          "notes": "ES-01…05 Done (`pkg-000066`…`pkg-000070` · P7 WAVE COMPLETE)"
         },
         {
           "name": "[EPIC-DASH-01](epics/EPIC-DASH-01-dashboard-read-side-cutover/EPIC-DASH-01-dashboard-read-side-cutover.md)",
@@ -1073,14 +1232,86 @@
         "P3 backlog — pick next story per [bullrun-launch-index.md](bullrun-launch-index.md) §Актуальная точка"
       ],
       "snapshot_path": "capybara/docs/tasks/capybara-backlog-dashboard.md"
+    },
+    {
+      "key": "landing",
+      "label": "Landing",
+      "updated": "2026-08-14",
+      "summary": {
+        "packages": 3,
+        "stories": 17,
+        "done": 18,
+        "todo": 0,
+        "deferred": 15,
+        "accumulating": null,
+        "progress_pct": 100,
+        "progress_bar": "████████████"
+      },
+      "packages": [
+        {
+          "name": "landing-foundation",
+          "link": "backlog-stories/landing-foundation/INDEX.md",
+          "stories": 7,
+          "done": 7,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "marketing-landing",
+          "link": "backlog-stories/marketing-landing/INDEX.md",
+          "stories": 11,
+          "done": 11,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": null,
+          "raw_progress": "100% Done · LAND-01…09"
+        },
+        {
+          "name": "bugs",
+          "link": "backlog-stories/bugs/INDEX.md",
+          "stories": 46,
+          "done": 28,
+          "todo": 0,
+          "deferred": 16,
+          "accum": null,
+          "progress_pct": null,
+          "progress_bar": null,
+          "raw_progress": "**28 Done** · **2 In Progress** (17b H2 · 27 copy-gate) · **0 Ready** · **15 BLOCKED** · **1 Deferred** · **0 OPEN**"
+        }
+      ],
+      "epics": [
+        {
+          "name": "[EPIC-LAND-02](epics/EPIC-LAND-02-marketing-landing/EPIC-LAND-02-marketing-landing.md)",
+          "status": "In Progress",
+          "notes": "LAND-01…09 Done · bugs Done ×28 · **2 In Progress** (17b H2 · 27 copy-gate) · **0 Ready** · Active `pkg-000057` · `*b` BLOCKED deploy"
+        },
+        {
+          "name": "[EPIC-LAND-01](epics/EPIC-LAND-01-landing-foundation/EPIC-LAND-01-landing-foundation.md)",
+          "status": "In Progress",
+          "notes": "LF-00…06 Done + P7"
+        },
+        {
+          "name": "Legacy `epic-01…08`",
+          "status": "Frozen",
+          "notes": "[bullrun-landing-index.md](bullrun-landing-index.md)"
+        }
+      ],
+      "next_waves": [],
+      "snapshot_path": "landing/docs/tasks/landing-mvp-dashboard.md"
     }
   ],
   "global": {
-    "project_count": 6,
-    "total_stories": 178,
-    "total_done": 130,
-    "total_todo": 48,
-    "overall_pct": 73
+    "project_count": 7,
+    "total_stories": 245,
+    "total_done": 200,
+    "total_todo": 45,
+    "overall_pct": 82
   }
 };
     /* DASHBOARD_DATA_END */

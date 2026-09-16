@@ -124,5 +124,5 @@ Product Story Done ≠ наличие Draft children.
 
 - После materialize каждый child проходит **отдельный** PA.2 (стиль/AC/verified state), затем P1.2.
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
-- Связанный pre-PA: [`cross-project-system-orientation.md`](./cross-project-system-orientation.md) — если система ещё не разобрана.
+- Связанный pre-PA: [`cross-project-system-orientation.md`](./cross-project-system-orientation.md) — если система ещё не разобрана. Session lock этого слоя: [`cross-project-requirements-backlog-bootstrap.md`](./cross-project-requirements-backlog-bootstrap.md). Write-after-impact (файлы сразу, без dashboard/STORY): [`cross-project-req-scatter.md`](./cross-project-req-scatter.md). Consistency audit пакета vs цель: [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md).
 - Human layer: [`../../curriculum/06-architect-studio-and-p1-intakes.md`](../../curriculum/06-architect-studio-and-p1-intakes.md).

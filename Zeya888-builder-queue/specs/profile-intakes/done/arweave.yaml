@@ -1,0 +1,13 @@
+# Profile intake — arweave (materialize 2026-09-02)
+# After bootstrap success → move to done/arweave.yaml
+
+profile_key: arweave
+focus_folder: dogestonia-arweave-uploader
+
+stack_label: "Node.js (Arweave / cryptography)"
+execution_skill_primary: javascript-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+test_command: "cd dogestonia-arweave-uploader && node -v"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+# Note: no dedicated cryptography skill in workspace — domain noted in operator contract

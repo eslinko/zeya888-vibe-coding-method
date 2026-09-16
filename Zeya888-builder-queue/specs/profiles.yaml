@@ -192,3 +192,68 @@ projects:
     execution_skill_primary: wordpress-pro
     execution_skill_fallback: php-pro
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/wordpress-pro/SKILL.md
+
+  arweave:
+    enabled: true
+    focus_folder: dogestonia-arweave-uploader
+    tasks_dir: dogestonia-arweave-uploader/docs/tasks
+    active_packages_dir: arweave-active-packages
+    current_pointer: arweave-active-package.current.yaml
+    build_windows_subdir: run-reports/arweave-build-windows
+    build_window_prefix: arweave-cursor-build-window
+    next_readme_dotfile: .arweave-next-readme
+    pkg_path_prefix: dogestonia-arweave-uploader/docs/tasks/
+    plan_file: .cursor/plans/Arweave_builder.plan.md
+    pipeline_doc: dogestonia-arweave-uploader/docs/tasks/arweave-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: arweave_input_package
+    artifact_kind: arweave_cursor_build_window
+    build_window_title: Arweave Cursor build window
+    test_command: 'cd dogestonia-arweave-uploader && node -v'
+    stack_label: Node.js (Arweave / cryptography)
+    execution_skill_primary: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+
+  dogestonia:
+    enabled: true
+    focus_folder: dogestonia-app
+    tasks_dir: dogestonia-app/docs/tasks
+    active_packages_dir: dogestonia-active-packages
+    current_pointer: dogestonia-active-package.current.yaml
+    build_windows_subdir: run-reports/dogestonia-build-windows
+    build_window_prefix: dogestonia-cursor-build-window
+    next_readme_dotfile: .dogestonia-next-readme
+    pkg_path_prefix: dogestonia-app/docs/tasks/
+    plan_file: .cursor/plans/DOGEstonia_builder.plan.md
+    pipeline_doc: dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md
+    ui_visual_pipeline_doc: docs/methodology/Zeya888-builder-queue/guides/spa-ui-visual-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: dogestonia_input_package
+    artifact_kind: dogestonia_cursor_build_window
+    build_window_title: DOGEstonia Cursor build window
+    test_command: 'cd dogestonia-app && npx expo doctor'
+    stack_label: React Native (Expo) — iOS / Android / web
+    execution_skill_primary: react-native-expert
+    execution_skill_fallback: react-expert
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md
+
+  aibridge:
+    enabled: true
+    focus_folder: doge-ai-bridge
+    tasks_dir: doge-ai-bridge/docs/tasks
+    active_packages_dir: aibridge-active-packages
+    current_pointer: aibridge-active-package.current.yaml
+    build_windows_subdir: run-reports/aibridge-build-windows
+    build_window_prefix: aibridge-cursor-build-window
+    next_readme_dotfile: .aibridge-next-readme
+    pkg_path_prefix: doge-ai-bridge/docs/tasks/
+    plan_file: .cursor/plans/aibridge_builder.plan.md
+    pipeline_doc: doge-ai-bridge/docs/tasks/aibridge-story-execution-pipeline.md
+    default_input_kind: epic_story_tree
+    input_package_yaml_key: aibridge_input_package
+    artifact_kind: aibridge_cursor_build_window
+    build_window_title: AI Bridge Cursor build window
+    test_command: 'cd doge-ai-bridge && python3 -V'
+    stack_label: Python (Responses → Story Intake bridge)
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md

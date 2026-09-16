@@ -1,5 +1,59 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.42 — 2026-09-13
+
+- Architect interview: Decision-point protocol in [`req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) and [`req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) — on every choice question: options analytics + architecture/project fit + mandatory recommendation; operator decides
+
+## 1.4.41 — 2026-09-13
+
+- Architect: [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) — functional / mid-lifecycle REQ → target tech architecture of focus (+ CTO/CPO interview); use-case table; not STORY/tasks
+- Clarify: [`req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) = узкий bootstrap / pre-story infra+deployability sibling
+- Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA
+
+## 1.4.40 — 2026-09-12
+
+- Architect: [`prompts/architect/req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) — per-project REQ → interactive CTO/CPO interview → `{focus}/docs/architecture/` + `zeya888.req-tech-arch-interview-…` in analysis; REQ links; packaging seam checklist (Git ownership ≠ image packaging)
+- Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA; advisory in req-to-backlog-stories / req-to-frontend-mixed-package
+
+## 1.4.39 — 2026-09-10
+
+- Profile: `aibridge` (`focus_folder: doge-ai-bridge`, Python Responses→Story Intake bridge, skill `python-pro`) — clone [doge-ai-bridge](https://github.com/DOGE-Complaints/doge-ai-bridge) `dev`, `profiles.yaml`, console v1.2.20, tasks bootstrap pkg-000000, [aibridge-operator-contract.md](./contracts/aibridge-operator-contract.md), `.cursor/plans/aibridge_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5h / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits; intake → `specs/profile-intakes/done/aibridge.yaml`
+- Note: REQ-47.1 relocated → `doge-ai-bridge/docs/requirements/REQ-01-doge-ai-bridge-runtime.md` (2026-09-10)
+
+## 1.4.38 — 2026-09-02
+
+- Profile: `dogestonia` (`focus_folder: dogestonia-app`, React Native/Expo iOS/Android/web, skill `react-native-expert`, `hasUxPipeline` + spa UI visual pipeline) — `profiles.yaml`, console v1.2.19, tasks bootstrap pkg-000000, [dogestonia-operator-contract.md](./contracts/dogestonia-operator-contract.md), `.cursor/plans/DOGEstonia_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5g / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits; intake → `specs/profile-intakes/done/dogestonia.yaml`
+
+## 1.4.37 — 2026-09-02
+
+- Profile: `arweave` (`focus_folder: dogestonia-arweave-uploader`, Node.js Arweave/crypto, skill `javascript-pro`) — `profiles.yaml`, console v1.2.18, tasks bootstrap pkg-000000, [arweave-operator-contract.md](./contracts/arweave-operator-contract.md), `.cursor/plans/Arweave_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5f / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits; intake → `specs/profile-intakes/done/arweave.yaml`
+
+## 1.4.36 — 2026-09-02
+
+- Profile intake: [`specs/profile-intakes/`](./specs/profile-intakes/) — alias (`profile_key`) + path (`focus_folder`) YAML; template + `done/` archive
+- Prompt: [`prompts/migration/migration-add-builder-profile.md`](./prompts/migration/migration-add-builder-profile.md) — plan→materialize bootstrap по [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) §1
+- Sync: add-builder-profile §0/§3, add_builder_profile.plan.md, profiles-fields, curriculum/05, prompts/INDEX, MANIFEST
+
+## 1.4.35 — 2026-09-01
+
+- Architect: [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) — FE mixed REQ → classify `ui_first`/`tech_first`; ADMIN projected + product STORY in one NEW package (plan → materialize)
+- Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA, req-to-backlog-stories / req-to-ui-admin-layers, scatter/bootstrap, zeya888-operator-method.mdc
+
+## 1.4.34 — 2026-08-28
+
+- Architect audit: [`prompts/architect/cross-project-req-consistency-audit.md`](./prompts/architect/cross-project-req-consistency-audit.md) — parent+child REQ vs operator target; report in `docs/analysis/`; mandatory clarify if goal unclear
+
+## 1.4.33 — 2026-08-25
+
+- Architect scatter: [`prompts/architect/cross-project-req-scatter.md`](./prompts/architect/cross-project-req-scatter.md) — parent → child REQs in `{project}/docs/requirements/` (write after impact; без STORY/pkg)
+
+## 1.4.32 — 2026-08-25
+
+- Architect session lock: [`prompts/architect/cross-project-requirements-backlog-bootstrap.md`](./prompts/architect/cross-project-requirements-backlog-bootstrap.md) — parent REQs из `docs/requirements backlog/` across gateway/identity/spa/gpt
+
 ## 1.4.31 — 2026-08-16
 
 - Prompts: `operator-root-start` / `wave` / `subagent-run` — секция **Юзкейсы** + таблица идентификации (MVP titles vs Phase B `*_agent_id`)

@@ -50,9 +50,15 @@ flowchart TB
 | [`core/workflow-legacy.md`](./core/workflow-legacy.md) | Полные self-contained промпты |
 | [`prompts/INDEX.md`](./prompts/INDEX.md) | Индекс useful prompts по функции (architect / operator-wave / housekeeping) |
 | [`prompts/architect/cross-project-system-orientation.md`](./prompts/architect/cross-project-system-orientation.md) | Pre-PA: карта 4 проектов + cross-project docs → story candidates |
+| [`prompts/architect/cross-project-requirements-backlog-bootstrap.md`](./prompts/architect/cross-project-requirements-backlog-bootstrap.md) | Pre-PA session lock: parent REQs из `docs/requirements backlog/` across gateway/identity/spa/gpt |
 | [`prompts/architect/parent-requirement-to-project-reqs.md`](./prompts/architect/parent-requirement-to-project-reqs.md) | Pre-PA.2: parent product REQ → per-project child REQs + связи |
+| [`prompts/architect/cross-project-req-scatter.md`](./prompts/architect/cross-project-req-scatter.md) | Pre-PA.2 write-after-impact: parent → `{project}/docs/requirements/` children (gateway/identity/spa/gpt) |
+| [`prompts/architect/cross-project-req-consistency-audit.md`](./prompts/architect/cross-project-req-consistency-audit.md) | Findings-only: parent+child REQ consistency + target-state audit → `docs/analysis/` |
+| [`prompts/architect/req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) | Узкий post-REQ / pre-story: infra/deployability interview → tech architecture + interview report |
+| [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) | Общий: functional REQ → target tech architecture of focus (+ interview); not work items |
 | [`prompts/architect/req-to-backlog-stories.md`](./prompts/architect/req-to-backlog-stories.md) | Post-REQ: non-UI → backlog STORY package (plan → materialize) |
 | [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) | Post-REQ: UI → ADMIN-01…06 layer package (plan → materialize) |
+| [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) | Post-REQ: FE mixed → classify ui_first/tech_first; ADMIN projected + STORY (plan → materialize) |
 | [`prompts/operator/operator-root-start.md`](./prompts/operator/operator-root-start.md) | Root OP bootstrap: project only → session bind |
 | [`prompts/operator/operator-root-wave.md`](./prompts/operator/operator-root-wave.md) | Root OP: stories → wave plan + handoff packets (BLD/VAL) |
 | [`prompts/operator/operator-root-subagent-run.md`](./prompts/operator/operator-root-subagent-run.md) | Root OP Phase B: profile + queueSpec → OP-*.plan.md + two subagents overnight |
@@ -63,6 +69,7 @@ flowchart TB
 | [`cli/queue-manual.md`](./cli/queue-manual.md) | Справочник CLI |
 | [`specs/input-package-spec.md`](./specs/input-package-spec.md) | Контракт YAML пакета |
 | [`specs/profiles.yaml`](./specs/profiles.yaml) | Реестр проектов |
+| [`specs/profile-intakes/`](./specs/profile-intakes/) | Pending intake YAML (alias + path) → bootstrap нового профиля |
 | [`examples/reference-plans/`](./examples/reference-plans/) | Teaching snapshots — не runtime SSOT (`*_builder` + Orchestrator_Builder_Reference) |
 | [`guides/spa-ui-visual-pipeline.md`](./guides/spa-ui-visual-pipeline.md) | Spa UI Visual Pipeline — полный SSOT UI-0..UI-3 (visual/mixed tasks) |
 | [`guides/builder-artifact-dates.md`](./guides/builder-artifact-dates.md) | Дисциплина дат pkg / gate / run-summary; `--print-utc-now`, `--check-dates` |
@@ -75,6 +82,9 @@ flowchart TB
 | [`contracts/capybara-operator-contract.md`](./contracts/capybara-operator-contract.md) | Operator contract для `builder_project: capybara` (Vue+Node + CLI) |
 | [`contracts/landing-operator-contract.md`](./contracts/landing-operator-contract.md) | Operator contract для `builder_project: landing` (Astro+TS+Tailwind) |
 | [`contracts/zeya888-operator-contract.md`](./contracts/zeya888-operator-contract.md) | Operator contract для `builder_project: zeya888` (WordPress/PHP, focus `zeya888.me`) |
+| [`contracts/arweave-operator-contract.md`](./contracts/arweave-operator-contract.md) | Operator contract для `builder_project: arweave` (Node.js Arweave sidecar) |
+| [`contracts/dogestonia-operator-contract.md`](./contracts/dogestonia-operator-contract.md) | Operator contract для `builder_project: dogestonia` (React Native/Expo app) |
+| [`contracts/aibridge-operator-contract.md`](./contracts/aibridge-operator-contract.md) | Operator contract для `builder_project: aibridge` (Python Responses bridge) |
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
 
 ## Исторические пути

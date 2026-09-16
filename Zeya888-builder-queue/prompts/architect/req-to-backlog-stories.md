@@ -6,7 +6,9 @@
 
 **Когда:** из **одного** per-project requirement нужно спланировать пакет backlog **STORY-*** (не UI-слои ADMIN). Типично: gateway, identity, gpt, scripts; spa/landing без visual surface (API wiring / config only).
 
-**Не использовать**, если REQ про visual/mixed UI (spa public board, landing sections) — тогда [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md).
+**Не использовать**, если REQ про visual/mixed UI (spa public board, landing sections) — тогда [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (ADMIN only) или [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (ADMIN + STORY, ui_first/tech_first).
+
+**Advisory (не hard-STOP):** если REQ prefer SSR / `dist` start и Git-owned non-JS (schemas/assets via FS), а linked tech-architecture ещё нет — сначала [`req-to-tech-architecture.md`](./req-to-tech-architecture.md) (deployability / packaging seam) или общий [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (functional → target tech of focus), затем этот промпт.
 
 **Подстановка (только это):**
 
@@ -95,6 +97,6 @@ Do not suggest «run P1.3» / «copy PA.3» until operator go-ahead.
 
 ## Примечания (не в copy-paste)
 
-- Связанные: [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) (раньше), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI — всегда NEW package).
+- Связанные: [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) (раньше), [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (functional → target tech of focus), [`req-to-tech-architecture.md`](./req-to-tech-architecture.md) (узкий infra/packaging до slice), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (FE mixed).
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
 - После materialize оператор сам запускает PA.3/P1.3 — этот промпт их не копирует в ответ по умолчанию.

@@ -12,20 +12,26 @@
 
 ## §0 Intake Form
 
-### Обязательное поле
+**SSOT файл (куда писать alias + path):** [`../specs/profile-intakes/<profile_key>.yaml`](../specs/profile-intakes/) — шаблон [`_TEMPLATE.yaml`](../specs/profile-intakes/_TEMPLATE.yaml).  
+Operative prompt: [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md).
+
+### Обязательные поля (в intake YAML)
 
 ```yaml
-profile_key: your_project   # = имя директории проекта в корне workspace = focus_folder = CLI --project
+profile_key: your_project   # alias = CLI --project = builder_project
+focus_folder: your_project  # путь от корня workspace; может отличаться от key (spa → spa-app)
 ```
 
-**Правило:** `profile_key` **всегда** совпадает с именем папки проекта (`capybara/`, `scripts/`, `spa-app/` → ключ `spa` — исключения только через явный override в `profiles.yaml`).
+**Правило:** по умолчанию `focus_folder` = `{profile_key}` (как `capybara/`, `scripts/`). Исключения (`spa` / `spa-app`, `zeya888` / `zeya888.me`, `gpt` / `GPT UI`) — явный `focus_folder` в intake → затем в `profiles.yaml`.
+
+Чат-only fallback (без файла): те же два поля в сообщении; agent всё равно должен записать intake в `specs/profile-intakes/` до materialize.
 
 ### Derived defaults (если не переопределено)
 
 | Поле | Правило |
 |------|---------|
-| `focus_folder` | `{profile_key}` |
-| `tasks_dir` | `{profile_key}/docs/tasks` |
+| `focus_folder` | из intake (обязателен); иначе `{profile_key}` |
+| `tasks_dir` | `{focus_folder}/docs/tasks` |
 | `plan_file` | `.cursor/plans/{TitleCase(profile_key)}_builder.plan.md` |
 | `pipeline_doc` | `{tasks_dir}/{profile_key}-story-execution-pipeline.md` |
 | `active_packages_dir` | `{profile_key}-active-packages` |
@@ -43,17 +49,22 @@ profile_key: your_project   # = имя директории проекта в к
 stack_label: "…"
 execution_skill_primary: python-pro | vue-expert | javascript-pro | …
 execution_skill_fallback: …  # опционально
+execution_skill_path: .cursor/skills/…
 test_command: "…"
 default_input_kind: epic_story_tree | task_list_linear
+plan_title_case: GPT   # если TitleCase(profile_key) неверен
+has_ux_pipeline: false # true только spa-like (console hasUxPipeline)
 source_profile: …           # если split
 source_split: full | partial
 ```
+
+После успешного bootstrap: intake **переносится** в [`../specs/profile-intakes/done/`](../specs/profile-intakes/done/).
 
 ---
 
 ## §1 Checklist (13 шагов)
 
-1. [ ] **Intake** — `profile_key` + overrides (§0)
+1. [ ] **Intake** — файл `specs/profile-intakes/{profile_key}.yaml` (`profile_key` + `focus_folder` + overrides)
 2. [ ] **`profiles.yaml`** — блок `projects.{profile_key}` ([`profiles-fields.md`](../specs/profiles-fields.md))
 3. [ ] **`input-package-spec.md`** — строка в таблице §2
 4. [ ] **`workflow-console.html`** — `BUILDER_PROJECTS` + `PROJECT_PROFILES.{profile_key}` (§1.1)
@@ -145,22 +156,21 @@ source_split: full | partial
 
 ## §3 Operative prompt (copy-paste)
 
+Предпочтительно: [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md) (полный fence). Краткая вставка:
+
 ```markdown
+@.cursor/rules/analysis.mdc
 @docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-add-builder-profile.md
 @.cursor/plans/Gateway_builder.plan.md
 @docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
 @docs/methodology/Zeya888-builder-queue/tools/workflow-console.html
-@.cursor/rules/analysis.mdc
+@docs/methodology/Zeya888-builder-queue/specs/profile-intakes/<profile_key>.yaml
 
-Создай Builder Queue профиль по guide §1 Checklist.
-
-profile_key: {profile_key}
-# optional: stack_label, execution_skill_primary, test_command, source_profile, source_split
-
+Создай Builder Queue профиль по migration-add-builder-profile + guide §1 Checklist.
+Plan first; диск только по «запиши».
 Runtime plan: полный клон Gateway_builder.plan.md (guide §2), не template-only.
-После profiles.yaml: workflow-console.html — BUILDER_PROJECTS + PROJECT_PROFILES.{profile_key}
-После bootstrap: python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project {profile_key} --verify
-
+После bootstrap: --project <profile_key> --verify; move intake → profile-intakes/done/.
 НЕ Build на *_builder.plan.md — @attach + workflow §P3/P6.
 ```
 

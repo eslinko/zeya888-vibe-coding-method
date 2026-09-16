@@ -49,7 +49,7 @@ Skill/rule — **автоматическое напоминание** дисц�
 
 ### Что происходит
 
-Добавляется блок `projects.your_key` с путями: `focus_folder`, `tasks_dir`, `active_packages_dir`, `current_pointer`, `plan_file`, `test_command`, …
+Сначала intake: alias + path в `specs/profile-intakes/`. Затем в registry появляется блок `projects.your_key` с путями: `focus_folder`, `tasks_dir`, `active_packages_dir`, `current_pointer`, `plan_file`, `test_command`, …
 
 ### Зачем архитектору
 
@@ -63,9 +63,11 @@ Profile — **карта репозитория** для CLI и Phase 0. Арх�
 
 ### Checklist нового профиля
 
-**SSOT:** [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md) §0 Intake + §1 Checklist + §3 Operative prompt.
+1. Напиши **alias + path** в [`../specs/profile-intakes/<profile_key>.yaml`](../specs/profile-intakes/) (шаблон [`_TEMPLATE.yaml`](../specs/profile-intakes/_TEMPLATE.yaml)).
+2. Запусти [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md) → plan → «запиши».
+3. Checklist деталей: [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md) §0–§1.
 
-Учебный пример без production: [`../examples/sample-profiles/minimal.yaml`](../examples/sample-profiles/minimal.yaml).
+Учебный пример registry (не intake): [`../examples/sample-profiles/minimal.yaml`](../examples/sample-profiles/minimal.yaml).
 
 ---
 

@@ -7,7 +7,7 @@
 
 **Когда:** spa / landing (или visual/mixed) requirement → нужна **система файлов-планов по слоям** (UX → mockups → icons → API → stories/l10n → tech), а **не** сразу финальные `STORY-*`.
 
-**Не использовать** для чистого backend / non-UI — [`req-to-backlog-stories.md`](./req-to-backlog-stories.md).
+**Не использовать** для чистого backend / non-UI — [`req-to-backlog-stories.md`](./req-to-backlog-stories.md). Если в одном FE REQ есть и UI-срезы, и tech-стори без мокапов, и нужны **ADMIN + STORY сразу** — [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md).
 
 **Подстановка (только это):**
 
@@ -117,7 +117,7 @@ Do not suggest executing ADMIN layers or P1 until operator go-ahead.
 
 ## Примечания (не в copy-paste)
 
-- Связанные: [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) (non-UI, reuse|new), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
+- Связанные: [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) (non-UI, reuse|new), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (FE mixed: ADMIN + STORY), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
 - Landing: те же 6 слоёв; пути mockups/icons — по `landing/docs/…` после verify exists.
 - Human: [`../../curriculum/06-architect-studio-and-p1-intakes.md`](../../curriculum/06-architect-studio-and-p1-intakes.md).
