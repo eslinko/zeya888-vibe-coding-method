@@ -34,6 +34,7 @@
 | `arweave` | `dogestonia-arweave-uploader/docs/tasks` | `arweave-active-package.current.yaml` | `arweave-active-packages/` |
 | `dogestonia` | `dogestonia-app/docs/tasks` | `dogestonia-active-package.current.yaml` | `dogestonia-active-packages/` |
 | `aibridge` | `doge-ai-bridge/docs/tasks` | `aibridge-active-package.current.yaml` | `aibridge-active-packages/` |
+| `zeya888-brand` | `zeya888/docs/tasks` | `zeya888-brand-active-package.current.yaml` | `zeya888-brand-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -156,6 +157,7 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | arweave | `arweave_input_package` |
 | dogestonia | `dogestonia_input_package` |
 | aibridge | `aibridge_input_package` |
+| zeya888-brand | `zeya888_brand_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

@@ -300,6 +300,28 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ---
 
+## 5i. Профиль `zeya888-brand` (Astro + TypeScript + Tailwind — focus `zeya888`; не `zeya888.me`)
+
+`--project zeya888-brand` — активен. Active pkg: `pkg-000000-20260918-bootstrap` → **ok 1 paths** (profile marker). Контракт: [zeya888-brand-operator-contract.md](../contracts/zeya888-brand-operator-contract.md). Runtime plan: `.cursor/plans/Zeya888-Brand_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-ZBRAND-*` → P1.3. **Не** путать с `zeya888` / `zeya888.me`. Remote: https://github.com/eslinko/zeya888 (`dev`).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888-brand --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888-brand --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888-brand \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd zeya888 && npm run build`. Pipeline — [zeya888-brand-story-execution-pipeline.md](../../../zeya888/docs/tasks/zeya888-brand-story-execution-pipeline.md).
+
+---
+
 ## 6. Профиль `taxonomy` (queueless meta-script)
 
 **Taxonomy Cycle Builder** — ручной цикл обновления меток (телеметрия → решения → патчи gateway + spa). **Не** pkg-очередь: нет `--list`, `--write-build-window`, `pkg-*.yaml`.

@@ -5,7 +5,7 @@
 ```text
 @docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand>
 focus_role: builder
 workspace_root: /Users/eslinko/Development/DOGEstonia
 

@@ -257,3 +257,25 @@ projects:
     stack_label: Python (Responses → Story Intake bridge)
     execution_skill_primary: python-pro
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  zeya888-brand:
+    enabled: true
+    focus_folder: zeya888
+    tasks_dir: zeya888/docs/tasks
+    active_packages_dir: zeya888-brand-active-packages
+    current_pointer: zeya888-brand-active-package.current.yaml
+    build_windows_subdir: run-reports/zeya888-brand-build-windows
+    build_window_prefix: zeya888-brand-cursor-build-window
+    next_readme_dotfile: .zeya888-brand-next-readme
+    pkg_path_prefix: zeya888/docs/tasks/
+    plan_file: .cursor/plans/Zeya888-Brand_builder.plan.md
+    pipeline_doc: zeya888/docs/tasks/zeya888-brand-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: zeya888_brand_input_package
+    artifact_kind: zeya888_brand_cursor_build_window
+    build_window_title: Zeya888-Brand Cursor build window
+    test_command: 'cd zeya888 && npm run build'
+    stack_label: Astro + TypeScript + Tailwind
+    execution_skill_primary: typescript-pro
+    execution_skill_fallback: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/typescript-pro/SKILL.md

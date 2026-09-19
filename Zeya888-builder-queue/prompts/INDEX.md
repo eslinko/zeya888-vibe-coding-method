@@ -36,6 +36,8 @@
 | [`operator/operator-root-wave.md`](./operator/operator-root-wave.md) | OP chat: story links → wave MD + handoff packets для BLD/VAL/CLI (MVP paste) |
 | [`operator/operator-root-subagent-run.md`](./operator/operator-root-subagent-run.md) | OP chat: `$builderProject` + `$queueSpec` → новый `.cursor/plans/OP-…plan.md` (transpose эталона) + два субагента overnight |
 | [`operator/operator-identity-harvest.md`](./operator/operator-identity-harvest.md) | Универсальный harvest фокусных диалогов → evidence/dedup patch в `builder-operator-habits.mdc` |
+| [`operator/lightweight-followup-triage.md`](./operator/lightweight-followup-triage.md) | VAL: complexity gate PASS\|ESCALATE для low-complexity follow-up (no STORY) |
+| [`operator/lightweight-followup-author.md`](./operator/lightweight-followup-author.md) | После triage PASS: dual plans + LAUNCH (+ thin Task); BLD implement → VAL validate |
 
 ## migration/
 
@@ -49,6 +51,8 @@
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |
+| [`migration/migration-zeya888-brand-landing-infra-transfer.md`](./migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: перенос инфры landing→`zeya888` (1A, static, 7 locales, no NC); plan attach |
+| [`migration/migration-zeya888-brand-doge-content-strip.md`](./migration/migration-zeya888-brand-doge-content-strip.md) | `zeya888-brand`: убрать landing/DOGEstonia copy+photos из `zeya888/src`; PNG stubs + `[TODO]` JSON; plan attach |
 
 ## training/
 

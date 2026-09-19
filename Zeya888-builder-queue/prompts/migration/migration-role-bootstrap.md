@@ -13,7 +13,7 @@
 | 2 | Нужен старт строго под роль (BLD/VAL/OP), не смешивая фазы | `focus_role` выбирает role-lock и набор артефактов |
 | 3 | Нужен перенос на новый workspace с тем же методом | prompt читает SSOT с диска и выдаёт ready bootstrap |
 
-**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888` (из `profiles.yaml`).
+**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888`, `arweave`, `dogestonia`, `aibridge`, `zeya888-brand` (из `profiles.yaml`; **не** путать `zeya888` / `zeya888.me` с `zeya888-brand` / `zeya888/`).
 
 ---
 
@@ -25,7 +25,7 @@
 @docs/methodology/Zeya888-builder-queue/core/workflow.md
 @docs/methodology/Zeya888-builder-queue/core/session-starter.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888|arweave|dogestonia|zeya888-brand>
 focus_role: <builder|validator|orchestrator>
 workspace_root: /Users/eslinko/Development/DOGEstonia
 
@@ -58,13 +58,14 @@ Apply exactly one role:
   3) ready-to-run phase fence selector (P1/P2/P3/P6/P8).
 
 ### validator
-- Goal: restore VAL context for P4/P7 only.
+- Goal: restore VAL context for P4/P7 only **or** point to lightweight follow-up triage.
 - Read: operator contract for profile + latest audit/reaudit paths from tasks/docs/analysis.
 - No code changes, no pkg edits, no commit actions.
 - Output:
   1) VAL startup summary,
   2) audit scope anchors (AC sources),
-  3) report contract (facts + paths + disposition consistency checks).
+  3) report contract (facts + paths + disposition consistency checks),
+  4) if operator gap is post-Done hygiene (no new STORY): link [`../operator/lightweight-followup-triage.md`](../operator/lightweight-followup-triage.md) — do not run P4 as substitute.
 
 ### orchestrator
 - Goal: restore OP context (START/WAVE/RUN routing).

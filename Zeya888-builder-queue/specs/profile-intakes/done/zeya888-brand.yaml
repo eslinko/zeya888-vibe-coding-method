@@ -1,0 +1,20 @@
+# Profile intake — zeya888-brand (materialized 2026-09-18T13:04:17Z)
+# Remote: https://github.com/eslinko/zeya888 (branch: dev)
+# Workspace folder: /Users/eslinko/Development/DOGEstonia/zeya888
+#
+# DO NOT confuse with existing profile `zeya888` (focus_folder: zeya888.me, WordPress).
+# This key is zeya888-brand → focus_folder zeya888/ (github.com/eslinko/zeya888).
+#
+# After successful migration materialize → move to done/zeya888-brand.yaml
+
+profile_key: zeya888-brand
+focus_folder: zeya888
+plan_title_case: Zeya888-Brand
+
+stack_label: "Unknown"
+# execution_skill_* — omit until stack is known (empty remote as of prep; no invent)
+test_command: "cd zeya888 && ls"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+status: materialized
+materialized_at: "2026-09-18T13:04:17Z"

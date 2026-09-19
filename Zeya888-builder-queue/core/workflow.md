@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -172,6 +172,18 @@
 | Requirements    | REQ-01 in doge-ai-bridge (+ parent REQ-47 framing in GPT UI)                                                            |
 
 
+
+|                 | `zeya888-brand` (Astro + TypeScript + Tailwind — focus `zeya888`; **не** `zeya888.me`)                  |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Zeya888-Brand_builder.plan.md`                                                           |
+| `$tasksRoot`    | `zeya888/docs/tasks`                                                                                    |
+| `$storyFile`    | напр. `zeya888/docs/tasks/backlog-stories/…/STORY-ZBRAND-*.md` (`input_mode=backlog_story`)             |
+| `$backlogIndex` | `zeya888/docs/tasks/backlog-stories/INDEX.md`                                                           |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `zeya888/docs/tasks/zeya888-brand-story-execution-pipeline.md`                                          |
+| Remote          | https://github.com/eslinko/zeya888 (`dev`)                                                              |
+
+
 ---
 
 
@@ -209,7 +221,7 @@
 | Analysis | `.cursor/rules/analysis.mdc`                |
 
 
-Rule подмешивается при работе в `doge-complaints-gateway/`**,** `GPT UI/`, `doge-identity-service/`**,** `spa-app/`, `scripts/`, `capybara/`, `landing/`, `zeya888.me/`, `dogestonia-arweave-uploader/`, `dogestonia-app/`, `doge-ai-bridge/`**.
+Rule подмешивается при работе в `doge-complaints-gateway/`**,** `GPT UI/`, `doge-identity-service/`**,** `spa-app/`, `scripts/`, `capybara/`, `landing/`, `zeya888.me/`, `zeya888/`, `dogestonia-arweave-uploader/`, `dogestonia-app/`, `doge-ai-bridge/`**.
 
 ### Wave checkpoint
 
@@ -505,6 +517,7 @@ SSOT: guides/builder-artifact-dates.md
 | `arweave`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project arweave --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                          |
 | `dogestonia`      | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project dogestonia --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                       |
 | `aibridge`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                         |
+| `zeya888-brand`   | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888-brand --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                  |
 
 
 1. В stdout после `ok build-window`: `**build_window_abs:`** / `**vscode_file_uri:`** — открыть из терминала (Cmd+click); `**quick_open_basename:`** или `**quick_open_pointer:`** (`latest-cursor-build-window.md` в `*-active-packages/`) — для **Cmd+P**; `**cursor_attach:`** — для P3. Symlink обновляется при каждой генерации. **Не** вставлять путь в Go-to-File целиком — `GPT UI/…` обрезается до `UI/docs/…`.

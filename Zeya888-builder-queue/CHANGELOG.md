@@ -2,6 +2,23 @@
 
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.47 — 2026-09-19
+
+- Lightweight follow-up (post-Done, no new STORY): [`guides/lightweight-followup.md`](./guides/lightweight-followup.md) — hard-fail complexity gate (fail closed)
+- Prompts: [`lightweight-followup-triage.md`](./prompts/operator/lightweight-followup-triage.md) (1A) → [`lightweight-followup-author.md`](./prompts/operator/lightweight-followup-author.md) (dual plans + LAUNCH + thin Task 2B)
+- Sync: prompts/INDEX, MANIFEST, migration-validator VAL branches, migration-role-bootstrap validator pointer; observe note link
+
+## 1.4.46 — 2026-09-18
+
+- Migration: [`prompts/migration/migration-zeya888-brand-landing-infra-transfer.md`](./prompts/migration/migration-zeya888-brand-landing-infra-transfer.md) — execute landing→`zeya888` infra transfer (1A, static, 7 locales, no NC)
+- Sync: `zeya888-brand` in migration-role-bootstrap + builder/validator/orchestrator wrappers + self-restore; prompts/INDEX; MANIFEST
+
+## 1.4.45 — 2026-09-18
+
+- Profile: `zeya888-brand` (`focus_folder: zeya888`, stack Unknown, provisional skill `javascript-pro`) — clone [eslinko/zeya888](https://github.com/eslinko/zeya888) `dev`, `profiles.yaml`, console v1.2.21, tasks bootstrap pkg-000000, [zeya888-brand-operator-contract.md](./contracts/zeya888-brand-operator-contract.md), `.cursor/plans/Zeya888-Brand_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5i / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits; intake → `specs/profile-intakes/done/zeya888-brand.yaml`
+- Note: **не** путать с profile `zeya888` / focus `zeya888.me` (WordPress)
+
 ## 1.4.44 — 2026-09-16
 
 - Translate human learning entry layer to **English**: `curriculum/human-entry-manual.md`, `curriculum/learning-path.md`, `guides/consultation-positioning.md`, `prompts/training/*`, README first-entry, related routing strings
