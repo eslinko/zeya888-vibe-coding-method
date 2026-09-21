@@ -1,5 +1,5 @@
 ---
-description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, and zeya888
+description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, zeya888, arweave, dogestonia, aibridge, zeya888-brand, and threads
 globs:
   - doge-complaints-gateway/**
   - GPT UI/**
@@ -9,12 +9,16 @@ globs:
   - capybara/**
   - landing/**
   - zeya888.me/**
+  - zeya888/**
+  - dogestonia-arweave-uploader/**
+  - dogestonia-app/**
+  - doge-ai-bridge/**
 alwaysApply: false
 ---
 
 # Builder operator habits
 
-When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888) or works on Zeya888 Builder Queue / pkg / build window:
+When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888, zeya888-brand, threads, arweave, dogestonia, aibridge) or works on Zeya888 Builder Queue / pkg / build window:
 
 1. **Before Build execution:** from workspace root run  
    `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify`  
@@ -60,7 +64,94 @@ When the operator names `builder_project` (gateway, gpt, identity, spa, scripts,
    - stack: WordPress (PHP) in `zeya888.me/`; skills `wordpress-pro` / `php-pro`;
    - runtime P3/P6 — @attach `.cursor/plans/Zeya888_builder.plan.md` (не Build на файле);
    - new profile SSOT: [add-builder-profile.md](../../docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md).
-15. **Fixed builder plans (`*_builder.plan.md`):** execution — @attach в **текущем** project-чате + [workflow.md](../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P3/P6; **не** нажимать Build / Execute plan на файле плана ([fixed-builder-plan-execution.md](../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)). Ephemeral P1/P5 plans — Plan mode только в том project-чате, где идёт волна.
+15. **Arweave (`builder_project: arweave`)** — полный контракт: [arweave-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/arweave-operator-contract.md):
+   - перед batch-run: `dogestonia-arweave-uploader/docs/tasks/bullrun-launch-index.md` + `arweave-active-package.current.yaml` + `--project arweave --verify`;
+   - primary intake: P1.3 `STORY-AU-*` **или** `requirement` на `REQ-AU-*` (один режим); **не** invent;
+   - stack: Node.js (Arweave / cryptography) in `dogestonia-arweave-uploader/`; skill `javascript-pro`;
+   - runtime P3/P6 — @attach `.cursor/plans/Arweave_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+16. **DOGEstonia (`builder_project: dogestonia`)** — полный контракт: [dogestonia-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/dogestonia-operator-contract.md):
+   - перед batch-run: `dogestonia-app/docs/tasks/bullrun-launch-index.md` + `dogestonia-active-package.current.yaml` + `--project dogestonia --verify`;
+   - primary intake: P1.1 epic / P1.3 `STORY-DOGE-*` / `requirement` на `REQ-APP-*` (один режим);
+   - stack: React Native (Expo) iOS/Android/web; skills `react-native-expert` / `react-expert`;
+   - UX: `hasUxPipeline` + [spa-ui-visual-pipeline.md](../../docs/methodology/Zeya888-builder-queue/guides/spa-ui-visual-pipeline.md);
+   - runtime P3/P6 — @attach `.cursor/plans/DOGEstonia_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+17. **AI Bridge (`builder_project: aibridge`)** — полный контракт: [aibridge-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/aibridge-operator-contract.md):
+   - перед batch-run: `doge-ai-bridge/docs/tasks/bullrun-launch-index.md` + `aibridge-active-package.current.yaml` + `--project aibridge --verify`;
+   - primary intake: `requirement` REQ-01 (`doge-ai-bridge`) или P1.3 `STORY-AIBRIDGE-*` / P1.1 `EPIC-AIBRIDGE-*` (один режим); **не** смешивать с `gpt`;
+   - stack: Python in `doge-ai-bridge/`; skill `python-pro`;
+   - runtime P3/P6 — @attach `.cursor/plans/aibridge_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+18. **Zeya888-Brand (`builder_project: zeya888-brand`)** — полный контракт: [zeya888-brand-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/zeya888-brand-operator-contract.md):
+   - перед batch-run: `zeya888/docs/tasks/bullrun-launch-index.md` + `zeya888-brand-active-package.current.yaml` + `--project zeya888-brand --verify`;
+   - primary intake: P1.3 `STORY-ZBRAND-*` (один режим); **не** invent; **не** путать с `zeya888` / `zeya888.me`;
+   - stack: Astro + TypeScript + Tailwind in `zeya888/`; skill `typescript-pro` / fallback `javascript-pro`;
+   - runtime P3/P6 — @attach `.cursor/plans/Zeya888-Brand_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+19. **Threads (`builder_project: threads`)** — полный контракт: [threads-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/threads-operator-contract.md):
+   - перед batch-run: `doge-threads/docs/tasks/bullrun-launch-index.md` + `threads-active-package.current.yaml` + `--project threads --verify`;
+   - primary intake: P1.3 `STORY-THREADS-*` (один режим); **не** invent; alias `threads` → focus `doge-threads/`;
+   - stack: Python 3.11 + FastAPI + uvicorn + httpx in `doge-threads/`; skill `python-pro`;
+   - runtime P3/P6 — @attach `.cursor/plans/Threads_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+20. **Fixed builder plans (`*_builder.plan.md`):** execution — @attach в **текущем** project-чате + [workflow.md](../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P3/P6; **не** нажимать Build / Execute plan на файле плана ([fixed-builder-plan-execution.md](../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)). Ephemeral P1/P5 plans — Plan mode только в том project-чате, где идёт волна.
+21. **Lightweight follow-up (post-Done, no new STORY):** [lightweight-followup.md](../../docs/methodology/Zeya888-builder-queue/guides/lightweight-followup.md) — сначала VAL triage ([lightweight-followup-triage.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-triage.md)); hard HIT → ESCALATE to BQ; PASS → author dual plans ([lightweight-followup-author.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-author.md)) → BLD implement → VAL validate; не подменять P4.
+
+## Aggregated operator profile (from recurrent dialogs)
+
+Краткий агрегат предпочтений оператора. Полный портрет и расширенные таблицы: [zeya888-operator-method.mdc](./zeya888-operator-method.mdc).
+
+### 1) Авторский метод работы
+
+- Builder Queue как контрактный цикл `PA/P0–P8`; память волны = артефакты на диске (`pkg-*.yaml`, index, task README), не память чата.
+- Один `input_mode` на сессию/пакет (`epic_story | requirement | backlog_story`) без смешивания.
+- Роли разделены: OP оркестрирует; BLD исполняет; VAL делает read-only audit.
+- SSOT-конфликт резолвится в порядке: active pkg -> bullrun index -> requirement/decision -> task README.
+
+### 2) Предпочтения по стилю кода и архитектуре
+
+- Сначала pin layer/root-cause, потом fix (не маскировать симптомами в UI/обвязке).
+- Один источник истины на концепт: интегрировать в существующий workflow/contract, не плодить параллельные правила.
+- Fail-fast на контрактных gate (`--verify`, quality/security gates), без silent fallback, если это ломает инвариант.
+- README таска = обязательный контракт исполнения (facts, scope, verification, skill).
+
+### 3) Соглашения по именованию
+
+- `builder_project` = ключ profile (например `spa`), может отличаться от папки (`spa-app`).
+- Immutable package: `pkg-<sequence>-<YYYYMMDD>-<slug>.yaml`; указатель: `<project>-active-package.current.yaml`.
+- Story/epic/task naming берётся из профильного operator-contract, не из ad-hoc названий в чате.
+- OP orchestration naming: `OP-<project>`, `BLD-<project>`, `VAL-<project>`; `run_mode=<slug>` только по явной команде.
+
+### 4) Предпочитаемые паттерны
+
+- P1.3/P5 через plan-sim draft->apply (не смешивать планирование и реализацию в одном шаге).
+- P5 disposition обязательно CLOSED/TASKED/WAIVED с reason/follow_up; P7 закрывает волну только при 0 OPEN и 0 incomplete TASKED.
+- Если оператор дал **attach-план как execution-contract** с явным «не редактировать plan file», план-файл остаётся immutable; исполнять только задачи из него и фиксировать прогресс в существующих TODO (не пересоздавать список).
+- TODO lifecycle в execution-contract: первый todo сразу в `in_progress`, далее последовательный перевод по мере выполнения; финал с `0 pending` (все пункты `completed` или явно `cancelled` по команде оператора).
+- Scope-fence из execution-contract обязателен: не расширять периметр правок (например `src/`, runbook, dashboard, bullrun) без отдельной явной команды оператора в этом же диалоге.
+- BLOCKED фиксировать фактами и вести очередь дальше, а не «дорисовывать успех».
+- Для bug-intake из investigation: 1 root-cause story (P0) + sibling follow-up stories по отдельным швам (docs/config и т.д.); **не** плодить bug-story на гипотезы, явно REJECTED в H-matrix/What-this-is-NOT.
+- Sync index/dashboard в той же итерации после закрытия task/story.
+- Для `landing-mvp-dashboard`: если оператор явно требует «Remaining всех новых», считать `Remaining` очередью исполнения (`OPEN` + In Progress + Ready) и в той же правке синхронно обновлять `§Ready`/`§Execution queue`/`§Now`/`How to refresh` + `Updated`.
+- После выполнения bug-story фиксировать `As-of-Done / Current` vs `Historical (pre-fix)` в Expected/Actual и Surface, чтобы не смешивать pre-fix evidence с текущим состоянием.
+- Для docs-only API sync волны: закрывать **весь связанный контур** в одной итерации (admin shell → deliverable → package INDEX → REQ note → dashboard/requirements index), чтобы не оставлять stale `Unknown/TBD`.
+- Для правок `.cursor/rules/*.mdc`: сначала evidence-first gap analysis (`CANDIDATES / REJECTED / PATCH PLAN`), затем минимальный patch только целевого rule-файла, без полного rewrite структуры.
+- При refine существующих stories по attach-плану сохранять **stable IDs/keys/status** (например, не переименовывать `story key` и не менять status) если оператор явно зафиксировал `не менять keys/status`.
+- Если оператор задаёт MVP-шов «только одна сторона enforcement» (напр. GPT-only, без backend AI из-за cost), фиксировать это в `Meta/Границы/Швы/AC` и синхронно снимать противоречащие требования в связанных story/dashboard/gap-артефактах.
+- Для hardening-wave требований обязательна таблица обходов/дыр (`vectors`/`holes`) с пометкой по каждому пункту: `closed in MVP` или `documented residual` (без рисования «нулевого риска» там, где контроль вне scope).
+
+### 5) Never / Always
+
+- Never: invent AC/очередь/даты; rewrite immutable pkg; push без явной команды; Build/Execute на fixed `*_builder.plan.md`; exploit/PoC для `zeya888`.
+- Never: коммитить `docs/tasks/**`, BULLRUN, acceptance/run-summary без явного запроса оператора.
+- Never: при явной команде «to-do already created» пересоздавать TODO-list или менять порядок старта (первым в работу идёт первый todo из списка оператора).
+- Always: `--verify` перед P2/P3/P6; `--print-utc-now` перед датами артефактов; `--verify --check-dates` после scaffold.
+- Always: path-based claims (`analysis.mdc`), иначе Unknown; user-facing ответы оператору на русском.
+- Always (docs sync): в конце волны прогонять verify-gate на ссылочную целостность и дрейф формулировок (`Unknown/TBD`), и только после этого ставить Done.
+
+### 6) Особенности проектов
+
+- `scripts` и `capybara` разделены (tooling vs product monolith).
+- `landing` живёт от living index и не идёт в P3 по raw story без materialized queue.
+- `spa` имеет отдельный UI pipeline и backlog/index sync; `zeya888` ограничен WordPress/PHP remediation без exploit track.
+- `spa`: если инцидент подтверждён как start/bake/env seam, маркировать в feature INDEX как **not product regression** и вести remediation через `docs/tasks/backlog-stories/bugs/` (cross-link на investigation + BUG-стories), не через переписывание feature package.
+- Общий реестр и команды профилей — [profiles.yaml](../../docs/methodology/Zeya888-builder-queue/specs/profiles.yaml) и [queue-manual.md](../../docs/methodology/Zeya888-builder-queue/cli/queue-manual.md).
 
 Session onboarding: `@docs/methodology/Zeya888-builder-queue/core/session-starter.md`  
 Workflow phases: `@docs/methodology/Zeya888-builder-queue/core/workflow.md`  

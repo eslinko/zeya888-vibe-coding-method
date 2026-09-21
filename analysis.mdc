@@ -18,6 +18,8 @@ alwaysApply: false
 8. **Integrate rather than duplicate** - extend existing rules instead of creating parallel ones
 9. **Maintain single source of truth** - each concept in one logical place
 10. **Progressive enhancement** - build upon existing knowledge without replacement
+11. **Operator intent beats plan scaffolding** - the latest explicit operator ask defines delivery scope; a plan/todo that invents stubs, placeholders, instruction files, or code when the ask was requirements/docs-only is **out of scope** even if “Implement the plan / complete all todos” is attached
+12. **Name ≠ create** - listing future paths, schemas, or prompts inside a REQ does **not** authorize creating those files; materialize only when the operator explicitly asks to create/implement them
 
 ## Analysis Algorithm
 
@@ -114,6 +116,9 @@ read_file target_file="**/components/*" start_line_one_indexed=1 end_line_one_in
 ❌ **NO duplication** - integrate new rules into existing structure instead of creating parallel sections
 ❌ **NO fragmentation** - maintain single source of truth for each concept
 ❌ **NO replacement** - enhance existing knowledge rather than replacing it
+❌ **NO scope inflation** - do not add stub/placeholder files, instruction bodies, schemas-on-disk, sample packs, or “path existence” scaffolding because a plan/todo listed them when the operator asked only for a REQ / analysis / links
+❌ **NO plan-over-ask** - “Implement the plan” does **not** override an earlier/clearer operator constraint such as «только REQ», «requirements only», «без реализации», «не создавай файлы»; skip or refuse inflated todos and state what was skipped
+❌ **NO anticipatory materialization** - do not create files “so Custom GPT can upload later” or “so paths exist for AC” unless explicitly ordered
 
 ## Required Questions When Uncertain
 
@@ -125,6 +130,8 @@ read_file target_file="**/components/*" start_line_one_indexed=1 end_line_one_in
 6. **"Does this duplicate existing rules?"** - check for overlap before adding new content
 7. **"Can this be integrated into existing structure?"** - prefer enhancement over parallel creation
 8. **"Where is the logical home for this concept?"** - find the most relevant existing section
+9. **"What deliverable class did the operator ask for?"** - REQ-only / links-only / story-only / stubs / full artifact bodies / runtime code — if the plan mixes classes, **ask or default to the narrower operator ask**
+10. **"Does this Write create a file the REQ only names?"** - if yes and operator did not say create it → **do not Write**
 
 ## Documentation Verification Template
 
@@ -214,6 +221,21 @@ grep_search query="procedure_name" include_pattern="**/*"
 - Map actual dependencies and integration points
 - Plan based on real complexity, not assumptions
 
+### For Requirements (REQ) authoring — counter-instruction (scope lock)
+
+**Incident pattern (do not repeat):** Operator asked for a **child REQ** (product/functional task statement + parent links). Agent put **stub instruction/schema files** into the plan as todos (“paths must exist”), then executed them under “Implement the plan / complete all todos” — burning tokens and violating «только REQ».
+
+**Rules:**
+
+1. **Default delivery for a REQ ask** = the REQ markdown (+ explicit parent/index cross-links the operator requested). Nothing else.
+2. **Plans must not smuggle implementation.** If drafting a plan for a REQ-only ask: todos may only cover REQ file + requested links. Do **not** add stub trees, placeholder prompts, empty JSON Schema files, or README scaffolding “for later Custom GPT upload”.
+3. **“Implement the plan” gate:** Before any `Write` outside `docs/requirements/**` (or the single named REQ path), re-read the **operator’s original ask**. If it was requirements-only, **cancel/skip** stub/impl todos; report skipped items in one line. Do not “helpfully” finish inflated checklist items.
+4. **REQ may name future paths** (`instructions/pack-builder-*.md`, meta-schemas, etc.) as **acceptance targets**. Verified state must say they are **not present** until a later explicit create wave. Naming them ≠ creating them (Core Principle 12).
+5. **analysis.mdc vs plan UI:** Plan-mode completeness and todo checkboxes are subordinate to Core Principles 11–12 and this section. Completing a wrong-scope todo is a process failure, not success.
+
+**Allowed with a REQ ask (typical):** one REQ file; Related/Parent edits; requirements index row.  
+**Forbidden unless explicitly ordered:** `instructions/**` stubs, schema bodies, sample packs, code, commits/pushes, “ensure path exists” writes.
+
 ## Quality Gates
 
 Before considering analysis complete:
@@ -223,6 +245,12 @@ Before considering analysis complete:
 - [ ] Dependencies accurately mapped
 - [ ] Configuration correctly documented
 - [ ] Architecture relationships validated
+
+Before considering a **REQ / requirements** delivery complete:
+- [ ] Deliverable matches operator ask class (REQ-only vs create artifacts)
+- [ ] No stub/placeholder files created “because the plan listed paths”
+- [ ] Named future paths documented as not present when they are not on disk
+- [ ] Inflated plan todos skipped with a one-line note when they conflict with the ask
 
 These rules ensure that all analysis, documentation, and planning are based solely on real code without fantasies or assumptions.
 
@@ -239,6 +267,8 @@ These rules ensure that all analysis, documentation, and planning are based sole
 ❌ **Vague Communication**: Ambiguous change descriptions without concrete specifications
 ❌ **Legacy Accumulation**: Old patterns coexisting with new implementations
 ❌ **Contract Violations**: Data format mismatches between system components
+❌ **Scope Inflation / Stub Creep**: Creating placeholder files or “path scaffolding” not asked for because a plan or AC table named them
+❌ **Plan-Checklist Obedience**: Finishing every todo while ignoring a narrower operator ask (e.g. «только REQ»)
 
 ### **Universal Success Patterns**
 
@@ -252,6 +282,8 @@ These rules ensure that all analysis, documentation, and planning are based sole
 ✅ **Knowledge Integration**: Extending existing rules rather than creating parallel ones
 ✅ **Single Source of Truth**: Each concept maintained in one logical location
 ✅ **Progressive Enhancement**: Building upon existing knowledge without replacement
+✅ **Ask-Scoped Delivery**: Deliver only the artifact class the operator ordered; name ≠ create
+✅ **Plan Subordinate to Intent**: Inflated plan todos are skipped when they conflict with the ask
 
 ### **Enhanced Analysis Commands**
 

@@ -1,0 +1,195 @@
+---
+description: Авторский метод оператора Zeya888 — Builder Queue, роли, именование, never/always. Не дублирует analysis.mdc и builder-operator-habits.mdc; attach при оркестрации волн и P0–P8.
+alwaysApply: false
+---
+
+# Авторский метод оператора Zeya888
+
+Портрет метода. Claims — только с диска. Не выдумывать стиль кода, AC, очередь, даты. При конфликте с этим файлом побеждает SSOT методологии.
+
+**SSOT (не копировать сюда целиком):**
+
+- Метод: [`docs/methodology/Zeya888-builder-queue/MANIFEST.md`](../../docs/methodology/Zeya888-builder-queue/MANIFEST.md), [`core/workflow.md`](../../docs/methodology/Zeya888-builder-queue/core/workflow.md), [`core/session-starter.md`](../../docs/methodology/Zeya888-builder-queue/core/session-starter.md)
+- Человеческий слой: [`curriculum/00-guide-for-humans.md`](../../docs/methodology/Zeya888-builder-queue/curriculum/00-guide-for-humans.md)
+- Claims: [`.cursor/rules/analysis.mdc`](./analysis.mdc)
+- Операционные привычки: [`.cursor/rules/builder-operator-habits.mdc`](./builder-operator-habits.mdc)
+- Атомарные таски: [`docs/methodology/task-standard.md`](../../docs/methodology/task-standard.md)
+- Коммиты: [`docs/methodology/git-commit.md`](../../docs/methodology/git-commit.md)
+- Overnight OP: [`guides/operator-how-to-run-queue.md`](../../docs/methodology/Zeya888-builder-queue/guides/operator-how-to-run-queue.md)
+
+---
+
+## 1. Авторский метод работы
+
+**Zeya888 Builder Queue** — вайб-кодинг с жёстким контрактом человек↔агент. Не agile-замена: слой исполнения с AI поверх epics/stories. Память между сессиями — **файлы на диске** (pkg, bullrun index, task README, audit reports), не чат.
+
+### Три слоя SSOT
+
+| Слой | Где | Когда править |
+|------|-----|----------------|
+| Method | `core/`, `contracts/`, `templates/` | Меняется процесс |
+| Tool | `cli/`, `specs/profiles.yaml` | Новый проект / CLI |
+| Runtime | `.cursor/plans/*_builder.plan.md`, `pkg-*.yaml` | Текущая волна |
+
+Конфликт: (1) active pkg + `--verify` → (2) bullrun-launch-index → (3) decision/interview → (4) task README + gate.
+
+### Цикл
+
+Requirement / Epic / Story → task tree → immutable `pkg-*.yaml` → build window → **PA, P0–P8**.
+
+| Фаза | Суть | Не делать |
+|------|------|-----------|
+| **PA** | Сырой intake → Builder-ready на диске (Studio-чат) | pkg, P3, interview в P1 |
+| **P0** | Onboarding: layout, tests, active pkg | Код до явной фазы |
+| **P1** | Декомпозиция + pkg; один `input_mode` | Invent stories вне якоря |
+| **P2** | Slice окна CLI | Править window как SSOT |
+| **P3** | Execute по pkg / window | Очередь из памяти чата |
+| **P4** | Audit кода vs AC; без fix | Audit + implementation в одном промпте |
+| **P5** | Scaffold TASKED; auto-decide CLOSED/TASKED/WAIVED | pytest / код / AskQuestion |
+| **P6** | Execute gaps (`run_mode` или YAML) | Оставить override навсегда |
+| **P7** | Re-audit; WAVE COMPLETE = 0 OPEN и 0 incomplete TASKED | Крутить Low/Info WAIVED |
+| **P8** | Commits по scope; local; push только по запросу | Коммитить `docs/tasks/**` без команды |
+
+`input_mode`: `epic_story` (P1.1) · `requirement` (P1.2) · `backlog_story` (P1.3). Не смешивать в одном pkg.
+
+### Роли (overnight / оркестрация)
+
+| Роль | Делает | Не делает |
+|------|--------|-----------|
+| **OP** | Очередь, fences, session YAML, halt | Product code, invent AC, push |
+| **BLD** | Код/docs по task README | Переписывать immutable pkg |
+| **VAL** | Read-only audit (`analysis.mdc`) | Fix в том же проходе |
+
+Overnight: **2** Task-субагента; fences **дословно** из `workflow-console.html` / `workflow.md`; halt только `стоп|stop|pause|halt`.
+
+Эталон плана **не править**: `.cursor/plans/Orchestrator_Builder_Reference.plan.md` → транспонировать в `.cursor/plans/OP-<project>-<slug>.plan.md`. Agent ids — только в `OP-*.session.yaml`, не в `.cursor/plans/`.
+
+Fixed `*_builder.plan.md`: **@attach** в текущем чате; не Build / Execute plan UI.
+
+### Диагностика и баги
+
+Баг-волна = тот же P1→P8, не смешивать с doc-gap без решения оператора. Минимум тасков: reproduce → **pin layer** → fix → regression → gate. Diagnosis before fix. «What this is NOT» в schema. Гипотезы: [`hypothesis-driven-error-analysis.md`](../../docs/methodology/hypothesis-driven-error-analysis.md).
+
+Декомпозиция: ListX / ItemY ([`listx-decomposition.mdc`](./listx-decomposition.mdc)). Task-standard: Truth-First, one gap per task, Code Facts.
+
+Архитектор держит **границы и контракты**; агент исполняет внутри них. PA/P1/P4/P5 — системный взгляд; P3 — тактическое исполнение по README.
+
+---
+
+## 2. Предпочтения по стилю кода и архитектуре
+
+Это не «нравится оператору», а **повторяемые инварианты** из contracts / pipeline / bug schema. Языковой стиль (hooks vs classes, табы) — из execution skill профиля и кода рядом, не из этого файла.
+
+- **Pin-слой:** чинить заявленный шов (start/bake, docs, `publicEnv`, gateway contract), не маскировать симптомы в Login/Board.
+- **Fail-fast на контракте артефакта**, не silent UI fail и не ослабление чужих gates (`FORBIDDEN_LOCALHOST`, HL-02/HL-04).
+- **Один SSOT на концепт** — не копировать trim/очередь/промпт в каждый файл; curriculum = thin pointer; новые useful prompts → `prompts/<category>/` + INDEX.
+- **Монорепо:** не смешивать `builder_project` / эпики / tracks в одном pkg (spa G-track vs DASH; scripts tooling vs capybara).
+- **Spa UI:** Path A `@mockup:` если артборд есть; иначе brief + human gate; `ui_scope: none` → skip UX pipeline. Baseline **до** правок кода (UI-0).
+- **Тесты:** реальное поведение и quality-gates ([`quality-gates.mdc`](./quality-gates.mdc)); не мок-успех вместо контракта. P0 cross-service не skip pin.
+- **Progressive enhancement правил**, не параллельные SSOT (не плодить второй workflow рядом с `core/workflow.md`).
+- **Интегрировать, не дублировать:** reuse эпика; новый EPIC только если домен не покрыт.
+- **Task README как контракт исполнения:** Purpose, Code Facts, AC/DoD, Where to change, Verification, `Skill declared:` из `execution_skill_primary` профиля.
+- **Verify — objective gate:** FAIL = чинить YAML/paths, не спорить с моделью в чате.
+
+---
+
+## 3. Соглашения по именованию
+
+Ключи CLI (`--project`) ≠ имена папок. `spa-app` = `focus_folder`, ключ **`spa`**.
+
+| Профиль | Plan | Эпики / stories (типично) | Tasks |
+|---------|------|---------------------------|-------|
+| `gateway` | `Gateway_builder.plan.md` | `EPIC-M2-*` | из epic tree |
+| `gpt` | `GPT_builder.plan.md` | `EPIC-M1-*` | linear / GIM |
+| `identity` | `ID_builder.plan.md` | `EPIC-IDS-*`, `STORY-IDS-*` | `task-ids-*` |
+| `spa` | `Spa_builder.plan.md` | `EPIC-SPA-*` / `EPIC-DASH-*`, `STORY-SPA-*`, `STORY-SPA-BUG-*` | `task-spa-*` / `task-dash-*` |
+| `scripts` | `Scripts_builder.plan.md` | `EPIC-SCR-02-tooling`, `STORY-SCR-WFCONSOLE*` | tooling only |
+| `capybara` | `Capybara_builder.plan.md` | `STORY-SCR-CAPY*` / `STORY-SCR-CAPYUI*` | не через `scripts` |
+| `landing` | `Landing_builder.plan.md` | `epic-0N-*`, `STORY-LAND-*`, `STORY-LAND-BUG-*` | living index |
+| `zeya888` | `Zeya888_builder.plan.md` | `STORY-ZEYA-BUG-*` | WordPress/PHP |
+
+- **Pkg:** `pkg-<sequence>-<YYYYMMDD>-<slug>.yaml` — `YYYYMMDD` = date-part `created_at`.
+- **Указатель:** `{project}-active-package.current.yaml`; `package_file` относительно `tasks_dir`.
+- **Dashboard:** `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`).
+- **Чаты / планы OP:** `OP-<project>-<slug>.plan.md`, `BLD-<project>`, `VAL-<project>`.
+- **UI REQ (spa/landing):** слои `ADMIN-01`…`ADMIN-06`, не сразу STORY ([`req-to-ui-admin-layers.md`](../../docs/methodology/Zeya888-builder-queue/prompts/architect/req-to-ui-admin-layers.md)). **FE mixed** (ui_first + tech_first в одном пакете): ADMIN projected + STORY сразу ([`req-to-frontend-mixed-package.md`](../../docs/methodology/Zeya888-builder-queue/prompts/architect/req-to-frontend-mixed-package.md)).
+- **Коммиты:** conventional EN; типы `feat` `fix` `refactor` `test` `chore` `docs` `style` `perf`; scope как модуль (`SPA-BUG-06`, `woocommerce`). P8: **feat → test → docs**.
+- **L10N spa:** ключи вида `earlySignal.*`.
+- **Safe-override:** `run_mode=<slug>` только по явной команде (напр. `spa_bug_06_audit_2026_08_18`).
+- **Баги spa inbox:** `BUG-SPA-YYYYMMDD-<slug>.md`; story `STORY-SPA-BUG-NN-<slug>`.
+
+Полные правила naming — operator contract §6 соответствующего профиля.
+
+---
+
+## 4. Предпочитаемые паттерны
+
+- **Plan-sim variant 1:** P1.3 / P5 = PLAN_DRAFT, затем PLAN_APPLY (не смешивать decompose и код).
+- **ROLE_LOCK + RETURN_TO_ROOT** в overnight OP.
+- **P5 auto-decide:** CLOSED / TASKED / WAIVED `reason=…`; `follow_up` обязателен у WAIVED. `TASKED-later` — только по явной команде. Product Done ≠ пустой OPEN gap-list.
+- **P5 порог:** TASKED ≤3 и ≤5 README того же эпика → safe-override; иначе черновик pkg `activation: none`. TASKED = 0 → не активировать pkg.
+- **P7:** WAVE COMPLETE iff 0 OPEN и 0 incomplete TASKED; `WAVE_STALLED_NO_DELTA` без AskQuestion; неполный disposition → `P5_DISPOSITION_INCOMPLETE`.
+- **BLOCKED** (prod/deploy/env, нет доступа) → очередь дальше, не invent SUCCESS / Railway id.
+- **Epic reuse**, не параллельный эпик; closed+matching domain → reopen в файле и индексе.
+- **Dashboard recount** из contract path; sync INDEX + bullrun + dashboard в той же итерации close.
+- **P8 local, no push** пока оператор не попросил.
+- **Wave checkpoint** между stories: `@skill` `@rule` active pkg window явная фаза `$verifyCmd` — сброс контекста без потери SSOT.
+- **Build window:** один режим на вызов (`--story-key` / `--window-flat-*` / `--gim-slice`); stdout `build_window_file:` / `cursor_attach:`.
+- **Architect chain (до PA):** orientation → parent REQ → child REQs → backlog STORY / ADMIN layers / FE mixed package; materialize по команде.
+- **Studio ≠ Builder:** PA не создаёт pkg; Builder — один `input_mode` на волну.
+
+---
+
+## 5. Что никогда / что всегда
+
+### Никогда
+
+- Invent AC, очередь, stories вне якоря, даты, Railway SUCCESS id, agent ids в `.cursor/plans/`.
+- Product code / invent AC / push в роли **OP**.
+- Build / Execute plan UI на fixed `*_builder.plan.md`.
+- Rewrite immutable `pkg-*.yaml`; `run_mode` без явной команды.
+- Push без просьбы; commit `docs/tasks/**`, BULLRUN, acceptance-verification, run-summary, secrets, `.env` без явной команды.
+- Ослаблять HL-02 / `FORBIDDEN_LOCALHOST` / чужие security gates.
+- Exploit / PoC (`builder_project: zeya888`).
+- Silent skip gap без строки disposition; WAIVED без `reason` / `follow_up`.
+- Копировать очередь/промпты одного профиля в другой; смешивать `scripts` и `capybara`.
+- Git force / skip hooks без явной команды.
+- Править эталон `Orchestrator_Builder_Reference.plan.md`; парафразить overnight fences.
+- PA+P1 или P4+fix в одном сообщении; P5 + pytest.
+- Даты из training cutoff, copy-paste других pkg, круглые `T12:00:00Z` без live `--print-utc-now`.
+- Reference plans из `examples/` как attach для P3.
+
+### Всегда
+
+- Claims с path (`analysis.mdc`); иначе Unknown.
+- `--verify` шаг 0 перед P2/P3; FAIL = стоп.
+- `--print-utc-now` перед `created_at` / gate Date / run-summary; после P1 scaffold — `--verify --check-dates`.
+- Sync bullrun + INDEX (+ dashboard по contract) в той же итерации close.
+- Цитировать пути; один `input_mode` на pkg.
+- User-facing ответы оператору — **русский** (user rule).
+- Коммит только если попросили; conventional EN; feat → test → docs.
+- Execution skill из `profiles.yaml` (`react-expert` для spa, не `python-pro`).
+- Pin layer в bug-тасках до fix.
+- Transponse эталона OP-плана, не править эталон.
+
+---
+
+## 6. Особенности проектов
+
+Монорепо **DOGEstonia**. Реестр: [`specs/profiles.yaml`](../../docs/methodology/Zeya888-builder-queue/specs/profiles.yaml). Nested git у `spa-app`. Cross-project REQ допустимы (напр. SPA ↔ gateway) — не invent второй стороны контракта.
+
+| Ключ | Стек / зона | Intake / нюанс |
+|------|-------------|----------------|
+| `gateway` | Python, `doge-complaints-gateway/` | `EPIC-M2-*`; окно часто `--story-key` |
+| `gpt` | GPT Actions, `GPT UI/` | linear / GIM; `--window-flat-*` / `--gim-slice` |
+| `identity` | Python, `doge-identity-service/` | epic-first или `backlog_story`; `EPIC-IDS-*` |
+| `spa` | React/Vite, `spa-app/` | `backlog_story`; UI pipeline; bug schema; dashboard |
+| `scripts` | Node tooling, `scripts/` | только `EPIC-SCR-02-tooling` |
+| `capybara` | Vue 3 + Node, UI + `scripts/lib/capybara/` | не через `scripts` |
+| `landing` | Astro + TS + TW, `landing/` | living `bullrun-landing-index.md`; не P3 на raw `story.md` |
+| `zeya888` | WordPress/PHP, `zeya888.me/` | bug-stories; запрет exploit/PoC |
+| `taxonomy` | queueless | только `--verify`; без `pkg-*.yaml` |
+
+P4 audit — внешний взгляд (другой контекст/модель), отчёт в `{project}/docs/analysis/`. Не второй Cursor-execution в том же чате, где писали код.
+
+CLI не планирует и не пишет код: `--verify` `--list` `--write-build-window`. Workspace root = каталог с `docs/methodology/Zeya888-builder-queue/`.
