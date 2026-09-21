@@ -2,6 +2,36 @@
 
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.52 — 2026-09-21
+
+- Architect: один промпт [`req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) — functional и deployability-gap; packaging (Git ownership ≠ image packaging) — пакет тем того же прогона
+- Удалён прежний узкий промпт infra/deployability; новые interview только `zeya888.req-target-tech-arch-interview-…` (старые файлы отчётов не переименовывать)
+- Sync: INDEX, MANIFEST, curriculum 06, guide, workflow, story/mixed advisories, REQ7 шаг 3 / 3e
+
+## 1.4.51 — 2026-09-21
+
+- Profile `threads`: stack lock — `Python 3.11 + FastAPI + uvicorn + httpx`; skill `python-pro`; `test_command` → `cd doge-threads && python3 -m pytest -q`
+- Sync: `profiles.yaml`, console v1.2.23, contract, `Threads_builder.plan.md`, pipeline / bullrun / t00, workflow / queue-manual §5j / session-starter / builder-session SKILL / habits; intake archive `done/threads.yaml`
+- Note: product FastAPI scaffold remains REQ0 (Phase 0 fails until pytest lands)
+
+## 1.4.50 — 2026-09-19
+
+- Guide (EN): [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) — human sequence parent → child REQ → tech arch → STORY/ADMIN
+- REQ7 copy-paste (RU): [`docs/requirements backlog/REQ7-architect-copy-paste-process.md`](../../requirements%20backlog/REQ7-architect-copy-paste-process.md) — filled Wave 1 fences
+- Architect Projects map: `threads` → `doge-threads/docs/requirements/` in parent-requirement + scatter; consistency-audit resolve includes doge-threads
+- Sync: prompts/INDEX, MANIFEST
+
+## 1.4.49 — 2026-09-19
+
+- Profile: `threads` (`focus_folder: doge-threads`, stack Unknown) — clone [DOGE-Complaints/doge-threads](https://github.com/DOGE-Complaints/doge-threads) `dev`, `profiles.yaml`, console v1.2.22, tasks bootstrap pkg-000000, [threads-operator-contract.md](./contracts/threads-operator-contract.md), `.cursor/plans/Threads_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5j / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits; migration role wrappers; intake → `specs/profile-intakes/done/threads.yaml`
+- Note: alias `threads` ≠ folder `doge-threads/`
+
+## 1.4.48 — 2026-09-19
+
+- Migration: [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) — checked-out dir → inspect → intake → materialize (wrapper; delegates checklist to add-builder-profile)
+- Sync: prompts/INDEX, MANIFEST; pointers in `migration-add-builder-profile.md` + `guides/add-builder-profile.md`
+
 ## 1.4.47 — 2026-09-19
 
 - Lightweight follow-up (post-Done, no new STORY): [`guides/lightweight-followup.md`](./guides/lightweight-followup.md) — hard-fail complexity gate (fail closed)
@@ -32,17 +62,17 @@
 
 ## 1.4.42 — 2026-09-13
 
-- Architect interview: Decision-point protocol in [`req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) and [`req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) — on every choice question: options analytics + architecture/project fit + mandatory recommendation; operator decides
+- Architect interview: Decision-point protocol in `req-to-target-tech-architecture.md` — on every choice question: options analytics + architecture/project fit + mandatory recommendation; operator decides
 
 ## 1.4.41 — 2026-09-13
 
 - Architect: [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) — functional / mid-lifecycle REQ → target tech architecture of focus (+ CTO/CPO interview); use-case table; not STORY/tasks
-- Clarify: [`req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) = узкий bootstrap / pre-story infra+deployability sibling
+- Clarify: прежний узкий infra/deployability промпт сведён в `req-to-target-tech-architecture.md` (запись 1.4.52)
 - Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA
 
 ## 1.4.40 — 2026-09-12
 
-- Architect: [`prompts/architect/req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) — per-project REQ → interactive CTO/CPO interview → `{focus}/docs/architecture/` + `zeya888.req-tech-arch-interview-…` in analysis; REQ links; packaging seam checklist (Git ownership ≠ image packaging)
+- Architect: per-project REQ → interactive CTO/CPO interview → `{focus}/docs/architecture/` + interview report; packaging seam checklist (Git ownership ≠ image packaging). Промпт позже сведён в `req-to-target-tech-architecture.md` (1.4.52)
 - Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA; advisory in req-to-backlog-stories / req-to-frontend-mixed-package
 
 ## 1.4.39 — 2026-09-10

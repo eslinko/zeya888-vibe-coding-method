@@ -1,0 +1,20 @@
+# Profile intake — threads (materialized 2026-09-19T15:08:37Z)
+# Remote: https://github.com/DOGE-Complaints/doge-threads (branch: dev)
+# Workspace folder: /Users/eslinko/Development/DOGEstonia/doge-threads
+#
+# Alias ≠ folder: profile_key threads → focus_folder doge-threads
+# Parent product framing (not intake): docs/requirements backlog/REQ7-DOGEstonia-Threads-Entity-Social-Governance.md
+# Stack locked 2026-09-21: Python 3.11 + FastAPI + uvicorn + httpx; skill python-pro
+
+profile_key: threads
+focus_folder: doge-threads
+plan_title_case: Threads
+
+stack_label: "Python 3.11 + FastAPI + uvicorn + httpx"
+execution_skill_primary: python-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+test_command: "cd doge-threads && python3 -m pytest -q"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+status: materialized
+materialized_at: "2026-09-19T15:08:37Z"

@@ -497,7 +497,7 @@
       </div>
       <div class="header__pills">
         <span class="pill">Theme: Dark + DOGE</span>
-        <span class="pill">v1.2.21</span>
+        <span class="pill">v1.2.23</span>
         <span class="pill">2026-08-14</span>
       </div>
     </header>
@@ -510,7 +510,7 @@
   </div>
 
   <script>
-    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand'];
+    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads'];
 
     const PROJECT_PROFILES = {
       gateway: {
@@ -642,6 +642,17 @@
         execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/typescript-pro/SKILL.md',
         hasUxPipeline: false,
         backlog_index: 'zeya888/docs/tasks/backlog-stories/INDEX.md',
+      },
+      threads: {
+        project: 'threads',
+        tasks_dir: 'doge-threads/docs/tasks',
+        current_pointer: 'threads-active-package.current.yaml',
+        plan_file: '.cursor/plans/Threads_builder.plan.md',
+        pipeline_doc: 'doge-threads/docs/tasks/threads-story-execution-pipeline.md',
+        execution_skill_primary: 'python-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'doge-threads/docs/tasks/backlog-stories/INDEX.md',
       },
     };
 

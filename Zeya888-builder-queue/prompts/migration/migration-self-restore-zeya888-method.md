@@ -25,7 +25,7 @@
 @docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
 
 workspace_root: /Users/eslinko/Development/DOGEstonia
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand|threads>
 focus_role: <builder|validator|orchestrator>
 context_sources: <список ключевых файлов/линков задачи, если уже есть>
 

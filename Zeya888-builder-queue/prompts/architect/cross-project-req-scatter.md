@@ -15,7 +15,7 @@
 |------|----------|
 | `$parentReq=` | обязателен: `docs/requirements backlog/…` **или** per-project REQ (напр. `GPT UI/docs/requirements/REQ-43-proactive-story-intake-offer.md`) |
 | `$slice=` | опц. сужение (§§ / blocks) |
-| `$targetProjects=` | дефолт `gateway,identity,spa,gpt`; CSV сужает список |
+| `$targetProjects=` | дефолт `gateway,identity,spa,gpt`; CSV сужает список (для threads-фич: включи `threads`) |
 
 ---
 
@@ -49,7 +49,12 @@ UX-only parent slice without a named backend contract → spa child + Open quest
 - identity → doge-identity-service/docs/requirements/{NN}-{slug}.md + README-index.md
 - spa → spa-app/docs/requirements/{NN}-{slug}.md + README-index.md
 - gpt → GPT UI/docs/requirements/REQ-{NN}-{slug}.md + README.md
+- threads → doge-threads/docs/requirements/{NN}-{slug}.md (+ README-index.md if present)
 Эталон header: doge-complaints-gateway/docs/requirements/48-early-signal-pre-cluster-data-readiness.md
+
+Ownership addendum (when parent text says so):
+- Thread CRUD / reactions / votes / sanction signals → threads
+- Civic Issue ThreadContext adapter → gateway
 
 ## Numbering (live Glob this run — do not use training memory)
 Per owning project: next free = max existing NN + 1.

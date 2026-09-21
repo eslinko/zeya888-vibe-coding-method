@@ -58,8 +58,7 @@ flowchart TB
 | [`prompts/architect/parent-requirement-to-project-reqs.md`](./prompts/architect/parent-requirement-to-project-reqs.md) | Pre-PA.2: parent product REQ → per-project child REQs + связи |
 | [`prompts/architect/cross-project-req-scatter.md`](./prompts/architect/cross-project-req-scatter.md) | Pre-PA.2 write-after-impact: parent → `{project}/docs/requirements/` children (gateway/identity/spa/gpt) |
 | [`prompts/architect/cross-project-req-consistency-audit.md`](./prompts/architect/cross-project-req-consistency-audit.md) | Findings-only: parent+child REQ consistency + target-state audit → `docs/analysis/` |
-| [`prompts/architect/req-to-tech-architecture.md`](./prompts/architect/req-to-tech-architecture.md) | Узкий post-REQ / pre-story: infra/deployability interview → tech architecture + interview report |
-| [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) | Общий: functional REQ → target tech architecture of focus (+ interview); not work items |
+| [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) | REQ → target tech architecture of focus (+ interview); packaging is a theme pack |
 | [`prompts/architect/req-to-backlog-stories.md`](./prompts/architect/req-to-backlog-stories.md) | Post-REQ: non-UI → backlog STORY package (plan → materialize) |
 | [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) | Post-REQ: UI → ADMIN-01…06 layer package (plan → materialize) |
 | [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) | Post-REQ: FE mixed → classify ui_first/tech_first; ADMIN projected + STORY (plan → materialize) |
@@ -69,6 +68,7 @@ flowchart TB
 | [`prompts/operator/lightweight-followup-triage.md`](./prompts/operator/lightweight-followup-triage.md) | VAL complexity gate for lightweight follow-up |
 | [`prompts/operator/lightweight-followup-author.md`](./prompts/operator/lightweight-followup-author.md) | Dual plans + LAUNCH after triage PASS |
 | [`prompts/migration/migration-zeya888-brand-landing-infra-transfer.md`](./prompts/migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: landing infra → `zeya888` (1A, no NC) |
+| [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir → inspect → intake → materialize profile |
 | [`guides/operator-root-orchestrator.md`](./guides/operator-root-orchestrator.md) | Процесс root→субагенты + roadmap MVP/Task/SDK |
 | [`guides/orchestrator-builder-reference.md`](./guides/orchestrator-builder-reference.md) | Proven overnight two-subagent SSOT (universal) |
 | [`guides/operator-how-to-run-queue.md`](./guides/operator-how-to-run-queue.md) | Human how-to: запуск очереди стори/багов в OP |
@@ -93,7 +93,9 @@ flowchart TB
 | [`contracts/dogestonia-operator-contract.md`](./contracts/dogestonia-operator-contract.md) | Operator contract для `builder_project: dogestonia` (React Native/Expo app) |
 | [`contracts/aibridge-operator-contract.md`](./contracts/aibridge-operator-contract.md) | Operator contract для `builder_project: aibridge` (Python Responses bridge) |
 | [`contracts/zeya888-brand-operator-contract.md`](./contracts/zeya888-brand-operator-contract.md) | Operator contract для `builder_project: zeya888-brand` (focus `zeya888/`, не `zeya888.me`) |
+| [`contracts/threads-operator-contract.md`](./contracts/threads-operator-contract.md) | Operator contract для `builder_project: threads` (focus `doge-threads/`) |
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
+| [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) | EN: parent REQ → child REQ → tech arch → STORY/ADMIN (architect sequence) |
 
 ## Исторические пути
 

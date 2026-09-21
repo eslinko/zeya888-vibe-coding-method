@@ -13,7 +13,8 @@
 ## §0 Intake Form
 
 **SSOT файл (куда писать alias + path):** [`../specs/profile-intakes/<profile_key>.yaml`](../specs/profile-intakes/) — шаблон [`_TEMPLATE.yaml`](../specs/profile-intakes/_TEMPLATE.yaml).  
-Operative prompt: [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md).
+Operative prompt (intake already written): [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md).  
+Папка уже в workspace, intake ещё нет: [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).
 
 ### Обязательные поля (в intake YAML)
 
@@ -156,7 +157,8 @@ source_split: full | partial
 
 ## §3 Operative prompt (copy-paste)
 
-Предпочтительно: [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md) (полный fence). Краткая вставка:
+Папка уже зачекаучена, intake нет → [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).  
+Intake уже есть → предпочтительно [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md) (полный fence). Краткая вставка:
 
 ```markdown
 @.cursor/rules/analysis.mdc

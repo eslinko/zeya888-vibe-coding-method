@@ -60,7 +60,7 @@ Do not fill gaps with product logic. Do not start the report until answers exist
 ## Resolve children
 If $childReqs set: Read those paths; missing file → STOP Ask.
 If empty: from $parentReq section ## Derived project requirements AND/OR Glob/Grep files under
-  doge-complaints-gateway|doge-identity-service|spa-app|GPT UI /docs/requirements/
+  doge-complaints-gateway|doge-identity-service|spa-app|GPT UI|doge-threads /docs/requirements/
   whose header Parent: matches $parentReq.
 Zero children → STOP Ask. Do not invent child REQs.
 

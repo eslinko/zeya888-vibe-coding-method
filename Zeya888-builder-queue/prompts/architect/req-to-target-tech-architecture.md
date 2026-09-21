@@ -1,7 +1,7 @@
 # Requirement → target technical architecture (+ CTO/CPO interview)
 
-**Категория:** architect (functional REQ → целевая tech-реализация фокуса)  
-**Sibling (узкий bootstrap / pre-story infra):** [`req-to-tech-architecture.md`](./req-to-tech-architecture.md) — deployability / packaging / runtime image до story package  
+**Категория:** architect (functional / mixed / deployability REQ → целевая tech-реализация фокуса)  
+**Единственный промпт этого процесса.** Packaging / runtime image — пакет тем внутри этого прогона, не второй файл.  
 **Не заменяет:** PA.2 REQ authoring · scatter · consistency-audit · story/ADMIN package prompts · P3  
 **Не создаёт:** STORY, pkg, product code, stub schemas/files «чтобы path существовал», task README  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc)  
@@ -11,7 +11,7 @@
 
 ## Use cases (когда брать этот промпт)
 
-REQ **часто (но не всегда)** пишется на уровне **функциональных / продуктовых** требований: что система должна делать для пользователя/оператора, границы scope, DoD в терминах поведения. Техническая реализация фокуса при этом может быть намеренно не зафиксирована (или зафиксирована фрагментарно). Этот промпт как раз для таких случаев: **отдельный документ (или система) целевой технической архитектуры фокуса REQ** — не backlog задач.
+REQ **часто (но не всегда)** пишется на уровне **функциональных / продуктовых** требований: что система должна делать, границы scope, DoD в терминах поведения. Техническая реализация фокуса при этом может быть не зафиксирована. Тот же промпт закрывает и узкий пробел **bootstrap infra / deployability** (runtime start, ownership, packaging Git FS → image) — это classify `deployability-gap`, не отдельный процесс.
 
 | Use case | Да / нет |
 |----------|----------|
@@ -19,13 +19,17 @@ REQ **часто (но не всегда)** пишется на уровне **�
 | Child / mid-lifecycle REQ на фичу в уже живущем проекте (не только bootstrap greenfield) | **Да** |
 | Parent product REQ уже разложен на per-project child; у child нет path-level tech realization | **Да** |
 | Нужен SSOT «target tech arch» для согласования CTO/CPO **до** или **вместо** немедленного story slice | **Да** |
+| Пробел именно **bootstrap infra / packaging / deployability** (start, Git FS → image, verify = production entry) | **Да** — тот же промпт; packaging-темы обязательны |
 | REQ уже целиком technical (path-level contracts, runtime, packaging) и оператор просит только stories | **Нет** → [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) / mixed / ADMIN |
 | Нужен только audit согласованности parent+children vs цель | **Нет** → [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md) |
-| Фокус именно **bootstrap infra / deployability packaging seam** перед первыми stories | Предпочтительнее узкий sibling [`req-to-tech-architecture.md`](./req-to-tech-architecture.md) (можно оба: сначала этот на focus, sibling на image/packaging) |
 | Оператор просит задачи / STORY / pkg | **Нет** — этот промпт пишет **архитектуру**, не decomposition в work items |
 
-**Что писать в выходном документе:** целевая техническая реализация **фокуса** REQ (компоненты, потоки данных, ownership артефактов, контракты, runtime/verify где уместно).  
-**Чего не писать:** списки STORY keys, epic waves, task README, «сделать ticket X» — если нужна декомпозиция в работу, это следующий шаг отдельным промптом.
+**Advisory (не hard-STOP, до story prompts):** молчание REQ о packaging при Git-owned non-JS и start ≠ src tree даёт false-green AC («committed in src» без production entry). Закрывать packaging-темы **здесь**, до [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) / [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md).
+
+**Урок (включать в чеклист, если фокус трогает Git FS + non-src start):** Git ownership ≠ image packaging. «Schemas MUST remain in Git» ≠ «readable after build when start = production entry».
+
+**Что писать в выходном документе:** целевая техническая реализация **фокуса** REQ (компоненты, потоки данных, ownership артефактов, контракты, runtime/packaging/verify где уместно).  
+**Чего не писать:** списки STORY keys, epic waves, task README, «сделать ticket X».
 
 **Разделение уровней (держи в шапке ответа Phase 0):**
 
@@ -39,19 +43,17 @@ REQ **часто (но не всегда)** пишется на уровне **�
 
 ## Когда / не использовать (кратко)
 
-**Когда:** документ типа requirement (per-project или иной REQ-like), фокус понятен, но **целевая tech-реализация** не оформлена отдельным SSOT; нужен интерактивный CTO/CPO диалог + запись architecture + interview report с линками на REQ.
+**Когда:** документ типа requirement, фокус понятен, но **целевая tech-реализация** (включая deployability, если она молчит) не оформлена отдельным SSOT; нужен интерактивный CTO/CPO диалог + запись architecture + interview report с линками на REQ.
 
-**Не использовать**, если нужен только story package / UI ADMIN / consistency audit / чистый packaging-bootstrap sibling без обсуждения реализации фокуса фичи.
-
-**Урок (включать в чеклист, если фокус трогает Git FS + non-src start):** Git ownership ≠ image packaging.
+**Не использовать**, если нужен только story package / UI ADMIN / consistency audit.
 
 **Подстановка оператором:**
 
 | Поле | Значение |
 |------|----------|
 | `$requirementDoc=` | path REQ / requirement-like doc |
-| `$builderProject=` | ключ профиля (`landing` \| `spa` \| `gateway` \| `aibridge` \| …) |
-| `$slice=` | опц. сужение §§ / blocks (фокус интервью) |
+| `$builderProject=` | ключ профиля (`landing` \| `spa` \| `gateway` \| `aibridge` \| `threads` \| …) |
+| `$slice=` | опц. сужение §§ / blocks (фокус интервью; packaging-only = slice на infra §§) |
 | `$archPackageSlug=` | опц. kebab для подпапки / stem файла; пусто → из REQ id/title |
 | `$archDocMode=` | опц. `single` \| `system` \| `auto` (дефолт `auto`) |
 
@@ -72,7 +74,7 @@ $archDocMode=auto
 
 workspace_root: /Users/eslinko/Development/DOGEstonia
 
-Architect Studio — REQ → TARGET TECHNICAL ARCHITECTURE (functional REQ → tech realization of focus; + interactive CTO/CPO interview).
+Architect Studio — REQ → TARGET TECHNICAL ARCHITECTURE (functional or deployability gap → tech realization of focus; + interactive CTO/CPO interview).
 @$requirementDoc
 builder_project: $builderProject
 @$slice (если задан — только эти §§/blocks)
@@ -81,6 +83,7 @@ $archDocMode=auto|single|system
 
 MODE: analysis.mdc. Human language. Explain terms. Interactive interview.
 This prompt produces TARGET TECH ARCHITECTURE for the REQ focus — NOT backlog stories, NOT tasks, NOT code.
+Packaging / runtime image is a theme pack INSIDE this prompt when applicable — not a second prompt.
 No product code. No STORY/pkg/P3. No stub files “so paths exist”.
 Do NOT invent APIs, fields, paths, or deploy contracts beyond @$requirementDoc + operator answers in this chat.
 Gap → Unknown + question (do not silently omit).
@@ -99,19 +102,21 @@ If docs/analysis/ missing → create only on materialize (with interview report)
    | Level | Evidence (§) | Implication |
    Functional-heavy | … | this prompt is primary |
    Mixed functional+tech | … | extract tech into arch doc; keep REQ product-facing unless operator asks to rewrite REQ |
-   Already path-level technical | … | ask operator: still want target-arch doc, or switch to story prompts / bootstrap sibling |
+   Already path-level technical | … | ask operator: still want target-arch doc, or switch to story prompts |
+   Deployability-gap | … | SAME prompt; packaging theme pack is mandatory (do not hand off to another architecture prompt) |
 3) State use case aloud in one sentence (why this run exists).
 4) List {$focusFolder}/docs/architecture/ (etalon). Decide layout:
    - $archDocMode=single → one file TECH-ARCH-<slug>.md or next numbered file that is self-contained for this REQ focus
    - $archDocMode=system → subfolder architecture/<kebab>/ + 00-overview.md root + siblings by concern
    - $archDocMode=auto → single if focus is one concern; system if ≥3 distinct technical concerns OR operator asks for system
-   - If numbered series exists and mode allows: propose next numbers; do not renumber old docs
+   - Numbered series exists and mode allows: propose next numbers; do not renumber old docs
+   - Empty / missing → single or system under architecture/ starting with 00-overview.md
 5) Inventory table:
 | Concern (focus of REQ) | REQ says (cite §) | Silent | As-is code (path:line or Unknown) | Interview needed? |
 Concerns depend on THIS REQ focus (adapt; do not force unrelated infra). Typical set when relevant:
   goal/OOS; components & boundaries; data model & contracts; runtime/start; ownership (Git/Volume/CDN/external);
-  packaging seam (if Git FS + non-src start); env/fail-closed; verify surfaces; integration seams; privacy/security;
-  migration / coexistence with current code.
+  packaging seam (MANDATORY if Git FS + non-src start OR classify = deployability-gap); env/fail-closed; verify surfaces;
+  deploy/residual; integration seams; privacy/security; migration / coexistence with current code.
 6) Do NOT dump the full questionnaire. Start Phase 1 with ONE topic tied to the largest silent gap for the REQ focus.
 
 ## Phase 1 — Interactive interview (one topic per turn; max 2 related)
@@ -141,17 +146,21 @@ Rules:
 - Explain every technical term in plain language before asking.
 - Offer 2–3 concrete options + Other.
 - Skip a theme ONLY if REQ already closes it with path-level wording for THIS focus (cite §).
-- Themes (pick/order by focus; packaging mandatory when Git FS + non-src start applies):
+- Themes (pick/order by focus). Packaging pack is NOT optional when Git FS + non-src start OR Phase 0 classify = deployability-gap:
   F1 CPO: success cases / conscious OOS for the focus
   F2 Target components & trust boundaries (what lives where)
   F3 Data / schemas / contracts (logical; no invent fields beyond REQ+answers)
-  F4 Runtime topology & start command (if execution is in scope)
-  F5 Ownership matrix by artifact class for this focus
-  F6 Packaging seam (REQUIRED if applicable — Git ownership ≠ image packaging)
+  F4 Runtime topology & start: static | SSR | hybrid | worker — and the real production start command (if execution is in scope)
+  F5 Ownership matrix by artifact class (content, schemas, static assets, secrets, config; Git/Volume/CDN/external)
+  F6 Packaging seam (REQUIRED when applicable — Git ownership ≠ image packaging):
+     how Git-owned non-JS loaded via fs / import.meta.url appears in the runtime image after build when start ≠ src tree;
+     verify must name the production entry, not only src unit tests
   F7 Env / bind / fail-closed / health (if applicable)
   F8 Verify surfaces: what proves the architecture (src unit vs production entry — name which)
-  F9 Integration with existing modules (path:line as-is vs target)
-  F10 Privacy / security if focus touches PII or trust
+  F9 Deploy & residual: live proof vs mandatory local substitute gate when live is deferred
+  F10 Integration with existing modules (path:line as-is vs target); migration seams — who owns intersection of phases (asset × runtime) when REQ has phase seams
+  F11 Observability / operator runbook hooks (only if in REQ scope)
+  F12 Privacy / security if focus touches PII or trust
 - Do NOT turn answers into STORY keys or task lists.
 - Record for interview report: question → options summary → agent recommendation → operator decision (accepted|overridden) → verbatim answer.
 
@@ -162,8 +171,8 @@ Produce in chat:
   Context & parent REQ (functional vs tech split);
   Target technical architecture of the focus (components, flows);
   Ownership / contracts as decided;
-  Runtime / packaging / verify only if in scope for this focus;
-  Coexistence with as-is (paths or Unknown);
+  Runtime topology / packaging seam / verify surfaces / env/fail-closed / deploy-residual — include when in scope (mandatory if packaging pack applied);
+  Coexistence with as-is (paths or Unknown); seams (do NOT invent STORY keys unless operator named them);
   Open questions;
   Explicit “Not in this doc”: work items / STORY / pkg
 - Open Unknowns list
@@ -174,20 +183,21 @@ STOP. Wait for «запиши». Optional handoff hints only after materialize (
 1) python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --print-utc-now
    Use utc_date / utc_now from stdout only.
 2) Write architecture doc(s) as agreed (root must link to @$requirementDoc). Title must say target technical architecture of the REQ focus — not “implementation tasks”.
-3) Write interview report:
+3) Write interview report (NEW reports use this prefix only; do not rename historical zeya888.req-tech-arch-interview-* files):
    {$focusFolder}/docs/analysis/zeya888.req-target-tech-arch-interview-<slug>-<utc_date>.md
    slug = REQ id or filename stem; do not invent a new REQ number.
    Required sections: inputs + use-case statement; REQ level classify; verbatim decision log
    (question → options analytics summary → agent recommendation → operator decision accepted|overridden → answer);
    open Unknowns; link matrix REQ ↔ arch root ↔ report; note if packaging seam was N/A vs decided;
-   method note «functional REQ ≠ target tech arch ≠ work items»; method note «recommendation advisory; operator decides».
+   method note «functional REQ ≠ target tech arch ≠ work items»;
+   method note «Git ownership ≠ image packaging» when packaging pack applied (else «packaging N/A»);
+   method note «recommendation advisory; operator decides».
 4) Patch @$requirementDoc Related / Architecture (links only): arch root + interview report.
    Do NOT rewrite functional DoD into tech AC unless operator explicitly asked in this chat.
 5) Reply: arch root path | sibling paths | report path | REQ link patch summary | handoff options:
    - optional PA.2: refine REQ wording (still functional) with pointers to tech-arch
-   - optional bootstrap sibling req-to-tech-architecture.md if packaging/deployability still open
-   - optional req-to-backlog-stories / mixed / ADMIN when operator wants work items
-   - No P3.
+   - optional req-to-backlog-stories / req-to-ui-admin-layers / req-to-frontend-mixed-package when operator wants work items
+   - No second architecture prompt. No P3.
 
 ## analysis.mdc gates (hard)
 - Name ≠ create: do not scaffold empty schemas, sample packs, or code because a future AC named a path.
@@ -202,8 +212,9 @@ STOP. Wait for «запиши». Optional handoff hints only after materialize (
 ## Примечания (не в copy-paste)
 
 - **Decision points:** на каждом вопросе с опциями — analytics по опциям + fit к architecture/роли микросервиса + обязательная рекомендация; **решение за оператором**.
-- **Зоны:** target tech SSOT = `{focus}/docs/architecture/`; interview = `{focus}/docs/analysis/zeya888.req-target-tech-arch-interview-…`. Root (или single) **и** report линкуются с REQ.
-- **Vs bootstrap sibling:** [`req-to-tech-architecture.md`](./req-to-tech-architecture.md) заточен под pre-story **infra/deployability** (packaging checklist как центр). Этот файл — **общий** процесс: любой REQ-like, часто functional → отдельный документ **целевой tech-реализации фокуса**.
-- **Vs stories:** architecture отвечает «как устроено целевое»; stories — «какие работы». Не смешивать в одном materialize.
+- **Зоны:** target tech SSOT = `{focus}/docs/architecture/`; новые interview = `{focus}/docs/analysis/zeya888.req-target-tech-arch-interview-…`. Root (или single) **и** report линкуются с REQ. Исторический prefix `zeya888.req-tech-arch-interview-…` не переименовывать и не генерировать заново.
+- **Packaging:** не отдельный промпт. Если Git FS + non-src start или classify `deployability-gap` — темы F4–F9 обязательны в этом же прогоне. Узкий `$slice` допустим, когда оператор хочет только infra.
+- **Почему до stories:** story/mixed prompts **не invent** сверх REQ → молчание о packaging даёт false-green AC.
+- **Incident (method):** NC SSR schema packaging — ownership OK, deployability miss; see project `docs/analysis/zeya888.*-nc-ssr-schema-packaging-*` when present.
 - Human layer: [`../../curriculum/06-architect-studio-and-p1-intakes.md`](../../curriculum/06-architect-studio-and-p1-intakes.md).
-- Связанные: [`req-to-tech-architecture.md`](./req-to-tech-architecture.md), [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md), [`req-to-backlog-stories.md`](./req-to-backlog-stories.md), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
+- Связанные: [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md), [`req-to-backlog-stories.md`](./req-to-backlog-stories.md), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).

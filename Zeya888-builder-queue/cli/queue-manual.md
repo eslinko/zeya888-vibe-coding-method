@@ -322,6 +322,28 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ---
 
+## 5j. Профиль `threads` (Python 3.11 + FastAPI + uvicorn + httpx — focus `doge-threads`; alias ≠ folder)
+
+`--project threads` — активен. Active pkg: `pkg-000000-20260919-bootstrap` → **ok 1 paths** (profile marker). Контракт: [threads-operator-contract.md](../contracts/threads-operator-contract.md). Runtime plan: `.cursor/plans/Threads_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-THREADS-*` → P1.3. Remote: https://github.com/DOGE-Complaints/doge-threads (`dev`).
+
+### Verify / list
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project threads --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project threads --list
+```
+
+### Build window
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project threads \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd doge-threads && python3 -m pytest -q`. Pipeline — [threads-story-execution-pipeline.md](../../../doge-threads/docs/tasks/threads-story-execution-pipeline.md).
+
+---
+
 ## 6. Профиль `taxonomy` (queueless meta-script)
 
 **Taxonomy Cycle Builder** — ручной цикл обновления меток (телеметрия → решения → патчи gateway + spa). **Не** pkg-очередь: нет `--list`, `--write-build-window`, `pkg-*.yaml`.

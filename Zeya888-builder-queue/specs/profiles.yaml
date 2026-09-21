@@ -279,3 +279,24 @@ projects:
     execution_skill_primary: typescript-pro
     execution_skill_fallback: javascript-pro
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/typescript-pro/SKILL.md
+
+  threads:
+    enabled: true
+    focus_folder: doge-threads
+    tasks_dir: doge-threads/docs/tasks
+    active_packages_dir: threads-active-packages
+    current_pointer: threads-active-package.current.yaml
+    build_windows_subdir: run-reports/threads-build-windows
+    build_window_prefix: threads-cursor-build-window
+    next_readme_dotfile: .threads-next-readme
+    pkg_path_prefix: doge-threads/docs/tasks/
+    plan_file: .cursor/plans/Threads_builder.plan.md
+    pipeline_doc: doge-threads/docs/tasks/threads-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: threads_input_package
+    artifact_kind: threads_cursor_build_window
+    build_window_title: Threads Cursor build window
+    test_command: 'cd doge-threads && python3 -m pytest -q'
+    stack_label: Python 3.11 + FastAPI + uvicorn + httpx
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md

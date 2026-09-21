@@ -47,6 +47,7 @@ Projects map (paths; @ только нужные после $targetProjects):
 - identity → doge-identity-service/docs/requirements/
 - gpt → GPT UI/docs/requirements/ (REQ-*.md)
 - landing → landing/docs/… (verify exists)
+- threads → doge-threads/docs/requirements/ (+ README-index.md if present)
 
 Если $targetProjects пуст: предложи owners по Phase A и STOP до подтверждения оператора.
 
@@ -55,7 +56,8 @@ Ownership heuristics (primer trust boundaries; refine by parent text):
 - Public UI / discovery UX / dashboard blocks → spa
 - Auth / PII / verification → identity
 - Interview / taxonomy extraction → gpt
-
+- Thread CRUD / tree / reactions / votes / social sanction signals / raw social metrics → threads
+- Civic Issue ThreadContext adapter (entity context for threads) → gateway (not threads ownership of Issues)
 ## Phase A — Own & slice
 Таблица (каждая существенная § / claim из parent, с учётом $slice):
 | Parent § / claim | Owning project(s) | Why | Out-of-scope projects | Unknown |

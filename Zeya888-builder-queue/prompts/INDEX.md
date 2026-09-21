@@ -22,11 +22,12 @@
 | [`architect/parent-requirement-to-project-reqs.md`](./architect/parent-requirement-to-project-reqs.md) | Parent → child REQs + link matrix; materialize + mvp-dashboard sync → PA.2 |
 | [`architect/cross-project-req-scatter.md`](./architect/cross-project-req-scatter.md) | Parent → child REQs в `{project}/docs/requirements/` (write after impact; Parent/Siblings; без STORY/pkg) |
 | [`architect/cross-project-req-consistency-audit.md`](./architect/cross-project-req-consistency-audit.md) | Чистый диалог: аудит parent+child REQ vs операторская цель; реализуемость; отчёт в `docs/analysis/`; обязательный доспрос |
-| [`architect/req-to-tech-architecture.md`](./architect/req-to-tech-architecture.md) | Узкий: bootstrap / pre-story infra+deployability interview → architecture + `zeya888.req-tech-arch-interview-…` |
-| [`architect/req-to-target-tech-architecture.md`](./architect/req-to-target-tech-architecture.md) | Общий: functional REQ → целевая tech-архитектура **фокуса** (+ interview); не tasks/STORY |
+| [`architect/req-to-target-tech-architecture.md`](./architect/req-to-target-tech-architecture.md) | REQ → целевая tech-архитектура фокуса (+ interview); packaging/deployability — пакет тем того же прогона |
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |
 | [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN-01…06 (always NEW pkg); INDEX + mvp-dashboard sync; STORY via ADMIN-05 |
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
+
+**Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN. REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).
 
 ## operator/
 
@@ -51,6 +52,7 @@
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |
+| [`migration/migration-profile-from-checked-out-dir.md`](./migration/migration-profile-from-checked-out-dir.md) | Папка уже в workspace → inspect → intake → materialize (wrapper над add-builder-profile) |
 | [`migration/migration-zeya888-brand-landing-infra-transfer.md`](./migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: перенос инфры landing→`zeya888` (1A, static, 7 locales, no NC); plan attach |
 | [`migration/migration-zeya888-brand-doge-content-strip.md`](./migration/migration-zeya888-brand-doge-content-strip.md) | `zeya888-brand`: убрать landing/DOGEstonia copy+photos из `zeya888/src`; PNG stubs + `[TODO]` JSON; plan attach |
 
