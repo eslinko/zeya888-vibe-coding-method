@@ -10,7 +10,7 @@
 - все срезы `tech_first` (нет UI) → STOP, [`req-to-backlog-stories.md`](./req-to-backlog-stories.md);
 - чистый UI и стори сознательно откладываются до мокапов → [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (ADMIN only; STORY через ADMIN-05).
 
-**Advisory (не hard-STOP):** если REQ prefer SSR / `dist` start и Git-owned non-JS (schemas/assets via FS), а linked tech-architecture ещё нет — сначала [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (packaging seam — пакет тем того же промпта), затем этот промпт.
+**Advisory (не hard-STOP):** если REQ prefer SSR / `dist` start и Git-owned non-JS (schemas/assets via FS), а linked tech-architecture ещё нет — сначала [`target-tech-architecture.md`](./target-tech-architecture.md) (packaging seam — пакет тем того же промпта), затем этот промпт.
 
 **Эталон структуры пакета:** `spa-app/docs/tasks/backlog-stories/early-signal-dashboard/INDEX.md` (Admin queue + Product stories).  
 **Эталон структуры ADMIN-файла:** `public-home/ADMIN-PH-01…06` (Meta / Цель / Вход / Deliverable / Acceptance / Как выполнять).  
@@ -166,7 +166,7 @@ tech_first P1.3: mention as allowed after materialize, separate wave, only if op
 
 ## Примечания (не в copy-paste)
 
-- Связанные: [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) (non-UI), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only, STORY later), [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (target tech of focus; packaging — пакет тем), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
+- Связанные: [`req-to-backlog-stories.md`](./req-to-backlog-stories.md) (non-UI), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only, STORY later), [`target-tech-architecture.md`](./target-tech-architecture.md) (REQ and/or stories → target tech; packaging — пакет тем), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
 - Support docs (`UX-PROMPTS.md`, icon catalog STORY, api-req STORY) — deliverable слоёв 01/03/04, не этого промпта.
 - Human: [`../../curriculum/06-architect-studio-and-p1-intakes.md`](../../curriculum/06-architect-studio-and-p1-intakes.md).

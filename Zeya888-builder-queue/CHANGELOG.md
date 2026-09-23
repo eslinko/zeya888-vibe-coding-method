@@ -2,9 +2,15 @@
 
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.53 — 2026-09-23
+
+- Architect: rename `req-to-target-tech-architecture.md` → [`target-tech-architecture.md`](./prompts/architect/target-tech-architecture.md); inputs on equal footing: `$requirementDoc` and/or `$storyPackageDir` / `$storyList`
+- New interview prefix: `zeya888.target-tech-arch-interview-…` (historical `zeya888.req-*-tech-arch-interview-*` unchanged)
+- Sync: INDEX, MANIFEST, curriculum 06, guide (+ cheat-sheet vars), workflow, story/mixed advisories, REQ7 step 3 paths
+
 ## 1.4.52 — 2026-09-21
 
-- Architect: один промпт [`req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) — functional и deployability-gap; packaging (Git ownership ≠ image packaging) — пакет тем того же прогона
+- Architect: один промпт target-tech-architecture (тогда как `req-to-target-tech-architecture.md`) — functional и deployability-gap; packaging (Git ownership ≠ image packaging) — пакет тем того же прогона; renamed in 1.4.53
 - Удалён прежний узкий промпт infra/deployability; новые interview только `zeya888.req-target-tech-arch-interview-…` (старые файлы отчётов не переименовывать)
 - Sync: INDEX, MANIFEST, curriculum 06, guide, workflow, story/mixed advisories, REQ7 шаг 3 / 3e
 
@@ -66,7 +72,7 @@
 
 ## 1.4.41 — 2026-09-13
 
-- Architect: [`prompts/architect/req-to-target-tech-architecture.md`](./prompts/architect/req-to-target-tech-architecture.md) — functional / mid-lifecycle REQ → target tech architecture of focus (+ CTO/CPO interview); use-case table; not STORY/tasks
+- Architect: `req-to-target-tech-architecture.md` — functional / mid-lifecycle REQ → target tech architecture of focus (+ CTO/CPO interview); use-case table; not STORY/tasks (renamed → `target-tech-architecture.md` in 1.4.53)
 - Clarify: прежний узкий infra/deployability промпт сведён в `req-to-target-tech-architecture.md` (запись 1.4.52)
 - Sync: prompts/INDEX, MANIFEST, curriculum/06, workflow §PA Pre-PA
 

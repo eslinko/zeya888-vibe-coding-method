@@ -40,7 +40,7 @@ flowchart LR
 | Parent → child REQs, **chat drafts first**, disk only after «запиши» | [`parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md) |
 | Parent → child REQs, **write files same turn** after impact map | [`cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md) |
 | Audit parent + children vs your target state (findings report) | [`cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md) |
-| Child REQ → **target tech architecture** of focus (+ CTO/CPO interview). Packaging / deployability is a theme pack in the same prompt | [`req-to-target-tech-architecture.md`](../prompts/architect/req-to-target-tech-architecture.md) |
+| Child REQ and/or story package/list → **target tech architecture** of focus (+ CTO/CPO interview). Packaging is a theme pack in the same prompt | [`target-tech-architecture.md`](../prompts/architect/target-tech-architecture.md) |
 | Non-UI child → **STORY-*** package | [`req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) |
 | Visual UI → **ADMIN-01…06** only (stories later via ADMIN-05) | [`req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) |
 | FE mixed (UI + tech slices) → **ADMIN + STORY** in one new package | [`req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md) |
@@ -52,7 +52,7 @@ flowchart LR
 1. **Orient** (optional) — orientation prompt; read-only; stop after chat tables.
 2. **Scatter children** — prefer `cross-project-req-scatter` when you want files now; use `parent-requirement-to-project-reqs` when you want review before disk.
 3. **Consistency audit** (optional) — after children exist; writes a report under `docs/analysis/`, does not rewrite REQs.
-4. **Tech architecture per child** — `req-to-target-tech-architecture` (plan in chat → «запиши»). Packaging / runtime image is a theme pack in that same prompt when the gap is deployability.
+4. **Tech architecture per child** — `target-tech-architecture` (plan in chat → «запиши»). Inputs: REQ and/or `$storyPackageDir` / `$storyList`. Packaging / runtime image is a theme pack when the gap is deployability.
 5. **Work packages per child**
    - Backend / non-UI → `req-to-backlog-stories`
    - UI-only planning → `req-to-ui-admin-layers`
@@ -70,11 +70,13 @@ flowchart LR
 | `$parentReq=` | parent / scatter / audit | Path to parent (often `docs/requirements backlog/…`) |
 | `$targetProjects=` | parent / scatter / audit | CSV of profile keys: `gateway,spa,identity,threads,…` |
 | `$slice=` | many | Optional § / block filter |
-| `$requirementDoc=` | arch + story/ADMIN | Path to **one** per-project child REQ |
+| `$requirementDoc=` | target-tech-arch + story/ADMIN | Path to **one** per-project child REQ (optional for target-tech-arch if stories given) |
+| `$storyPackageDir=` | target-tech-arch | Optional backlog package folder (`…/backlog-stories/<pkg>/`) |
+| `$storyList=` | target-tech-arch | Optional CSV of STORY paths or keys |
 | `$builderProject=` | arch + story/ADMIN | Profile key from `profiles.yaml` |
 | `$featureSlug=` | UI ADMIN / mixed | Short prefix for `ADMIN-{PREFIX}-…` |
-| `$archPackageSlug=` | target tech-arch | Optional kebab for architecture folder/file |
-| `$archDocMode=` | target tech-arch | `auto` \| `single` \| `system` |
+| `$archPackageSlug=` | target-tech-arch | Optional kebab for architecture folder/file |
+| `$archDocMode=` | target-tech-arch | `auto` \| `single` \| `system` |
 | `$childReqs=` | consistency audit | Optional CSV of child paths |
 | `$targetState=` | consistency audit | Your projected success criteria (2–8 sentences) |
 

@@ -8,7 +8,7 @@
 
 **Не использовать**, если REQ про visual/mixed UI (spa public board, landing sections) — тогда [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (ADMIN only) или [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (ADMIN + STORY, ui_first/tech_first).
 
-**Advisory (не hard-STOP):** если REQ prefer SSR / `dist` start и Git-owned non-JS (schemas/assets via FS), а linked tech-architecture ещё нет — сначала [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (packaging seam — пакет тем того же промпта), затем этот промпт.
+**Advisory (не hard-STOP):** если REQ prefer SSR / `dist` start и Git-owned non-JS (schemas/assets via FS), а linked tech-architecture ещё нет — сначала [`target-tech-architecture.md`](./target-tech-architecture.md) (packaging seam — пакет тем того же промпта), затем этот промпт.
 
 **Подстановка (только это):**
 
@@ -97,6 +97,6 @@ Do not suggest «run P1.3» / «copy PA.3» until operator go-ahead.
 
 ## Примечания (не в copy-paste)
 
-- Связанные: [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) (раньше), [`req-to-target-tech-architecture.md`](./req-to-target-tech-architecture.md) (target tech of focus; packaging — пакет тем), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (FE mixed).
+- Связанные: [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) (раньше), [`target-tech-architecture.md`](./target-tech-architecture.md) (REQ and/or stories → target tech; packaging — пакет тем), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (FE mixed).
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
 - После materialize оператор сам запускает PA.3/P1.3 — этот промпт их не копирует в ответ по умолчанию.
