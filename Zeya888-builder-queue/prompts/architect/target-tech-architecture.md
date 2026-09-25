@@ -232,10 +232,10 @@ STOP. Wait for «запиши».
 
 ## Примечания (не в copy-paste)
 
-- **Decision points:** analytics по опциям + fit к architecture/роли + обязательная рекомендация; **решение за оператором**.
+- **Decision points:** analytics по опциям + fit к architecture/роли + обязательная рекомендация; **решение за оператором**. При запросе ОЯЗ-расшифровки вариантов — attach [`decision-point-human-language.md`](./decision-point-human-language.md) (companion; не заменяет HARD Decision-point protocol).
 - **Зоны:** tech SSOT = `{focus}/docs/architecture/`; новые interview = `{focus}/docs/analysis/zeya888.target-tech-arch-interview-…`. Исторические `zeya888.req-target-tech-arch-interview-…` / `zeya888.req-tech-arch-interview-…` не переименовывать.
 - **Packaging:** не отдельный промпт; при Git FS + non-src start или `deployability-gap` — F4–F9 обязательны. Узкий `$slice` допустим.
 - **Stories:** вход на равных с REQ; цитировать можно, создавать новые — нельзя.
 - **Incident (method):** NC SSR schema packaging — ownership OK, deployability miss; see `docs/analysis/zeya888.*-nc-ssr-schema-packaging-*` when present.
 - Human layer: [`../../curriculum/06-architect-studio-and-p1-intakes.md`](../../curriculum/06-architect-studio-and-p1-intakes.md).
-- Связанные: [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md), [`req-to-backlog-stories.md`](./req-to-backlog-stories.md), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).
+- Связанные: [`decision-point-human-language.md`](./decision-point-human-language.md), [`cross-project-req-consistency-audit.md`](./cross-project-req-consistency-audit.md), [`req-to-backlog-stories.md`](./req-to-backlog-stories.md), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md), [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md).

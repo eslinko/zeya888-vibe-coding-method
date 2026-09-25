@@ -2,6 +2,11 @@
 
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.54 — 2026-09-25
+
+- Architect companion: [`prompts/architect/decision-point-human-language.md`](./prompts/architect/decision-point-human-language.md) — ОЯЗ Decision-point + ethics/architecture fit (parent: target-tech-architecture)
+- Sync: INDEX, MANIFEST, target-tech-architecture notes, curriculum 06, guide
+
 ## 1.4.53 — 2026-09-23
 
 - Architect: rename `req-to-target-tech-architecture.md` → [`target-tech-architecture.md`](./prompts/architect/target-tech-architecture.md); inputs on equal footing: `$requirementDoc` and/or `$storyPackageDir` / `$storyList`

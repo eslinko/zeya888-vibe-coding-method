@@ -23,6 +23,7 @@
 | [`architect/cross-project-req-scatter.md`](./architect/cross-project-req-scatter.md) | Parent → child REQs в `{project}/docs/requirements/` (write after impact; Parent/Siblings; без STORY/pkg) |
 | [`architect/cross-project-req-consistency-audit.md`](./architect/cross-project-req-consistency-audit.md) | Чистый диалог: аудит parent+child REQ vs операторская цель; реализуемость; отчёт в `docs/analysis/`; обязательный доспрос |
 | [`architect/target-tech-architecture.md`](./architect/target-tech-architecture.md) | REQ and/or story package/list → целевая tech-архитектура фокуса (+ interview); packaging — пакет тем |
+| [`architect/decision-point-human-language.md`](./architect/decision-point-human-language.md) | Companion: ОЯЗ-разбор вариантов Decision-point + ethics/architecture fit + advisory recommend |
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |
 | [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN-01…06 (always NEW pkg); INDEX + mvp-dashboard sync; STORY via ADMIN-05 |
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |

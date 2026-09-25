@@ -59,6 +59,7 @@ flowchart TB
 | [`prompts/architect/cross-project-req-scatter.md`](./prompts/architect/cross-project-req-scatter.md) | Pre-PA.2 write-after-impact: parent → `{project}/docs/requirements/` children (gateway/identity/spa/gpt) |
 | [`prompts/architect/cross-project-req-consistency-audit.md`](./prompts/architect/cross-project-req-consistency-audit.md) | Findings-only: parent+child REQ consistency + target-state audit → `docs/analysis/` |
 | [`prompts/architect/target-tech-architecture.md`](./prompts/architect/target-tech-architecture.md) | REQ and/or stories → target tech architecture of focus (+ interview); packaging is a theme pack |
+| [`prompts/architect/decision-point-human-language.md`](./prompts/architect/decision-point-human-language.md) | Companion: ОЯЗ Decision-point + ethics/architecture fit + advisory recommend |
 | [`prompts/architect/req-to-backlog-stories.md`](./prompts/architect/req-to-backlog-stories.md) | Post-REQ: non-UI → backlog STORY package (plan → materialize) |
 | [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) | Post-REQ: UI → ADMIN-01…06 layer package (plan → materialize) |
 | [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) | Post-REQ: FE mixed → classify ui_first/tech_first; ADMIN projected + STORY (plan → materialize) |

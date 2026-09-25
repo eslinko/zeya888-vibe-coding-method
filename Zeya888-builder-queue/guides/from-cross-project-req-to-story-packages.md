@@ -41,6 +41,7 @@ flowchart LR
 | Parent → child REQs, **write files same turn** after impact map | [`cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md) |
 | Audit parent + children vs your target state (findings report) | [`cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md) |
 | Child REQ and/or story package/list → **target tech architecture** of focus (+ CTO/CPO interview). Packaging is a theme pack in the same prompt | [`target-tech-architecture.md`](../prompts/architect/target-tech-architecture.md) |
+| During interview: explain Decision-point options in plain language (ОЯЗ) + principles fit | [`decision-point-human-language.md`](../prompts/architect/decision-point-human-language.md) |
 | Non-UI child → **STORY-*** package | [`req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) |
 | Visual UI → **ADMIN-01…06** only (stories later via ADMIN-05) | [`req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) |
 | FE mixed (UI + tech slices) → **ADMIN + STORY** in one new package | [`req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md) |
