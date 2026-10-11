@@ -50,6 +50,7 @@
 | [`migration/migration-validator.md`](./migration/migration-validator.md) | Role wrapper для быстрого VAL bootstrap |
 | [`migration/migration-orchestrator.md`](./migration/migration-orchestrator.md) | Role wrapper для быстрого OP bootstrap |
 | [`migration/migration-self-restore-zeya888-method.md`](./migration/migration-self-restore-zeya888-method.md) | Self-restore контекста метода Zeya888: что это, зачем, где SSOT, как работать в роли/проекте |
+| [`migration/migration-workspace-chat-export.md`](./migration/migration-workspace-chat-export.md) | Экспорт Agent/Composer чатов workspace → markdown packs (не sidebar transfer); скрипт `tools/export-workspace-chats.py` |
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |

@@ -70,6 +70,7 @@ flowchart TB
 | [`prompts/operator/lightweight-followup-author.md`](./prompts/operator/lightweight-followup-author.md) | Dual plans + LAUNCH after triage PASS |
 | [`prompts/migration/migration-zeya888-brand-landing-infra-transfer.md`](./prompts/migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: landing infra → `zeya888` (1A, no NC) |
 | [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir → inspect → intake → materialize profile |
+| [`prompts/migration/migration-workspace-chat-export.md`](./prompts/migration/migration-workspace-chat-export.md) | Export workspace Agent chats → markdown handoff packs (`tools/export-workspace-chats.py`) |
 | [`guides/operator-root-orchestrator.md`](./guides/operator-root-orchestrator.md) | Процесс root→субагенты + roadmap MVP/Task/SDK |
 | [`guides/orchestrator-builder-reference.md`](./guides/orchestrator-builder-reference.md) | Proven overnight two-subagent SSOT (universal) |
 | [`guides/operator-how-to-run-queue.md`](./guides/operator-how-to-run-queue.md) | Human how-to: запуск очереди стори/багов в OP |

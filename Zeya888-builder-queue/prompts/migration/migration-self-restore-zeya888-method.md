@@ -87,3 +87,5 @@ Claims только path-based; если не найдено — Unknown.
 - конкретный проектный контур (какие файлы и команды использовать),
 - role-lock текущей волны,
 - безопасный первый шаг продолжения работы.
+
+**Связанный экспорт чатов (не sidebar transfer):** [`migration-workspace-chat-export.md`](./migration-workspace-chat-export.md) + [`../../tools/export-workspace-chats.py`](../../tools/export-workspace-chats.py).

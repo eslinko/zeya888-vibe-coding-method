@@ -2,6 +2,12 @@
 
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.55 — 2026-10-11
+
+- Migration: [`tools/export-workspace-chats.py`](./tools/export-workspace-chats.py) — read-only export of workspace Agent/Composer chats → markdown handoff packs (no sidebar rehydrate)
+- Prompt: [`prompts/migration/migration-workspace-chat-export.md`](./prompts/migration/migration-workspace-chat-export.md)
+- Sync: INDEX, MANIFEST; pointer from `migration-self-restore-zeya888-method.md`
+
 ## 1.4.54 — 2026-09-25
 
 - Architect companion: [`prompts/architect/decision-point-human-language.md`](./prompts/architect/decision-point-human-language.md) — ОЯЗ Decision-point + ethics/architecture fit (parent: target-tech-architecture)
