@@ -143,7 +143,7 @@ projects:
     input_package_yaml_key: capybara_input_package
     artifact_kind: capybara_cursor_build_window
     build_window_title: Capybara Cursor build window
-    test_command: 'npx mocha scripts/tests/unit/capybara/**/*.test.js --config scripts/tests/.mocharc.json'
+    test_command: 'cd capybara && npm test'
     stack_label: Vue 3 + Node.js (UI + API monolith)
     execution_skill_primary: vue-expert
     execution_skill_fallback: javascript-pro
