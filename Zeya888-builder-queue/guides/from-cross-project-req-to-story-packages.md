@@ -43,7 +43,7 @@ flowchart LR
 | Child REQ and/or story package/list → **target tech architecture** of focus (+ CTO/CPO interview). Packaging is a theme pack in the same prompt | [`target-tech-architecture.md`](../prompts/architect/target-tech-architecture.md) |
 | During interview: explain Decision-point options in plain language (ОЯЗ) + principles fit | [`decision-point-human-language.md`](../prompts/architect/decision-point-human-language.md) |
 | Non-UI child → **STORY-*** package | [`req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) |
-| Visual UI → **ADMIN-01…06** only (stories later via ADMIN-05) | [`req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) |
+| Visual UI → **ADMIN** only (**A** 01…06; **B** UX-ready omit 01/02 → start 03; stories later via ADMIN-05) | [`req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) |
 | FE mixed (UI + tech slices) → **ADMIN + STORY** in one new package | [`req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md) |
 
 ---

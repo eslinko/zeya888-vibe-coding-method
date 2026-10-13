@@ -25,7 +25,7 @@
 | [`architect/target-tech-architecture.md`](./architect/target-tech-architecture.md) | REQ and/or story package/list → целевая tech-архитектура фокуса (+ interview); packaging — пакет тем |
 | [`architect/decision-point-human-language.md`](./architect/decision-point-human-language.md) | Companion: ОЯЗ-разбор вариантов Decision-point + ethics/architecture fit + advisory recommend |
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |
-| [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN-01…06 (always NEW pkg); INDEX + mvp-dashboard sync; STORY via ADMIN-05 |
+| [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN pkg (always NEW): **A** 01…06; **B** UX-ready omit 01/02 → start 03; INDEX + mvp-dashboard; STORY via ADMIN-05 |
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
 
 **Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN. REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).

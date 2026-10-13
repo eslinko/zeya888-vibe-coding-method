@@ -1,6 +1,9 @@
 # Changelog — Zeya888 Builder Queue
 
-# Changelog — Zeya888 Builder Queue
+## 1.4.56 — 2026-10-13
+
+- Architect: [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) — dual copy-paste: **A** full ADMIN-01…06; **B** UX-ready (omit 01/02; first = ADMIN-03; artboards+per-artboard specs → full file table in Вход)
+- Sync: prompts/INDEX, MANIFEST, curriculum/06, guide
 
 ## 1.4.55 — 2026-10-11
 
