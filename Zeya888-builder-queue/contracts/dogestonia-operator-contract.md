@@ -41,7 +41,7 @@ Process-reminder правила для `builder_project: dogestonia` (React Nati
 
 - **P1.1** `epic_story` — keys `EPIC-DOGE-*` (confirm at first emit); default pkg kind `epic_story_tree`.
 - **P1.3** `backlog_story` — keys `STORY-DOGE-*`.
-- **`requirement`** — `$requirementDoc` = `REQ-APP-01`…`04` / CONTEXT under [`docs/requirements/`](../../../dogestonia-app/docs/requirements/INDEX.md).
+- **`requirement`** — `$requirementDoc` = **REQ00** / **REQ01** / **REQ02** under [`docs/requirements/`](../../../dogestonia-app/docs/requirements/INDEX.md) (order: foundation → auth/interest → journeys); deferred operator = [`deferred-operator/`](../../../dogestonia-app/docs/requirements/deferred-operator/README.md) REQ-APP-* only when Product opens that wave.
 
 ---
 
@@ -61,7 +61,7 @@ Process-reminder правила для `builder_project: dogestonia` (React Nati
 |--------------|----------------|--------------------|
 | `epic_story` | `@$epicFile` (`EPIC-DOGE-*`) | **Default tree** (как gateway) |
 | `backlog_story` | `@$storyFile` (`STORY-DOGE-*`); опц. `@$backlogIndex` | Doc-gap / backlog emit → P1.3 |
-| `requirement` | `@$requirementDoc` (`REQ-APP-*` / CONTEXT) | Инкремент по numbered REQ |
+| `requirement` | `@$requirementDoc` (**REQ00→01→02**; or deferred REQ-APP-* / CONTEXT) | Default research order: foundation → auth → journeys |
 | `run_mode=…` | gap list из `DOGEstonia_builder.plan.md` §safe-override | Post-audit; **не** менять active pkg |
 
 **Один режим на сессию** — не смешивать без явной команды оператора.
@@ -107,7 +107,7 @@ SSOT: [`guides/builder-artifact-dates.md`](../guides/builder-artifact-dates.md).
 1. `run_mode` override list (если оператор явно указал)  
 2. Active `dogestonia-active-packages/pkg-*.yaml` + `--verify`  
 3. `bullrun-launch-index.md` + `backlog-stories/INDEX.md`  
-4. **Epic:** `docs/tasks/epics/` · **Backlog:** `backlog-stories/` · **Requirements:** `docs/requirements/REQ-APP-*` (intake, не очередь)  
+4. **Epic:** `docs/tasks/epics/` · **Backlog:** `backlog-stories/` · **Requirements:** `docs/requirements/REQ00-*.md` / `REQ01-*.md` / `REQ02-*.md` (active) · `docs/requirements/deferred-operator/` (operator later)  
 5. Task `README.md` + acceptance-verification
 
 Pipeline: [`dogestonia-story-execution-pipeline.md`](../../../dogestonia-app/docs/tasks/dogestonia-story-execution-pipeline.md).
@@ -143,7 +143,7 @@ Build plan **не** содержит таблицу P4 — только эта �
 | Task naming | `task-doge-*` |
 | Execution skill | `react-native-expert`; fallback `react-expert` |
 | Requirements SSOT | [`docs/requirements/INDEX.md`](../../../dogestonia-app/docs/requirements/INDEX.md) |
-| REQ map | REQ-APP-01…04 + CONTEXT |
+| REQ map | **REQ00→01→02** active; REQ-APP-01…04 in [`deferred-operator/`](../../../dogestonia-app/docs/requirements/deferred-operator/README.md) + CONTEXT |
 | UI Visual | [`spa-ui-visual-pipeline.md`](../guides/spa-ui-visual-pipeline.md) |
 
 **hasUxPipeline:** true — console UX branches как spa.
