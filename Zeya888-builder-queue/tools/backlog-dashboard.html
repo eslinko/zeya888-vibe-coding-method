@@ -294,21 +294,21 @@
   <script>
     /* DASHBOARD_DATA_START */
     const DASHBOARD_DATA = {
-  "generated_at": "2026-09-02T14:23:42.842Z",
+  "generated_at": "2026-10-13T11:02:24.505Z",
   "projects": [
     {
       "key": "gateway",
       "label": "Gateway",
-      "updated": "2026-08-10",
+      "updated": "2026-10-13",
       "summary": {
-        "packages": 8,
-        "stories": 35,
-        "done": 34,
+        "packages": 12,
+        "stories": 46,
+        "done": 42,
         "todo": null,
         "deferred": 3,
         "accumulating": null,
-        "progress_pct": 97,
-        "progress_bar": "████████████░"
+        "progress_pct": 91,
+        "progress_bar": "███████████░"
       },
       "packages": [
         {
@@ -406,6 +406,54 @@
           "progress_pct": 75,
           "progress_bar": "█████████░░░",
           "raw_progress": "75% `█████████░░░`"
+        },
+        {
+          "name": "req9-ops-parity-env-naming",
+          "link": "backlog-stories/req9-ops-parity-env-naming/INDEX.md",
+          "stories": 2,
+          "done": 2,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "req10-lifecycle-status-normalize",
+          "link": "backlog-stories/req10-lifecycle-status-normalize/INDEX.md",
+          "stories": 2,
+          "done": 2,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "req11-demo-life-sim-fixtures-and-replay",
+          "link": "backlog-stories/req11-demo-life-sim-fixtures-and-replay/INDEX.md",
+          "stories": 5,
+          "done": 5,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "req56-issues-server-text-search",
+          "link": "backlog-stories/req56-issues-server-text-search/INDEX.md",
+          "stories": 2,
+          "done": 0,
+          "todo": 1,
+          "deferred": 1,
+          "accum": null,
+          "progress_pct": 50,
+          "progress_bar": "██████░░░░░░",
+          "raw_progress": "50% `██████░░░░░░`"
         }
       ],
       "epics": [
@@ -442,7 +490,22 @@
         {
           "name": "[EPIC-M2-24](epics/EPIC-M2-24-early-signal-pre-cluster.md)",
           "status": "ES-02/ES-03 Done",
-          "notes": "ES-02 pkg-000059; ES-03 pkg-000060 Done; TASK-ES-04 Todo"
+          "notes": "TASK-ES-04 Todo"
+        },
+        {
+          "name": "[EPIC-req9-ops-parity-env-naming](epics/EPIC-req9-ops-parity-env-naming.md)",
+          "status": "🔵 Done",
+          "notes": "pkg-000096 + pkg-000097 Done; not `EPIC-M2-*`"
+        },
+        {
+          "name": "[EPIC-req10-lifecycle-status-normalize](epics/EPIC-req10-lifecycle-status-normalize.md)",
+          "status": "🔵 Done",
+          "notes": "pkg-000098 + pkg-000099 Done; not `EPIC-M2-*`"
+        },
+        {
+          "name": "[EPIC-req11-demo-life-sim-fixtures-and-replay](epics/EPIC-req11-demo-life-sim-fixtures-and-replay.md)",
+          "status": "🔵 Done*",
+          "notes": "REQ11-01…05 Done pkg-000100…104 (05 PASS* live signup 429 ops leftover); not `EPIC-M2-*`"
         }
       ],
       "next_waves": [],
@@ -451,16 +514,16 @@
     {
       "key": "gpt",
       "label": "GPT",
-      "updated": "2026-09-01",
+      "updated": "2026-09-03",
       "summary": {
-        "packages": 4,
-        "stories": 36,
+        "packages": 5,
+        "stories": 44,
         "done": 34,
-        "todo": 2,
+        "todo": 10,
         "deferred": 1,
         "accumulating": null,
-        "progress_pct": 94,
-        "progress_bar": "███████████░"
+        "progress_pct": 77,
+        "progress_bar": "█████████░░░"
       },
       "packages": [
         {
@@ -502,14 +565,26 @@
         {
           "name": "semantic-schema-runtime",
           "link": "backlog-stories/semantic-schema-runtime/INDEX.md",
-          "stories": 10,
+          "stories": 13,
           "done": 10,
-          "todo": 0,
+          "todo": 3,
           "deferred": 0,
           "accum": null,
-          "progress_pct": 100,
-          "progress_bar": "████████████",
-          "raw_progress": "100% `████████████`"
+          "progress_pct": 77,
+          "progress_bar": "█████████░░░",
+          "raw_progress": "77% `█████████░░░`"
+        },
+        {
+          "name": "node-onboarding",
+          "link": "backlog-stories/node-onboarding/INDEX.md",
+          "stories": 4,
+          "done": 0,
+          "todo": 4,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 0,
+          "progress_bar": "░░░░░░░░░░░░",
+          "raw_progress": "0% `░░░░░░░░░░░░`"
         }
       ],
       "epics": [
@@ -635,15 +710,15 @@
     {
       "key": "identity",
       "label": "Identity",
-      "updated": "2026-08-20",
+      "updated": "2026-09-25",
       "summary": {
-        "packages": 10,
-        "stories": 42,
-        "done": 40,
-        "todo": 2,
+        "packages": 12,
+        "stories": 47,
+        "done": 43,
+        "todo": 4,
         "deferred": 9,
         "accumulating": null,
-        "progress_pct": 95,
+        "progress_pct": 91,
         "progress_bar": "███████████░"
       },
       "packages": [
@@ -706,6 +781,30 @@
           "progress_pct": 75,
           "progress_bar": "█████████░░░",
           "raw_progress": "75% `█████████░░░`"
+        },
+        {
+          "name": "threads-verification-boolean",
+          "link": "backlog-stories/threads-verification-boolean/INDEX.md",
+          "stories": 3,
+          "done": 3,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████`"
+        },
+        {
+          "name": "req9-make-env-load-parity",
+          "link": "backlog-stories/req9-make-env-load-parity/INDEX.md",
+          "stories": 2,
+          "done": 0,
+          "todo": 2,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 0,
+          "progress_bar": "░░░░░░░░░░░░",
+          "raw_progress": "0% `░░░░░░░░░░░░`"
         },
         {
           "name": "cleanup",
@@ -813,6 +912,16 @@
           "name": "[EPIC-IDS-14](epics/EPIC-IDS-14-smspm/EPIC-IDS-14-smspm.md) (alias EPIC-IDS-SMSPM)",
           "status": "In Progress",
           "notes": "SMSPM-01 🟢 pkg-000046; SMSPM-02 🟢 pkg-000047; SMSPM-04 🟢 pkg-000049; SMSPM-03 ⚪; SPIKE-01 ops"
+        },
+        {
+          "name": "[EPIC-IDS-15](epics/EPIC-IDS-15-threads-verification-boolean/EPIC-IDS-15-threads-verification-boolean.md)",
+          "status": "Done",
+          "notes": "VB-01…03 🟢; wire `identity_verified` on `GET /me`"
+        },
+        {
+          "name": "REQ9 Make `.env` (G8)",
+          "status": "Backlog",
+          "notes": "[`req9-make-env-load-parity`](backlog-stories/req9-make-env-load-parity/INDEX.md) REQ9-01/02 ⚪"
         }
       ],
       "next_waves": [],
@@ -821,12 +930,12 @@
     {
       "key": "spa",
       "label": "SPA",
-      "updated": "2026-08-18",
+      "updated": "2026-10-13",
       "summary": {
-        "packages": 12,
-        "stories": 72,
-        "done": 67,
-        "todo": 5,
+        "packages": 19,
+        "stories": 90,
+        "done": 84,
+        "todo": 6,
         "deferred": 1,
         "accumulating": null,
         "progress_pct": 93,
@@ -976,6 +1085,90 @@
           "progress_pct": 100,
           "progress_bar": "████████████",
           "raw_progress": "100% `████████████` · ADMIN **6/6** (вне %)"
+        },
+        {
+          "name": "threads-feed",
+          "link": "backlog-stories/threads-feed/INDEX.md",
+          "stories": 9,
+          "done": 9,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · ADMIN **6/6** · THR-01…09 **Done**"
+        },
+        {
+          "name": "req9-vite-identity-base-url",
+          "link": "backlog-stories/req9-vite-identity-base-url/INDEX.md",
+          "stories": 1,
+          "done": 1,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · **REQ9-01 Done** (`pkg-000086`)"
+        },
+        {
+          "name": "req10-threads-reaction-reload-honesty",
+          "link": "backlog-stories/req10-threads-reaction-reload-honesty/INDEX.md",
+          "stories": 2,
+          "done": 2,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · REQ10-01/02 **Done** (`pkg-000087`/`088`)"
+        },
+        {
+          "name": "req11-demo-life-sim-board-threads-verify",
+          "link": "backlog-stories/req11-demo-life-sim-board-threads-verify/INDEX.md",
+          "stories": 1,
+          "done": 0,
+          "todo": 1,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 0,
+          "progress_bar": "░░░░░░░░░░░░",
+          "raw_progress": "0% `░░░░░░░░░░░░` · REQ11-01 **Blocked** (GW-55 + THR-04)"
+        },
+        {
+          "name": "ui-modularity-theme-redesign-prep",
+          "link": "backlog-stories/ui-modularity-theme-redesign-prep/INDEX.md",
+          "stories": 5,
+          "done": 5,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · REQ21-01…05 **Done** (Phase 0)"
+        },
+        {
+          "name": "next-shell",
+          "link": "backlog-stories/next-shell/INDEX.md",
+          "stories": 6,
+          "done": 6,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": "████████████",
+          "raw_progress": "100% `████████████` · ADMIN **6/6** (вне %) · [EPIC-19](epics/EPIC-SPA-19-next-shell/EPIC-SPA-19-next-shell.md) **Done** · NS-01…06 Done · REQ-22 shell"
+        },
+        {
+          "name": "next-feed",
+          "link": "backlog-stories/next-feed/INDEX.md",
+          "stories": 6,
+          "done": 0,
+          "todo": 6,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 0,
+          "progress_bar": "░░░░░░░░░░░░",
+          "raw_progress": "0% `░░░░░░░░░░░░` · ADMIN **5/5** (вне %) · [EPIC-20](epics/EPIC-SPA-20-next-feed/EPIC-SPA-20-next-feed.md) Todo · tip NF-01"
         }
       ],
       "epics": [
@@ -1038,6 +1231,16 @@
           "name": "[EPIC-SPA-12](epics/EPIC-SPA-12-early-signal-dashboard/EPIC-SPA-12-early-signal-dashboard.md)",
           "status": "Done",
           "notes": "ES-01…05 Done (`pkg-000066`…`pkg-000070` · P7 WAVE COMPLETE)"
+        },
+        {
+          "name": "[EPIC-SPA-19](epics/EPIC-SPA-19-next-shell/EPIC-SPA-19-next-shell.md)",
+          "status": "Done",
+          "notes": "REQ-22 shell · NS-01…06 Done (`pkg-000097`…`102`) · ADMIN-NS **6/6**"
+        },
+        {
+          "name": "[EPIC-SPA-20](epics/EPIC-SPA-20-next-feed/EPIC-SPA-20-next-feed.md)",
+          "status": "Todo",
+          "notes": "REQ-22 feed · NF-01…06 scaffolded (25 tasks) · ADMIN-NF **5/5** · tip NF-01"
         },
         {
           "name": "[EPIC-DASH-01](epics/EPIC-DASH-01-dashboard-read-side-cutover/EPIC-DASH-01-dashboard-read-side-cutover.md)",
@@ -1236,16 +1439,16 @@
     {
       "key": "landing",
       "label": "Landing",
-      "updated": "2026-08-14",
+      "updated": "2026-09-13",
       "summary": {
-        "packages": 3,
-        "stories": 17,
-        "done": 18,
-        "todo": 0,
+        "packages": 5,
+        "stories": 32,
+        "done": 27,
+        "todo": 1,
         "deferred": 15,
         "accumulating": null,
-        "progress_pct": 100,
-        "progress_bar": "████████████"
+        "progress_pct": 84,
+        "progress_bar": "██████████░░"
       },
       "packages": [
         {
@@ -1273,6 +1476,30 @@
           "raw_progress": "100% Done · LAND-01…09"
         },
         {
+          "name": "node-customization",
+          "link": "backlog-stories/node-customization/INDEX.md",
+          "stories": 6,
+          "done": 6,
+          "todo": 0,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 100,
+          "progress_bar": null,
+          "raw_progress": "100% Done (local) · residual NC-06b BLOCKED вне %"
+        },
+        {
+          "name": "landing-finetuning",
+          "link": "backlog-stories/landing-finetuning/INDEX.md",
+          "stories": 8,
+          "done": 3,
+          "todo": 1,
+          "deferred": 0,
+          "accum": null,
+          "progress_pct": 38,
+          "progress_bar": null,
+          "raw_progress": "**38%** · LFT-01/02/03 Done · LFT-06 Todo · LFT-04…08 Draft"
+        },
+        {
           "name": "bugs",
           "link": "backlog-stories/bugs/INDEX.md",
           "stories": 46,
@@ -1287,14 +1514,24 @@
       ],
       "epics": [
         {
+          "name": "[EPIC-LAND-04](epics/EPIC-LAND-04-landing-finetuning/EPIC-LAND-04-landing-finetuning.md)",
+          "status": "In Progress",
+          "notes": "LFT-01/02/03/06 **Done** · LFT-04/05 **BLOCKED** · active `pkg-000069` · next Validator"
+        },
+        {
           "name": "[EPIC-LAND-02](epics/EPIC-LAND-02-marketing-landing/EPIC-LAND-02-marketing-landing.md)",
           "status": "In Progress",
-          "notes": "LAND-01…09 Done · bugs Done ×28 · **2 In Progress** (17b H2 · 27 copy-gate) · **0 Ready** · Active `pkg-000057` · `*b` BLOCKED deploy"
+          "notes": "LAND-01…09 Done · bugs Done ×28 · **2 In Progress** (17b H2 · 27 copy-gate) · **0 Ready**"
         },
         {
           "name": "[EPIC-LAND-01](epics/EPIC-LAND-01-landing-foundation/EPIC-LAND-01-landing-foundation.md)",
           "status": "In Progress",
           "notes": "LF-00…06 Done + P7"
+        },
+        {
+          "name": "Node customization (REQ1)",
+          "status": "Done (local)",
+          "notes": "[node-customization/](backlog-stories/node-customization/INDEX.md) NC-01…06 Done · NC-06b BLOCKED · `pkg-000063` prior"
         },
         {
           "name": "Legacy `epic-01…08`",
@@ -1308,10 +1545,10 @@
   ],
   "global": {
     "project_count": 7,
-    "total_stories": 245,
-    "total_done": 200,
-    "total_todo": 45,
-    "overall_pct": 82
+    "total_stories": 302,
+    "total_done": 237,
+    "total_todo": 57,
+    "overall_pct": 78
   }
 };
     /* DASHBOARD_DATA_END */
