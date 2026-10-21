@@ -1,5 +1,5 @@
 ---
-description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, zeya888, arweave, dogestonia, aibridge, zeya888-brand, and threads
+description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, zeya888, arweave, dogestonia, aibridge, zeya888-brand, threads, and floou
 globs:
   - doge-complaints-gateway/**
   - GPT UI/**
@@ -18,7 +18,7 @@ alwaysApply: false
 
 # Builder operator habits
 
-When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888, zeya888-brand, threads, arweave, dogestonia, aibridge) or works on Zeya888 Builder Queue / pkg / build window:
+When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888, zeya888-brand, threads, floou, arweave, dogestonia, aibridge) or works on Zeya888 Builder Queue / pkg / build window:
 
 1. **Before Build execution:** from workspace root run  
    `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify`  
@@ -90,8 +90,14 @@ When the operator names `builder_project` (gateway, gpt, identity, spa, scripts,
    - primary intake: P1.3 `STORY-THREADS-*` (один режим); **не** invent; alias `threads` → focus `doge-threads/`;
    - stack: Python 3.11 + FastAPI + uvicorn + httpx in `doge-threads/`; skill `python-pro`;
    - runtime P3/P6 — @attach `.cursor/plans/Threads_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
-20. **Fixed builder plans (`*_builder.plan.md`):** execution — @attach в **текущем** project-чате + [workflow.md](../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P3/P6; **не** нажимать Build / Execute plan на файле плана ([fixed-builder-plan-execution.md](../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)). Ephemeral P1/P5 plans — Plan mode только в том project-чате, где идёт волна.
-21. **Lightweight follow-up (post-Done, no new STORY):** [lightweight-followup.md](../../docs/methodology/Zeya888-builder-queue/guides/lightweight-followup.md) — сначала VAL triage ([lightweight-followup-triage.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-triage.md)); hard HIT → ESCALATE to BQ; PASS → author dual plans ([lightweight-followup-author.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-author.md)) → BLD implement → VAL validate; не подменять P4.
+20. **Floou (`builder_project: floou`)** — полный контракт: [floou-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/floou-operator-contract.md):
+   - перед batch-run: `Floou/docs/tasks/bullrun-launch-index.md` + `floou-active-package.current.yaml` + `--project floou --verify`;
+   - primary intake: P1.3 `STORY-FLOOU-*` (один режим); **не** invent; alias `floou` → focus `Floou/`;
+   - stack: Solidity (LSP7 token) in `Floou/`; skill `solidity-auditor`;
+   - runtime P3/P6 — @attach `.cursor/plans/Floou_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+21. **Fixed builder plans (`*_builder.plan.md`):** execution — @attach в **текущем** project-чате + [workflow.md](../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P3/P6; **не** нажимать Build / Execute plan на файле плана ([fixed-builder-plan-execution.md](../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)). Ephemeral P1/P5 plans — Plan mode только в том project-чате, где идёт волна.
+22. **Lightweight follow-up (post-Done, no new STORY):** [lightweight-followup.md](../../docs/methodology/Zeya888-builder-queue/guides/lightweight-followup.md) — сначала VAL triage ([lightweight-followup-triage.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-triage.md)); hard HIT → ESCALATE to BQ; PASS → author dual plans ([lightweight-followup-author.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-author.md)) → BLD implement → VAL validate; не подменять P4.
+23. **Markstack (residual → L1→L1.5→L2 before Apply):** [markstack.md](../../docs/methodology/Zeya888-builder-queue/guides/markstack.md) — live UI marks / screens+comments → Interview → L1 FR/AC → L1.5 arch → L2 Apply atoms; prompt [markstack-intake.md](../../docs/methodology/Zeya888-builder-queue/prompts/architect/markstack-intake.md); не путать с P0–P8 и не с п.22.
 
 ## Aggregated operator profile (from recurrent dialogs)
 

@@ -113,6 +113,7 @@ Fixed `*_builder.plan.md`: **@attach** в текущем чате; не Build / 
 - **Dashboard:** `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`).
 - **Чаты / планы OP:** `OP-<project>-<slug>.plan.md`, `BLD-<project>`, `VAL-<project>`.
 - **UI REQ (spa/landing):** слои `ADMIN-01`…`ADMIN-06`, не сразу STORY ([`req-to-ui-admin-layers.md`](../../docs/methodology/Zeya888-builder-queue/prompts/architect/req-to-ui-admin-layers.md)). **FE mixed** (ui_first + tech_first в одном пакете): ADMIN projected + STORY сразу ([`req-to-frontend-mixed-package.md`](../../docs/methodology/Zeya888-builder-queue/prompts/architect/req-to-frontend-mixed-package.md)).
+- **Markstack:** residual / screens → L1→L1.5→L2 intake до Apply ([`guides/markstack.md`](../../docs/methodology/Zeya888-builder-queue/guides/markstack.md)); не P0–P8.
 - **Коммиты:** conventional EN; типы `feat` `fix` `refactor` `test` `chore` `docs` `style` `perf`; scope как модуль (`SPA-BUG-06`, `woocommerce`). P8: **feat → test → docs**.
 - **L10N spa:** ключи вида `earlySignal.*`.
 - **Safe-override:** `run_mode=<slug>` только по явной команде (напр. `spa_bug_06_audit_2026_08_18`).
