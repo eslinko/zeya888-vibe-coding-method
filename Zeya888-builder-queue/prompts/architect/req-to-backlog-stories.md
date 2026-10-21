@@ -98,5 +98,6 @@ Do not suggest «run P1.3» / «copy PA.3» until operator go-ahead.
 ## Примечания (не в copy-paste)
 
 - Связанные: [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) (раньше), [`target-tech-architecture.md`](./target-tech-architecture.md) (REQ and/or stories → target tech; packaging — пакет тем), [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) (UI ADMIN only), [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) (FE mixed).
+- **Advisory:** live residual / screens → layered L1→L1.5→L2 before Apply — [`markstack-intake.md`](./markstack-intake.md) ([`guides/markstack.md`](../../guides/markstack.md)); не путать с post-Done lightweight-followup.
 - Dashboard: [`../../workflow/backlog-dashboard-maintenance.md`](../../workflow/backlog-dashboard-maintenance.md).
 - После materialize оператор сам запускает PA.3/P1.3 — этот промпт их не копирует в ответ по умолчанию.

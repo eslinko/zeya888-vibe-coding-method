@@ -36,6 +36,7 @@
 | `aibridge` | `doge-ai-bridge/docs/tasks` | `aibridge-active-package.current.yaml` | `aibridge-active-packages/` |
 | `zeya888-brand` | `zeya888/docs/tasks` | `zeya888-brand-active-package.current.yaml` | `zeya888-brand-active-packages/` |
 | `threads` | `doge-threads/docs/tasks` | `threads-active-package.current.yaml` | `threads-active-packages/` |
+| `floou` | `Floou/docs/tasks` | `floou-active-package.current.yaml` | `floou-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -160,6 +161,7 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | aibridge | `aibridge_input_package` |
 | zeya888-brand | `zeya888_brand_input_package` |
 | threads | `threads_input_package` |
+| floou | `floou_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

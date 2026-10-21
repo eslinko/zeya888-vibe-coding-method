@@ -113,7 +113,7 @@ Handoff after ok verify:
 
 ## Примечания (не в copy-paste)
 
-- Folder already present, **no intake yet** → [`migration-profile-from-checked-out-dir.md`](./migration-profile-from-checked-out-dir.md) (inspect → write intake → then this prompt / guide §1).
+- Folder already present **or** clone via that prompt’s `$git_repo` → `$focus_folder`, **no intake yet** → [`migration-profile-from-checked-out-dir.md`](./migration-profile-from-checked-out-dir.md) (optional clone → inspect → write intake → then this prompt / guide §1).
 - Template: [`../../specs/profile-intakes/_TEMPLATE.yaml`](../../specs/profile-intakes/_TEMPLATE.yaml).
 - Sample teaching profile (not intake): [`../../examples/sample-profiles/minimal.yaml`](../../examples/sample-profiles/minimal.yaml).
 - Bootstrap pkg образец: `scripts/docs/tasks/scripts-active-packages/pkg-bootstrap-pending.yaml`.

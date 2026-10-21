@@ -94,9 +94,11 @@ Paste that block at the **start** of the next chat together with the next prompt
 | 3A | Connect your project (tech route) | [`../prompts/training/03a-connect-your-project-tech.md`](../prompts/training/03a-connect-your-project-tech.md) |
 | 3B | Project brief (fintech route) | [`../prompts/training/03b-project-brief-fintech.md`](../prompts/training/03b-project-brief-fintech.md) |
 | 4A | First managed work session (route A only, after your explicit go-ahead) | [`../prompts/training/04a-first-managed-work-session.md`](../prompts/training/04a-first-managed-work-session.md) |
+| 5A | Markstack story intake (route A, optional — residual / screens → layered stories) | [`../prompts/training/05a-markstack-story-intake.md`](../prompts/training/05a-markstack-story-intake.md) |
 
 After **3B** → read [`../guides/consultation-positioning.md`](../guides/consultation-positioning.md) and prepare to contact the author.  
-After **4A** → operative starts: [`../core/session-starter.md`](../core/session-starter.md) and curriculum modules 01–06 via [`learning-path.md`](./learning-path.md).
+After **4A** → operative starts: [`../core/session-starter.md`](../core/session-starter.md) and curriculum modules 01–06 via [`learning-path.md`](./learning-path.md).  
+Optional **5A** when intake is live UI residual / screens+comments before Apply — then operative [`../prompts/architect/markstack-intake.md`](../prompts/architect/markstack-intake.md).
 
 ---
 

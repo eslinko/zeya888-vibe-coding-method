@@ -342,6 +342,22 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 `K` — из `--list`. Tests: `cd doge-threads && python3 -m pytest -q`. Pipeline — [threads-story-execution-pipeline.md](../../../doge-threads/docs/tasks/threads-story-execution-pipeline.md).
 
+## 5k. Профиль `floou` (Solidity / LSP7 token — focus `Floou/`)
+
+`--project floou` — активен. Active pkg: `pkg-000000-20261016-bootstrap` → **ok 1 paths** (profile marker). Контракт: [floou-operator-contract.md](../contracts/floou-operator-contract.md). Runtime plan: `.cursor/plans/Floou_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-FLOOU-*` → P1.3. Alias `floou` → `Floou/`. Remote: https://github.com/eslinko/floou.git (`dev`).
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd Floou && ls`. Pipeline — [floou-story-execution-pipeline.md](../../../Floou/docs/tasks/floou-story-execution-pipeline.md).
+
 ---
 
 ## 6. Профиль `taxonomy` (queueless meta-script)

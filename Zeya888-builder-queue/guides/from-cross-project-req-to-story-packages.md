@@ -45,6 +45,7 @@ flowchart LR
 | Non-UI child → **STORY-*** package | [`req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) |
 | Visual UI → **ADMIN** only (**A** 01…06; **B** UX-ready omit 01/02 → start 03; stories later via ADMIN-05) | [`req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) |
 | FE mixed (UI + tech slices) → **ADMIN + STORY** in one new package | [`req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md) |
+| Live residual / screens → **Markstack** L1→L1.5→L2 quality intake before Apply | [`markstack.md`](./markstack.md) · [`markstack-intake.md`](../prompts/architect/markstack-intake.md) |
 
 ---
 
@@ -58,7 +59,8 @@ flowchart LR
    - Backend / non-UI → `req-to-backlog-stories`
    - UI-only planning → `req-to-ui-admin-layers`
    - spa/landing/capybara with both UX and tech → `req-to-frontend-mixed-package`
-6. **Handoff** — new chat per `builder_project`, Phase 0 (`session-starter`), then P1.3 / Builder Queue. Do not run P3 from Architect Studio prompts.
+6. **Optional Markstack** — if intake came from live residual / screens + comments (not only REQ text): run [`markstack-intake.md`](../prompts/architect/markstack-intake.md) so each STORY gets L1 FR/AC, L1.5 arch locks, L2 Apply atoms before P1.3.
+7. **Handoff** — new chat per `builder_project`, Phase 0 (`session-starter`), then P1.3 / Builder Queue. Do not run P3 from Architect Studio prompts.
 
 **Verbs:** most story/arch prompts are **plan-only** until you say «запиши» / «materialize». Scatter is an exception: it writes children in the same turn after the impact map.
 

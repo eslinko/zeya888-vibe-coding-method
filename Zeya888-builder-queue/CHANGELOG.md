@@ -1,5 +1,27 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.60 — 2026-10-21
+
+- Training: [`prompts/training/05a-markstack-story-intake.md`](./prompts/training/05a-markstack-story-intake.md) — Markstack L1→L1.5→L2 (route A, optional after 04A)
+- Sync: training/INDEX, prompts/INDEX, learning-path, human-entry-manual, 04A handoff, curriculum/06, guides/markstack training pointer
+
+## 1.4.59 — 2026-10-21
+
+- Markstack (L1 → L1.5 → L2 story intake from live residual / screens): [`guides/markstack.md`](./guides/markstack.md)
+- Prompt: [`prompts/architect/markstack-intake.md`](./prompts/architect/markstack-intake.md)
+- Provenance: `spa-app/docs/analysis/method-l1-l15-l2-story-intake-and-retrospective-2026-10-21.md` (alias Markstack)
+- Sync: prompts/INDEX, MANIFEST, curriculum/06, from-cross-project-req-to-story-packages, req-to-backlog-stories advisory, builder-operator-habits, zeya888-operator-method
+
+## 1.4.58 — 2026-10-16
+
+- Profile: `floou` (`focus_folder: Floou`, Solidity / LSP7 token, skill `solidity-auditor`) — clone [eslinko/floou](https://github.com/eslinko/floou.git) `dev`, `profiles.yaml`, console v1.2.24, tasks bootstrap pkg-000000, [floou-operator-contract.md](./contracts/floou-operator-contract.md), `.cursor/plans/Floou_builder.plan.md`
+- Sync: workflow / session-starter / queue-manual §5k / MANIFEST / input-package-spec / builder-session SKILL / builder-operator-habits / migration role lists; intake → `specs/profile-intakes/done/floou.yaml`
+
+## 1.4.57 — 2026-10-16
+
+- Migration: [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) — optional `$git_repo` / `$git_branch`; empty git → existing `$focus_folder`; non-empty → clone into `$focus_folder` on verb
+- Sync: guides/add-builder-profile §0/§3, migration-add-builder-profile note, prompts/INDEX, MANIFEST
+
 ## 1.4.56 — 2026-10-13
 
 - Architect: [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) — dual copy-paste: **A** full ADMIN-01…06; **B** UX-ready (omit 01/02; first = ADMIN-03; artboards+per-artboard specs → full file table in Вход)

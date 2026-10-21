@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -194,6 +194,18 @@
 | Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
 | Pipeline        | `doge-threads/docs/tasks/threads-story-execution-pipeline.md`                                           |
 | Remote          | https://github.com/DOGE-Complaints/doge-threads (`dev`)                                                 |
+
+
+
+|                 | `floou` (Solidity / LSP7 token — focus `Floou/`; alias ≠ folder case)                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Floou_builder.plan.md`                                                                   |
+| `$tasksRoot`    | `Floou/docs/tasks`                                                                                      |
+| `$storyFile`    | напр. `Floou/docs/tasks/backlog-stories/…/STORY-FLOOU-*.md` (`input_mode=backlog_story`)                |
+| `$backlogIndex` | `Floou/docs/tasks/backlog-stories/INDEX.md`                                                             |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `Floou/docs/tasks/floou-story-execution-pipeline.md`                                                    |
+| Remote          | https://github.com/eslinko/floou.git (`dev`)                                                            |
 
 
 ---
@@ -531,6 +543,7 @@ SSOT: guides/builder-artifact-dates.md
 | `aibridge`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project aibridge --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                         |
 | `zeya888-brand`   | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project zeya888-brand --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                  |
 | `threads`         | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project threads --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                         |
+| `floou`           | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                           |
 
 
 1. В stdout после `ok build-window`: `**build_window_abs:`** / `**vscode_file_uri:`** — открыть из терминала (Cmd+click); `**quick_open_basename:`** или `**quick_open_pointer:`** (`latest-cursor-build-window.md` в `*-active-packages/`) — для **Cmd+P**; `**cursor_attach:`** — для P3. Symlink обновляется при каждой генерации. **Не** вставлять путь в Go-to-File целиком — `GPT UI/…` обрезается до `UI/docs/…`.

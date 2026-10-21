@@ -1,0 +1,18 @@
+# Profile intake — floou (pending → move to done/ after verify)
+# Remote: https://github.com/eslinko/floou.git (branch: dev)
+# Workspace folder: /Users/eslinko/Development/DOGEstonia/Floou
+# display_name: Floou (note-only)
+
+profile_key: floou
+focus_folder: Floou
+plan_title_case: Floou
+
+stack_label: "Solidity (LSP7 token)"
+execution_skill_primary: solidity-auditor
+execution_skill_path: .cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md
+test_command: "cd Floou && ls"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-10-16T10:09:46Z"

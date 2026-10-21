@@ -13,6 +13,8 @@ Architect Studio — **recommended separate chat** for operative phase **PA (Int
 
 Из готового per-project REQ в backlog: **non-UI** → [`../prompts/architect/req-to-backlog-stories.md`](../prompts/architect/req-to-backlog-stories.md) (STORY package); **UI-only** → [`../prompts/architect/req-to-ui-admin-layers.md`](../prompts/architect/req-to-ui-admin-layers.md) (**A** ADMIN-01…06; **B** UX уже на входе → omit 01/02, старт с ADMIN-03; не сразу STORY); **FE mixed** (ui_first + tech_first в одном пакете) → [`../prompts/architect/req-to-frontend-mixed-package.md`](../prompts/architect/req-to-frontend-mixed-package.md) (ADMIN projected + STORY). Все — plan-first, materialize по команде.
 
+После live UI / скринов+комментов (residual marks), когда нужна послойная постановка **до** Apply: **Markstack** (L1→L1.5→L2) — guide [`../guides/markstack.md`](../guides/markstack.md) · operative [`../prompts/architect/markstack-intake.md`](../prompts/architect/markstack-intake.md) · teaching [`../prompts/training/05a-markstack-story-intake.md`](../prompts/training/05a-markstack-story-intake.md). Не путать с P0–P8 и не с [`lightweight-followup`](../guides/lightweight-followup.md) (post-Done без новой STORY).
+
 ---
 
 ## 1. Два режима общения (не смешивать)

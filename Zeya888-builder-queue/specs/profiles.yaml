@@ -300,3 +300,24 @@ projects:
     stack_label: Python 3.11 + FastAPI + uvicorn + httpx
     execution_skill_primary: python-pro
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  floou:
+    enabled: true
+    focus_folder: Floou
+    tasks_dir: Floou/docs/tasks
+    active_packages_dir: floou-active-packages
+    current_pointer: floou-active-package.current.yaml
+    build_windows_subdir: run-reports/floou-build-windows
+    build_window_prefix: floou-cursor-build-window
+    next_readme_dotfile: .floou-next-readme
+    pkg_path_prefix: Floou/docs/tasks/
+    plan_file: .cursor/plans/Floou_builder.plan.md
+    pipeline_doc: Floou/docs/tasks/floou-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: floou_input_package
+    artifact_kind: floou_cursor_build_window
+    build_window_title: Floou Cursor build window
+    test_command: 'cd Floou && ls'
+    stack_label: Solidity (LSP7 token)
+    execution_skill_primary: solidity-auditor
+    execution_skill_path: .cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md

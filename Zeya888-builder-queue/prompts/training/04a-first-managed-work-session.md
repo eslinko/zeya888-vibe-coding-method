@@ -54,6 +54,7 @@ Done in session: …
 Still unclear: …
 Can continue routine work from normative docs with own agents: yes | partially | no
 Next SSOT: core/session-starter.md · core/workflow.md · curriculum modules 1–6 · contracts for my profile
+Optional next if residual/screens → stories: training 05A (Markstack) — prompts/training/05a-markstack-story-intake.md
 If no — what to close first: …
 
 Do NOT say “you finished a few dialogs so you can take all engineering decisions alone.”
@@ -64,4 +65,5 @@ STOP.
 
 ## Notes
 
-- This is not a full P1–P8 course; it is a bridge to self-serve work from the canon.
+- This is not a full P1–P8 course; it is a bridge to self-serve work from the canon.  
+- Optional Markstack teaching: [`05a-markstack-story-intake.md`](./05a-markstack-story-intake.md).

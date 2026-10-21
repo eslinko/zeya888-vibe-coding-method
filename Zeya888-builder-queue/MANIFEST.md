@@ -49,7 +49,8 @@ flowchart TB
 | [`core/workflow.md`](./core/workflow.md) | Короткие промпты **PA**, P1–P8 |
 | [`core/workflow-legacy.md`](./core/workflow-legacy.md) | Полные self-contained промпты |
 | [`prompts/INDEX.md`](./prompts/INDEX.md) | Индекс useful prompts (architect / operator / migration / **training** / housekeeping) |
-| [`prompts/training/INDEX.md`](./prompts/training/INDEX.md) | Training dialogues 01–04A/B (teaching; not operative) |
+| [`prompts/training/INDEX.md`](./prompts/training/INDEX.md) | Training dialogues 01–04A/B + optional 05A Markstack (teaching; not operative) |
+| [`prompts/training/05a-markstack-story-intake.md`](./prompts/training/05a-markstack-story-intake.md) | Teaching: Markstack L1→L1.5→L2 residual → stories |
 | [`curriculum/human-entry-manual.md`](./curriculum/human-entry-manual.md) | Human first entry: routes, chats, prompts |
 | [`guides/consultation-positioning.md`](./guides/consultation-positioning.md) | Self-serve vs guided adoption; fintech ceiling |
 | [`curriculum/00-guide-for-humans.md`](./curriculum/00-guide-for-humans.md) | Meaning wrapper for humans (legacy RU body may remain) |
@@ -63,13 +64,14 @@ flowchart TB
 | [`prompts/architect/req-to-backlog-stories.md`](./prompts/architect/req-to-backlog-stories.md) | Post-REQ: non-UI → backlog STORY package (plan → materialize) |
 | [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) | Post-REQ: UI → ADMIN layers (A: 01…06; B: UX-ready 03…06) (plan → materialize) |
 | [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) | Post-REQ: FE mixed → classify ui_first/tech_first; ADMIN projected + STORY (plan → materialize) |
+| [`prompts/architect/markstack-intake.md`](./prompts/architect/markstack-intake.md) | Residual → Markstack L1→L1.5→L2 story intake (pre-Apply) |
 | [`prompts/operator/operator-root-start.md`](./prompts/operator/operator-root-start.md) | Root OP bootstrap: project only → session bind |
 | [`prompts/operator/operator-root-wave.md`](./prompts/operator/operator-root-wave.md) | Root OP: stories → wave plan + handoff packets (BLD/VAL) |
 | [`prompts/operator/operator-root-subagent-run.md`](./prompts/operator/operator-root-subagent-run.md) | Root OP Phase B: profile + queueSpec → OP-*.plan.md + two subagents overnight |
 | [`prompts/operator/lightweight-followup-triage.md`](./prompts/operator/lightweight-followup-triage.md) | VAL complexity gate for lightweight follow-up |
 | [`prompts/operator/lightweight-followup-author.md`](./prompts/operator/lightweight-followup-author.md) | Dual plans + LAUNCH after triage PASS |
 | [`prompts/migration/migration-zeya888-brand-landing-infra-transfer.md`](./prompts/migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: landing infra → `zeya888` (1A, no NC) |
-| [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir → inspect → intake → materialize profile |
+| [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir or `$git_repo` → clone → inspect → intake → materialize |
 | [`prompts/migration/migration-workspace-chat-export.md`](./prompts/migration/migration-workspace-chat-export.md) | Export workspace Agent chats → markdown handoff packs (`tools/export-workspace-chats.py`) |
 | [`guides/operator-root-orchestrator.md`](./guides/operator-root-orchestrator.md) | Процесс root→субагенты + roadmap MVP/Task/SDK |
 | [`guides/orchestrator-builder-reference.md`](./guides/orchestrator-builder-reference.md) | Proven overnight two-subagent SSOT (universal) |
@@ -84,6 +86,7 @@ flowchart TB
 | [`guides/builder-artifact-dates.md`](./guides/builder-artifact-dates.md) | Дисциплина дат pkg / gate / run-summary; `--print-utc-now`, `--check-dates` |
 | [`guides/fixed-builder-plan-execution.md`](./guides/fixed-builder-plan-execution.md) | Fixed `*_builder.plan.md`: @attach, не Build; отвязка от чужого чата Cursor |
 | [`guides/lightweight-followup.md`](./guides/lightweight-followup.md) | Low-complexity follow-up after Done stories: triage + dual plans + VAL↔BLD |
+| [`guides/markstack.md`](./guides/markstack.md) | Markstack: L1→L1.5→L2 story intake from live residual / screens (pre-Apply) |
 | [`templates/story-acceptance-gate-template.md`](./templates/story-acceptance-gate-template.md) | Шаблон story gate с Date discipline |
 | [`curriculum/06-architect-studio-and-p1-intakes.md`](./curriculum/06-architect-studio-and-p1-intakes.md) | Studio = PA chat; gap; три P1 intakes |
 | [`curriculum/learning-path.md`](./curriculum/learning-path.md) | Routes A/B + modules 0–6 (Human + Operative) |
@@ -96,6 +99,7 @@ flowchart TB
 | [`contracts/aibridge-operator-contract.md`](./contracts/aibridge-operator-contract.md) | Operator contract для `builder_project: aibridge` (Python Responses bridge) |
 | [`contracts/zeya888-brand-operator-contract.md`](./contracts/zeya888-brand-operator-contract.md) | Operator contract для `builder_project: zeya888-brand` (focus `zeya888/`, не `zeya888.me`) |
 | [`contracts/threads-operator-contract.md`](./contracts/threads-operator-contract.md) | Operator contract для `builder_project: threads` (focus `doge-threads/`) |
+| [`contracts/floou-operator-contract.md`](./contracts/floou-operator-contract.md) | Operator contract для `builder_project: floou` (focus `Floou/`) |
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
 | [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) | EN: parent REQ → child REQ → tech arch → STORY/ADMIN (architect sequence) |
 

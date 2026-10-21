@@ -14,7 +14,7 @@
 
 **SSOT файл (куда писать alias + path):** [`../specs/profile-intakes/<profile_key>.yaml`](../specs/profile-intakes/) — шаблон [`_TEMPLATE.yaml`](../specs/profile-intakes/_TEMPLATE.yaml).  
 Operative prompt (intake already written): [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md).  
-Папка уже в workspace, intake ещё нет: [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).
+Папка уже в workspace **или** нужен clone (`$git_repo` → `$focus_folder`), intake ещё нет: [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).
 
 ### Обязательные поля (в intake YAML)
 
@@ -157,7 +157,7 @@ source_split: full | partial
 
 ## §3 Operative prompt (copy-paste)
 
-Папка уже зачекаучена, intake нет → [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).  
+Папка уже зачекаучена **или** задаёте `$git_repo` (+ опц. `$git_branch`) в `$focus_folder`, intake нет → [`../prompts/migration/migration-profile-from-checked-out-dir.md`](../prompts/migration/migration-profile-from-checked-out-dir.md).  
 Intake уже есть → предпочтительно [`../prompts/migration/migration-add-builder-profile.md`](../prompts/migration/migration-add-builder-profile.md) (полный fence). Краткая вставка:
 
 ```markdown

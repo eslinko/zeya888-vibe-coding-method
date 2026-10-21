@@ -13,14 +13,16 @@
 | 02 | [`02-how-the-operator-steers.md`](./02-how-the-operator-steers.md) | everyone | distinguishes discuss / plan / materialize / execute | 03A or 03B |
 | 03A | [`03a-connect-your-project-tech.md`](./03a-connect-your-project-tech.md) | route A | project adaptation plan | 04A after go-ahead |
 | 03B | [`03b-project-brief-fintech.md`](./03b-project-brief-fintech.md) | route B | brief for guided adoption | [`consultation-positioning.md`](../../guides/consultation-positioning.md) |
-| 04A | [`04a-first-managed-work-session.md`](./04a-first-managed-work-session.md) | route A | ready to continue from normative docs | session-starter / modules |
+| 04A | [`04a-first-managed-work-session.md`](./04a-first-managed-work-session.md) | route A | ready to continue from normative docs | session-starter / modules · optional 05A |
+| 05A | [`05a-markstack-story-intake.md`](./05a-markstack-story-intake.md) | route A | explains Markstack L1→L1.5→L2 vs other intakes | operative [`markstack-intake.md`](../architect/markstack-intake.md) when residual |
 
 ## Transition rules
 
 - Do not start 03A/03B without the summary from 02.  
 - Do not start 04A without an explicit “OK for a work session” from the human after 03A.  
 - After 03B **do not** send the human into 04A as a “solo finale.”  
-- On source conflict: normative (`core/workflow.md`) > teaching > legacy.
+- **05A** is optional after 04A (or after module 06): use when residual / screens → stories before Apply; skip if work is only REQ→package or post-Done hygiene.  
+- On source conflict: normative (`core/workflow.md`, `guides/markstack.md`) > teaching > legacy.
 
 ## Shared rules for all training prompts
 

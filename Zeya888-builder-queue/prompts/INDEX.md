@@ -27,6 +27,7 @@
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |
 | [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN pkg (always NEW): **A** 01…06; **B** UX-ready omit 01/02 → start 03; INDEX + mvp-dashboard; STORY via ADMIN-05 |
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
+| [`architect/markstack-intake.md`](./architect/markstack-intake.md) | Residual / screens → Markstack L1→L1.5→L2 story intake (pre-Apply); guide [`../guides/markstack.md`](../guides/markstack.md) |
 
 **Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN. REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).
 
@@ -54,7 +55,7 @@
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |
-| [`migration/migration-profile-from-checked-out-dir.md`](./migration/migration-profile-from-checked-out-dir.md) | Папка уже в workspace → inspect → intake → materialize (wrapper над add-builder-profile) |
+| [`migration/migration-profile-from-checked-out-dir.md`](./migration/migration-profile-from-checked-out-dir.md) | Папка в workspace **или** `$git_repo` → clone в `$focus_folder` → inspect → intake → materialize |
 | [`migration/migration-zeya888-brand-landing-infra-transfer.md`](./migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: перенос инфры landing→`zeya888` (1A, static, 7 locales, no NC); plan attach |
 | [`migration/migration-zeya888-brand-doge-content-strip.md`](./migration/migration-zeya888-brand-doge-content-strip.md) | `zeya888-brand`: убрать landing/DOGEstonia copy+photos из `zeya888/src`; PNG stubs + `[TODO]` JSON; plan attach |
 
@@ -68,6 +69,7 @@
 | [`training/03a-connect-your-project-tech.md`](./training/03a-connect-your-project-tech.md) | Tech: project adaptation plan |
 | [`training/03b-project-brief-fintech.md`](./training/03b-project-brief-fintech.md) | Fintech: brief for guided adoption |
 | [`training/04a-first-managed-work-session.md`](./training/04a-first-managed-work-session.md) | Tech: first managed session |
+| [`training/05a-markstack-story-intake.md`](./training/05a-markstack-story-intake.md) | Tech: Markstack L1→L1.5→L2 intake (teaching; residual → stories) |
 
 ## operator-wave
 

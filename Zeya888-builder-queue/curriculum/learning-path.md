@@ -31,7 +31,8 @@ Both start with the entry manual and dialogues **1 → 2**. Then they branch.
 
 4. Training **03A** — connect your project (adaptation plan; no demo code/pkg)  
 5. Training **04A** — first managed work session (only after explicit human go-ahead)  
-6. Then — curriculum modules 1–6 below and [`../core/session-starter.md`](../core/session-starter.md)
+6. Then — curriculum modules 1–6 below and [`../core/session-starter.md`](../core/session-starter.md)  
+7. Optional training **05A** — Markstack (L1→L1.5→L2) when residual / screens → stories before Apply ([`../prompts/training/05a-markstack-story-intake.md`](../prompts/training/05a-markstack-story-intake.md))
 
 ### Route B — fintech vibe-coder
 
@@ -56,9 +57,9 @@ These files are **explanations + pointers to operative**. They **do not replace*
 | 3 | Workflow PA + P0–P8 | [03-workflow-phases-explained.md](./03-workflow-phases-explained.md) | [workflow.md](../core/workflow.md) | PA → P1 → full cycle |
 | 4 | CLI and contracts | [04-cli-and-contracts-explained.md](./04-cli-and-contracts-explained.md) | [queue-manual.md](../cli/queue-manual.md) | Commands and operator rules |
 | 5 | Your project | [05-connect-your-project.md](./05-connect-your-project.md) | [cursor-setup.md](../integration/cursor-setup.md) | profiles + plan |
-| 6 | Architect Studio + P1 intakes | [06-architect-studio-and-p1-intakes.md](./06-architect-studio-and-p1-intakes.md) | [workflow.md](../core/workflow.md) §PA + §P1 | Studio = PA; three intakes; handoff |
+| 6 | Architect Studio + P1 intakes | [06-architect-studio-and-p1-intakes.md](./06-architect-studio-and-p1-intakes.md) | [workflow.md](../core/workflow.md) §PA + §P1 · [markstack.md](../guides/markstack.md) | Studio = PA; three intakes; Markstack for residual; handoff |
 
-**For route A after 04A:** module 5 ↔ training 03A; module 6 ↔ PA → P1 bridge.
+**For route A after 04A:** module 5 ↔ training 03A; module 6 ↔ PA → P1 bridge; optional training **05A** ↔ Markstack when residual UI → stories.
 
 ## For instructors
 
@@ -75,6 +76,7 @@ These files are **explanations + pointers to operative**. They **do not replace*
 ## Order (short)
 
 1. Entry manual → training 01 → 02.  
-2. Branch A: 03A → 04A → modules 1–6 / starter.  
+2. Branch A: 03A → 04A → modules 1–6 / starter → optional **05A** (Markstack) if residual intake.  
 3. Branch B: 03B → consultation memo → contact the author.  
-4. Module 6 + workflow §PA — **before** first P1 if intake is raw.
+4. Module 6 + workflow §PA — **before** first P1 if intake is raw.  
+5. Residual / screens → stories: training 05A then operative [`markstack-intake.md`](../prompts/architect/markstack-intake.md) (not lightweight-followup).
