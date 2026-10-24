@@ -71,6 +71,18 @@ Profile — **карта репозитория** для CLI и Phase 0. Арх�
 
 Учебный пример registry (не intake): [`../examples/sample-profiles/minimal.yaml`](../examples/sample-profiles/minimal.yaml).
 
+### Client tenancy (nested under `clients/<Client>/`)
+
+Если продукт — **отдельный клиент** (не flat peer у корня workspace):
+
+1. Layout + portable plans: [`../guides/client-tenancy.md`](../guides/client-tenancy.md).
+2. Registry entry: [`../specs/clients.yaml`](../specs/clients.yaml) (`client_id` → `profiles[]`).
+3. Каждый MS = свой `builder_project` с **nested** `focus_folder` (напр. `clients/Alvasar/backend`) — см. [`profiles-fields.md`](../specs/profiles-fields.md) §Nested.
+4. Дублируйте `*_builder.plan.md` в `clients/<Client>/.cursor/plans/` (sync с workspace `.cursor/plans/`).
+5. Root architect chat: [`../prompts/architect/client-product-root-orientation.md`](../prompts/architect/client-product-root-orientation.md) — **не** DOGE `cross-project-system-orientation`.
+
+Pilot: Alvasar (`alvasar-backend` / `alvasar-ui`).
+
 ---
 
 ## Шаг 4 — Runtime builder plan

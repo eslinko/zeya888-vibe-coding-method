@@ -1,11 +1,12 @@
 # Architect — scatter parent REQ → per-project children (write after impact)
 
 **Категория:** architect (pre-PA.2, write-after-impact)  
+**Scope default:** **DOGE classic-four** (`$targetProjects=gateway,identity,spa,gpt`). For **client tenancy** override CSV from [`../../specs/clients.yaml`](../../specs/clients.yaml) (Alvasar: `alvasar-backend,alvasar-ui`); parent path under `clients/<Client>/docs/requirements/`. Root client chat first: [`client-product-root-orientation.md`](./client-product-root-orientation.md).  
 **Фазы A–C / стиль child:** SSOT [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) — **не** дублировать полный текст.  
 **Не заменяет:** PA.2 / P1.2; **не** создаёт STORY/pkg ([`req-to-backlog-stories.md`](./req-to-backlog-stories.md) / [`req-to-ui-admin-layers.md`](./req-to-ui-admin-layers.md) / [`req-to-frontend-mixed-package.md`](./req-to-frontend-mixed-package.md) — отдельный следующий шаг).  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc)
 
-**Когда:** этот чат — разложить **один** parent requirement на дочерние REQ в `docs/requirements/` четырёх сервисов и **записать файлы в том же прогоне** после impact map.
+**Когда:** этот чат — разложить **один** parent requirement на дочерние REQ в `{focus}/docs/requirements/` целевых профилей и **записать файлы в том же прогоне** после impact map.
 
 **Не этот промпт:** chat-first drafts без записи → [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md); session lock без parent → [`cross-project-requirements-backlog-bootstrap.md`](./cross-project-requirements-backlog-bootstrap.md).
 
@@ -13,9 +14,9 @@
 
 | Поле | Значение |
 |------|----------|
-| `$parentReq=` | обязателен: `docs/requirements backlog/…` **или** per-project REQ (напр. `GPT UI/docs/requirements/REQ-43-proactive-story-intake-offer.md`) |
+| `$parentReq=` | обязателен: `docs/requirements backlog/…` **или** client parent `clients/…/docs/requirements/…` **или** per-project REQ |
 | `$slice=` | опц. сужение (§§ / blocks) |
-| `$targetProjects=` | дефолт `gateway,identity,spa,gpt`; CSV сужает список (для threads-фич: включи `threads`) |
+| `$targetProjects=` | дефолт `gateway,identity,spa,gpt`; CSV сужает список. **Client cheat (Alvasar):** `alvasar-backend,alvasar-ui`. Threads-фичи: включи `threads` |
 
 ---
 

@@ -15,8 +15,10 @@
 @docs/methodology/Zeya888-builder-queue/curriculum/04-cli-and-contracts-explained.md
 @docs/methodology/Zeya888-builder-queue/integration/cursor-setup.md
 @docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
+@docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
 @docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
 @docs/methodology/Zeya888-builder-queue/specs/profiles-fields.md
+@docs/methodology/Zeya888-builder-queue/specs/clients.yaml
 @docs/methodology/Zeya888-builder-queue/examples/sample-profiles/minimal.yaml
 
 Paste handoff from dialog 02 (route A) above.
@@ -42,7 +44,7 @@ Confirm sources + handoff. Ask workspace path and project name.
 Explain what lives in methodology package vs workspace (.cursor/skills, .cursor/rules, *_builder.plan.md) per cursor-setup. Check which pieces exist (Read/Glob). Table: present | missing | how to obtain (guide path).
 
 ## Phase 2 — Profile & readiness
-Walk add-builder-profile / profiles-fields at human pace. Draft checklist of readiness criteria (verify path, contract, plan file naming). Still chat-only.
+Walk add-builder-profile / profiles-fields at human pace. Ask: flat peer at workspace root vs nested client under `clients/<Client>/`? If nested → also walk client-tenancy + clients.yaml (portable plans, `$clientId` ≠ `builder_project`). Draft checklist of readiness criteria (verify path, contract, plan file naming). Still chat-only.
 
 ## Phase 3 — Understanding check
 Human restates the adaptation plan in their words. Correct with paths.

@@ -100,6 +100,11 @@ flowchart TB
 | [`contracts/zeya888-brand-operator-contract.md`](./contracts/zeya888-brand-operator-contract.md) | Operator contract для `builder_project: zeya888-brand` (focus `zeya888/`, не `zeya888.me`) |
 | [`contracts/threads-operator-contract.md`](./contracts/threads-operator-contract.md) | Operator contract для `builder_project: threads` (focus `doge-threads/`) |
 | [`contracts/floou-operator-contract.md`](./contracts/floou-operator-contract.md) | Operator contract для `builder_project: floou` (focus `Floou/`) |
+| [`contracts/alvasar-backend-operator-contract.md`](./contracts/alvasar-backend-operator-contract.md) | Operator contract для `builder_project: alvasar-backend` (nested `clients/Alvasar/backend/`) |
+| [`contracts/alvasar-ui-operator-contract.md`](./contracts/alvasar-ui-operator-contract.md) | Operator contract для `builder_project: alvasar-ui` (nested `clients/Alvasar/ui/`) |
+| [`guides/client-tenancy.md`](./guides/client-tenancy.md) | Nested client tenancy under `clients/<Client>/` + portable plans |
+| [`specs/clients.yaml`](./specs/clients.yaml) | Client → profiles registry (pilot: alvasar) |
+| [`prompts/architect/client-product-root-orientation.md`](./prompts/architect/client-product-root-orientation.md) | Read-only client root orientation (`$clientId`); not DOGE classic-four |
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
 | [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) | EN: parent REQ → child REQ → tech arch → STORY/ADMIN (architect sequence) |
 

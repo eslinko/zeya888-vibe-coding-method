@@ -1,0 +1,17 @@
+# Profile intake — alvasar-ui
+# Remote: https://github.com/eslinko/alvasar.git (branch: dev)
+# Nested focus under clients/Alvasar/
+
+profile_key: alvasar-ui
+focus_folder: clients/Alvasar/ui
+plan_title_case: Alvasar-UI
+
+stack_label: "React Native Web (scaffold deferred)"
+execution_skill_primary: react-native-expert
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md
+test_command: "cd clients/Alvasar/ui && ls"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-10-24T12:00:00Z"

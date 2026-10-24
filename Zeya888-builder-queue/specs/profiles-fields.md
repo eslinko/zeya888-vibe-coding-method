@@ -5,7 +5,7 @@
 | Поле | Назначение |
 |------|------------|
 | `enabled` | `true` / `false` — профиль доступен в CLI |
-| `focus_folder` | Корень кодовой базы проекта |
+| `focus_folder` | Корень кодовой базы проекта (путь от корня workspace; см. nested ниже) |
 | `tasks_dir` | Каталог tasks/docs (pkg, index, pipeline) |
 | `active_packages_dir` | Подкаталог `*-active-packages/` |
 | `current_pointer` | Файл `*-active-package.current.yaml` |
@@ -29,6 +29,18 @@
 | `verify_paths` | Список файлов для queueless verify |
 
 **Execution skill:** данные в `profiles.yaml`; логика резолва и override task README — [builder-session/SKILL.md](../../../../.cursor/skills/builder-session/SKILL.md) §Execution skill resolution.
+
+## Nested paths (G8 / W0)
+
+CLI [`builder_resolve_queue.py`](../cli/builder_resolve_queue.py) resolves `tasks_dir` / `pipeline_doc` / pkg paths as `workspace_root / relative` (`Path` join). A relative value **may contain `/`** (e.g. `clients/Alvasar/backend/docs/tasks`).  
+
+| Fact | Implication |
+|------|-------------|
+| Live DOGEstonia profiles stay **flat** single-segment (or `"GPT UI"`) peers | Nested is additive; do not relocate gateway/spa/… |
+| `test_command` is a shell string | Must `cd` the same nested path as `focus_folder` |
+| `pkg_path_prefix` / `linear_paths` | Use full relative paths from workspace root matching nested `tasks_dir` |
+
+Client layout convention: [`../guides/client-tenancy.md`](../guides/client-tenancy.md) · registry [`clients.yaml`](./clients.yaml).
 
 ## Добавление нового проекта
 

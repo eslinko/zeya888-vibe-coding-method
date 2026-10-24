@@ -1,0 +1,15 @@
+# Client tenancy registry (optional layer next to profiles.yaml)
+# DOGEstonia / Floou / landing flat peers are NOT listed here.
+# See guides/client-tenancy.md
+
+clients:
+  alvasar:
+    display_name: Alvasar
+    root: clients/Alvasar
+    git_remote: https://github.com/eslinko/alvasar.git
+    default_branch: dev
+    parent_requirements_dir: clients/Alvasar/docs/requirements
+    profiles:
+      - alvasar-backend
+      - alvasar-ui
+    notes: "Subcontractor Intake MVP; Python backend + React Native Web UI"

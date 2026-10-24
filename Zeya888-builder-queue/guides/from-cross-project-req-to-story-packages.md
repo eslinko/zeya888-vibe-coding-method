@@ -9,11 +9,18 @@ Human-language guide for operators. Full prompt text lives under [`../prompts/ar
 
 ## 1. What you are doing
 
-You turn one **parent** product requirement (often under `docs/requirements backlog/`) into **implementable work packages** per Builder Queue profile — without skipping levels or inventing APIs.
+You turn one **parent** product requirement into **implementable work packages** per Builder Queue profile — without skipping levels or inventing APIs.
+
+**Two parent homes:**
+
+| Track | Parent lives | Profiles |
+|-------|--------------|----------|
+| **DOGE classic-four** | often `docs/requirements backlog/` | `gateway`, `identity`, `spa`, `gpt` |
+| **Client tenancy** | `clients/<Client>/docs/requirements/` | keys from [`../specs/clients.yaml`](../specs/clients.yaml) (Alvasar: `alvasar-backend`, `alvasar-ui`) — see [`client-tenancy.md`](./client-tenancy.md) |
 
 | Level | What it is | Typical output |
 |-------|------------|----------------|
-| Parent product REQ | Cross-project “what / why / boundaries” | One markdown in backlog |
+| Parent product REQ | Cross-project / multi-MS “what / why / boundaries” | One markdown in backlog **or** client `docs/requirements/` |
 | Per-project child REQ | Scope owned by one service/profile | `{focus}/docs/requirements/…` |
 | Target tech architecture | How the focus is built (modules, contracts, runtime) | `{focus}/docs/architecture/…` + interview report |
 | Work packages | STORY backlog and/or ADMIN UX layers | `{focus}/docs/tasks/backlog-stories/…` |
@@ -35,8 +42,9 @@ flowchart LR
 
 | Situation | Prompt file |
 |-----------|-------------|
-| Cold chat: map the platform, no writes | [`cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md) |
-| Lock a backlog parent across classic four services (session) | [`cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md) |
+| Cold chat: **client** root (`clients/<Client>/`), no writes | [`client-product-root-orientation.md`](../prompts/architect/client-product-root-orientation.md) (`$clientId=`) |
+| Cold chat: map the **DOGE** platform, no writes | [`cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md) |
+| Lock a backlog parent across **DOGE** classic four (session) | [`cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md) |
 | Parent → child REQs, **chat drafts first**, disk only after «запиши» | [`parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md) |
 | Parent → child REQs, **write files same turn** after impact map | [`cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md) |
 | Audit parent + children vs your target state (findings report) | [`cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md) |
@@ -51,8 +59,10 @@ flowchart LR
 
 ## 3. Default happy path
 
-1. **Orient** (optional) — orientation prompt; read-only; stop after chat tables.
-2. **Scatter children** — prefer `cross-project-req-scatter` when you want files now; use `parent-requirement-to-project-reqs` when you want review before disk.
+**Branch first:** DOGE parent in `docs/requirements backlog/` → classic-four orientation/bootstrap. Client parent under `clients/<Client>/` → `client-product-root-orientation` (`$clientId=`), then scatter with `$targetProjects=` = profile CSV from `clients.yaml` (not the DOGE default).
+
+1. **Orient** (optional) — matching orientation prompt; read-only; stop after chat tables.
+2. **Scatter children** — prefer `cross-project-req-scatter` when you want files now; use `parent-requirement-to-project-reqs` when you want review before disk. Set `$targetProjects=` explicitly for clients (e.g. `alvasar-backend,alvasar-ui`).
 3. **Consistency audit** (optional) — after children exist; writes a report under `docs/analysis/`, does not rewrite REQs.
 4. **Tech architecture per child** — `target-tech-architecture` (plan in chat → «запиши»). Inputs: REQ and/or `$storyPackageDir` / `$storyList`. Packaging / runtime image is a theme pack when the gap is deployability.
 5. **Work packages per child**
@@ -70,8 +80,9 @@ flowchart LR
 
 | Variable | Used by | Meaning |
 |----------|---------|---------|
-| `$parentReq=` | parent / scatter / audit | Path to parent (often `docs/requirements backlog/…`) |
-| `$targetProjects=` | parent / scatter / audit | CSV of profile keys: `gateway,spa,identity,threads,…` |
+| `$parentReq=` | parent / scatter / audit | Path to parent (`docs/requirements backlog/…` **or** `clients/…/docs/requirements/…`) |
+| `$targetProjects=` | parent / scatter / audit | CSV of profile keys. DOGE default `gateway,identity,spa,gpt`. Alvasar: `alvasar-backend,alvasar-ui` |
+| `$clientId=` | client-product-root-orientation | Key in `clients.yaml` (e.g. `alvasar`) — **not** a `builder_project` |
 | `$slice=` | many | Optional § / block filter |
 | `$requirementDoc=` | target-tech-arch + story/ADMIN | Path to **one** per-project child REQ (optional for target-tech-arch if stories given) |
 | `$storyPackageDir=` | target-tech-arch | Optional backlog package folder (`…/backlog-stories/<pkg>/`) |

@@ -497,7 +497,7 @@
       </div>
       <div class="header__pills">
         <span class="pill">Theme: Dark + DOGE</span>
-        <span class="pill">v1.2.24</span>
+        <span class="pill">v1.2.25</span>
         <span class="pill">2026-08-14</span>
       </div>
     </header>
@@ -510,7 +510,7 @@
   </div>
 
   <script>
-    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou'];
+    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou', 'alvasar-backend', 'alvasar-ui'];
 
     const PROJECT_PROFILES = {
       gateway: {
@@ -664,6 +664,28 @@
         execution_skill_path: '.cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md',
         hasUxPipeline: false,
         backlog_index: 'Floou/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'alvasar-backend': {
+        project: 'alvasar-backend',
+        tasks_dir: 'clients/Alvasar/backend/docs/tasks',
+        current_pointer: 'alvasar-backend-active-package.current.yaml',
+        plan_file: '.cursor/plans/Alvasar-Backend_builder.plan.md',
+        pipeline_doc: 'clients/Alvasar/backend/docs/tasks/alvasar-backend-story-execution-pipeline.md',
+        execution_skill_primary: 'python-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'clients/Alvasar/backend/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'alvasar-ui': {
+        project: 'alvasar-ui',
+        tasks_dir: 'clients/Alvasar/ui/docs/tasks',
+        current_pointer: 'alvasar-ui-active-package.current.yaml',
+        plan_file: '.cursor/plans/Alvasar-UI_builder.plan.md',
+        pipeline_doc: 'clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md',
+        execution_skill_primary: 'react-native-expert',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'clients/Alvasar/ui/docs/tasks/backlog-stories/INDEX.md',
       },
     };
 

@@ -13,6 +13,8 @@
 @docs/methodology/Zeya888-builder-queue/curriculum/human-entry-manual.md
 @docs/methodology/Zeya888-builder-queue/curriculum/01-first-session.md
 @docs/methodology/Zeya888-builder-queue/curriculum/06-architect-studio-and-p1-intakes.md
+@docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
+@docs/methodology/Zeya888-builder-queue/guides/from-cross-project-req-to-story-packages.md
 @docs/methodology/Zeya888-builder-queue/core/session-starter.md
 @docs/methodology/Zeya888-builder-queue/core/workflow.md
 @docs/methodology/Zeya888-builder-queue/cli/queue-manual.md
@@ -45,7 +47,7 @@ If they run Phase 0: coach what good Onboarding summary contains; no code edits.
 If dry-run only: simulate expected summary fields from profiles.yaml Read.
 
 ## Phase 3 — Bridge to PA/P1
-Explain when to open Architect Studio (PA) vs jump to P1 (module 06). One decision-point: raw intake? → PA first. Recommendation advisory.
+Explain when to open Architect Studio (PA) vs jump to P1 (module 06). One decision-point: raw intake? → PA first. If their work is a **client** under `clients/`: root orientation = `client-product-root-orientation` (not DOGE four-app map); Builder uses `builder_project` keys from clients.yaml. Recommendation advisory.
 
 ## End — Handoff to solo ops
 ### Learning summary (after 04A)

@@ -14,6 +14,8 @@ Self-serve vs consultation boundary: [`../guides/consultation-positioning.md`](.
 - Access to the methodology folder in the workspace: `docs/methodology/Zeya888-builder-queue/` (copy or symlink — see [`../integration/cursor-setup.md`](../integration/cursor-setup.md)).
 - Your project on disk (for route A — technical; for route B a written project goal is enough).
 
+**Layout note (after client tenancy):** most DOGEstonia apps stay **flat** peers under the workspace root. Some products live under `clients/<Client>/` with nested Builder profiles — see [`../guides/client-tenancy.md`](../guides/client-tenancy.md). Training still starts the same; when you connect a **client** repo, use nested `focus_folder` and `client-product-root-orientation`, not the DOGE four-app map.
+
 Terms like “phase P3” or “pkg” are **not required** before training dialogues — the AI will explain them as you go.
 
 ---

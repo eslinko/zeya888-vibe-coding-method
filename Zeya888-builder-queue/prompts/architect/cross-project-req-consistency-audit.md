@@ -1,6 +1,7 @@
 # Architect — consistency audit (parent + project REQs vs operator target)
 
 **Категория:** architect (findings-only, write report)  
+**Scope default:** **DOGE classic-four** (`$targetProjects=gateway,identity,spa,gpt`). For **client** packages set `$targetProjects=` from [`../../specs/clients.yaml`](../../specs/clients.yaml) (Alvasar: `alvasar-backend,alvasar-ui`); parent under `clients/<Client>/docs/requirements/`. Client root first: [`client-product-root-orientation.md`](./client-product-root-orientation.md).  
 **Не заменяет:** PA.2 / P1 / P4 code-vs-AC / scatter / orientation  
 **Не создаёт:** STORY, pkg, task folders, правки parent/child REQ (кроме явной отдельной команды)  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc)  
@@ -10,7 +11,7 @@
 
 **Эталон структуры отчёта (не копировать содержание):** [`docs/analysis/req3-semantic-schema-runtime-hard-audit-2026-08-27.md`](../../../../../docs/analysis/req3-semantic-schema-runtime-hard-audit-2026-08-27.md) — Verdict / что пакет даёт / где молчит / достаточность документов / as-is appendix.
 
-**Не этот промпт:** карта системы без пакета REQ → [`cross-project-system-orientation.md`](./cross-project-system-orientation.md); запись children → [`cross-project-req-scatter.md`](./cross-project-req-scatter.md).
+**Не этот промпт:** карта системы без пакета REQ → [`cross-project-system-orientation.md`](./cross-project-system-orientation.md) (DOGE) или [`client-product-root-orientation.md`](./client-product-root-orientation.md) (client); запись children → [`cross-project-req-scatter.md`](./cross-project-req-scatter.md).
 
 **Подстановка оператором:**
 
@@ -19,7 +20,7 @@
 | `$parentReq=` | обязателен: path parent |
 | `$childReqs=` | опц. CSV путей children; пусто → resolve с диска |
 | `$targetState=` | обязателен: 2–8 предложений своими словами (целевое проецируемое состояние) |
-| `$targetProjects=` | дефолт `gateway,identity,spa,gpt` |
+| `$targetProjects=` | дефолт `gateway,identity,spa,gpt`. **Client cheat (Alvasar):** `alvasar-backend,alvasar-ui` |
 | `$slice=` | опц. сужение parent (§§ / blocks) |
 
 ---

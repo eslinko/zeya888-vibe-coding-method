@@ -321,3 +321,45 @@ projects:
     stack_label: Solidity (LSP7 token)
     execution_skill_primary: solidity-auditor
     execution_skill_path: .cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md
+
+  alvasar-backend:
+    enabled: true
+    focus_folder: clients/Alvasar/backend
+    tasks_dir: clients/Alvasar/backend/docs/tasks
+    active_packages_dir: alvasar-backend-active-packages
+    current_pointer: alvasar-backend-active-package.current.yaml
+    build_windows_subdir: run-reports/alvasar-backend-build-windows
+    build_window_prefix: alvasar-backend-cursor-build-window
+    next_readme_dotfile: .alvasar-backend-next-readme
+    pkg_path_prefix: clients/Alvasar/backend/docs/tasks/
+    plan_file: .cursor/plans/Alvasar-Backend_builder.plan.md
+    pipeline_doc: clients/Alvasar/backend/docs/tasks/alvasar-backend-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: alvasar_backend_input_package
+    artifact_kind: alvasar_backend_cursor_build_window
+    build_window_title: Alvasar Backend Cursor build window
+    test_command: 'cd clients/Alvasar/backend && ls'
+    stack_label: Python (API; scaffold deferred)
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  alvasar-ui:
+    enabled: true
+    focus_folder: clients/Alvasar/ui
+    tasks_dir: clients/Alvasar/ui/docs/tasks
+    active_packages_dir: alvasar-ui-active-packages
+    current_pointer: alvasar-ui-active-package.current.yaml
+    build_windows_subdir: run-reports/alvasar-ui-build-windows
+    build_window_prefix: alvasar-ui-cursor-build-window
+    next_readme_dotfile: .alvasar-ui-next-readme
+    pkg_path_prefix: clients/Alvasar/ui/docs/tasks/
+    plan_file: .cursor/plans/Alvasar-UI_builder.plan.md
+    pipeline_doc: clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: alvasar_ui_input_package
+    artifact_kind: alvasar_ui_cursor_build_window
+    build_window_title: Alvasar UI Cursor build window
+    test_command: 'cd clients/Alvasar/ui && ls'
+    stack_label: React Native Web (scaffold deferred)
+    execution_skill_primary: react-native-expert
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md

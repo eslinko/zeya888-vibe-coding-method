@@ -5,9 +5,16 @@
 
 Architect Studio — **recommended separate chat** for operative phase **PA (Intake Analysis)**. Human layer here explains *why*; PA prompts live only in workflow. P1 is **not** duplicated here.
 
-Перед PA по одному проекту можно стартовать с cross-project orientation: карта gateway / identity / spa / GPT UI и analytics по корневому `docs/` → кандидаты нисходящих story (без materialize). Промпт: [`../prompts/architect/cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md). Incoming parent REQs, которые режут всю систему микросервисов (`docs/requirements backlog/`): сначала session lock [`../prompts/architect/cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md). Индекс useful prompts: [`../prompts/INDEX.md`](../prompts/INDEX.md).
+Перед PA по одному проекту выберите **ветку**:
 
-Если есть высокоуровневый product REQ (напр. в `docs/requirements backlog/`) и нужны дочерние per-project requirements со связями — chat-first [`../prompts/architect/parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md) или запись в том же прогоне [`../prompts/architect/cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md) (`{project}/docs/requirements/`, Parent/Siblings; **не** story package). Аудит пакета (parent+children vs цель своими словами, реализуемость) — чистый чат [`../prompts/architect/cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md) → `docs/analysis/`. Затем PA.2 на каждый Draft child.
+| Track | Orientation / lock | Parent home |
+|-------|--------------------|-------------|
+| **DOGE classic-four** | [`cross-project-system-orientation.md`](../prompts/architect/cross-project-system-orientation.md) · backlog lock [`cross-project-requirements-backlog-bootstrap.md`](../prompts/architect/cross-project-requirements-backlog-bootstrap.md) | `docs/requirements backlog/` |
+| **Client tenancy** (`clients/<Client>/`) | [`client-product-root-orientation.md`](../prompts/architect/client-product-root-orientation.md) (`$clientId=`, напр. `alvasar`) | `clients/<Client>/docs/requirements/` · model [`../guides/client-tenancy.md`](../guides/client-tenancy.md) |
+
+Индекс useful prompts: [`../prompts/INDEX.md`](../prompts/INDEX.md). Human sequence: [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md).
+
+Если есть высокоуровневый product REQ и нужны дочерние per-project requirements со связями — chat-first [`../prompts/architect/parent-requirement-to-project-reqs.md`](../prompts/architect/parent-requirement-to-project-reqs.md) или запись в том же прогоне [`../prompts/architect/cross-project-req-scatter.md`](../prompts/architect/cross-project-req-scatter.md) (`{focus}/docs/requirements/`, Parent/Siblings; **не** story package). Для клиента задайте `$targetProjects=` из [`../specs/clients.yaml`](../specs/clients.yaml) (Alvasar: `alvasar-backend,alvasar-ui`), не оставляйте DOGE-дефолт. Аудит пакета — [`../prompts/architect/cross-project-req-consistency-audit.md`](../prompts/architect/cross-project-req-consistency-audit.md) → `docs/analysis/`. Затем PA.2 на каждый Draft child.
 
 Если per-project REQ **функциональный** (или mixed), или уже есть story package/list, а целевая **техническая реализация фокуса** не оформлена — [`../prompts/architect/target-tech-architecture.md`](../prompts/architect/target-tech-architecture.md) (интервью → `{focus}/docs/architecture/` + `zeya888.target-tech-arch-interview-…`; не новые STORY). Packaging / deployability — пакет тем **того же** промпта. На Decision-point при запросе ОЯЗ — companion [`../prompts/architect/decision-point-human-language.md`](../prompts/architect/decision-point-human-language.md).
 
@@ -66,6 +73,10 @@ flowchart TB
 | `gpt` | `GPT UI/docs/requirements/REQ-*.md` | `GPT UI/docs/analysis/` |
 | `identity` | `docs/requirements/`, `backlog-stories/`, `runtime-docs/` | `doge-identity-service/docs/analysis/` |
 | `spa` | `spa-app/docs/tasks/backlog-stories/`, `spa-app/docs/requirements/`, `spa-app/docs/UX/` | `spa-app/docs/analysis/` |
+| `alvasar-backend` | parent `clients/Alvasar/docs/requirements/`; child `clients/Alvasar/backend/docs/requirements/` · backlog under `…/backend/docs/tasks/backlog-stories/` | `clients/Alvasar/backend/docs/analysis/` (when created) |
+| `alvasar-ui` | same parent; child `clients/Alvasar/ui/docs/requirements/` · backlog under `…/ui/docs/tasks/backlog-stories/` | `clients/Alvasar/ui/docs/analysis/` (when created) |
+
+Client registry: [`../specs/clients.yaml`](../specs/clients.yaml) · root chat: [`../prompts/architect/client-product-root-orientation.md`](../prompts/architect/client-product-root-orientation.md).
 
 ### §2.1 Intake refinement = фаза PA
 

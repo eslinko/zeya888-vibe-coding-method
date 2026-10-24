@@ -358,6 +358,38 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 `K` — из `--list`. Tests: `cd Floou && ls`. Pipeline — [floou-story-execution-pipeline.md](../../../Floou/docs/tasks/floou-story-execution-pipeline.md).
 
+## 5l. Профиль `alvasar-backend` (Python API — nested `clients/Alvasar/backend/`)
+
+`--project alvasar-backend` — активен. Active pkg: `pkg-000000-20261024-bootstrap` → **ok 1 paths** (profile marker). Контракт: [alvasar-backend-operator-contract.md](../contracts/alvasar-backend-operator-contract.md). Runtime plan: `.cursor/plans/Alvasar-Backend_builder.plan.md` (portable copy: `clients/Alvasar/.cursor/plans/`). **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-ALVB-*` → P1.3. Client: [client-tenancy.md](../guides/client-tenancy.md). Remote: https://github.com/eslinko/alvasar.git (`dev`).
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-backend --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-backend --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-backend \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd clients/Alvasar/backend && ls`. Pipeline — [alvasar-backend-story-execution-pipeline.md](../../../clients/Alvasar/backend/docs/tasks/alvasar-backend-story-execution-pipeline.md).
+
+## 5m. Профиль `alvasar-ui` (React Native Web — nested `clients/Alvasar/ui/`)
+
+`--project alvasar-ui` — активен. Active pkg: `pkg-000000-20261024-bootstrap` → **ok 1 paths** (profile marker). Контракт: [alvasar-ui-operator-contract.md](../contracts/alvasar-ui-operator-contract.md). Runtime plan: `.cursor/plans/Alvasar-UI_builder.plan.md` (portable copy: `clients/Alvasar/.cursor/plans/`). **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-ALVU-*` → P1.3. **hasUxPipeline:** false. Remote: https://github.com/eslinko/alvasar.git (`dev`).
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd clients/Alvasar/ui && ls`. Pipeline — [alvasar-ui-story-execution-pipeline.md](../../../clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md).
+
 ---
 
 ## 6. Профиль `taxonomy` (queueless meta-script)

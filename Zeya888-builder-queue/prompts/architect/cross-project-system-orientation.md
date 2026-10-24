@@ -1,10 +1,12 @@
 # Cross-project system orientation
 
 **Категория:** architect (pre-PA)  
+**Scope default:** **DOGE classic-four** (`gateway` / `identity` / `spa` / `gpt` + root `docs/`).  
+**Не для** `clients/<Client>/` — используйте [`client-product-root-orientation.md`](./client-product-root-orientation.md) + [`../../guides/client-tenancy.md`](../../guides/client-tenancy.md).  
 **Не заменяет:** PA.1–PA.3 / P1.x в [`../../core/workflow.md`](../../core/workflow.md)  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc) — только verified claims; без assumptions.
 
-**Когда:** нужно понять верхнюю архитектуру и концепт четырёх приложений и поработать с фрагментированным cross-project docs-слоем: карта + analytics + candidates **in chat**; дальше (Studio/Builder) — только по явному go-ahead оператора.
+**Когда:** нужно понять верхнюю архитектуру и концепт четырёх **DOGEstonia** приложений и поработать с фрагментированным cross-project docs-слоем: карта + analytics + candidates **in chat**; дальше (Studio/Builder) — только по явному go-ahead оператора.
 
 **Подстановка оператором:**
 

@@ -17,8 +17,9 @@
 
 | Prompt | Назначение |
 |--------|------------|
-| [`architect/cross-project-system-orientation.md`](./architect/cross-project-system-orientation.md) | Read-only STOP: карта 4 проектов + docs analytics + candidates in chat; без PA/P1 handoff |
-| [`architect/cross-project-requirements-backlog-bootstrap.md`](./architect/cross-project-requirements-backlog-bootstrap.md) | Стартовый lock чата: аналитика parent REQ из `docs/requirements backlog/` across gateway/identity/spa/gpt; без pkg/P3 |
+| [`architect/client-product-root-orientation.md`](./architect/client-product-root-orientation.md) | Read-only STOP: **client tenancy** root (`clients/<Client>/`, `$clientId`); не DOGE classic-four |
+| [`architect/cross-project-system-orientation.md`](./architect/cross-project-system-orientation.md) | Read-only STOP: карта **DOGE** 4 проектов + docs analytics + candidates in chat; без PA/P1 handoff |
+| [`architect/cross-project-requirements-backlog-bootstrap.md`](./architect/cross-project-requirements-backlog-bootstrap.md) | Стартовый lock чата: аналитика parent REQ из `docs/requirements backlog/` across **DOGE** gateway/identity/spa/gpt; без pkg/P3 |
 | [`architect/parent-requirement-to-project-reqs.md`](./architect/parent-requirement-to-project-reqs.md) | Parent → child REQs + link matrix; materialize + mvp-dashboard sync → PA.2 |
 | [`architect/cross-project-req-scatter.md`](./architect/cross-project-req-scatter.md) | Parent → child REQs в `{project}/docs/requirements/` (write after impact; Parent/Siblings; без STORY/pkg) |
 | [`architect/cross-project-req-consistency-audit.md`](./architect/cross-project-req-consistency-audit.md) | Чистый диалог: аудит parent+child REQ vs операторская цель; реализуемость; отчёт в `docs/analysis/`; обязательный доспрос |
@@ -29,7 +30,7 @@
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
 | [`architect/markstack-intake.md`](./architect/markstack-intake.md) | Residual / screens → Markstack L1→L1.5→L2 story intake (pre-Apply); guide [`../guides/markstack.md`](../guides/markstack.md) |
 
-**Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN. REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).
+**Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN (DOGE **or** client branch). Client model: [`../guides/client-tenancy.md`](../guides/client-tenancy.md). REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).
 
 ## operator/
 

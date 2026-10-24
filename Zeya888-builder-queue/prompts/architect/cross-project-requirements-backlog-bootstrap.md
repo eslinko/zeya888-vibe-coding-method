@@ -1,12 +1,14 @@
 # Architect bootstrap — cross-project requirements backlog
 
 **Категория:** architect (session starter / pre-PA)  
+**Scope default:** **DOGE classic-four** + parent intake `docs/requirements backlog/`.  
+**Не для** client parent under `clients/<Client>/docs/requirements/` — сначала [`client-product-root-orientation.md`](./client-product-root-orientation.md); scatter с `$targetProjects=` из [`../../specs/clients.yaml`](../../specs/clients.yaml).  
 **Не заменяет:** [`cross-project-system-orientation.md`](./cross-project-system-orientation.md) · [`parent-requirement-to-project-reqs.md`](./parent-requirement-to-project-reqs.md) · [`cross-project-req-scatter.md`](./cross-project-req-scatter.md) · PA.1–PA.3 / P1.x в [`../../core/workflow.md`](../../core/workflow.md)  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc) — только verified claims; без assumptions.
 
-**Когда:** этот чат — **общий слой аналитики** по входящим parent requirements, которые режут сразу несколько микросервисов. Intake-папка: `docs/requirements backlog/`. Проекты в lock: `gateway`, `identity`, `spa`, `gpt` (папки: `doge-complaints-gateway`, `doge-identity-service`, `spa-app`, `GPT UI`).
+**Когда:** этот чат — **общий слой аналитики** по входящим parent requirements, которые режут сразу несколько **DOGEstonia** микросервисов. Intake-папка: `docs/requirements backlog/`. Проекты в lock: `gateway`, `identity`, `spa`, `gpt` (папки: `doge-complaints-gateway`, `doge-identity-service`, `spa-app`, `GPT UI`).
 
-**Не этот промпт:** один `builder_project` P0–P8; overnight OP; image generation; landing-only UX.
+**Не этот промпт:** один `builder_project` P0–P8; overnight OP; image generation; landing-only UX; Alvasar/client root (→ `client-product-root-orientation`).
 
 **Подстановка оператором:**
 

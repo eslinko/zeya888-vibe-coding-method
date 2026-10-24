@@ -1,5 +1,21 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.62 — 2026-10-24
+
+- Architect: [`prompts/architect/client-product-root-orientation.md`](./prompts/architect/client-product-root-orientation.md) — client tenancy root chat (`$clientId`); DOGE classic-four prompts labeled as DOGE-only
+- Training/docs: from-cross-project guide branch client vs DOGE; curriculum 05/06 + human-entry; training 03A/04A @ client-tenancy; scatter/audit Alvasar `$targetProjects` cheat
+- Operator: [`operator-root-subagent-run.md`](./prompts/operator/operator-root-subagent-run.md) — `hasUxPipeline` from profile/console; Alvasar example keys
+- Sync: prompts/INDEX, MANIFEST
+
+## 1.4.61 — 2026-10-24
+
+- Client tenancy: [`guides/client-tenancy.md`](./guides/client-tenancy.md) · [`specs/clients.yaml`](./specs/clients.yaml) — nested `focus_folder` under `clients/<Client>/`; DOGE flat peers unchanged
+- Nested path docs: [`specs/profiles-fields.md`](./specs/profiles-fields.md) §Nested · [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) §0
+- Profiles: `alvasar-backend` / `alvasar-ui` (pilot Alvasar — Python + RN Web; bootstrap pkg-000000; portable plans under `clients/Alvasar/.cursor/plans/`)
+- Contracts: [alvasar-backend-operator-contract.md](./contracts/alvasar-backend-operator-contract.md) · [alvasar-ui-operator-contract.md](./contracts/alvasar-ui-operator-contract.md)
+- Sync: console v1.2.25, queue-manual §5l/§5m, workflow / session-starter / input-package-spec / migration enums / builder-session / habits / MANIFEST; intakes → `specs/profile-intakes/done/`
+- Gap/triage: `docs/analysis/zeya888-multi-client-layout-*-2026-10-24.md` · OP plan `.cursor/plans/OP-zeya888-multi-client-alvasar-pilot-20261024.plan.md`
+
 ## 1.4.60 — 2026-10-21
 
 - Training: [`prompts/training/05a-markstack-story-intake.md`](./prompts/training/05a-markstack-story-intake.md) — Markstack L1→L1.5→L2 (route A, optional after 04A)

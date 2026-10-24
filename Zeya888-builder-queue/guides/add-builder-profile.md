@@ -25,6 +25,8 @@ focus_folder: your_project  # путь от корня workspace; может о�
 
 **Правило:** по умолчанию `focus_folder` = `{profile_key}` (как `capybara/`, `scripts/`). Исключения (`spa` / `spa-app`, `zeya888` / `zeya888.me`, `gpt` / `GPT UI`) — явный `focus_folder` в intake → затем в `profiles.yaml`.
 
+**Nested `focus_folder` (allowed):** значение может содержать `/` (например `clients/Alvasar/backend`). CLI joins `workspace_root / relative` — см. [`profiles-fields.md`](../specs/profiles-fields.md) §Nested paths. DOGEstonia classic peers remain flat; nested is for client tenancy ([`client-tenancy.md`](./client-tenancy.md)). `test_command` must `cd` the same nested path. Derived `tasks_dir` = `{focus_folder}/docs/tasks` still applies.
+
 Чат-only fallback (без файла): те же два поля в сообщении; agent всё равно должен записать intake в `specs/profile-intakes/` до materialize.
 
 ### Derived defaults (если не переопределено)

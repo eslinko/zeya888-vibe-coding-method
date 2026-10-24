@@ -30,18 +30,19 @@
 ## 3. Preconditions
 
 1. **Interview SSOT** — operator decisions + code facts (not negotiable in Apply).  
-2. **UX prompts** — only if visual is Absent and Apply would invent UI without them.  
-3. **REQ** — only if a new service contract is required (sibling project).  
-4. Then **L1 → L1.5 → L2** per story.  
-5. INDEX / tip / depends updated. Pipeline epic folders — on Apply / P1.3, not required in docs-wave (**name ≠ create**).
+2. **Sufficiency gate** — per mark: **UX** | **REQ** | **CSS/code**.  
+3. **UX prompts** — when visual is Absent / wrong asset / layout Apply would invent (logo plate, new page composition, strip residual not covered by existing artboard). Draft `UX-PROMPTS-*.md` **before** L1 for those marks. Gen/intake PASS may be a later wave; stories cite the prompt and stay `visual BLOCK` until intake.  
+4. **REQ** — only if a new service contract is required (sibling project).  
+5. Then **L1 → L1.5 → L2** per story.  
+6. INDEX / tip / depends updated. Pipeline epic folders — on Apply / P1.3, not required in docs-wave (**name ≠ create**).
 
 ## 4. Algorithm
 
 ```text
 1. Code probe (grep/read) → Present / Partial / Absent vs OP symptoms
 2. Interview: locks + allocation table + explicit non-goals
-3. Sufficiency: UX gen? REQ? or CSS/code lock only
-4. L1: FR + AC + OOS + DoD (product language)
+3. Sufficiency: per mark UX | REQ | CSS/code — if UX → draft UX-PROMPTS (gate; do not jump to L1)
+4. L1: FR + AC + OOS + DoD (product language) · cite Interview + UX tip when visual
 5. L1.5: arch § / delta · map Story→§ · supersede notes
 6. L2: 3–5 tasks · Order · FR links · Await Apply
 7. Cross-links INDEX · sibling packages · depends (HTTP before SPA wire)
@@ -75,20 +76,21 @@ In every story **Meta:** three fields — `structure | visual | gate` (avoid “
 
 | Complete when |
 |---------------|
-| Interview (if needed) + L1 stories + L1.5 locks + L2 tasks + INDEX/depends on disk |
+| Interview (if needed) + **UX-PROMPTS for every UX-class mark** + L1 stories + L1.5 locks + L2 tasks + INDEX/depends on disk |
 | No empty epic pipeline trees created “so paths exist” |
-| Operator can hand off to Apply / P1.3 without oral legend |
+| Operator can hand off to Apply / P1.3 without oral legend (visual may still BLOCK pending artboard intake) |
 
 **Not Done for citizen:** until (a) code Present table vs L1 and (b) OP eye / Path A on target URL.
 
 ## 6. Anti-patterns
 
 1. Skipping Interview and inventing FR from memory.  
-2. Confusing L\* intake with P\* Builder Queue phases.  
-3. Self-ACCEPTED / invent PASS after docs-wave.  
-4. L2 Done while Apply not run.  
-5. Pipeline scaffold under name≠create docs-wave.  
-6. Using Markstack for post-Done one-surface hygiene (use lightweight-followup).
+2. **Interview → L1 without Sufficiency UX table** when visual would be invented.  
+3. Confusing L\* intake with P\* Builder Queue phases.  
+4. Self-ACCEPTED / invent PASS after docs-wave.  
+5. L2 Done while Apply not run.  
+6. Pipeline scaffold under name≠create docs-wave.  
+7. Using Markstack for post-Done one-surface hygiene (use lightweight-followup).
 
 ## 7. Relation to other methods
 

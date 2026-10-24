@@ -37,6 +37,8 @@
 | `zeya888-brand` | `zeya888/docs/tasks` | `zeya888-brand-active-package.current.yaml` | `zeya888-brand-active-packages/` |
 | `threads` | `doge-threads/docs/tasks` | `threads-active-package.current.yaml` | `threads-active-packages/` |
 | `floou` | `Floou/docs/tasks` | `floou-active-package.current.yaml` | `floou-active-packages/` |
+| `alvasar-backend` | `clients/Alvasar/backend/docs/tasks` | `alvasar-backend-active-package.current.yaml` | `alvasar-backend-active-packages/` |
+| `alvasar-ui` | `clients/Alvasar/ui/docs/tasks` | `alvasar-ui-active-package.current.yaml` | `alvasar-ui-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -162,6 +164,8 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | zeya888-brand | `zeya888_brand_input_package` |
 | threads | `threads_input_package` |
 | floou | `floou_input_package` |
+| alvasar-backend | `alvasar_backend_input_package` |
+| alvasar-ui | `alvasar_ui_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

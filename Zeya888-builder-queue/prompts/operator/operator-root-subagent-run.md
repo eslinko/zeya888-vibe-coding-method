@@ -18,7 +18,8 @@
 | 3 | Session есть, ids `null`/dead | RUN: spawn Builder + Validator once → записать ids в session.yaml |
 | 4 | Холодный OP (нет session) | RUN сам создаст session **или** сначала START — оба валидны |
 
-**Вход:** `$builderProject=` + `$queueSpec=` (defaults: `mode=sequential`, `overnight=on`, `delivery=subagent`).
+**Вход:** `$builderProject=` + `$queueSpec=` (defaults: `mode=sequential`, `overnight=on`, `delivery=subagent`).  
+**Примеры ключей:** `spa`, `gateway`, … · nested client: `alvasar-backend` / `alvasar-ui` (не `client_id: alvasar`).
 
 **Не этот промпт:**
 
@@ -74,7 +75,7 @@ From specs/profiles.yaml for $builderProject (SSOT paths). Cross-check workflow-
 - $verifyCmd = python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify
 - contract: docs/methodology/Zeya888-builder-queue/contracts/<key>-operator-contract.md
 - dashboard path: from that contract (do not invent filename)
-- hasUxPipeline: true only for spa in console → P3/P4 spa UX when story is UI; else clean P1.3/P3/P4
+- hasUxPipeline: from workflow-console PROJECT_PROFILES / profiles (true for spa-like UX profiles e.g. spa, dogestonia; **false** for alvasar-backend / alvasar-ui) → when true use P3/P4 spa UX packets for UI stories; else clean P1.3/P3/P4
 If unknown/disabled key → Ask and STOP.
 Do not copy landing hardcoded paths (Landing_builder, OP-landing.process.md) into a non-landing run.
 

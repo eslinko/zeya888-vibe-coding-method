@@ -13,7 +13,7 @@
 | 2 | Нужен старт строго под роль (BLD/VAL/OP), не смешивая фазы | `focus_role` выбирает role-lock и набор артефактов |
 | 3 | Нужен перенос на новый workspace с тем же методом | prompt читает SSOT с диска и выдаёт ready bootstrap |
 
-**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888`, `arweave`, `dogestonia`, `aibridge`, `zeya888-brand`, `threads`, `floou` (из `profiles.yaml`; **не** путать `zeya888` / `zeya888.me` с `zeya888-brand` / `zeya888/`; `threads` → `doge-threads/`).
+**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888`, `arweave`, `dogestonia`, `aibridge`, `zeya888-brand`, `threads`, `floou`, `alvasar-backend`, `alvasar-ui` (из `profiles.yaml`; **не** путать `zeya888` / `zeya888.me` с `zeya888-brand` / `zeya888/`; `threads` → `doge-threads/`).
 
 ---
 
@@ -25,7 +25,7 @@
 @docs/methodology/Zeya888-builder-queue/core/workflow.md
 @docs/methodology/Zeya888-builder-queue/core/session-starter.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888|arweave|dogestonia|zeya888-brand|threads|floou>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888|arweave|dogestonia|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui>
 focus_role: <builder|validator|orchestrator>
 workspace_root: /Users/eslinko/Development/DOGEstonia
 

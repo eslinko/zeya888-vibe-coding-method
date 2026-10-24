@@ -12,7 +12,7 @@
 ```text
 @docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand|threads|floou>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui>
 focus_role: validator
 workspace_root: /Users/eslinko/Development/DOGEstonia
 
