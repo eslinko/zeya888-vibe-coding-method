@@ -80,6 +80,8 @@
 | `gpt_pb_12_audit_followup` | GIM-427 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-12-primary-prompt-geo-load-gate-vocabulary/task-amend-pb12-meta-claim-post-scr02/README.md` |
 | `gpt_pb_13_audit_followup` | GIM-434 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-11-node-onboarding-pack-builder/stories/STORY-GPT-PB-13-node-onboarding-standards-geo-gate-alignment/task-sync-node-onboarding-index-pb13-sequence-wording/README.md` |
 | `gpt_ssr_17_audit_followup` | GIM-441 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-01-issue-domain-instruction-foundation/stories/STORY-GPT-SSR-17-retire-activity-legacy-paths-inventory/task-sync-parent-backlog-index-ssr17-status/README.md` |
+| `gpt_rol_01_audit_followup` | GIM-446 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-12-req48-role-oriented-instruction-line/stories/STORY-GPT-ROL-01-archive-module1-snapshot/task-rm-accidental-empty-archive-nest/README.md` |
+| `gpt_rol_02_audit_followup` | GIM-452 | 1. `GPT UI/docs/analysis/tasks/epics/EPIC-M1-12-req48-role-oriented-instruction-line/stories/STORY-GPT-ROL-02-module1-role-mapping/task-sync-backlog-verified-mapping-present/README.md` |
 
 Любой другой `run_mode` — только если есть одноимённый § в plan; иначе → YAML default (`pkg-000023`).
 
