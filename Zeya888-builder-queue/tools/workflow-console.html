@@ -497,7 +497,7 @@
       </div>
       <div class="header__pills">
         <span class="pill">Theme: Dark + DOGE</span>
-        <span class="pill">v1.2.25</span>
+        <span class="pill">v1.2.26</span>
         <span class="pill">2026-08-14</span>
       </div>
     </header>
@@ -510,7 +510,7 @@
   </div>
 
   <script>
-    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou', 'alvasar-backend', 'alvasar-ui'];
+    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou', 'alvasar-backend', 'alvasar-ui', 'telegram'];
 
     const PROJECT_PROFILES = {
       gateway: {
@@ -686,6 +686,17 @@
         execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md',
         hasUxPipeline: false,
         backlog_index: 'clients/Alvasar/ui/docs/tasks/backlog-stories/INDEX.md',
+      },
+      telegram: {
+        project: 'telegram',
+        tasks_dir: 'doge-telegram/docs/tasks',
+        current_pointer: 'telegram-active-package.current.yaml',
+        plan_file: '.cursor/plans/Telegram_builder.plan.md',
+        pipeline_doc: 'doge-telegram/docs/tasks/telegram-story-execution-pipeline.md',
+        execution_skill_primary: 'python-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'doge-telegram/docs/tasks/backlog-stories/INDEX.md',
       },
     };
 

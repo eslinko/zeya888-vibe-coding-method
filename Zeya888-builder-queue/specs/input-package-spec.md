@@ -39,6 +39,7 @@
 | `floou` | `Floou/docs/tasks` | `floou-active-package.current.yaml` | `floou-active-packages/` |
 | `alvasar-backend` | `clients/Alvasar/backend/docs/tasks` | `alvasar-backend-active-package.current.yaml` | `alvasar-backend-active-packages/` |
 | `alvasar-ui` | `clients/Alvasar/ui/docs/tasks` | `alvasar-ui-active-package.current.yaml` | `alvasar-ui-active-packages/` |
+| `telegram` | `doge-telegram/docs/tasks` | `telegram-active-package.current.yaml` | `telegram-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -166,6 +167,7 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | floou | `floou_input_package` |
 | alvasar-backend | `alvasar_backend_input_package` |
 | alvasar-ui | `alvasar_ui_input_package` |
+| telegram | `telegram_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

@@ -1,5 +1,10 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.63 — 2026-10-31
+
+- Profile: `telegram` (`focus_folder: doge-telegram`, Python Telegram channel transport → doge-ai-bridge `/v1/channel/*`) — clone [DOGE-Complaints/doge-telegram](https://github.com/DOGE-Complaints/doge-telegram.git) `dev`, `profiles.yaml`, console v1.2.26, tasks bootstrap pkg-000000, [telegram-operator-contract.md](./contracts/telegram-operator-contract.md), `.cursor/plans/Telegram_builder.plan.md`
+- Sync: queue-manual §5n, workflow / session-starter / input-package-spec / migration enums / builder-session / habits / MANIFEST; intake → `specs/profile-intakes/done/telegram.yaml`
+
 ## 1.4.62 — 2026-10-24
 
 - Architect: [`prompts/architect/client-product-root-orientation.md`](./prompts/architect/client-product-root-orientation.md) — client tenancy root chat (`$clientId`); DOGE classic-four prompts labeled as DOGE-only

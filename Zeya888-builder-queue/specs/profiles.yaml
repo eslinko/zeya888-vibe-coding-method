@@ -363,3 +363,24 @@ projects:
     stack_label: React Native Web (scaffold deferred)
     execution_skill_primary: react-native-expert
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/react-native-expert/SKILL.md
+
+  telegram:
+    enabled: true
+    focus_folder: doge-telegram
+    tasks_dir: doge-telegram/docs/tasks
+    active_packages_dir: telegram-active-packages
+    current_pointer: telegram-active-package.current.yaml
+    build_windows_subdir: run-reports/telegram-build-windows
+    build_window_prefix: telegram-cursor-build-window
+    next_readme_dotfile: .telegram-next-readme
+    pkg_path_prefix: doge-telegram/docs/tasks/
+    plan_file: .cursor/plans/Telegram_builder.plan.md
+    pipeline_doc: doge-telegram/docs/tasks/telegram-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: telegram_input_package
+    artifact_kind: telegram_cursor_build_window
+    build_window_title: Telegram Cursor build window
+    test_command: 'cd doge-telegram && python3 -V'
+    stack_label: Python (Telegram channel transport → ai-bridge)
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md

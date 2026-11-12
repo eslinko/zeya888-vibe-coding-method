@@ -1,0 +1,17 @@
+# Profile intake — telegram (pending → move to done/ after verify)
+# Remote: https://github.com/DOGE-Complaints/doge-telegram.git (branch: dev)
+# Product: doge-telegram-channel (Telegram transport → ai-bridge channel API)
+
+profile_key: telegram
+focus_folder: doge-telegram
+plan_title_case: Telegram
+
+stack_label: "Python (Telegram channel transport → ai-bridge)"
+execution_skill_primary: python-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+test_command: "cd doge-telegram && python3 -V"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-10-31T18:08:59Z"

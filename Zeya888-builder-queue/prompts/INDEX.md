@@ -23,6 +23,7 @@
 | [`architect/parent-requirement-to-project-reqs.md`](./architect/parent-requirement-to-project-reqs.md) | Parent → child REQs + link matrix; materialize + mvp-dashboard sync → PA.2 |
 | [`architect/cross-project-req-scatter.md`](./architect/cross-project-req-scatter.md) | Parent → child REQs в `{project}/docs/requirements/` (write after impact; Parent/Siblings; без STORY/pkg) |
 | [`architect/cross-project-req-consistency-audit.md`](./architect/cross-project-req-consistency-audit.md) | Чистый диалог: аудит parent+child REQ vs операторская цель; реализуемость; отчёт в `docs/analysis/`; обязательный доспрос |
+| [`architect/docs-systems-connectivity-audit.md`](./architect/docs-systems-connectivity-audit.md) | Универсальный: N корней docs (`$docSystems=`) — стиль / удобство / структура / масштаб / связность; findings-only + отчёт; не REQ-vs-targetState |
 | [`architect/target-tech-architecture.md`](./architect/target-tech-architecture.md) | REQ and/or story package/list → целевая tech-архитектура фокуса (+ interview); packaging — пакет тем |
 | [`architect/decision-point-human-language.md`](./architect/decision-point-human-language.md) | Companion: ОЯЗ-разбор вариантов Decision-point + ethics/architecture fit + advisory recommend |
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |

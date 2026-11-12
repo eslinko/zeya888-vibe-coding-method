@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `telegram`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -230,6 +230,18 @@
 | Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
 | Pipeline        | `clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md`                                  |
 | Remote          | https://github.com/eslinko/alvasar.git (`dev`) · client tenancy                                         |
+
+
+
+|                 | `telegram` (Python Telegram transport — focus `doge-telegram/`)                                         |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Telegram_builder.plan.md`                                                                |
+| `$tasksRoot`    | `doge-telegram/docs/tasks`                                                                              |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-TELEGRAM-*.md` (`input_mode=backlog_story`)                            |
+| `$backlogIndex` | `doge-telegram/docs/tasks/backlog-stories/INDEX.md`                                                     |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `doge-telegram/docs/tasks/telegram-story-execution-pipeline.md`                                         |
+| Remote          | https://github.com/DOGE-Complaints/doge-telegram.git (`dev`)                                            |
 
 
 ---
@@ -570,6 +582,7 @@ SSOT: guides/builder-artifact-dates.md
 | `floou`           | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                           |
 | `alvasar-backend` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-backend --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                              |
 | `alvasar-ui`      | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                     |
+| `telegram`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project telegram --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                       |
 
 
 1. В stdout после `ok build-window`: `**build_window_abs:`** / `**vscode_file_uri:`** — открыть из терминала (Cmd+click); `**quick_open_basename:`** или `**quick_open_pointer:`** (`latest-cursor-build-window.md` в `*-active-packages/`) — для **Cmd+P**; `**cursor_attach:`** — для P3. Symlink обновляется при каждой генерации. **Не** вставлять путь в Go-to-File целиком — `GPT UI/…` обрезается до `UI/docs/…`.
