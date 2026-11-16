@@ -29,7 +29,8 @@
 | 0 | `PRODUCT-BRIEF.md` | locked brief из REQ |
 | — | `INDEX.md` | статусы слоёв + порядок |
 | 01 | `ADMIN-{PREFIX}-01-product-ux-prompts.md` | UX prompts / state matrix → later `UX-PROMPTS.md` (**только A**) |
-| 02 | `ADMIN-…-02-ux-mockup-intake.md` | mockup specs intake (**только A**) |
+| — | UX dialog (вне ADMIN file) | После Done ADMIN-01: [`ux-package-bootstrap-universal.md`](./ux-package-bootstrap-universal.md) + `@UX-PROMPTS.md` → ZIP артборд+спека (**только A**; **не** Variant B) |
+| 02 | `ADMIN-…-02-ux-mockup-intake.md` | mockup specs intake из ZIP/пар (**только A**) |
 | 03 | `ADMIN-…-03-icon-assets-catalog.md` | icon catalog plan (**первый слой в B**) |
 | 04 | `ADMIN-…-04-api-requirements.md` | API needs vs verified code/docs |
 | 05 | `ADMIN-…-05-backlog-stories-l10n.md` | **deliverable later:** STORY-* + l10n (не создавать STORY в этом промпте) |
@@ -119,14 +120,17 @@ Do not suggest executing ADMIN layers or P1 until operator go-ahead.
 5) Do NOT write STORY-*.md, pkg, epic, UX-PROMPTS.md, icon PNGs.
 6) Optional note: `npm run dashboard:aggregate`.
 7) Handoff: «ADMIN package + dashboard ready at <path> → operator runs layers (“Выполни ADMIN-…”);
-   after ADMIN-05/06 done → P1.3 on stories. This prompt stops.»
+   After ADMIN-01 Done + UX-PROMPTS.md: UX dialog + ux-package-bootstrap-universal → ZIP;
+   then ADMIN-02 intake → 03…06; after ADMIN-05/06 done → P1.3 on stories. This prompt stops.»
 ```
+
+**Post ADMIN-01 (Variant A only):** UX-диалог + [`ux-package-bootstrap-universal.md`](./ux-package-bootstrap-universal.md) + `@…/UX-PROMPTS.md` → один ZIP → затем ADMIN-02. Variant B: bootstrap **не** нужен (артборды+спеки уже вход).
 
 ---
 
 ## Copy-paste B — Requirement → UI ADMIN (UX assets уже даны)
 
-**Когда:** артборды со стейтами и **отдельная спека на каждый артборд** уже есть в контексте промпта. Не генерировать UX-промпты; не создавать ADMIN-01/02.
+**Когда:** артборды со стейтами и **отдельная спека на каждый артборд** уже есть в контексте промпта. Не генерировать UX-промпты; не создавать ADMIN-01/02. Не запускать `ux-package-bootstrap-universal`.
 
 **Подстановка:**
 

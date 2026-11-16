@@ -157,7 +157,8 @@ tech_first P1.3: mention as allowed after materialize, separate wave, only if op
    STORY-*-api-requirements.md, pkg, epic, task README.
 6) Optional note: `npm run dashboard:aggregate`.
 7) Handoff: «ADMIN + STORY package ready at <path>.
-   ui_first: operator runs ADMIN-01…04 → refine stories (ADMIN-05) → P1.3.
+   ui_first: ADMIN-01 → UX-PROMPTS.md → UX dialog + ux-package-bootstrap-universal → ZIP →
+   ADMIN-02…04 → refine stories (ADMIN-05) → P1.3.
    tech_first: optional PA.3 → P1.3 now, separate wave, not mixed with ui_first in one pkg
    unless operator explicitly orders. This prompt stops.»
 ```

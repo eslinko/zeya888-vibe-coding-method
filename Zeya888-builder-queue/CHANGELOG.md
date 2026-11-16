@@ -1,5 +1,10 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.66 — 2026-11-16
+
+- Architect: [`prompts/architect/ux-package-bootstrap-universal.md`](./prompts/architect/ux-package-bootstrap-universal.md) — UX dialog: `UX-PROMPTS.md` (post ADMIN-01) → ZIP артборд+companion `.md` → ADMIN-02
+- Sync: req-to-ui-admin-layers (A handoff) / req-to-frontend-mixed-package ui_first / prompts INDEX / MANIFEST / curriculum 06 / from-cross-project-req-to-story-packages §2–§3
+
 ## 1.4.65 — 2026-11-16
 
 - Vendor: portable Cursor skill [`integration/cursor-skills/builder-session/SKILL.md`](./integration/cursor-skills/builder-session/SKILL.md) (= workspace `.cursor/skills/builder-session/`); dual-sync rule in [`integration/cursor-skills/README.md`](./integration/cursor-skills/README.md)

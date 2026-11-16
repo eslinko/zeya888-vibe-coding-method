@@ -63,6 +63,7 @@ flowchart TB
 | [`prompts/architect/decision-point-human-language.md`](./prompts/architect/decision-point-human-language.md) | Companion: ОЯЗ Decision-point + ethics/architecture fit + advisory recommend |
 | [`prompts/architect/req-to-backlog-stories.md`](./prompts/architect/req-to-backlog-stories.md) | Post-REQ: non-UI → backlog STORY package (plan → materialize) |
 | [`prompts/architect/req-to-ui-admin-layers.md`](./prompts/architect/req-to-ui-admin-layers.md) | Post-REQ: UI → ADMIN layers (A: 01…06; B: UX-ready 03…06) (plan → materialize) |
+| [`prompts/architect/ux-package-bootstrap-universal.md`](./prompts/architect/ux-package-bootstrap-universal.md) | UX dialog: `UX-PROMPTS.md` → ZIP артборд+companion `.md` (post ADMIN-01 / pre ADMIN-02) |
 | [`prompts/architect/req-to-frontend-mixed-package.md`](./prompts/architect/req-to-frontend-mixed-package.md) | Post-REQ: FE mixed → classify ui_first/tech_first; ADMIN projected + STORY (plan → materialize) |
 | [`prompts/architect/markstack-intake.md`](./prompts/architect/markstack-intake.md) | Residual → Markstack L1→L1.5→L2 story intake (pre-Apply) |
 | [`prompts/operator/operator-root-start.md`](./prompts/operator/operator-root-start.md) | Root OP bootstrap: project only → session bind |

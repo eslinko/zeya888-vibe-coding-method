@@ -28,6 +28,7 @@
 | [`architect/decision-point-human-language.md`](./architect/decision-point-human-language.md) | Companion: ОЯЗ-разбор вариантов Decision-point + ethics/architecture fit + advisory recommend |
 | [`architect/req-to-backlog-stories.md`](./architect/req-to-backlog-stories.md) | Non-UI REQ → STORY package (reuse\|new); INDEX + mvp-dashboard sync → P1.3 |
 | [`architect/req-to-ui-admin-layers.md`](./architect/req-to-ui-admin-layers.md) | UI REQ → ADMIN pkg (always NEW): **A** 01…06; **B** UX-ready omit 01/02 → start 03; INDEX + mvp-dashboard; STORY via ADMIN-05 |
+| [`architect/ux-package-bootstrap-universal.md`](./architect/ux-package-bootstrap-universal.md) | UX dialog: `UX-PROMPTS.md` (post ADMIN-01) → ZIP пар артборд+спека; затем ADMIN-02 |
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
 | [`architect/markstack-intake.md`](./architect/markstack-intake.md) | Residual / screens → Markstack L1→L1.5→L2 story intake (pre-Apply); guide [`../guides/markstack.md`](../guides/markstack.md) |
 
