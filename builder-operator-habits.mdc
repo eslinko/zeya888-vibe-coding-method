@@ -1,5 +1,5 @@
 ---
-description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, zeya888, arweave, dogestonia, aibridge, zeya888-brand, threads, and floou
+description: Zeya888 Builder Queue operator habits for gateway, GPT UI, identity, spa-app, scripts (tooling), capybara, landing, zeya888, arweave, dogestonia, aibridge, zeya888-brand, threads, floou, alvasar-backend, alvasar-ui, alvasar-gpt, and telegram
 globs:
   - doge-complaints-gateway/**
   - GPT UI/**
@@ -18,7 +18,7 @@ alwaysApply: false
 
 # Builder operator habits
 
-When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888, zeya888-brand, threads, floou, arweave, dogestonia, aibridge) or works on Zeya888 Builder Queue / pkg / build window:
+When the operator names `builder_project` (gateway, gpt, identity, spa, scripts, capybara, landing, zeya888, zeya888-brand, threads, floou, alvasar-backend, alvasar-ui, alvasar-gpt, telegram, arweave, dogestonia, aibridge) or works on Zeya888 Builder Queue / pkg / build window:
 
 1. **Before Build execution:** from workspace root run  
    `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify`  
@@ -95,6 +95,22 @@ When the operator names `builder_project` (gateway, gpt, identity, spa, scripts,
    - primary intake: P1.3 `STORY-FLOOU-*` (один режим); **не** invent; alias `floou` → focus `Floou/`;
    - stack: Solidity (LSP7 token) in `Floou/`; skill `solidity-auditor`;
    - runtime P3/P6 — @attach `.cursor/plans/Floou_builder.plan.md` (не Build на файле); bootstrap t00 — methodology only.
+20a. **Alvasar backend (`builder_project: alvasar-backend`)** — [alvasar-backend-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/alvasar-backend-operator-contract.md) · [client-tenancy.md](../../docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md):
+   - перед batch-run: `clients/Alvasar/backend/docs/tasks/bullrun-launch-index.md` + `alvasar-backend-active-package.current.yaml` + `--project alvasar-backend --verify`;
+   - primary intake: P1.3 `STORY-ALVB-*`; nested focus `clients/Alvasar/backend/`; skill `python-pro`;
+   - runtime P3/P6 — @attach `.cursor/plans/Alvasar-Backend_builder.plan.md` (+ portable copy in client git); bootstrap t00 — methodology only.
+20b. **Alvasar UI (`builder_project: alvasar-ui`)** — [alvasar-ui-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/alvasar-ui-operator-contract.md):
+   - перед batch-run: `clients/Alvasar/ui/docs/tasks/bullrun-launch-index.md` + `alvasar-ui-active-package.current.yaml` + `--project alvasar-ui --verify`;
+   - primary intake: P1.3 `STORY-ALVU-*`; nested focus `clients/Alvasar/ui/`; skill `react-native-expert`; **hasUxPipeline** false;
+   - runtime P3/P6 — @attach `.cursor/plans/Alvasar-UI_builder.plan.md` (+ portable copy in client git); bootstrap t00 — methodology only.
+20c. **Alvasar GPT (`builder_project: alvasar-gpt`)** — [alvasar-gpt-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/alvasar-gpt-operator-contract.md):
+   - перед batch-run: `clients/Alvasar/gpt/docs/tasks/bullrun-launch-index.md` + `alvasar-gpt-active-package.current.yaml` + `--project alvasar-gpt --verify`;
+   - primary intake: P1.3 `STORY-ALVG-*`; nested focus `clients/Alvasar/gpt/`; skill `openai-custom-gpt-builder` (as GPT UI); **hasUxPipeline** false; name ≠ create instruction bodies;
+   - runtime P3/P6 — @attach `.cursor/plans/Alvasar-GPT_builder.plan.md` (+ portable copy in client git); bootstrap t00 — methodology only.
+20d. **Telegram (`builder_project: telegram`)** — [telegram-operator-contract.md](../../docs/methodology/Zeya888-builder-queue/contracts/telegram-operator-contract.md):
+   - перед batch-run: `doge-telegram/docs/tasks/bullrun-launch-index.md` + `telegram-active-package.current.yaml` + `--project telegram --verify`;
+   - primary intake: P1.3 `STORY-TELEGRAM-*`; focus `doge-telegram/`; skill `python-pro`; channel only → doge-ai-bridge `/v1/channel/*`;
+   - runtime P3/P6 — @attach `.cursor/plans/Telegram_builder.plan.md`; bootstrap t00 — methodology only.
 21. **Fixed builder plans (`*_builder.plan.md`):** execution — @attach в **текущем** project-чате + [workflow.md](../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P3/P6; **не** нажимать Build / Execute plan на файле плана ([fixed-builder-plan-execution.md](../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)). Ephemeral P1/P5 plans — Plan mode только в том project-чате, где идёт волна.
 22. **Lightweight follow-up (post-Done, no new STORY):** [lightweight-followup.md](../../docs/methodology/Zeya888-builder-queue/guides/lightweight-followup.md) — сначала VAL triage ([lightweight-followup-triage.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-triage.md)); hard HIT → ESCALATE to BQ; PASS → author dual plans ([lightweight-followup-author.md](../../docs/methodology/Zeya888-builder-queue/prompts/operator/lightweight-followup-author.md)) → BLD implement → VAL validate; не подменять P4.
 23. **Markstack (residual → L1→L1.5→L2 before Apply):** [markstack.md](../../docs/methodology/Zeya888-builder-queue/guides/markstack.md) — live UI marks / screens+comments → Interview → L1 FR/AC → L1.5 arch → L2 Apply atoms; prompt [markstack-intake.md](../../docs/methodology/Zeya888-builder-queue/prompts/architect/markstack-intake.md); не путать с P0–P8 и не с п.22.
