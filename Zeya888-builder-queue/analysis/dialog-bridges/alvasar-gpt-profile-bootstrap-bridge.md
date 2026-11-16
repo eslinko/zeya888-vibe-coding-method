@@ -1,16 +1,17 @@
 # Bridge — Zeya888 profile / tenancy bootstrap (dialog practice)
 
 **dialogName:** `alvasar-gpt-profile-bootstrap` (filename stable; content = method-first)  
+**dialogKind:** `mixed` (method_ops dominant + Path C/B profile practice)  
 **bridgeScope:** `full`  
 **Файл:** `docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md`  
 **Prompt SSOT:** [`../../prompts/migration/migration-dialog-context-bridge.md`](../../prompts/migration/migration-dialog-context-bridge.md) · **Output home:** [`README.md`](./README.md)  
-**UTC foundation:** `2026-11-15T14:32:00Z` (re-check with `--print-utc-now` before new artifact dates)  
+**UTC foundation:** `2026-11-15T14:32:00Z` · **bridge refreshed:** `2026-11-16T08:21:29Z` (re-check with `--print-utc-now` before new artifact dates)  
 **Workspace:** `/Users/eslinko/Development/DOGEstonia`  
 **Source dialog (transcript / agent store):** `f002f3d0-08b9-4e9d-8241-4bc30c1b0849`  
 **Rules:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc) · [`.cursor/rules/builder-operator-habits.mdc`](../../../../../.cursor/rules/builder-operator-habits.mdc) · [`.cursor/rules/zeya888-operator-method.mdc`](../../../../../.cursor/rules/zeya888-operator-method.mdc)  
 **Audience:** полностью чистый агент. Читать §0–§4 **до** instance §5–§7. Не сводить весь метод к Alvasar.
 
-**Appendix:** ранний meta-ask «сделай bridge» в этом же диалоге породил prompt + output home; operative смысл диалога шире — **как поднимать профили и client tenancy в Zeya888 BQ**.
+**Appendix:** ранний meta-ask «сделай bridge» → prompt + `analysis/dialog-bridges/`; затем profile/tenancy practice; хвост — vendor `builder-session` skill into method pack (**1.4.65**). Operative смысл шире Alvasar: **как поднимать профили / client tenancy + portable Cursor skills dual-sync**.
 
 ---
 
@@ -60,8 +61,8 @@
 | Console UI | [`tools/workflow-console.html`](../../tools/workflow-console.html) |
 | CLI | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify` |
 | Curriculum connect | [`curriculum/05-connect-your-project.md`](../../curriculum/05-connect-your-project.md) |
-| Method version (as of this dialog) | [`VERSION`](../../VERSION) = `1.4.64` · [`CHANGELOG.md`](../../CHANGELOG.md) |
-| Builder session skill | [`.cursor/skills/builder-session/SKILL.md`](../../../../../.cursor/skills/builder-session/SKILL.md) |
+| Method version (as of this dialog) | [`VERSION`](../../VERSION) = `1.4.65` · [`CHANGELOG.md`](../../CHANGELOG.md) |
+| Builder session skill (**dual-sync**) | Runtime [`.cursor/skills/builder-session/SKILL.md`](../../../../../.cursor/skills/builder-session/SKILL.md) · Portable [`integration/cursor-skills/builder-session/SKILL.md`](../../integration/cursor-skills/builder-session/SKILL.md) · rule [`integration/cursor-skills/README.md`](../../integration/cursor-skills/README.md) · wiring [`integration/cursor-setup.md`](../../integration/cursor-setup.md) §0/§2 |
 | Structural plan etalon | [`.cursor/plans/Gateway_builder.plan.md`](../../../../../.cursor/plans/Gateway_builder.plan.md) |
 
 ---
@@ -102,8 +103,11 @@
 | `telegram` | Path B-ish (clone `doge-telegram`) + materialize | Profile `telegram`; method **1.4.63** |
 | `alvasar-gpt` | Path C nested `clients/Alvasar/gpt`; skill как flat `gpt` | Profile `alvasar-gpt`; method **1.4.64**; client commit `b0bf056` pushed `dev` |
 | Dialog-bridge SSOT | prompt `migration-dialog-context-bridge` + `analysis/dialog-bridges/` | Output home Present; this file |
+| Method push 1.4.64 | methodology git → `origin/methodology-src` | Commit `b5dc8e7` (alvasar-gpt + dialog-bridge) |
+| Vendor `builder-session` | portable under `integration/cursor-skills/`; dual-sync docs; bump | Method **1.4.65**; commit `b2d2e47` pushed `methodology-src`; bytes runtime ≡ portable |
 
-Plan UI Apply (alvasar-gpt): `/Users/eslinko/.cursor/plans/alvasar_gpt_profile_e3e504e7.plan.md` — Apply done; **не** править без приказа.
+Plan UI Apply (alvasar-gpt): `/Users/eslinko/.cursor/plans/alvasar_gpt_profile_e3e504e7.plan.md` — Apply done; **не** править без приказа.  
+Plan UI Apply (vendor skill): `/Users/eslinko/.cursor/plans/vend_builder_session_skill_e3c4cb47.plan.md` — Apply done.
 
 ---
 
@@ -137,10 +141,14 @@ Plan UI Apply (alvasar-gpt): `/Users/eslinko/.cursor/plans/alvasar_gpt_profile_e
 python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
 # expect: ok 1 paths … pkg-000000-20261115-bootstrap.yaml
 
-cat docs/methodology/Zeya888-builder-queue/VERSION   # 1.4.64
+cat docs/methodology/Zeya888-builder-queue/VERSION   # 1.4.65
 test -f docs/methodology/Zeya888-builder-queue/specs/profile-intakes/done/alvasar-gpt.yaml && echo intake=done
 test ! -f clients/Alvasar/gpt/instructions.manifest.json && echo manifest_absent=ok
-cd clients/Alvasar && git log -1 --oneline -- gpt/ CLIENT.yaml .cursor/plans/Alvasar-GPT_builder.plan.md
+cmp -s .cursor/skills/builder-session/SKILL.md \
+  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md && echo dual_sync_bytes=ok
+cd docs/methodology && git log -1 --oneline
+# expect: b2d2e47 feat(builder-queue): vendor builder-session skill into method pack (1.4.65)
+cd /Users/eslinko/Development/DOGEstonia/clients/Alvasar && git log -1 --oneline -- gpt/ CLIENT.yaml .cursor/plans/Alvasar-GPT_builder.plan.md
 # expect: b0bf056 chore(gpt): bootstrap Builder Queue profile alvasar-gpt
 ```
 
@@ -150,9 +158,10 @@ Peers (cheap): `--project alvasar-ui --verify`, `--project telegram --verify`, `
 
 ## 7. File map (highlights)
 
-### Method (workspace; methodology git commit for 1.4.64 — **не** делался в Apply-волне alvasar-gpt)
+### Method (workspace; methodology git `docs/methodology` → `origin/methodology-src`)
 
-Present: `VERSION`/`CHANGELOG` 1.4.64 · `profiles.yaml` (`alvasar-gpt`, `telegram`, …) · `clients.yaml` · contracts · console · workflow/session-starter/queue-manual · `builder-session` / habits · `Alvasar-GPT_builder.plan.md` · `Telegram_builder.plan.md` · `prompts/migration/migration-dialog-context-bridge.md` · `analysis/dialog-bridges/`.
+Present: `VERSION`/`CHANGELOG` **1.4.65** · `profiles.yaml` (`alvasar-gpt`, `telegram`, …) · `clients.yaml` · contracts · console · workflow/session-starter/queue-manual · dual-sync `builder-session` (`.cursor/skills/` ≡ `integration/cursor-skills/`) · habits · `Alvasar-GPT_builder.plan.md` · `Telegram_builder.plan.md` · `prompts/migration/migration-dialog-context-bridge.md` · `analysis/dialog-bridges/` · `integration/cursor-setup.md` §0/§2 dual-sync.  
+Pushed: `b5dc8e7` (1.4.64) · `b2d2e47` (1.4.65 vendor skill).
 
 ### Client `alvasar` (`dev`, pushed bootstrap gpt)
 
@@ -176,6 +185,8 @@ Present: `CLIENT.yaml` · `gpt/README.md` · `gpt/docs/tasks/**` (pkg-000000, bu
 - Silent methodology / `docs/tasks/**` commit.
 - Scope inflation / plan-over-ask (`analysis.mdc`).
 - Копировать полный `workflow.md` в новые bridges вместо pointers.
+- Править только один путь `builder-session` skill (runtime **или** portable) — dual-sync обязателен ([`integration/cursor-skills/README.md`](../../integration/cursor-skills/README.md)).
+- Искать dialog-bridges в workspace `docs/analysis/` — home = `docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/`.
 
 ---
 
@@ -227,9 +238,13 @@ Migration: nested client MS profile. Dual plans + clients.yaml/CLIENT.yaml + tas
 
 Phase 0 + `builder_project: alvasar-gpt` · bullrun · contract · `gpt/README.md` · parent REQ14 §4.5 · **не** P3 на t00 · author `STORY-ALVG-*` only after explicit product ask · instruction bodies only on explicit create.
 
-### 9.E — Methodology commit 1.4.64
+### 9.E — Methodology commit (next bump)
 
-Только по явному приказу; только method files; не тащить несвязанный dirty tree.
+`1.4.64` / `1.4.65` уже на `methodology-src`. Новый bump — только по явному приказу; только method files; не тащить `.DS_Store` / product / `__pycache__`.
+
+### 9.F — Edit `builder-session` skill
+
+Править **оба** файла в одной волне: `.cursor/skills/builder-session/SKILL.md` **и** `integration/cursor-skills/builder-session/SKILL.md`; затем `cmp` + при приказе method commit/push.
 
 ---
 
@@ -244,10 +259,15 @@ test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-add-b
 test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-profile-from-checked-out-dir.md
 test -f docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
 test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-dialog-context-bridge.md
+test -f docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md
+test -f docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
+cmp -s .cursor/skills/builder-session/SKILL.md \
+  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md
 python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
 python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify --check-dates
 rg -n "^  alvasar-gpt:|^  telegram:" docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
 test ! -f clients/Alvasar/gpt/instructions.manifest.json
+grep -E '^1\.4\.65$' docs/methodology/Zeya888-builder-queue/VERSION
 ```
 
 ---
@@ -258,19 +278,21 @@ test ! -f clients/Alvasar/gpt/instructions.manifest.json
 @.cursor/rules/analysis.mdc
 @docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md
 @docs/methodology/Zeya888-builder-queue/prompts/migration/migration-self-restore-zeya888-method.md
+@docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
 
-Ты чистый агент. bridgeScope=full.
+Ты чистый агент. bridgeScope=full · dialogKind=mixed.
 1) Прочитай bridge §1–§4 (method + entry paths), затем §5–§7 (instance).
-2) Выполни smoke §10; отрапортуй: VERSION / alvasar-gpt verify / intake done / manifest Absent / method prompt paths Present.
-3) Не повторяй bootstrap alvasar-gpt / telegram.
+2) Выполни smoke §10; отрапортуй: VERSION(=1.4.65) / dual_sync_bytes / alvasar-gpt verify / intake done / manifest Absent / dialog-bridges Present.
+3) Не повторяй bootstrap alvasar-gpt / telegram / vendor skill 1.4.65.
 
 Дальше — один режим по моей следующей строке (если нет — STOP и спроси):
 A) Bootstrap NEW profile — Path A (intake already): $profile_key= $focus_folder=
 B) Bootstrap NEW profile — Path B (folder/clone): $profile_key= $focus_folder= $git_repo=
 C) Bootstrap NEW nested client MS — Path C: $client_id= $profile_key= $focus_folder=
 D) Continue alvasar-gpt product (Phase 0 + next STORY/REQ proposal; no instruction bodies)
-E) Methodology commit 1.4.64 (method files only)
-F) Other: <ask>
+E) Methodology commit next bump (method files only; after dual-sync if skill touched)
+F) Edit builder-session skill (both paths) / restore skill from portable
+G) Other: <ask>
 ```
 
 ---
@@ -279,11 +301,11 @@ F) Other: <ask>
 
 - Когда materialize Alvasar instruction pack (manifest + bodies) — до явного приказа.
 - Exact Alvasar env keys for instruction DIR/MANIFEST — lock later (gpt README).
-- Methodology remote commit of `1.4.64` — ждать приказа.
 - Нужен ли Path D split в ближайшей волне — Unknown.
+- Нужен ли отдельный `{dialogName}-bridge` только под product `alvasar-gpt` (сейчас method-first filename) — Unknown.
 
 ---
 
 ## 13. End state one-liner
 
-Method + entry paths A–D documented for cold agent; this dialog practiced multi-client tenancy, `telegram` (1.4.63), `alvasar-gpt` Path C (1.4.64, client `b0bf056` pushed), and dialog-bridges SSOT; instruction corpora remain Absent.
+Method + entry paths A–D + dual-sync Cursor skills documented; dialog practiced multi-client tenancy, `telegram` (1.4.63), `alvasar-gpt` Path C (1.4.64, client `b0bf056`), dialog-bridges SSOT, method push `b5dc8e7`, vendor `builder-session` **1.4.65** (`b2d2e47`); instruction corpora remain Absent.
