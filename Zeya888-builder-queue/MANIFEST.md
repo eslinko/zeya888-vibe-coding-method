@@ -110,6 +110,8 @@ flowchart TB
 | [`prompts/architect/client-product-root-orientation.md`](./prompts/architect/client-product-root-orientation.md) | Read-only client root orientation (`$clientId`); not DOGE classic-four |
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
 | [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) | EN: parent REQ → child REQ → tech arch → STORY/ADMIN (architect sequence) |
+| [`integration/cursor-setup.md`](./integration/cursor-setup.md) | Cursor wiring: method pack ↔ skill ↔ rule ↔ builder plan |
+| [`integration/cursor-skills/`](./integration/cursor-skills/) | Portable Cursor skills SSOT (`builder-session`); dual-sync with `.cursor/skills/` — [`README`](./integration/cursor-skills/README.md) |
 
 ## Исторические пути
 
@@ -121,7 +123,7 @@ flowchart TB
 
 1. `core/workflow.md` (если меняются PA/P* промпты)
 2. `prompts/` + `prompts/INDEX.md` (если меняется useful prompt вне PA/P*)
-3. `.cursor/skills/builder-session/SKILL.md`
+3. `.cursor/skills/builder-session/SKILL.md` **и** [`integration/cursor-skills/builder-session/SKILL.md`](./integration/cursor-skills/builder-session/SKILL.md) (dual-sync; см. [`integration/cursor-skills/README.md`](./integration/cursor-skills/README.md))
 4. `.cursor/rules/builder-operator-habits.mdc`
 5. Соответствующий `contracts/*-operator-contract.md`
 6. `CHANGELOG.md` + bump `VERSION`

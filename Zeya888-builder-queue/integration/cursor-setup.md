@@ -8,8 +8,8 @@
 |-----------|----------------|-------------------------|--------------------|
 | Method docs + CLI + specs + curriculum + training prompts | `docs/methodology/Zeya888-builder-queue/` | **Yes** | Copy/symlink the folder |
 | Operator contracts, templates | inside methodology | **Yes** | — |
-| Cursor skill | `.cursor/skills/builder-session/SKILL.md` (workspace) | **No** (workspace) | Restore from your mirror / DOGEstonia-style layout; do not invent the skill body |
-| Cursor rule | `.cursor/rules/builder-operator-habits.mdc` (+ `analysis.mdc`) | **No** (workspace) | Same |
+| Cursor skill | Runtime: `.cursor/skills/builder-session/SKILL.md` · Portable: [`cursor-skills/builder-session/SKILL.md`](./cursor-skills/builder-session/SKILL.md) | **Yes** (portable under `integration/cursor-skills/`) | **Dual-sync:** edit both paths on change; restore = copy portable → runtime ([`cursor-skills/README.md`](./cursor-skills/README.md)). Do not invent the skill body |
+| Cursor rule | `.cursor/rules/builder-operator-habits.mdc` (+ `analysis.mdc`) | **No** (workspace; habits also in cursor-rules git) | Same dual care when editing habits |
 | Runtime builder plan | `.cursor/plans/*_builder.plan.md` | **No** — you create from template | [`../templates/builder-plan-template.md`](../templates/builder-plan-template.md) + [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md) |
 | Profile row | `specs/profiles.yaml` (in methodology) or your own file | Partial | Intake → add-builder-profile |
 
@@ -25,7 +25,12 @@ docs/methodology/Zeya888-builder-queue/
 
 ## 2. Skill (recommended)
 
-File: [`.cursor/skills/builder-session/SKILL.md`](../../../.cursor/skills/builder-session/SKILL.md)
+| Role | Path |
+|------|------|
+| **Runtime** (Cursor) | [`.cursor/skills/builder-session/SKILL.md`](../../../.cursor/skills/builder-session/SKILL.md) |
+| **Portable** (method pack) | [`cursor-skills/builder-session/SKILL.md`](./cursor-skills/builder-session/SKILL.md) |
+
+**Dual-sync:** любое изменение skill — **оба** файла в одной волне. Restore: `cp` portable → runtime (см. [`cursor-skills/README.md`](./cursor-skills/README.md)).
 
 Triggers: `builder_project`, `pkg-`, build window, `Gateway_builder`, `GPT_builder`, `ID_builder`, `Capybara_builder`.
 

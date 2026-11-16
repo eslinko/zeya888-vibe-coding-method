@@ -1,5 +1,10 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.65 — 2026-11-16
+
+- Vendor: portable Cursor skill [`integration/cursor-skills/builder-session/SKILL.md`](./integration/cursor-skills/builder-session/SKILL.md) (= workspace `.cursor/skills/builder-session/`); dual-sync rule in [`integration/cursor-skills/README.md`](./integration/cursor-skills/README.md)
+- Docs: [`integration/cursor-setup.md`](./integration/cursor-setup.md) §0/§2 — package **Yes** + restore one-liner; MANIFEST row + Propagation п.3 → оба пути
+
 ## 1.4.64 — 2026-11-15
 
 - Profile: `alvasar-gpt` (`focus_folder: clients/Alvasar/gpt`, GPT Instructions; skill `openai-custom-gpt-builder` as GPT UI) — nested under Alvasar client tenancy; `profiles.yaml`, console v1.2.27, tasks bootstrap pkg-000000, [alvasar-gpt-operator-contract.md](./contracts/alvasar-gpt-operator-contract.md), `.cursor/plans/Alvasar-GPT_builder.plan.md` (+ portable copy in client git)
