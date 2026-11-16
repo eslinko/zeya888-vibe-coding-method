@@ -1,0 +1,19 @@
+# Profile intake — alvasar-gpt
+# Remote: https://github.com/eslinko/alvasar.git (branch: dev)
+# Nested focus under clients/Alvasar/gpt/ (instruction pack authorship SSOT)
+# Tech stack skill: same as flat gpt / GPT UI (openai-custom-gpt-builder)
+# analysis.mdc: do NOT create instructions.manifest.json or instruction body *.md in this bootstrap
+
+profile_key: alvasar-gpt
+focus_folder: clients/Alvasar/gpt
+plan_title_case: Alvasar-GPT
+
+stack_label: "GPT Instructions (Custom GPT builder skill)"
+execution_skill_primary: openai-custom-gpt-builder
+execution_skill_path: .cursor/skills/openai-custom-gpt-builder/SKILL.md
+test_command: "cd clients/Alvasar/gpt && ls"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-11-15T14:23:42Z"

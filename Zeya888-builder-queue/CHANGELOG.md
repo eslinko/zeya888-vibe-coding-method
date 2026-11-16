@@ -1,5 +1,11 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.64 — 2026-11-15
+
+- Profile: `alvasar-gpt` (`focus_folder: clients/Alvasar/gpt`, GPT Instructions; skill `openai-custom-gpt-builder` as GPT UI) — nested under Alvasar client tenancy; `profiles.yaml`, console v1.2.27, tasks bootstrap pkg-000000, [alvasar-gpt-operator-contract.md](./contracts/alvasar-gpt-operator-contract.md), `.cursor/plans/Alvasar-GPT_builder.plan.md` (+ portable copy in client git)
+- Registry: [`specs/clients.yaml`](./specs/clients.yaml) / `CLIENT.yaml` += `alvasar-gpt`; instruction corpora remain Absent (`analysis.mdc` name ≠ create)
+- Sync: queue-manual §5n, workflow / session-starter / input-package-spec / builder-session / habits / MANIFEST; intake → `specs/profile-intakes/done/alvasar-gpt.yaml`
+
 ## 1.4.63 — 2026-10-31
 
 - Profile: `telegram` (`focus_folder: doge-telegram`, Python Telegram channel transport → doge-ai-bridge `/v1/channel/*`) — clone [DOGE-Complaints/doge-telegram](https://github.com/DOGE-Complaints/doge-telegram.git) `dev`, `profiles.yaml`, console v1.2.26, tasks bootstrap pkg-000000, [telegram-operator-contract.md](./contracts/telegram-operator-contract.md), `.cursor/plans/Telegram_builder.plan.md`

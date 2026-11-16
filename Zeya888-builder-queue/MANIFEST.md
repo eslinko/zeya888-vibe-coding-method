@@ -73,6 +73,7 @@ flowchart TB
 | [`prompts/migration/migration-zeya888-brand-landing-infra-transfer.md`](./prompts/migration/migration-zeya888-brand-landing-infra-transfer.md) | `zeya888-brand`: landing infra → `zeya888` (1A, no NC) |
 | [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir or `$git_repo` → clone → inspect → intake → materialize |
 | [`prompts/migration/migration-workspace-chat-export.md`](./prompts/migration/migration-workspace-chat-export.md) | Export workspace Agent chats → markdown handoff packs (`tools/export-workspace-chats.py`) |
+| [`prompts/migration/migration-dialog-context-bridge.md`](./prompts/migration/migration-dialog-context-bridge.md) | Dialog → clean-agent handoff; outputs [`analysis/dialog-bridges/`](./analysis/dialog-bridges/) `{dialogName}-bridge.md` |
 | [`guides/operator-root-orchestrator.md`](./guides/operator-root-orchestrator.md) | Процесс root→субагенты + roadmap MVP/Task/SDK |
 | [`guides/orchestrator-builder-reference.md`](./guides/orchestrator-builder-reference.md) | Proven overnight two-subagent SSOT (universal) |
 | [`guides/operator-how-to-run-queue.md`](./guides/operator-how-to-run-queue.md) | Human how-to: запуск очереди стори/багов в OP |
@@ -102,6 +103,7 @@ flowchart TB
 | [`contracts/floou-operator-contract.md`](./contracts/floou-operator-contract.md) | Operator contract для `builder_project: floou` (focus `Floou/`) |
 | [`contracts/alvasar-backend-operator-contract.md`](./contracts/alvasar-backend-operator-contract.md) | Operator contract для `builder_project: alvasar-backend` (nested `clients/Alvasar/backend/`) |
 | [`contracts/alvasar-ui-operator-contract.md`](./contracts/alvasar-ui-operator-contract.md) | Operator contract для `builder_project: alvasar-ui` (nested `clients/Alvasar/ui/`) |
+| [`contracts/alvasar-gpt-operator-contract.md`](./contracts/alvasar-gpt-operator-contract.md) | Operator contract для `builder_project: alvasar-gpt` (nested `clients/Alvasar/gpt/`; skill as GPT UI) |
 | [`contracts/telegram-operator-contract.md`](./contracts/telegram-operator-contract.md) | Operator contract для `builder_project: telegram` (focus `doge-telegram/`; channel → ai-bridge) |
 | [`guides/client-tenancy.md`](./guides/client-tenancy.md) | Nested client tenancy under `clients/<Client>/` + portable plans |
 | [`specs/clients.yaml`](./specs/clients.yaml) | Client → profiles registry (pilot: alvasar) |

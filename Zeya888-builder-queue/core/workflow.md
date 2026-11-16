@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `telegram`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `alvasar-gpt` / `telegram`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -229,6 +229,18 @@
 | `$backlogIndex` | `clients/Alvasar/ui/docs/tasks/backlog-stories/INDEX.md`                                                |
 | Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
 | Pipeline        | `clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md`                                  |
+| Remote          | https://github.com/eslinko/alvasar.git (`dev`) · client tenancy                                         |
+
+
+
+|                 | `alvasar-gpt` (GPT Instructions — nested `clients/Alvasar/gpt/`; skill as GPT UI)                       |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Alvasar-GPT_builder.plan.md`                                                             |
+| `$tasksRoot`    | `clients/Alvasar/gpt/docs/tasks`                                                                        |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-ALVG-*.md` (`input_mode=backlog_story`)                                |
+| `$backlogIndex` | `clients/Alvasar/gpt/docs/tasks/backlog-stories/INDEX.md`                                               |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `clients/Alvasar/gpt/docs/tasks/alvasar-gpt-story-execution-pipeline.md`                                |
 | Remote          | https://github.com/eslinko/alvasar.git (`dev`) · client tenancy                                         |
 
 
@@ -582,6 +594,7 @@ SSOT: guides/builder-artifact-dates.md
 | `floou`           | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project floou --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                           |
 | `alvasar-backend` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-backend --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                              |
 | `alvasar-ui`      | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                     |
+| `alvasar-gpt`     | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                    |
 | `telegram`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project telegram --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                       |
 
 

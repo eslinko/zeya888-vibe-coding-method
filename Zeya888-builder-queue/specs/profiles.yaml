@@ -384,3 +384,24 @@ projects:
     stack_label: Python (Telegram channel transport → ai-bridge)
     execution_skill_primary: python-pro
     execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  alvasar-gpt:
+    enabled: true
+    focus_folder: clients/Alvasar/gpt
+    tasks_dir: clients/Alvasar/gpt/docs/tasks
+    active_packages_dir: alvasar-gpt-active-packages
+    current_pointer: alvasar-gpt-active-package.current.yaml
+    build_windows_subdir: run-reports/alvasar-gpt-build-windows
+    build_window_prefix: alvasar-gpt-cursor-build-window
+    next_readme_dotfile: .alvasar-gpt-next-readme
+    pkg_path_prefix: clients/Alvasar/gpt/docs/tasks/
+    plan_file: .cursor/plans/Alvasar-GPT_builder.plan.md
+    pipeline_doc: clients/Alvasar/gpt/docs/tasks/alvasar-gpt-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: alvasar_gpt_input_package
+    artifact_kind: alvasar_gpt_cursor_build_window
+    build_window_title: Alvasar GPT Cursor build window
+    test_command: 'cd clients/Alvasar/gpt && ls'
+    stack_label: GPT Instructions (Custom GPT builder skill)
+    execution_skill_primary: openai-custom-gpt-builder
+    execution_skill_path: .cursor/skills/openai-custom-gpt-builder/SKILL.md

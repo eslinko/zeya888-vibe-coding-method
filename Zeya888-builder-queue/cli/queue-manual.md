@@ -390,7 +390,23 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 `K` — из `--list`. Tests: `cd clients/Alvasar/ui && ls`. Pipeline — [alvasar-ui-story-execution-pipeline.md](../../../clients/Alvasar/ui/docs/tasks/alvasar-ui-story-execution-pipeline.md).
 
-## 5n. Профиль `telegram` (Python Telegram transport — focus `doge-telegram/`)
+## 5n. Профиль `alvasar-gpt` (GPT Instructions — nested `clients/Alvasar/gpt/`)
+
+`--project alvasar-gpt` — активен. Active pkg: `pkg-000000-20261115-bootstrap` → **ok 1 paths** (profile marker). Контракт: [alvasar-gpt-operator-contract.md](../contracts/alvasar-gpt-operator-contract.md). Runtime plan: `.cursor/plans/Alvasar-GPT_builder.plan.md` (portable copy: `clients/Alvasar/.cursor/plans/`). **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-ALVG-*` → P1.3. Skill `openai-custom-gpt-builder` (as GPT UI). **hasUxPipeline:** false. Instruction bodies Absent until explicit create. Remote: https://github.com/eslinko/alvasar.git (`dev`).
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd clients/Alvasar/gpt && ls`. Pipeline — [alvasar-gpt-story-execution-pipeline.md](../../../clients/Alvasar/gpt/docs/tasks/alvasar-gpt-story-execution-pipeline.md).
+
+## 5o. Профиль `telegram` (Python Telegram transport — focus `doge-telegram/`)
 
 `--project telegram` — активен. Active pkg: `pkg-000000-20261031-bootstrap` → **ok 1 paths** (profile marker). Контракт: [telegram-operator-contract.md](../contracts/telegram-operator-contract.md). Runtime plan: `.cursor/plans/Telegram_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-TELEGRAM-*` → P1.3. Product: doge-telegram-channel → doge-ai-bridge `/v1/channel/*`. Remote: https://github.com/DOGE-Complaints/doge-telegram.git (`dev`).
 

@@ -12,4 +12,5 @@ clients:
     profiles:
       - alvasar-backend
       - alvasar-ui
-    notes: "Subcontractor Intake MVP; Python backend + React Native Web UI"
+      - alvasar-gpt
+    notes: "Subcontractor Intake MVP; Python backend + React Native Web UI + GPT instruction pack"
