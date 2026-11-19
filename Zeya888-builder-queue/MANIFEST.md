@@ -75,6 +75,10 @@ flowchart TB
 | [`prompts/migration/migration-profile-from-checked-out-dir.md`](./prompts/migration/migration-profile-from-checked-out-dir.md) | Checked-out dir or `$git_repo` → clone → inspect → intake → materialize |
 | [`prompts/migration/migration-workspace-chat-export.md`](./prompts/migration/migration-workspace-chat-export.md) | Export workspace Agent chats → markdown handoff packs (`tools/export-workspace-chats.py`) |
 | [`prompts/migration/migration-dialog-context-bridge.md`](./prompts/migration/migration-dialog-context-bridge.md) | Dialog → clean-agent handoff; outputs [`analysis/dialog-bridges/`](./analysis/dialog-bridges/) `{dialogName}-bridge.md` |
+| [`prompts/migration/migration-dialog-restore-extract.md`](./prompts/migration/migration-dialog-restore-extract.md) | O/V dialog → restore-HTML extract; outputs [`analysis/dialog-restore-extracts/`](./analysis/dialog-restore-extracts/) `{sidebar-slug}-extract.md` |
+| [`prompts/migration/migration-dialog-restore-extract-root-cross.md`](./prompts/migration/migration-dialog-restore-extract-root-cross.md) | Root/Cross/system-root → restore extract (orientation + overlay + tip-honesty); same out dir |
+| [`prompts/migration/migration-dialog-restore-extract-fixup.md`](./prompts/migration/migration-dialog-restore-extract-fixup.md) | Existing restore extract → tip honesty fixup (Meta vs claims + thin OPEN patch) |
+| [`analysis/dialog-restore-extracts/`](./analysis/dialog-restore-extracts/) | Restore docking packs (V + Root/Cross + Method `zeya888`); HTML stage-2 `@extract` |
 | [`guides/operator-root-orchestrator.md`](./guides/operator-root-orchestrator.md) | Процесс root→субагенты + roadmap MVP/Task/SDK |
 | [`guides/orchestrator-builder-reference.md`](./guides/orchestrator-builder-reference.md) | Proven overnight two-subagent SSOT (universal) |
 | [`guides/operator-how-to-run-queue.md`](./guides/operator-how-to-run-queue.md) | Human how-to: запуск очереди стори/багов в OP |
@@ -112,7 +116,11 @@ flowchart TB
 | [`guides/add-builder-profile.md`](./guides/add-builder-profile.md) | SSOT bootstrap нового профиля + Gateway clone |
 | [`guides/from-cross-project-req-to-story-packages.md`](./guides/from-cross-project-req-to-story-packages.md) | EN: parent REQ → child REQ → tech arch → STORY/ADMIN (architect sequence) |
 | [`integration/cursor-setup.md`](./integration/cursor-setup.md) | Cursor wiring: method pack ↔ skill ↔ rule ↔ builder plan |
-| [`integration/cursor-skills/`](./integration/cursor-skills/) | Portable Cursor skills SSOT (`builder-session`); dual-sync with `.cursor/skills/` — [`README`](./integration/cursor-skills/README.md) |
+| [`integration/cursor-skills/`](./integration/cursor-skills/) | Portable Cursor skills SSOT (`builder-session`, **Zeya888**, **orchestrator**, **validator**); dual-sync — [`README`](./integration/cursor-skills/README.md) |
+| [`tools/dialog-restore-console.html`](./tools/dialog-restore-console.html) | Surfaces: **Инициализация** (restore/fresh) / **Рабочие промпты**; Method Zeya888 = skill + extract |
+| [`tools/dialog-restore-console.md`](./tools/dialog-restore-console.md) | Operator manual: surfaces + modes + catalog rebuild + new-profile O/V checklist |
+| [`tools/build-dialog-restore-work-catalog.py`](./tools/build-dialog-restore-work-catalog.py) | Generate [`dialog-restore-work-catalog.js`](./tools/dialog-restore-work-catalog.js) from `prompts/` + prompts-manual |
+| [`analysis/analysis-triage-2026-11-18.md`](./analysis/analysis-triage-2026-11-18.md) | Analysis KEEP/DELETE triage (Mode A — no rm until ok) |
 
 ## Исторические пути
 

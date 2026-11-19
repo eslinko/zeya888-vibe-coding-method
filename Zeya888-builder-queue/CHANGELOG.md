@@ -1,5 +1,63 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.75 — 2026-11-19
+
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — root surface **Инициализация** / **Рабочие промпты**; init keeps restore/fresh
+- Tools: [`build-dialog-restore-work-catalog.py`](./tools/build-dialog-restore-work-catalog.py) → [`dialog-restore-work-catalog.js`](./tools/dialog-restore-work-catalog.js) (prompts/ + frequent)
+- Prompts: structure [`architect/prompts-manual.md`](./prompts/architect/prompts-manual.md) (Frequent order = UI priority)
+- Sync: [`dialog-restore-console.md`](./tools/dialog-restore-console.md), prompts INDEX
+
+## 1.4.74 — 2026-11-18
+
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — modes **Восстановить workspace** / **Запустить новый** (dual paste restore vs bootstrap)
+- Tools: [`dialog-restore-console.md`](./tools/dialog-restore-console.md) — operator manual + new-profile O/V checklist
+- Extract: [`zeya888-extract.md`](./analysis/dialog-restore-extracts/zeya888-extract.md) — console↔profiles linkage; peer in add-builder-profile §1.1
+- Sync: MANIFEST, extracts README
+
+## 1.4.73 — 2026-11-18
+
+- Analysis: [`analysis/dialog-restore-extracts/zeya888-extract.md`](./analysis/dialog-restore-extracts/zeya888-extract.md) — Method card from peer bridge (bridge kept)
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — stage-2 `@extract` on 14 V + Root + Cross + Zeya888; Method Stage1 = skill (no `@bridge`)
+- Sync: extracts README, dialog-bridges peer note, MANIFEST
+
+## 1.4.72 — 2026-11-18
+
+- Migration: rename repair lane → [`migration-dialog-restore-extract-fixup.md`](./prompts/migration/migration-dialog-restore-extract-fixup.md) (доработка существующего extract; убран misnamed `*-mirror`)
+- Sync: peers / INDEX / MANIFEST / extracts README
+
+## 1.4.71 — 2026-11-18
+
+- Migration: harden [`migration-dialog-restore-extract-root-cross.md`](./prompts/migration/migration-dialog-restore-extract-root-cross.md) — tip-honesty (disk Meta > chat), Tip honesty table, Overlay OPEN gate
+- Migration: repair prompt for existing `*-extract.md` (Meta vs claims + thin patch) — later renamed fixup in 1.4.72
+- Sync: prompts INDEX, MANIFEST, dialog-restore-extracts README, O/V extract peer
+
+## 1.4.70 — 2026-11-18
+
+- Migration: [`prompts/migration/migration-dialog-restore-extract-root-cross.md`](./prompts/migration/migration-dialog-restore-extract-root-cross.md) — Root/Cross/system-root extract (`$rootKind=client_tenancy|doge_platform`; orientation init + overlay)
+- Sync: peer on O/V restore-extract; prompts INDEX; MANIFEST; dialog-restore-extracts README
+- Note: HTML concat (V + Root/Cross) — later wave after extracts filled
+
+## 1.4.69 — 2026-11-18
+
+- Migration: [`prompts/migration/migration-dialog-restore-extract.md`](./prompts/migration/migration-dialog-restore-extract.md) — живой диалог → restore extract (контекст + bootstrap starting focus по `$dialogType`)
+- Analysis: output home [`analysis/dialog-restore-extracts/`](./analysis/dialog-restore-extracts/) (`{sidebar-slug}-extract.md`); peer note в dialog-bridges README
+- Sync: prompts INDEX, MANIFEST; HTML merge из extracts — later wave
+
+## 1.4.68 — 2026-11-18
+
+- Skills: **orchestrator** + **validator** role-lock (`.cursor/skills/{orchestrator,validator}/` ≡ `integration/cursor-skills/…`)
+- Migration: wrappers + role-bootstrap `@` / branch by `focus_role` → role skills
+- Tools: regenerate [`dialog-restore-console.html`](./tools/dialog-restore-console.html) O/V pastes with role skills
+- Sync: cursor-skills README, cursor-setup, MANIFEST; Related on Zeya888 / builder-session
+
+## 1.4.67 — 2026-11-18
+
+- Tools: [`tools/dialog-restore-console.html`](./tools/dialog-restore-console.html) — collapsed cards + one-click copy for existing O/V/Root/special Agent chats (no B)
+- Skill: **Zeya888** method-ops (`.cursor/skills/zeya888/` ≡ [`integration/cursor-skills/zeya888/`](./integration/cursor-skills/zeya888/)); dual-sync README
+- Bridge: refresh [`analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md`](./analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md) (sidebar **Zeya888** paste-packet)
+- Analysis: triage report [`analysis/analysis-triage-2026-11-18.md`](./analysis/analysis-triage-2026-11-18.md) (Mode A — no deletes)
+- Sync: migration wrappers + role-bootstrap enum += `alvasar-gpt`
+
 ## 1.4.66 — 2026-11-16
 
 - Architect: [`prompts/architect/ux-package-bootstrap-universal.md`](./prompts/architect/ux-package-bootstrap-universal.md) — UX dialog: `UX-PROMPTS.md` (post ADMIN-01) → ZIP артборд+companion `.md` → ADMIN-02

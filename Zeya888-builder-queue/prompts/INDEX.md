@@ -32,6 +32,9 @@
 | [`architect/req-to-frontend-mixed-package.md`](./architect/req-to-frontend-mixed-package.md) | FE mixed REQ → classify ui_first/tech_first; ADMIN projected + STORY in one NEW pkg |
 | [`architect/markstack-intake.md`](./architect/markstack-intake.md) | Residual / screens → Markstack L1→L1.5→L2 story intake (pre-Apply); guide [`../guides/markstack.md`](../guides/markstack.md) |
 
+**Method skill (Cursor):** `.cursor/skills/zeya888/` — method-ops dialog **Zeya888** (not product `builder-session`). Console UI: [`../tools/dialog-restore-console.html`](../tools/dialog-restore-console.html) — surface **Инициализация** / **Рабочие промпты**.  
+**Частые snip’ы:** [`architect/prompts-manual.md`](./architect/prompts-manual.md) → Work → Frequent (rebuild: [`../tools/build-dialog-restore-work-catalog.py`](../tools/build-dialog-restore-work-catalog.py)).
+
 **Human guide (EN):** [`../guides/from-cross-project-req-to-story-packages.md`](../guides/from-cross-project-req-to-story-packages.md) — sequence parent → child REQ → tech arch → STORY/ADMIN (DOGE **or** client branch). Client model: [`../guides/client-tenancy.md`](../guides/client-tenancy.md). REQ7 ready fences (RU): [`../../../requirements backlog/REQ7-architect-copy-paste-process.md`](../../../requirements%20backlog/REQ7-architect-copy-paste-process.md).
 
 ## operator/
@@ -56,6 +59,9 @@
 | [`migration/migration-self-restore-zeya888-method.md`](./migration/migration-self-restore-zeya888-method.md) | Self-restore контекста метода Zeya888: что это, зачем, где SSOT, как работать в роли/проекте |
 | [`migration/migration-workspace-chat-export.md`](./migration/migration-workspace-chat-export.md) | Экспорт Agent/Composer чатов workspace → markdown packs (не sidebar transfer); скрипт `tools/export-workspace-chats.py` |
 | [`migration/migration-dialog-context-bridge.md`](./migration/migration-dialog-context-bridge.md) | Handoff текущего диалога → чистый агент; outputs в [`../analysis/dialog-bridges/`](../analysis/dialog-bridges/) (`{dialogName}-bridge.md`) |
+| [`migration/migration-dialog-restore-extract.md`](./migration/migration-dialog-restore-extract.md) | Живой O/V диалог → restore extract (контекст + bootstrap focus); outputs [`../analysis/dialog-restore-extracts/`](../analysis/dialog-restore-extracts/) (`{sidebar-slug}-extract.md`) |
+| [`migration/migration-dialog-restore-extract-root-cross.md`](./migration/migration-dialog-restore-extract-root-cross.md) | Root/Cross/system-root → restore extract (orientation init + overlay); tip-honesty; same out dir |
+| [`migration/migration-dialog-restore-extract-fixup.md`](./migration/migration-dialog-restore-extract-fixup.md) | Уже написанный `*-extract.md` → доработка (Meta vs claims + thin tip/OPEN patch; не full re-extract) |
 | [`migration/migration-spa-images-generation-bootstrap.md`](./migration/migration-spa-images-generation-bootstrap.md) | Универсальный SPA-only bootstrap для Images generation: catalog classify + Contour A Lucide + Contour B mascot GenerateImage |
 | [`migration/migration-landing-images-generation-bootstrap.md`](./migration/migration-landing-images-generation-bootstrap.md) | Универсальный landing-only bootstrap для Images generation: Contour A `icons:land-ui` + Contour B style-locked GenerateImage/crop_or_ai |
 | [`migration/migration-add-builder-profile.md`](./migration/migration-add-builder-profile.md) | Intake `profile_key`+`focus_folder` → bootstrap профиля с нуля (profiles.yaml, console, tasks SSOT, Gateway clone) |

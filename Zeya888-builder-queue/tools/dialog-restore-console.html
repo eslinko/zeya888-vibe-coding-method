@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dialog console — Zeya888</title>
+<style>
+:root {
+  --bg: #0a1420;
+  --panel: #181715;
+  --panel2: #1f1d1a;
+  --gold: #eca125;
+  --text: #f3f4f6;
+  --muted: #9ca3af;
+  --border: #2d3748;
+  --ok: #22c55e;
+  --font: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono: "IBM Plex Mono", "SF Mono", Consolas, monospace;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--font); line-height: 1.45;
+  background-image: radial-gradient(ellipse at top, #132033 0%, var(--bg) 55%);
+  min-height: 100vh;
+}
+header {
+  position: sticky; top: 0; z-index: 5;
+  backdrop-filter: blur(10px);
+  background: rgba(10,20,32,.92);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 24px 14px;
+}
+h1 { margin: 0 0 6px; font-size: 1.35rem; color: var(--gold); font-weight: 650; letter-spacing: .02em; }
+.sub { color: var(--muted); font-size: .9rem; max-width: 72ch; }
+.toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 12px; align-items: center; }
+input[type=search] {
+  flex: 1; min-width: 220px; height: 36px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--panel); color: var(--text);
+  padding: 0 12px; font: inherit;
+}
+.how {
+  margin: 16px 24px 0; padding: 12px 14px; border: 1px solid var(--border);
+  border-radius: 10px; background: var(--panel); color: var(--muted); font-size: .9rem;
+}
+.how strong { color: var(--text); }
+main { padding: 16px 24px 48px; max-width: 980px; margin: 0 auto; }
+.card {
+  background: var(--panel); border: 1px solid var(--border); border-radius: 10px;
+  margin: 10px 0; overflow: hidden;
+}
+.card[hidden] { display: none; }
+summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; gap: 10px;
+  padding: 12px 14px; user-select: none;
+}
+summary::-webkit-details-marker { display: none; }
+summary:hover { background: var(--panel2); }
+.name {
+  font-weight: 600; flex: 1; cursor: pointer;
+  border-radius: 4px; padding: 2px 4px; margin: -2px -4px;
+}
+.name:hover { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+.badge {
+  font-size: .72rem; text-transform: uppercase; letter-spacing: .06em;
+  color: #111; background: var(--gold); padding: 2px 8px; border-radius: 999px;
+}
+.copy {
+  border: 1px solid var(--border); background: #121820; color: var(--text);
+  width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 1rem;
+}
+.copy:hover { border-color: var(--gold); color: var(--gold); }
+.copy.ok { background: #14301f; border-color: var(--ok); color: var(--ok); }
+.body { border-top: 1px solid var(--border); padding: 0; }
+pre {
+  margin: 0; padding: 14px; overflow: auto; max-height: 55vh;
+  font-family: var(--mono); font-size: .78rem; line-height: 1.4;
+  white-space: pre-wrap; word-break: break-word; background: #0d1218;
+}
+#toast {
+  position: fixed; right: 18px; bottom: 18px; background: #14301f; color: var(--ok);
+  border: 1px solid var(--ok); padding: 10px 14px; border-radius: 8px;
+  opacity: 0; transform: translateY(8px); transition: .18s ease; pointer-events: none;
+}
+#toast.show { opacity: 1; transform: none; }
+
+.mode-toggle {
+  display: inline-flex; border: 1px solid var(--border); border-radius: 8px; overflow: hidden;
+  background: var(--panel);
+}
+.mode-toggle label {
+  margin: 0; padding: 7px 12px; cursor: pointer; font-size: .85rem; color: var(--muted);
+  border-right: 1px solid var(--border);
+}
+.mode-toggle label:last-child { border-right: 0; }
+.mode-toggle input { position: absolute; opacity: 0; pointer-events: none; }
+.mode-toggle label:has(input:checked) {
+  background: #243044; color: var(--gold); font-weight: 600;
+}
+body.mode-fresh .paste-restore { display: none; }
+body.mode-restore .paste-bootstrap { display: none; }
+.paste[hidden] { display: none !important; }
+.card .note {
+  color: var(--muted); font-size: .88rem; margin: 0; padding: 12px 14px 0;
+}
+.toolbar-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; align-items: center; width: 100%; }
+.surface-only-init, .surface-only-work { display: none; }
+body.surface-init .surface-only-init { display: block; }
+body.surface-work .surface-only-work { display: block; }
+body.surface-init .toolbar .surface-only-init,
+body.surface-work .toolbar .surface-only-work { display: inline-flex; }
+body.surface-init #init-mode-toggle { display: inline-flex; }
+body.surface-work #init-mode-toggle { display: none; }
+.section-h {
+  margin: 22px 0 8px; font-size: .95rem; color: var(--gold);
+  font-weight: 650; letter-spacing: .03em;
+}
+.section-h:first-child { margin-top: 4px; }
+.meta-block { padding: 12px 14px; border-bottom: 1px solid var(--border); }
+.meta-block .blurb { margin: 0 0 8px; color: var(--text); font-size: .9rem; }
+.meta-block .path { margin: 0 0 8px; color: var(--muted); font-size: .78rem; font-family: var(--mono); word-break: break-all; }
+.meta-block .params { margin: 0; padding-left: 1.1rem; color: var(--muted); font-size: .88rem; }
+.meta-block .params li { margin: 2px 0; }
+.meta-block .params code { color: var(--gold); font-family: var(--mono); font-size: .85em; }
+.prompt-label {
+  margin: 0; padding: 8px 14px 0; font-size: .72rem; text-transform: uppercase;
+  letter-spacing: .06em; color: var(--muted);
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>Dialog console</h1>
+  <div class="sub">Рутовый выбор: <strong>Инициализация</strong> диалогов (restore/fresh) или <strong>Рабочие промпты</strong> методологии. Инструкция: <code>tools/dialog-restore-console.md</code>.</div>
+  <div class="toolbar">
+    <div class="mode-toggle" role="group" aria-label="Поверхность">
+      <label><input type="radio" name="surface" value="init" checked /> Инициализация</label>
+      <label><input type="radio" name="surface" value="work" /> Рабочие промпты</label>
+    </div>
+    <div class="mode-toggle" id="init-mode-toggle" role="group" aria-label="Режим init">
+      <label><input type="radio" name="mode" value="restore" checked /> Восстановить workspace</label>
+      <label><input type="radio" name="mode" value="fresh" /> Запустить новый</label>
+    </div>
+    <input type="search" id="q" placeholder="Фильтр по имени…" />
+  </div>
+</header>
+<div class="how surface-only-init">
+  <strong>Как (init):</strong> New Agent chat → имя как на карточке → Copy (⎘) → вставить.
+  Клик по <strong>имени</strong> копирует title для rename; ⎘ — промпт.
+  <strong>Восстановить</strong> = init + <code>@extract</code> (если есть). <strong>Запустить новый</strong> = только bootstrap.
+</div>
+<div class="how surface-only-work">
+  <strong>Как (work):</strong> частые snip’ы сверху, далее папки <code>prompts/</code>.
+  В карточке — пояснение параметров + scrollable промпт; ⎘ копирует fence.
+  Каталог: <code>dialog-restore-work-catalog.js</code> (rebuild: <code>build-dialog-restore-work-catalog.py</code>).
+</div>
+<main id="init-main" class="surface-only-init">
+
+<details class="card" data-title="Post-init сверка" data-role="Shared" id="shared-verify">
+  <summary>
+    <span class="name">Post-init сверка</span>
+    <span class="badge">Shared</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="shared-verify">⎘</button>
+  </summary>
+  <div class="body">
+    <p class="note">Запускать <strong>после</strong> инициализации диалога (Stage1 / restore paste) — для личной сверки контекста и фокусной зоны.</p>
+    <pre class="paste" id="pre-shared-verify">напиши как понимаешь свой контекст и фокусную зону
+@.cursor/rules/analysis.mdc
+</pre>
+  </div>
+</details>
+
+<details class="card" data-title="Zeya888" data-role="Method" id="zeya888">
+  <summary>
+    <span class="name">Zeya888</span>
+    <span class="badge">Method</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="zeya888">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-zeya888">@.cursor/rules/analysis.mdc
+@.cursor/skills/zeya888/SKILL.md
+@docs/methodology/Zeya888-builder-queue/MANIFEST.md
+@docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
+
+Sidebar title = Zeya888. dialogKind=method_ops · skill Zeya888.
+Load skill role-lock; then restore context from extract (stage-2 @ below).
+Do not use OP/VAL migration-role-bootstrap as init.
+
+---
+AFTER Zeya888 skill / method-ops init completes (do not skip or shorten the init above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/zeya888-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay. Prefer ## Tip honesty (current) for VERSION / dual-sync / triage. Stay method-ops / analysis.mdc. Report: init done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-zeya888-bootstrap" hidden>@.cursor/rules/analysis.mdc
+@.cursor/skills/zeya888/SKILL.md
+@docs/methodology/Zeya888-builder-queue/MANIFEST.md
+@docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
+
+Sidebar title = Zeya888. dialogKind=method_ops · skill Zeya888.
+Load skill role-lock; then restore context from extract (stage-2 @ below).
+Do not use OP/VAL migration-role-bootstrap as init.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar Root" data-role="Root" id="alvasar-root">
+  <summary>
+    <span class="name">Alvasar Root</span>
+    <span class="badge">Root</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-root">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-root">@.cursor/rules/analysis.mdc
+@docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
+@docs/methodology/Zeya888-builder-queue/specs/clients.yaml
+@docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
+$clientId=alvasar
+$topic=
+
+Client product root orientation (Architect Studio pre-PA — client tenancy).
+Resolve client from clients.yaml for $clientId (root, parent_requirements_dir, profiles[]).
+
+MODE: read-only orientation + disk verify only.
+STOP after Phase A–C tables in chat.
+Do NOT: materialize EPIC/STORY/REQ/pkg; do NOT copy PA/P1; do NOT edit files;
+      do NOT create app scaffold (pyproject / Expo / package.json) — name ≠ create.
+Code claims: only after Read/Grep with path:line; else Unknown.
+Wait for my explicit go-ahead before scatter / Studio / Builder.
+
+Жёстко (analysis.mdc + MODE):
+- Только факты из прочитанных файлов. Нет assumptions, нет silent invent.
+- Doc claim — с path. Code claim — path:line после Read/Grep; иначе Unknown.
+- Не edit; не materialize EPIC/STORY/child REQ/pkg в этом прогоне.
+- Не путать $clientId с builder_project (profiles = keys listed under clients.yaml).
+
+Reading order:
+1) @guides/client-tenancy.md + @specs/clients.yaml — model + $clientId entry.
+2) Parent REQ INDEX + files under client parent_requirements_dir (exists?).
+3) Optional: client docs/analysis/ (scaffold starting points — name ≠ create).
+4) For each profile key in clients.yaml → profiles.yaml: focus_folder, tasks_dir, plan_file, stack_label.
+5) Per-MS bullrun «Актуальная точка» only if tasks_dir exists — status of bootstrap vs product work.
+
+## Phase A — Client orientation (карта, не stories)
+Выход:
+1) Один абзац product concept из parent REQ (или Unknown).
+2) Таблица MS: profile key | focus_folder | stack | role (backend/ui/…) | parent vs child REQ path.
+3) Portable pack: `.cursor/plans/` under client root Present/Absent; dual-sync note from client-tenancy.
+4) Verified vs Unknown.
+
+## Phase B — Topic analytics ($topic)
+1) Что уже сказано в parent REQ по $topic (path + §).
+2) Что относится к какому profile key (без invent FR).
+3) Gap table:
+| Claim | Source path | Status (in-docs / missing / Unknown) | Owning profile(s) |
+
+## Phase C — Next steps (in chat only; не запускай)
+Таблица:
+| Candidate next | Prompt / action | Notes |
+| Client child REQs | cross-project-req-scatter with $targetProjects=&lt;csv from clients.yaml profiles&gt; | parent = client REQ path |
+| Tech architecture per MS | target-tech-architecture | after child REQ |
+| Builder session | session-starter / migration-* with builder_project=&lt;profile key&gt; | not $clientId |
+
+Suggested intake = метка, НЕ «открой Builder сейчас».
+
+---
+AFTER the orientation init above completes Phase A–C tables (do not skip or shorten the init paste above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/alvasar-root-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer. Prefer ## Tip honesty (current) over stale arc bullets if both present. Keep MODE read-only / analysis.mdc locks from init. Report: orientation done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-root-bootstrap" hidden>@.cursor/rules/analysis.mdc
+@docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
+@docs/methodology/Zeya888-builder-queue/specs/clients.yaml
+@docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
+$clientId=alvasar
+$topic=
+
+Client product root orientation (Architect Studio pre-PA — client tenancy).
+Resolve client from clients.yaml for $clientId (root, parent_requirements_dir, profiles[]).
+
+MODE: read-only orientation + disk verify only.
+STOP after Phase A–C tables in chat.
+Do NOT: materialize EPIC/STORY/REQ/pkg; do NOT copy PA/P1; do NOT edit files;
+      do NOT create app scaffold (pyproject / Expo / package.json) — name ≠ create.
+Code claims: only after Read/Grep with path:line; else Unknown.
+Wait for my explicit go-ahead before scatter / Studio / Builder.
+
+Жёстко (analysis.mdc + MODE):
+- Только факты из прочитанных файлов. Нет assumptions, нет silent invent.
+- Doc claim — с path. Code claim — path:line после Read/Grep; иначе Unknown.
+- Не edit; не materialize EPIC/STORY/child REQ/pkg в этом прогоне.
+- Не путать $clientId с builder_project (profiles = keys listed under clients.yaml).
+
+Reading order:
+1) @guides/client-tenancy.md + @specs/clients.yaml — model + $clientId entry.
+2) Parent REQ INDEX + files under client parent_requirements_dir (exists?).
+3) Optional: client docs/analysis/ (scaffold starting points — name ≠ create).
+4) For each profile key in clients.yaml → profiles.yaml: focus_folder, tasks_dir, plan_file, stack_label.
+5) Per-MS bullrun «Актуальная точка» only if tasks_dir exists — status of bootstrap vs product work.
+
+## Phase A — Client orientation (карта, не stories)
+Выход:
+1) Один абзац product concept из parent REQ (или Unknown).
+2) Таблица MS: profile key | focus_folder | stack | role (backend/ui/…) | parent vs child REQ path.
+3) Portable pack: `.cursor/plans/` under client root Present/Absent; dual-sync note from client-tenancy.
+4) Verified vs Unknown.
+
+## Phase B — Topic analytics ($topic)
+1) Что уже сказано в parent REQ по $topic (path + §).
+2) Что относится к какому profile key (без invent FR).
+3) Gap table:
+| Claim | Source path | Status (in-docs / missing / Unknown) | Owning profile(s) |
+
+## Phase C — Next steps (in chat only; не запускай)
+Таблица:
+| Candidate next | Prompt / action | Notes |
+| Client child REQs | cross-project-req-scatter with $targetProjects=&lt;csv from clients.yaml profiles&gt; | parent = client REQ path |
+| Tech architecture per MS | target-tech-architecture | after child REQ |
+| Builder session | session-starter / migration-* with builder_project=&lt;profile key&gt; | not $clientId |
+
+Suggested intake = метка, НЕ «открой Builder сейчас».
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Cross-project system analysis" data-role="Cross" id="cross-project-system-analysis">
+  <summary>
+    <span class="name">Cross-project system analysis</span>
+    <span class="badge">Cross</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="cross-project-system-analysis">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-cross-project-system-analysis">@.cursor/rules/analysis.mdc
+@docs/modules/dashboard/search-matching-interviews/00-architecture-primer.md
+@docs/analysis/
+@docs/modules/
+$topic=
+$focusModule=
+
+Cross-project system orientation (Architect Studio pre-PA).
+Projects in scope: doge-complaints-gateway, doge-identity-service, spa-app, GPT UI (+ root docs).
+
+MODE: read-only orientation + code verify only.
+STOP after Phase A–C tables in chat.
+Do NOT: materialize EPIC/STORY/REQ/pkg; do NOT copy PA/P1; do NOT edit files;
+      do NOT propose next actions beyond clarifying questions.
+Code claims: only after Read/Grep with path:line; else Unknown.
+Wait for my explicit go-ahead before any Studio/Builder step.
+
+Жёстко (analysis.mdc + MODE):
+- Только факты из прочитанных файлов / кода. Нет assumptions, нет silent invent.
+- Code claim — только после Read/Grep с path:line; иначе Unknown. Doc claim — с path.
+- Не edit файлов; не materialize EPIC/STORY/REQ/pkg; не копировать PA/P1 в ответ.
+- Product Story Done ≠ «нашли gaps» / ≠ таблица candidates.
+
+Reading order (не «весь монорепо»):
+1) @docs/modules/dashboard/search-matching-interviews/00-architecture-primer.md — SoT system map для текущего stack.
+2) @docs/modules/ (+ $focusModule если задан) — product/concept modules.
+3) @docs/analysis/ — сквозная integration analytics.
+4) Опц. concept: docs/network-architecture/; docs/DOGEstonia.md — помечай legacy/возможно устаревшее.
+5) Per-project one-pagers только после primer, по необходимости:
+   - doge-complaints-gateway/docs/high-level-description.md
+   - GPT UI/docs/concept-and-goals.md
+   - identity / spa: architecture или runtime-docs (пути — только после verify exists)
+6) Descent-канон (для сверки, не как единственный SSOT):
+   {gateway|identity|spa|GPT UI}/docs/requirements/ и соответствующий docs/tasks/
+
+Единого docs/requirements/ в корне НЕТ — слой фрагментирован; опиши карту «где искать FR» как есть.
+
+## Phase A — System orientation (карта, не stories)
+Выход:
+1) Один абзац product concept (DOGEstonia / civic signals).
+2) Таблица 4 компонентов: роль | стек | trust boundary | ключевые inbound/outbound.
+3) Сквозной data flow: GPT UI → gateway → Issues → spa-app; identity поперёк.
+4) Privacy invariant (gateway без PII vs identity) — из primer, со ссылкой на path.
+5) Раздел Verified vs Unknown (Unknown → вопросы, не выдумки).
+
+## Phase B — Cross-project requirements analytics
+1) Карта слоёв: docs/modules (product FR) | docs/analysis (integration) | per-project docs/requirements (исполнение Builder).
+2) Для $topic или выбранного модуля / $focusModule:
+   - кандидаты в modules + analysis (read/grep);
+   - сверка с per-project REQ / backlog stories (exists? overlap?).
+3) Gap table:
+| Claim | Source path | Status (in-docs / in-code-unverified / missing) | Owning project(s) |
+
+Code status = in-code-unverified, пока нет path:line verify. Не утверждай «есть в коде» без Read/Grep.
+
+## Phase C — Descending story candidates (in chat only)
+Таблица (только в чате; не materialize; не запускай Studio/Builder):
+| Candidate | Why | Primary project | Deps | Suggested intake label (PA.2 / PA.3 / P1.1) |
+
+Suggested intake = метка типа intake, НЕ инструкция «скопируй PA.x» / «открой Builder».
+Не предлагай copy PA/P1 и не предлагай следующие шаги Studio/Builder, пока оператор не дал explicit go-ahead.
+
+## End of reply
+Handoff: none.
+Reply ends with: (1) Verified code facts (path:line only) (2) clarifying questions only.
+Do not suggest next Studio/Builder steps.
+
+---
+AFTER the orientation init above completes Phase A–C tables (do not skip or shorten the init paste above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/cross-project-system-analysis-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer. Prefer ## Tip honesty (current) over stale arc bullets if both present. Keep MODE read-only / analysis.mdc locks from init. Report: orientation done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-cross-project-system-analysis-bootstrap" hidden>@.cursor/rules/analysis.mdc
+@docs/modules/dashboard/search-matching-interviews/00-architecture-primer.md
+@docs/analysis/
+@docs/modules/
+$topic=
+$focusModule=
+
+Cross-project system orientation (Architect Studio pre-PA).
+Projects in scope: doge-complaints-gateway, doge-identity-service, spa-app, GPT UI (+ root docs).
+
+MODE: read-only orientation + code verify only.
+STOP after Phase A–C tables in chat.
+Do NOT: materialize EPIC/STORY/REQ/pkg; do NOT copy PA/P1; do NOT edit files;
+      do NOT propose next actions beyond clarifying questions.
+Code claims: only after Read/Grep with path:line; else Unknown.
+Wait for my explicit go-ahead before any Studio/Builder step.
+
+Жёстко (analysis.mdc + MODE):
+- Только факты из прочитанных файлов / кода. Нет assumptions, нет silent invent.
+- Code claim — только после Read/Grep с path:line; иначе Unknown. Doc claim — с path.
+- Не edit файлов; не materialize EPIC/STORY/REQ/pkg; не копировать PA/P1 в ответ.
+- Product Story Done ≠ «нашли gaps» / ≠ таблица candidates.
+
+Reading order (не «весь монорепо»):
+1) @docs/modules/dashboard/search-matching-interviews/00-architecture-primer.md — SoT system map для текущего stack.
+2) @docs/modules/ (+ $focusModule если задан) — product/concept modules.
+3) @docs/analysis/ — сквозная integration analytics.
+4) Опц. concept: docs/network-architecture/; docs/DOGEstonia.md — помечай legacy/возможно устаревшее.
+5) Per-project one-pagers только после primer, по необходимости:
+   - doge-complaints-gateway/docs/high-level-description.md
+   - GPT UI/docs/concept-and-goals.md
+   - identity / spa: architecture или runtime-docs (пути — только после verify exists)
+6) Descent-канон (для сверки, не как единственный SSOT):
+   {gateway|identity|spa|GPT UI}/docs/requirements/ и соответствующий docs/tasks/
+
+Единого docs/requirements/ в корне НЕТ — слой фрагментирован; опиши карту «где искать FR» как есть.
+
+## Phase A — System orientation (карта, не stories)
+Выход:
+1) Один абзац product concept (DOGEstonia / civic signals).
+2) Таблица 4 компонентов: роль | стек | trust boundary | ключевые inbound/outbound.
+3) Сквозной data flow: GPT UI → gateway → Issues → spa-app; identity поперёк.
+4) Privacy invariant (gateway без PII vs identity) — из primer, со ссылкой на path.
+5) Раздел Verified vs Unknown (Unknown → вопросы, не выдумки).
+
+## Phase B — Cross-project requirements analytics
+1) Карта слоёв: docs/modules (product FR) | docs/analysis (integration) | per-project docs/requirements (исполнение Builder).
+2) Для $topic или выбранного модуля / $focusModule:
+   - кандидаты в modules + analysis (read/grep);
+   - сверка с per-project REQ / backlog stories (exists? overlap?).
+3) Gap table:
+| Claim | Source path | Status (in-docs / in-code-unverified / missing) | Owning project(s) |
+
+Code status = in-code-unverified, пока нет path:line verify. Не утверждай «есть в коде» без Read/Grep.
+
+## Phase C — Descending story candidates (in chat only)
+Таблица (только в чате; не materialize; не запускай Studio/Builder):
+| Candidate | Why | Primary project | Deps | Suggested intake label (PA.2 / PA.3 / P1.1) |
+
+Suggested intake = метка типа intake, НЕ инструкция «скопируй PA.x» / «открой Builder».
+Не предлагай copy PA/P1 и не предлагай следующие шаги Studio/Builder, пока оператор не дал explicit go-ahead.
+
+## End of reply
+Handoff: none.
+Reply ends with: (1) Verified code facts (path:line only) (2) clarifying questions only.
+Do not suggest next Studio/Builder steps.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Capybara A" data-role="A" id="capybara-a">
+  <summary>
+    <span class="name">Capybara A</span>
+    <span class="badge">A</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="capybara-a">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-capybara-a">@capybara/docs/manuals/USER-MANUAL.md
+@capybara/docs/manuals/prompts/p1-operator-bootstrap.md
+
+Ты — HITL-компилятор семейного Capybara CLI и учебной модели
+(действия 0–4, 6, 7, 51, 52: долг, аванс, деплой, доэмиссия).
+На входе USER-MANUAL — единственный SSOT по env и действиям.
+Ты не MCP-executor и не запускаешь CLI: оператор сам вставляет команды
+в терминал (стадия ручной валидации).
+
+Задача P1: понять запрос, согласовать action и параметры. Когда обязательные
+поля для выбранного action заполнены (gaps пуст) — СРАЗУ выдай итоговую
+bash-команду (или несколько, если оператор дал batch). Не проси отдельно
+вставлять P2. Не запускай команды.
+
+Правила:
+1) Только USER-MANUAL (§3). Не выдумывай действия и env.
+   Разрешены только 0–4, 6, 7, 51 и 52.
+2) Отличай:
+   0 проверка; 1 sweep; 2 дневные; 3 списание в пул; 4 зачёт активности;
+   6 журнал долга; 7 аванс; 51 деплой; 52 доэмиссия.
+   Не путай 3 / 6 / 7. Не путай 51/52 с браузерным mint.
+3) Action 4: system cidead|ru; level; period?; subject; activity type;
+   subtype?; template?; metric value; выплата да/нет + amount;
+   опц. CAPYBARA_ADVANCE_ID (clawback после payout).
+   Subtype — транслит (dictant|samostoyatelnaya|controlnaya|entrega),
+   не кириллица. Subject — slug (algebra, russkiy, matematicas, …).
+   CAPYBARA_METRIC_VALUE — число без суффикса «%» (40.5 не 40.5%).
+4) Action 6 (кратко gaps): wallet tristan|bastian; DEBT_OP;
+   create → ID + AMOUNT + REASON; repay → ID + (AMOUNT|percent|ALL);
+   summary — без ID; show → ID. Reason не выдумывай — спроси.
+   Если оператор просит «придумай id» → debt-NNN-YYMMDD (дата события).
+5) Action 7 (кратко gaps): wallet tristan|bastian; ADVANCE_OP;
+   issue → AMOUNT (+ reason; ID опц. / UUID); settle/forgive/show → ID;
+   summary — без ID. Не путать settle (7) с charge (3) и debt repay (6).
+6) Пока gaps не пуст — короткие уточнения. Не выдавай «Запрос на действие»
+   вместо команды.
+7) Хвост всегда: node capybara/cli/capybara.js
+   Запрещено: node scripts/capybara.js; не путать с capybara/scripts/ (mint).
+   В блоке ## Готовая команда НЕ пиши cd и абсолютный путь workspace —
+   оператор уже в корне DOGEstonia.
+8) Default CAPY_MODE=mock, если оператор явно не сказал gfl_reality
+   и не зафиксировал override сессии («в этом чате всегда бой»).
+9) Batch: если оператор перечислил несколько задач — несколько блоков
+   команд в одном ответе, каждая с нужными env.
+10) Если оператор прислал stdout summary/show: для вердикта бери JSON-строку
+    с &quot;op&quot;:&quot;summary&quot;|&quot;show&quot;, не строки Logger. Human-таблица на stderr — ок.
+11) Отвечай оператору по-русски, коротко.
+12) Когда gaps пуст — финал ТОЛЬКО такой формы (без преамбулы про бриф):
+
+## Готовая команда
+(одна строка или многострочный блок с \ ; без cd / без абсолютного cwd)
+Перед боем: чеклист §6 мануала.
+
+Опционально (не вместо команды): краткий список params одной строкой.
+
+Оператор сейчас опишет задачу своими словами.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-capybara-a-bootstrap" hidden>@capybara/docs/manuals/USER-MANUAL.md
+@capybara/docs/manuals/prompts/p1-operator-bootstrap.md
+
+Ты — HITL-компилятор семейного Capybara CLI и учебной модели
+(действия 0–4, 6, 7, 51, 52: долг, аванс, деплой, доэмиссия).
+На входе USER-MANUAL — единственный SSOT по env и действиям.
+Ты не MCP-executor и не запускаешь CLI: оператор сам вставляет команды
+в терминал (стадия ручной валидации).
+
+Задача P1: понять запрос, согласовать action и параметры. Когда обязательные
+поля для выбранного action заполнены (gaps пуст) — СРАЗУ выдай итоговую
+bash-команду (или несколько, если оператор дал batch). Не проси отдельно
+вставлять P2. Не запускай команды.
+
+Правила:
+1) Только USER-MANUAL (§3). Не выдумывай действия и env.
+   Разрешены только 0–4, 6, 7, 51 и 52.
+2) Отличай:
+   0 проверка; 1 sweep; 2 дневные; 3 списание в пул; 4 зачёт активности;
+   6 журнал долга; 7 аванс; 51 деплой; 52 доэмиссия.
+   Не путай 3 / 6 / 7. Не путай 51/52 с браузерным mint.
+3) Action 4: system cidead|ru; level; period?; subject; activity type;
+   subtype?; template?; metric value; выплата да/нет + amount;
+   опц. CAPYBARA_ADVANCE_ID (clawback после payout).
+   Subtype — транслит (dictant|samostoyatelnaya|controlnaya|entrega),
+   не кириллица. Subject — slug (algebra, russkiy, matematicas, …).
+   CAPYBARA_METRIC_VALUE — число без суффикса «%» (40.5 не 40.5%).
+4) Action 6 (кратко gaps): wallet tristan|bastian; DEBT_OP;
+   create → ID + AMOUNT + REASON; repay → ID + (AMOUNT|percent|ALL);
+   summary — без ID; show → ID. Reason не выдумывай — спроси.
+   Если оператор просит «придумай id» → debt-NNN-YYMMDD (дата события).
+5) Action 7 (кратко gaps): wallet tristan|bastian; ADVANCE_OP;
+   issue → AMOUNT (+ reason; ID опц. / UUID); settle/forgive/show → ID;
+   summary — без ID. Не путать settle (7) с charge (3) и debt repay (6).
+6) Пока gaps не пуст — короткие уточнения. Не выдавай «Запрос на действие»
+   вместо команды.
+7) Хвост всегда: node capybara/cli/capybara.js
+   Запрещено: node scripts/capybara.js; не путать с capybara/scripts/ (mint).
+   В блоке ## Готовая команда НЕ пиши cd и абсолютный путь workspace —
+   оператор уже в корне DOGEstonia.
+8) Default CAPY_MODE=mock, если оператор явно не сказал gfl_reality
+   и не зафиксировал override сессии («в этом чате всегда бой»).
+9) Batch: если оператор перечислил несколько задач — несколько блоков
+   команд в одном ответе, каждая с нужными env.
+10) Если оператор прислал stdout summary/show: для вердикта бери JSON-строку
+    с &quot;op&quot;:&quot;summary&quot;|&quot;show&quot;, не строки Logger. Human-таблица на stderr — ок.
+11) Отвечай оператору по-русски, коротко.
+12) Когда gaps пуст — финал ТОЛЬКО такой формы (без преамбулы про бриф):
+
+## Готовая команда
+(одна строка или многострочный блок с \ ; без cd / без абсолютного cwd)
+Перед боем: чеклист §6 мануала.
+
+Опционально (не вместо команды): краткий список params одной строкой.
+
+Оператор сейчас опишет задачу своими словами.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="AIBridge O" data-role="O" id="aibridge-o">
+  <summary>
+    <span class="name">AIBridge O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="aibridge-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-aibridge-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: aibridge
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-aibridge-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: aibridge
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="AIBridge V" data-role="V" id="aibridge-v">
+  <summary>
+    <span class="name">AIBridge V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="aibridge-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-aibridge-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: aibridge
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/aibridge-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-aibridge-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: aibridge
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar Back O" data-role="O" id="alvasar-back-o">
+  <summary>
+    <span class="name">Alvasar Back O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-back-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-back-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-backend
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-back-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-backend
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar Back V" data-role="V" id="alvasar-back-v">
+  <summary>
+    <span class="name">Alvasar Back V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-back-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-back-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-backend
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/alvasar-back-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-back-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-backend
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar GPT O" data-role="O" id="alvasar-gpt-o">
+  <summary>
+    <span class="name">Alvasar GPT O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-gpt-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-gpt-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-gpt
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-gpt-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-gpt
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar GPT V" data-role="V" id="alvasar-gpt-v">
+  <summary>
+    <span class="name">Alvasar GPT V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-gpt-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-gpt-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-gpt
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/alvasar-gpt-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-gpt-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-gpt
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar UI O" data-role="O" id="alvasar-ui-o">
+  <summary>
+    <span class="name">Alvasar UI O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-ui-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-ui-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-ui
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-ui-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-ui
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Alvasar UI V" data-role="V" id="alvasar-ui-v">
+  <summary>
+    <span class="name">Alvasar UI V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="alvasar-ui-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-alvasar-ui-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-ui
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/alvasar-ui-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-alvasar-ui-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: alvasar-ui
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Capybara O" data-role="O" id="capybara-o">
+  <summary>
+    <span class="name">Capybara O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="capybara-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-capybara-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: capybara
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-capybara-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: capybara
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Capybara V" data-role="V" id="capybara-v">
+  <summary>
+    <span class="name">Capybara V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="capybara-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-capybara-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: capybara
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/capybara-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-capybara-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: capybara
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="DOGEstonia O" data-role="O" id="dogestonia-o">
+  <summary>
+    <span class="name">DOGEstonia O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="dogestonia-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-dogestonia-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: dogestonia
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-dogestonia-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: dogestonia
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="DOGEstonia V" data-role="V" id="dogestonia-v">
+  <summary>
+    <span class="name">DOGEstonia V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="dogestonia-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-dogestonia-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: dogestonia
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-dogestonia-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: dogestonia
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Floou V" data-role="V" id="floou-v">
+  <summary>
+    <span class="name">Floou V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="floou-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-floou-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: floou
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-floou-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: floou
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="GPT O" data-role="O" id="gpt-o">
+  <summary>
+    <span class="name">GPT O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="gpt-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-gpt-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gpt
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-gpt-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gpt
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="GPT V" data-role="V" id="gpt-v">
+  <summary>
+    <span class="name">GPT V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="gpt-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-gpt-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gpt
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/gpt-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-gpt-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gpt
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Gateway O" data-role="O" id="gateway-o">
+  <summary>
+    <span class="name">Gateway O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="gateway-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-gateway-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gateway
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-gateway-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gateway
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Gateway V" data-role="V" id="gateway-v">
+  <summary>
+    <span class="name">Gateway V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="gateway-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-gateway-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gateway
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/gateway-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-gateway-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: gateway
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Identity O" data-role="O" id="identity-o">
+  <summary>
+    <span class="name">Identity O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="identity-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-identity-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: identity
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-identity-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: identity
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Identity V" data-role="V" id="identity-v">
+  <summary>
+    <span class="name">Identity V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="identity-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-identity-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: identity
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/identity-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-identity-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: identity
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Landing O" data-role="O" id="landing-o">
+  <summary>
+    <span class="name">Landing O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="landing-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-landing-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: landing
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-landing-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: landing
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Landing V" data-role="V" id="landing-v">
+  <summary>
+    <span class="name">Landing V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="landing-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-landing-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: landing
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/landing-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-landing-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: landing
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="SPA O" data-role="O" id="spa-o">
+  <summary>
+    <span class="name">SPA O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="spa-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-spa-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: spa
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-spa-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: spa
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="SPA V" data-role="V" id="spa-v">
+  <summary>
+    <span class="name">SPA V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="spa-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-spa-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: spa
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/spa-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-spa-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: spa
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Scripts O" data-role="O" id="scripts-o">
+  <summary>
+    <span class="name">Scripts O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="scripts-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-scripts-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: scripts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-scripts-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: scripts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Scripts V" data-role="V" id="scripts-v">
+  <summary>
+    <span class="name">Scripts V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="scripts-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-scripts-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: scripts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/scripts-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-scripts-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: scripts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Telegram: O" data-role="O" id="telegram-o">
+  <summary>
+    <span class="name">Telegram: O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="telegram-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-telegram-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: telegram
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-telegram-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: telegram
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Telegram: V" data-role="V" id="telegram-v">
+  <summary>
+    <span class="name">Telegram: V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="telegram-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-telegram-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: telegram
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/telegram-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-telegram-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: telegram
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Threads O" data-role="O" id="threads-o">
+  <summary>
+    <span class="name">Threads O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="threads-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-threads-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: threads
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-threads-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: threads
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Threads V" data-role="V" id="threads-v">
+  <summary>
+    <span class="name">Threads V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="threads-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-threads-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: threads
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/threads-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-threads-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: threads
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="zeya888-brand V" data-role="V" id="zeya888-brand-v">
+  <summary>
+    <span class="name">zeya888-brand V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="zeya888-brand-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-zeya888-brand-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: zeya888-brand
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+
+---
+AFTER migration role-bootstrap restore packet completes (do not skip or shorten the bootstrap above):
+
+@docs/methodology/Zeya888-builder-queue/analysis/dialog-restore-extracts/zeya888-brand-v-extract.md
+
+Load that extract. Apply ## Context transfer and ## Starting focus packet → Overlay as the session restore layer for this dialog. Prefer ## Tip honesty (current) over stale arc bullets if both present. Stay in validator / analysis.mdc. Report: bootstrap done | extract loaded | open next from overlay. STOP unless operator continues.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-zeya888-brand-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: zeya888-brand
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+</main>
+<main id="work-main" class="surface-only-work"></main>
+<div id="toast">Скопировано</div>
+<script src="dialog-restore-work-catalog.js"></script>
+<script>
+const toast = document.getElementById('toast');
+function flash(msg) {
+  toast.textContent = msg || 'Скопировано';
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 1200);
+}
+function currentSurface() {
+  const r = document.querySelector('input[name="surface"]:checked');
+  return r ? r.value : 'init';
+}
+function currentMode() {
+  const r = document.querySelector('input[name="mode"]:checked');
+  return r ? r.value : 'restore';
+}
+function applyMode() {
+  const m = currentMode();
+  document.body.classList.toggle('mode-restore', m === 'restore');
+  document.body.classList.toggle('mode-fresh', m === 'fresh');
+  document.querySelectorAll('.paste-restore').forEach(el => {
+    el.hidden = m !== 'restore';
+  });
+  document.querySelectorAll('.paste-bootstrap').forEach(el => {
+    el.hidden = m !== 'fresh';
+  });
+}
+function applySurface() {
+  const s = currentSurface();
+  document.body.classList.toggle('surface-init', s === 'init');
+  document.body.classList.toggle('surface-work', s === 'work');
+  applyFilter();
+}
+function esc(s) {
+  return String(s == null ? '' : s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+function renderWorkCard(item, badge) {
+  const id = item.id;
+  const params = Array.isArray(item.params) ? item.params : [];
+  let paramsHtml = '';
+  if (params.length) {
+    paramsHtml = '<ul class="params">' + params.map(p =>
+      '<li><code>' + esc(p.name) + '</code> — ' + esc(p.desc) + '</li>'
+    ).join('') + '</ul>';
+  } else {
+    paramsHtml = '<ul class="params"><li>Входящих $параметров нет (или подставь по смыслу snip’а)</li></ul>';
+  }
+  let promptHtml;
+  if (item.hasPaste && item.paste != null) {
+    promptHtml =
+      '<p class="prompt-label">Промпт</p>' +
+      '<pre class="paste" id="pre-' + esc(id) + '">' + esc(item.paste) + '</pre>';
+  } else {
+    promptHtml =
+      '<p class="note">Нет блока <code>## Copy-paste</code> в файле — открой path вручную.</p>';
+  }
+  return (
+    '<details class="card work-card" data-title="' + esc(item.title) + '" data-role="' + esc(badge) + '" id="' + esc(id) + '">' +
+      '<summary>' +
+        '<span class="name">' + esc(item.title) + '</span>' +
+        '<span class="badge">' + esc(badge) + '</span>' +
+        (item.hasPaste
+          ? '<button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="' + esc(id) + '">⎘</button>'
+          : '') +
+      '</summary>' +
+      '<div class="body">' +
+        '<div class="meta-block">' +
+          '<p class="blurb">' + esc(item.blurb || '') + '</p>' +
+          '<p class="path">' + esc(item.path || '') + '</p>' +
+          paramsHtml +
+        '</div>' +
+        promptHtml +
+      '</div>' +
+    '</details>'
+  );
+}
+function renderWorkCatalog() {
+  const root = document.getElementById('work-main');
+  const cat = window.ZEYA888_WORK_CATALOG;
+  if (!root) return;
+  if (!cat) {
+    root.innerHTML = '<p class="note">Каталог не загружен — проверь <code>dialog-restore-work-catalog.js</code> рядом с HTML.</p>';
+    return;
+  }
+  const parts = [];
+  if (cat.frequent && cat.frequent.length) {
+    parts.push('<h2 class="section-h">Частые (prompts-manual)</h2>');
+    cat.frequent.forEach(item => { parts.push(renderWorkCard(item, 'Frequent')); });
+  }
+  const order = cat.categoryOrder || Object.keys(cat.categories || {});
+  order.forEach(key => {
+    const list = (cat.categories && cat.categories[key]) || [];
+    if (!list.length) return;
+    parts.push('<h2 class="section-h">prompts/' + esc(key) + '/</h2>');
+    list.forEach(item => { parts.push(renderWorkCard(item, key)); });
+  });
+  root.innerHTML = parts.join('\n');
+}
+function copyPromptById(id, btn) {
+  let pre;
+  if (currentSurface() === 'work' || id === 'shared-verify') {
+    pre = document.getElementById('pre-' + id);
+  } else {
+    const m = currentMode();
+    pre = document.getElementById(m === 'fresh' ? ('pre-' + id + '-bootstrap') : ('pre-' + id));
+  }
+  const text = pre ? pre.textContent : '';
+  navigator.clipboard.writeText(text).then(() => {
+    if (btn) {
+      btn.classList.add('ok');
+      setTimeout(() => btn.classList.remove('ok'), 900);
+    }
+    flash('Скопировано');
+  });
+}
+function applyFilter() {
+  const v = (document.getElementById('q').value || '').trim().toLowerCase();
+  const scope = currentSurface() === 'work'
+    ? document.querySelectorAll('#work-main details.card')
+    : document.querySelectorAll('#init-main details.card');
+  scope.forEach(d => {
+    const t = (d.getAttribute('data-title') || '').toLowerCase();
+    d.hidden = !!(v && !t.includes(v));
+  });
+}
+document.querySelectorAll('input[name="mode"]').forEach(inp => {
+  inp.addEventListener('change', applyMode);
+});
+document.querySelectorAll('input[name="surface"]').forEach(inp => {
+  inp.addEventListener('change', applySurface);
+});
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('button.copy');
+  if (btn) {
+    e.preventDefault();
+    e.stopPropagation();
+    copyPromptById(btn.getAttribute('data-copy'), btn);
+    return;
+  }
+  const nameEl = e.target.closest('details.card .name');
+  if (nameEl) {
+    e.preventDefault();
+    e.stopPropagation();
+    const card = nameEl.closest('details.card');
+    const title = (card && card.getAttribute('data-title')) || nameEl.textContent.trim();
+    navigator.clipboard.writeText(title).then(() => flash('Скопировано: ' + title));
+  }
+});
+document.getElementById('q').addEventListener('input', applyFilter);
+renderWorkCatalog();
+document.querySelectorAll('details.card .name').forEach(el => {
+  el.title = 'Клик — копировать имя';
+});
+document.body.classList.add('mode-restore', 'surface-init');
+applyMode();
+applySurface();
+</script>
+</body>
+</html>
