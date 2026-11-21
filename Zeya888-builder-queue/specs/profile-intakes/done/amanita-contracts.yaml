@@ -1,0 +1,17 @@
+# Profile intake — amanita-contracts
+# Nested peer monorepo under amanita/ (NOT clients.yaml / not client tenancy)
+# Remote clone: amanita/ already Present at workspace root
+
+profile_key: amanita-contracts
+focus_folder: amanita/contracts
+plan_title_case: Amanita-Contracts
+
+stack_label: "Solidity / Hardhat (tooling in amanita/ root)"
+execution_skill_primary: solidity-auditor
+execution_skill_path: .cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md
+test_command: "cd amanita && npx hardhat --version"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-11-20T12:20:53Z"

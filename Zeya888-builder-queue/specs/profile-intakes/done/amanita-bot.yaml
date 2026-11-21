@@ -1,0 +1,17 @@
+# Profile intake — amanita-bot
+# Nested peer monorepo under amanita/ (NOT clients.yaml / not client tenancy)
+# Remote clone: amanita/ already Present at workspace root
+
+profile_key: amanita-bot
+focus_folder: amanita/bot
+plan_title_case: Amanita-Bot
+
+stack_label: "Python Telegram+API"
+execution_skill_primary: python-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+test_command: "cd amanita/bot && python3 -V"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-11-20T12:20:53Z"

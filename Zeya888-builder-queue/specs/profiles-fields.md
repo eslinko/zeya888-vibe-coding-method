@@ -37,10 +37,11 @@ CLI [`builder_resolve_queue.py`](../cli/builder_resolve_queue.py) resolves `task
 | Fact | Implication |
 |------|-------------|
 | Live DOGEstonia profiles stay **flat** single-segment (or `"GPT UI"`) peers | Nested is additive; do not relocate gateway/spa/… |
-| `test_command` is a shell string | Must `cd` the same nested path as `focus_folder` |
+| Nested ≠ only `clients/` | Client tenancy **or** nested peer monorepo (e.g. `amanita/bot`) — latter has **no** `clients.yaml` entry |
+| `test_command` is a shell string | Must `cd` the path that owns tooling (usually `focus_folder`; Hardhat may be parent monorepo root) |
 | `pkg_path_prefix` / `linear_paths` | Use full relative paths from workspace root matching nested `tasks_dir` |
 
-Client layout convention: [`../guides/client-tenancy.md`](../guides/client-tenancy.md) · registry [`clients.yaml`](./clients.yaml).
+Client layout convention: [`../guides/client-tenancy.md`](../guides/client-tenancy.md) · registry [`clients.yaml`](./clients.yaml). Nested peers outside `clients/` do **not** use that registry.
 
 ## Добавление нового проекта
 

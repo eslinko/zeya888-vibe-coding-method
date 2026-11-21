@@ -41,6 +41,10 @@
 | `alvasar-ui` | `clients/Alvasar/ui/docs/tasks` | `alvasar-ui-active-package.current.yaml` | `alvasar-ui-active-packages/` |
 | `alvasar-gpt` | `clients/Alvasar/gpt/docs/tasks` | `alvasar-gpt-active-package.current.yaml` | `alvasar-gpt-active-packages/` |
 | `telegram` | `doge-telegram/docs/tasks` | `telegram-active-package.current.yaml` | `telegram-active-packages/` |
+| `amanita-bot` | `amanita/bot/docs/tasks` | `amanita-bot-active-package.current.yaml` | `amanita-bot-active-packages/` |
+| `amanita-contracts` | `amanita/contracts/docs/tasks` | `amanita-contracts-active-package.current.yaml` | `amanita-contracts-active-packages/` |
+| `amanita-scripts` | `amanita/scripts/docs/tasks` | `amanita-scripts-active-package.current.yaml` | `amanita-scripts-active-packages/` |
+| `amanita-arweave` | `amanita/arweave-uploader/docs/tasks` | `amanita-arweave-active-package.current.yaml` | `amanita-arweave-active-packages/` |
 
 `package_file` в указателе — путь **относительно** `{tasks_dir}/`.
 
@@ -170,6 +174,10 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 | alvasar-ui | `alvasar_ui_input_package` |
 | alvasar-gpt | `alvasar_gpt_input_package` |
 | telegram | `telegram_input_package` |
+| amanita-bot | `amanita_bot_input_package` |
+| amanita-contracts | `amanita_contracts_input_package` |
+| amanita-scripts | `amanita_scripts_input_package` |
+| amanita-arweave | `amanita_arweave_input_package` |
 
 Колонка **Input package** в `bullrun-launch-index.md`.
 

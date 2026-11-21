@@ -497,7 +497,7 @@
       </div>
       <div class="header__pills">
         <span class="pill">Theme: Dark + DOGE</span>
-        <span class="pill">v1.2.27</span>
+        <span class="pill">v1.2.28</span>
         <span class="pill">2026-08-14</span>
       </div>
     </header>
@@ -510,7 +510,7 @@
   </div>
 
   <script>
-    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou', 'alvasar-backend', 'alvasar-ui', 'alvasar-gpt', 'telegram'];
+    const BUILDER_PROJECTS = ['gateway', 'gpt', 'identity', 'spa', 'scripts', 'capybara', 'landing', 'zeya888', 'arweave', 'dogestonia', 'aibridge', 'zeya888-brand', 'threads', 'floou', 'alvasar-backend', 'alvasar-ui', 'alvasar-gpt', 'telegram', 'amanita-bot', 'amanita-contracts', 'amanita-scripts', 'amanita-arweave']; // amanita-* = nested peer under amanita/, not clients.yaml
 
     const PROJECT_PROFILES = {
       gateway: {
@@ -708,6 +708,50 @@
         execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md',
         hasUxPipeline: false,
         backlog_index: 'doge-telegram/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'amanita-bot': {
+        project: 'amanita-bot',
+        tasks_dir: 'amanita/bot/docs/tasks',
+        current_pointer: 'amanita-bot-active-package.current.yaml',
+        plan_file: '.cursor/plans/Amanita-Bot_builder.plan.md',
+        pipeline_doc: 'amanita/bot/docs/tasks/amanita-bot-story-execution-pipeline.md',
+        execution_skill_primary: 'python-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'amanita/bot/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'amanita-contracts': {
+        project: 'amanita-contracts',
+        tasks_dir: 'amanita/contracts/docs/tasks',
+        current_pointer: 'amanita-contracts-active-package.current.yaml',
+        plan_file: '.cursor/plans/Amanita-Contracts_builder.plan.md',
+        pipeline_doc: 'amanita/contracts/docs/tasks/amanita-contracts-story-execution-pipeline.md',
+        execution_skill_primary: 'solidity-auditor',
+        execution_skill_path: '.cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'amanita/contracts/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'amanita-scripts': {
+        project: 'amanita-scripts',
+        tasks_dir: 'amanita/scripts/docs/tasks',
+        current_pointer: 'amanita-scripts-active-package.current.yaml',
+        plan_file: '.cursor/plans/Amanita-Scripts_builder.plan.md',
+        pipeline_doc: 'amanita/scripts/docs/tasks/amanita-scripts-story-execution-pipeline.md',
+        execution_skill_primary: 'javascript-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'amanita/scripts/docs/tasks/backlog-stories/INDEX.md',
+      },
+      'amanita-arweave': {
+        project: 'amanita-arweave',
+        tasks_dir: 'amanita/arweave-uploader/docs/tasks',
+        current_pointer: 'amanita-arweave-active-package.current.yaml',
+        plan_file: '.cursor/plans/Amanita-Arweave_builder.plan.md',
+        pipeline_doc: 'amanita/arweave-uploader/docs/tasks/amanita-arweave-story-execution-pipeline.md',
+        execution_skill_primary: 'javascript-pro',
+        execution_skill_path: '.cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md',
+        hasUxPipeline: false,
+        backlog_index: 'amanita/arweave-uploader/docs/tasks/backlog-stories/INDEX.md',
       },
     };
 

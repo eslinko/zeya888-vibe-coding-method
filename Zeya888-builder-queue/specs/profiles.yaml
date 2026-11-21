@@ -405,3 +405,87 @@ projects:
     stack_label: GPT Instructions (Custom GPT builder skill)
     execution_skill_primary: openai-custom-gpt-builder
     execution_skill_path: .cursor/skills/openai-custom-gpt-builder/SKILL.md
+
+  amanita-bot:
+    enabled: true
+    focus_folder: amanita/bot
+    tasks_dir: amanita/bot/docs/tasks
+    active_packages_dir: amanita-bot-active-packages
+    current_pointer: amanita-bot-active-package.current.yaml
+    build_windows_subdir: run-reports/amanita-bot-build-windows
+    build_window_prefix: amanita-bot-cursor-build-window
+    next_readme_dotfile: .amanita-bot-next-readme
+    pkg_path_prefix: amanita/bot/docs/tasks/
+    plan_file: .cursor/plans/Amanita-Bot_builder.plan.md
+    pipeline_doc: amanita/bot/docs/tasks/amanita-bot-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: amanita_bot_input_package
+    artifact_kind: amanita_bot_cursor_build_window
+    build_window_title: Amanita Bot Cursor build window
+    test_command: 'cd amanita/bot && python3 -V'
+    stack_label: Python Telegram+API
+    execution_skill_primary: python-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/python-pro/SKILL.md
+
+  amanita-contracts:
+    enabled: true
+    focus_folder: amanita/contracts
+    tasks_dir: amanita/contracts/docs/tasks
+    active_packages_dir: amanita-contracts-active-packages
+    current_pointer: amanita-contracts-active-package.current.yaml
+    build_windows_subdir: run-reports/amanita-contracts-build-windows
+    build_window_prefix: amanita-contracts-cursor-build-window
+    next_readme_dotfile: .amanita-contracts-next-readme
+    pkg_path_prefix: amanita/contracts/docs/tasks/
+    plan_file: .cursor/plans/Amanita-Contracts_builder.plan.md
+    pipeline_doc: amanita/contracts/docs/tasks/amanita-contracts-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: amanita_contracts_input_package
+    artifact_kind: amanita_contracts_cursor_build_window
+    build_window_title: Amanita Contracts Cursor build window
+    test_command: 'cd amanita && npx hardhat --version'
+    stack_label: Solidity / Hardhat (tooling in amanita/ root)
+    execution_skill_primary: solidity-auditor
+    execution_skill_path: .cursor/skills/sources/pashov-skills/solidity-auditor/SKILL.md
+
+  amanita-scripts:
+    enabled: true
+    focus_folder: amanita/scripts
+    tasks_dir: amanita/scripts/docs/tasks
+    active_packages_dir: amanita-scripts-active-packages
+    current_pointer: amanita-scripts-active-package.current.yaml
+    build_windows_subdir: run-reports/amanita-scripts-build-windows
+    build_window_prefix: amanita-scripts-cursor-build-window
+    next_readme_dotfile: .amanita-scripts-next-readme
+    pkg_path_prefix: amanita/scripts/docs/tasks/
+    plan_file: .cursor/plans/Amanita-Scripts_builder.plan.md
+    pipeline_doc: amanita/scripts/docs/tasks/amanita-scripts-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: amanita_scripts_input_package
+    artifact_kind: amanita_scripts_cursor_build_window
+    build_window_title: Amanita Scripts Cursor build window
+    test_command: 'cd amanita/scripts && ls'
+    stack_label: Node deploy/catalog tooling
+    execution_skill_primary: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+
+  amanita-arweave:
+    enabled: true
+    focus_folder: amanita/arweave-uploader
+    tasks_dir: amanita/arweave-uploader/docs/tasks
+    active_packages_dir: amanita-arweave-active-packages
+    current_pointer: amanita-arweave-active-package.current.yaml
+    build_windows_subdir: run-reports/amanita-arweave-build-windows
+    build_window_prefix: amanita-arweave-cursor-build-window
+    next_readme_dotfile: .amanita-arweave-next-readme
+    pkg_path_prefix: amanita/arweave-uploader/docs/tasks/
+    plan_file: .cursor/plans/Amanita-Arweave_builder.plan.md
+    pipeline_doc: amanita/arweave-uploader/docs/tasks/amanita-arweave-story-execution-pipeline.md
+    default_input_kind: backlog_story
+    input_package_yaml_key: amanita_arweave_input_package
+    artifact_kind: amanita_arweave_cursor_build_window
+    build_window_title: Amanita Arweave Cursor build window
+    test_command: 'cd amanita/arweave-uploader && node -v'
+    stack_label: Node Arweave uploader
+    execution_skill_primary: javascript-pro
+    execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md

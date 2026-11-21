@@ -25,7 +25,7 @@ focus_folder: your_project  # путь от корня workspace; может о�
 
 **Правило:** по умолчанию `focus_folder` = `{profile_key}` (как `capybara/`, `scripts/`). Исключения (`spa` / `spa-app`, `zeya888` / `zeya888.me`, `gpt` / `GPT UI`) — явный `focus_folder` в intake → затем в `profiles.yaml`.
 
-**Nested `focus_folder` (allowed):** значение может содержать `/` (например `clients/Alvasar/backend`). CLI joins `workspace_root / relative` — см. [`profiles-fields.md`](../specs/profiles-fields.md) §Nested paths. DOGEstonia classic peers remain flat; nested is for client tenancy ([`client-tenancy.md`](./client-tenancy.md)). `test_command` must `cd` the same nested path. Derived `tasks_dir` = `{focus_folder}/docs/tasks` still applies.
+**Nested `focus_folder` (allowed):** значение может содержать `/` (например `clients/Alvasar/backend` **или** `amanita/bot`). CLI joins `workspace_root / relative` — см. [`profiles-fields.md`](../specs/profiles-fields.md) §Nested paths. DOGEstonia classic peers remain flat. Nested is **not only** client tenancy ([`client-tenancy.md`](./client-tenancy.md)): also **nested peer monorepos** outside `clients/` (e.g. `amanita/*`) — **no** `clients.yaml` / Root card required. `test_command` must `cd` the nested path that owns the tooling (may differ slightly from `focus_folder`, e.g. Hardhat at `amanita/`). Derived `tasks_dir` = `{focus_folder}/docs/tasks` still applies (full relative from workspace root).
 
 Чат-only fallback (без файла): те же два поля в сообщении; agent всё равно должен записать intake в `specs/profile-intakes/` до materialize.
 
@@ -110,6 +110,7 @@ source_split: full | partial
 
 3. Bump version pill консоли
 4. Ручная проверка: dropdown → `planFile`, `$verifyCmd` (`--project {profile_key}`), backlog в P1.3
+5. **Dialog restore:** add **O** + **V** bootstrap cards in [`../tools/dialog-restore-console.html`](../tools/dialog-restore-console.html) per [`../tools/dialog-restore-console.md`](../tools/dialog-restore-console.md) (mode «Запустить новый» = clean bootstrap; extract optional later)
 
 ---
 

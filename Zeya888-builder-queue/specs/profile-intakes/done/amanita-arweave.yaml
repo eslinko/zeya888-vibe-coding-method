@@ -1,0 +1,17 @@
+# Profile intake — amanita-arweave
+# Nested peer monorepo under amanita/ (NOT clients.yaml / not client tenancy)
+# Remote clone: amanita/ already Present at workspace root
+
+profile_key: amanita-arweave
+focus_folder: amanita/arweave-uploader
+plan_title_case: Amanita-Arweave
+
+stack_label: "Node Arweave uploader"
+execution_skill_primary: javascript-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+test_command: "cd amanita/arweave-uploader && node -v"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-11-20T12:20:53Z"

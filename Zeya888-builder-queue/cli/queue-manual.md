@@ -424,6 +424,73 @@ python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --pr
 
 ---
 
+## 5p. Профиль `amanita-bot` (Python Telegram+API — nested peer `amanita/bot/`)
+
+`--project amanita-bot` — активен. Active pkg: `pkg-000000-20261120-bootstrap` → **ok 1 paths** (profile marker). Контракт: [amanita-bot-operator-contract.md](../contracts/amanita-bot-operator-contract.md). Runtime plan: `.cursor/plans/Amanita-Bot_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AMBOT-*` → P1.3. **Layout:** nested peer monorepo under `amanita/` — **not** `clients.yaml` / Root card. Do not confuse with flat `scripts` / `arweave` keys.
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-bot --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-bot --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-bot \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd amanita/bot && python3 -V`. Pipeline — [amanita-bot-story-execution-pipeline.md](../../../amanita/bot/docs/tasks/amanita-bot-story-execution-pipeline.md).
+
+
+## 5q. Профиль `amanita-contracts` (Solidity / Hardhat — nested peer `amanita/contracts/`)
+
+`--project amanita-contracts` — активен. Active pkg: `pkg-000000-20261120-bootstrap` → **ok 1 paths** (profile marker). Контракт: [amanita-contracts-operator-contract.md](../contracts/amanita-contracts-operator-contract.md). Runtime plan: `.cursor/plans/Amanita-Contracts_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AMCTR-*` → P1.3. **Layout:** nested peer monorepo under `amanita/` — **not** `clients.yaml` / Root card. Do not confuse with flat `scripts` / `arweave` keys.
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-contracts --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-contracts --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-contracts \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd amanita && npx hardhat --version`. Pipeline — [amanita-contracts-story-execution-pipeline.md](../../../amanita/contracts/docs/tasks/amanita-contracts-story-execution-pipeline.md).
+
+
+## 5r. Профиль `amanita-scripts` (Node deploy/catalog — nested peer `amanita/scripts/`)
+
+`--project amanita-scripts` — активен. Active pkg: `pkg-000000-20261120-bootstrap` → **ok 1 paths** (profile marker). Контракт: [amanita-scripts-operator-contract.md](../contracts/amanita-scripts-operator-contract.md). Runtime plan: `.cursor/plans/Amanita-Scripts_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AMSCR-*` → P1.3. **Layout:** nested peer monorepo under `amanita/` — **not** `clients.yaml` / Root card. Do not confuse with flat `scripts` / `arweave` keys.
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-scripts --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-scripts --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-scripts \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd amanita/scripts && ls`. Pipeline — [amanita-scripts-story-execution-pipeline.md](../../../amanita/scripts/docs/tasks/amanita-scripts-story-execution-pipeline.md).
+
+
+## 5s. Профиль `amanita-arweave` (Node Arweave uploader — nested peer `amanita/arweave-uploader/`)
+
+`--project amanita-arweave` — активен. Active pkg: `pkg-000000-20261120-bootstrap` → **ok 1 paths** (profile marker). Контракт: [amanita-arweave-operator-contract.md](../contracts/amanita-arweave-operator-contract.md). Runtime plan: `.cursor/plans/Amanita-Arweave_builder.plan.md`. **Fixed plan:** @attach + workflow §P3/P6 — не Build на файле. **Next:** author `STORY-AMARW-*` → P1.3. **Layout:** nested peer monorepo under `amanita/` — **not** `clients.yaml` / Root card. Do not confuse with flat `scripts` / `arweave` keys.
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-arweave --verify
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-arweave --list
+```
+
+```bash
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-arweave \
+  --write-build-window --window-flat-start 1 --window-flat-end K
+```
+
+`K` — из `--list`. Tests: `cd amanita/arweave-uploader && node -v`. Pipeline — [amanita-arweave-story-execution-pipeline.md](../../../amanita/arweave-uploader/docs/tasks/amanita-arweave-story-execution-pipeline.md).
+
 ## 6. Профиль `taxonomy` (queueless meta-script)
 
 **Taxonomy Cycle Builder** — ручной цикл обновления меток (телеметрия → решения → патчи gateway + spa). **Не** pkg-очередь: нет `--list`, `--write-build-window`, `pkg-*.yaml`.

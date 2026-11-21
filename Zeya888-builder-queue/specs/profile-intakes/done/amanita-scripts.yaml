@@ -1,0 +1,17 @@
+# Profile intake — amanita-scripts
+# Nested peer monorepo under amanita/ (NOT clients.yaml / not client tenancy)
+# Remote clone: amanita/ already Present at workspace root
+
+profile_key: amanita-scripts
+focus_folder: amanita/scripts
+plan_title_case: Amanita-Scripts
+
+stack_label: "Node deploy/catalog tooling"
+execution_skill_primary: javascript-pro
+execution_skill_path: .cursor/skills/sources/jeffallan-claude-skills/skills/javascript-pro/SKILL.md
+test_command: "cd amanita/scripts && ls"
+default_input_kind: backlog_story
+has_ux_pipeline: false
+
+status: materialized
+materialized_at: "2026-11-20T12:20:53Z"

@@ -110,6 +110,10 @@ flowchart TB
 | [`contracts/alvasar-ui-operator-contract.md`](./contracts/alvasar-ui-operator-contract.md) | Operator contract для `builder_project: alvasar-ui` (nested `clients/Alvasar/ui/`) |
 | [`contracts/alvasar-gpt-operator-contract.md`](./contracts/alvasar-gpt-operator-contract.md) | Operator contract для `builder_project: alvasar-gpt` (nested `clients/Alvasar/gpt/`; skill as GPT UI) |
 | [`contracts/telegram-operator-contract.md`](./contracts/telegram-operator-contract.md) | Operator contract для `builder_project: telegram` (focus `doge-telegram/`; channel → ai-bridge) |
+| [`contracts/amanita-bot-operator-contract.md`](./contracts/amanita-bot-operator-contract.md) | Operator contract для `builder_project: amanita-bot` (nested peer `amanita/bot/`; not clients.yaml) |
+| [`contracts/amanita-contracts-operator-contract.md`](./contracts/amanita-contracts-operator-contract.md) | Operator contract для `builder_project: amanita-contracts` (nested peer `amanita/contracts/`; not clients.yaml) |
+| [`contracts/amanita-scripts-operator-contract.md`](./contracts/amanita-scripts-operator-contract.md) | Operator contract для `builder_project: amanita-scripts` (nested peer `amanita/scripts/`; not clients.yaml) |
+| [`contracts/amanita-arweave-operator-contract.md`](./contracts/amanita-arweave-operator-contract.md) | Operator contract для `builder_project: amanita-arweave` (nested peer `amanita/arweave-uploader/`; not clients.yaml) |
 | [`guides/client-tenancy.md`](./guides/client-tenancy.md) | Nested client tenancy under `clients/<Client>/` + portable plans |
 | [`specs/clients.yaml`](./specs/clients.yaml) | Client → profiles registry (pilot: alvasar) |
 | [`prompts/architect/client-product-root-orientation.md`](./prompts/architect/client-product-root-orientation.md) | Read-only client root orientation (`$clientId`); not DOGE classic-four |

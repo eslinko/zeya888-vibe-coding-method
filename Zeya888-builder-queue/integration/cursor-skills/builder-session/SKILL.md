@@ -2,7 +2,7 @@
 name: builder-session
 description: >-
   Zeya888 Builder Queue session workflow for gateway, GPT UI, doge-identity-service,
-  spa-app, scripts (tooling), capybara (Vue+Node), landing (Astro), zeya888 (WordPress), arweave (Node/Arweave), dogestonia (RN/Expo), aibridge (Python Responses bridge), zeya888-brand (focus zeya888/), threads (focus doge-threads/), floou (focus Floou/), alvasar-backend / alvasar-ui / alvasar-gpt (nested clients/Alvasar/), telegram (focus doge-telegram/), and other workspace projects. Use when the operator mentions builder_project,
+  spa-app, scripts (tooling), capybara (Vue+Node), landing (Astro), zeya888 (WordPress), arweave (Node/Arweave), dogestonia (RN/Expo), aibridge (Python Responses bridge), zeya888-brand (focus zeya888/), threads (focus doge-threads/), floou (focus Floou/), alvasar-backend / alvasar-ui / alvasar-gpt (nested clients/Alvasar/), telegram (focus doge-telegram/), amanita-bot / amanita-contracts / amanita-scripts / amanita-arweave (nested peer amanita/*, not clients.yaml), and other workspace projects. Use when the operator mentions builder_project,
   pkg-, build window, REQ-, EPIC-IDS-, STORY-SCR-, STORY-SCR-CAPY, STORY-LAND, STORY-AU, REQ-AU, STORY-DOGE, REQ-APP, STORY-AIBRIDGE, STORY-ZBRAND, REQ-01, builder_resolve_queue, bullrun,
   Gateway_builder, GPT_builder, ID_builder, Scripts_builder, Capybara_builder, Landing_builder, Arweave_builder, DOGEstonia_builder, aibridge_builder, Zeya888-Brand_builder, or starts a clean dev session.
   Triggers onboarding Phase 0 then P1-P8 from
@@ -15,8 +15,8 @@ Full operator contract: [session-starter.md](../../../docs/methodology/Zeya888-b
 
 ## When to apply
 
-- Work under a project in `profiles.yaml` (`doge-complaints-gateway`, `GPT UI`, `doge-identity-service`, `spa-app`, `scripts`, `capybara`, `landing`, `zeya888.me` / `zeya888`, `zeya888/` / `zeya888-brand`, `doge-threads/` / `threads`, `Floou/` / `floou`, `clients/Alvasar/backend` / `alvasar-backend`, `clients/Alvasar/ui` / `alvasar-ui`, `clients/Alvasar/gpt` / `alvasar-gpt`, `doge-telegram/` / `telegram`, `dogestonia-arweave-uploader` / `arweave`, `dogestonia-app` / `dogestonia`, `doge-ai-bridge` / `aibridge`, …).
-- Operator set `builder_project: gateway|gpt|identity|spa|scripts|capybara|landing|zeya888|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|alvasar-gpt|telegram|arweave|dogestonia|aibridge|…` or `pipeline_profile: builder_full`.
+- Work under a project in `profiles.yaml` (`doge-complaints-gateway`, `GPT UI`, `doge-identity-service`, `spa-app`, `scripts`, `capybara`, `landing`, `zeya888.me` / `zeya888`, `zeya888/` / `zeya888-brand`, `doge-threads/` / `threads`, `Floou/` / `floou`, `clients/Alvasar/backend` / `alvasar-backend`, `clients/Alvasar/ui` / `alvasar-ui`, `clients/Alvasar/gpt` / `alvasar-gpt`, `doge-telegram/` / `telegram`, `amanita/bot` / `amanita-bot`, `amanita/contracts` / `amanita-contracts`, `amanita/scripts` / `amanita-scripts`, `amanita/arweave-uploader` / `amanita-arweave`, `dogestonia-arweave-uploader` / `arweave`, `dogestonia-app` / `dogestonia`, `doge-ai-bridge` / `aibridge`, …).
+- Operator set `builder_project: gateway|gpt|identity|spa|scripts|capybara|landing|zeya888|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|alvasar-gpt|telegram|amanita-bot|amanita-contracts|amanita-scripts|amanita-arweave|arweave|dogestonia|aibridge|…` or `pipeline_profile: builder_full`.
 - **`identity`:** три входа P1 — `requirement` | `epic_story` | `backlog_story` (один на сессию) — [workflow.md](../../../docs/methodology/Zeya888-builder-queue/core/workflow.md) §P1.2/P1.1/P1.3 + **обязательный контракт:** [identity-operator-contract.md](../../../docs/methodology/Zeya888-builder-queue/contracts/identity-operator-contract.md). Runtime P3/P6 — @attach [.cursor/plans/ID_builder.plan.md](../../../.cursor/plans/ID_builder.plan.md) (не Build на файле; см. [fixed-builder-plan-execution.md](../../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)).
 - **Fixed `*_builder.plan.md`:** @attach in the **current** project chat + workflow §P3/P6 — **not** Build / Execute plan on the file ([fixed-builder-plan-execution.md](../../../docs/methodology/Zeya888-builder-queue/guides/fixed-builder-plan-execution.md)).
 - New chat / «старт сессии» — run **Phase 0** first (read code, docs, tests; no code changes).
@@ -45,7 +45,7 @@ SSOT данных: [`profiles.yaml`](../../../docs/methodology/Zeya888-builder-q
 3. **P3/P6 (execute):** перед правками кода — прочитать `@<execution_skill_path>` из profile; если в **текущем** task README другой `Skill declared` — **побеждает README таска**.
 4. **Запрет:** не предлагать `python-pro` для `spa` / `scripts` / `react-expert` для `gateway` без явной команды оператора.
 
-P1.3 epic/task naming по проекту — operator contract §6/§7 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `alvasar-gpt` / `telegram`), не дублировать здесь.
+P1.3 epic/task naming по проекту — operator contract §6/§7 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `alvasar-gpt` / `telegram` / `amanita-bot` / `amanita-contracts` / `amanita-scripts` / `amanita-arweave`), не дублировать здесь.
 
 ## Pipeline phases (operator picks one)
 
@@ -237,6 +237,47 @@ SSOT prompts: [workflow.md](../../../docs/methodology/Zeya888-builder-queue/core
 4. **Focus** — `doge-telegram/` (product doge-telegram-channel).
 5. **Runtime P3/P6** — @attach `.cursor/plans/Telegram_builder.plan.md`.
 
+
+## Amanita Bot (`builder_project: amanita-bot`)
+
+Перед batch-run / P3 — [amanita-bot-operator-contract.md](../../../docs/methodology/Zeya888-builder-queue/contracts/amanita-bot-operator-contract.md):
+
+1. **Index + pkg** — `amanita/bot/docs/tasks/bullrun-launch-index.md` + `amanita-bot-active-package.current.yaml` + `--verify`.
+2. **Primary intake** — P1.3 `STORY-AMBOT-*` (не invent).
+3. **Stack** — skill `python-pro`.
+4. **Nested peer** — `amanita/bot/` (**not** `clients.yaml` / Root card; ≠ flat `scripts`/`arweave` keys).
+5. **Runtime P3/P6** — @attach `.cursor/plans/Amanita-Bot_builder.plan.md` (не Build на файле).
+
+## Amanita Contracts (`builder_project: amanita-contracts`)
+
+Перед batch-run / P3 — [amanita-contracts-operator-contract.md](../../../docs/methodology/Zeya888-builder-queue/contracts/amanita-contracts-operator-contract.md):
+
+1. **Index + pkg** — `amanita/contracts/docs/tasks/bullrun-launch-index.md` + `amanita-contracts-active-package.current.yaml` + `--verify`.
+2. **Primary intake** — P1.3 `STORY-AMCTR-*` (не invent).
+3. **Stack** — skill `solidity-auditor`.
+4. **Nested peer** — `amanita/contracts/` (**not** `clients.yaml` / Root card; ≠ flat `scripts`/`arweave` keys).
+5. **Runtime P3/P6** — @attach `.cursor/plans/Amanita-Contracts_builder.plan.md` (не Build на файле).
+
+## Amanita Scripts (`builder_project: amanita-scripts`)
+
+Перед batch-run / P3 — [amanita-scripts-operator-contract.md](../../../docs/methodology/Zeya888-builder-queue/contracts/amanita-scripts-operator-contract.md):
+
+1. **Index + pkg** — `amanita/scripts/docs/tasks/bullrun-launch-index.md` + `amanita-scripts-active-package.current.yaml` + `--verify`.
+2. **Primary intake** — P1.3 `STORY-AMSCR-*` (не invent).
+3. **Stack** — skill `javascript-pro`.
+4. **Nested peer** — `amanita/scripts/` (**not** `clients.yaml` / Root card; ≠ flat `scripts`/`arweave` keys).
+5. **Runtime P3/P6** — @attach `.cursor/plans/Amanita-Scripts_builder.plan.md` (не Build на файле).
+
+## Amanita Arweave (`builder_project: amanita-arweave`)
+
+Перед batch-run / P3 — [amanita-arweave-operator-contract.md](../../../docs/methodology/Zeya888-builder-queue/contracts/amanita-arweave-operator-contract.md):
+
+1. **Index + pkg** — `amanita/arweave-uploader/docs/tasks/bullrun-launch-index.md` + `amanita-arweave-active-package.current.yaml` + `--verify`.
+2. **Primary intake** — P1.3 `STORY-AMARW-*` (не invent).
+3. **Stack** — skill `javascript-pro`.
+4. **Nested peer** — `amanita/arweave-uploader/` (**not** `clients.yaml` / Root card; ≠ flat `scripts`/`arweave` keys).
+5. **Runtime P3/P6** — @attach `.cursor/plans/Amanita-Arweave_builder.plan.md` (не Build на файле).
+
 ## Hard rules
 
 - **analysis.mdc** — every claim cites a file path.
@@ -254,6 +295,12 @@ SSOT prompts: [workflow.md](../../../docs/methodology/Zeya888-builder-queue/core
 2. `bullrun-launch-index.md`  
 3. Decision / interview requirements  
 4. Task README + acceptance-verification
+
+## Related role skills (not this file)
+
+- OP routing → [`orchestrator`](../orchestrator/SKILL.md)  
+- VAL audit → [`validator`](../validator/SKILL.md)  
+- Method-ops root → [`Zeya888`](../zeya888/SKILL.md)
 
 ## References
 

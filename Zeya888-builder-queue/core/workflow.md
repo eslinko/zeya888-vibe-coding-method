@@ -34,7 +34,7 @@
 | `$executionSkillPrimary`  | `execution_skill_primary` в profiles (напр. `python-pro`, `react-expert`)                                                                                                                                         |
 | `$executionSkillPath`     | `execution_skill_path` в profiles — путь к execution SKILL.md                                                                                                                                                     |
 | `$executionSkillDeclared` | строка для task README: `Skill declared: $executionSkillPrimary` (или fallback из profile / README таска)                                                                                                         |
-| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `alvasar-gpt` / `telegram`) — epic naming, materialize rules                                                                                         |
+| `$p13Appendix`            | operator contract §6/§7 P1.3 (`spa` / `identity` / `scripts` / `capybara` / `landing` / `zeya888` / `arweave` / `dogestonia` / `aibridge` / `zeya888-brand` / `threads` / `floou` / `alvasar-backend` / `alvasar-ui` / `alvasar-gpt` / `telegram` / `amanita-bot` / `amanita-contracts` / `amanita-scripts` / `amanita-arweave`) — epic naming, materialize rules                                                                                         |
 | `$scope`                  | display-label scope of work для dashboard (напр. `MVP`); вход оператора в [`build-scope-dashboard-prompt.md`](../workflow/build-scope-dashboard-prompt.md)                                                       |
 | `$scopeId`                | lowercase slug от `$scope` (`MVP` → `mvp`) — имя файла snapshot                                                                                                                                                   |
 | `$dashboardFile`          | `{focus_folder}/docs/tasks/{project}-{scopeId}-dashboard.md` (всегда `docs/tasks/`, не `analysis/tasks`)                                                                                                          |
@@ -254,6 +254,50 @@
 | Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
 | Pipeline        | `doge-telegram/docs/tasks/telegram-story-execution-pipeline.md`                                         |
 | Remote          | https://github.com/DOGE-Complaints/doge-telegram.git (`dev`)                                            |
+
+
+|                 | `amanita-bot` (Python Telegram+API — nested peer `amanita/bot/`; **not** clients.yaml)                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Amanita-Bot_builder.plan.md`                                                       |
+| `$tasksRoot`    | `amanita/bot/docs/tasks`                                                                               |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AMBOT-*.md` (`input_mode=backlog_story`)                            |
+| `$backlogIndex` | `amanita/bot/docs/tasks/backlog-stories/INDEX.md`                                                      |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `amanita/bot/docs/tasks/amanita-bot-story-execution-pipeline.md`                                      |
+| Layout          | nested peer monorepo under `amanita/` — not client tenancy                                              |
+
+
+|                 | `amanita-contracts` (Solidity / Hardhat — nested peer `amanita/contracts/`; **not** clients.yaml)                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Amanita-Contracts_builder.plan.md`                                                       |
+| `$tasksRoot`    | `amanita/contracts/docs/tasks`                                                                               |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AMCTR-*.md` (`input_mode=backlog_story`)                            |
+| `$backlogIndex` | `amanita/contracts/docs/tasks/backlog-stories/INDEX.md`                                                      |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `amanita/contracts/docs/tasks/amanita-contracts-story-execution-pipeline.md`                                      |
+| Layout          | nested peer monorepo under `amanita/` — not client tenancy                                              |
+
+
+|                 | `amanita-scripts` (Node deploy/catalog — nested peer `amanita/scripts/`; **not** clients.yaml)                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Amanita-Scripts_builder.plan.md`                                                       |
+| `$tasksRoot`    | `amanita/scripts/docs/tasks`                                                                               |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AMSCR-*.md` (`input_mode=backlog_story`)                            |
+| `$backlogIndex` | `amanita/scripts/docs/tasks/backlog-stories/INDEX.md`                                                      |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `amanita/scripts/docs/tasks/amanita-scripts-story-execution-pipeline.md`                                      |
+| Layout          | nested peer monorepo under `amanita/` — not client tenancy                                              |
+
+
+|                 | `amanita-arweave` (Node Arweave uploader — nested peer `amanita/arweave-uploader/`; **not** clients.yaml)                      |
+| --------------- | ------------------------------------------------------------------------------------------------------- |
+| `$planFile`     | `.cursor/plans/Amanita-Arweave_builder.plan.md`                                                       |
+| `$tasksRoot`    | `amanita/arweave-uploader/docs/tasks`                                                                               |
+| `$storyFile`    | напр. `…/backlog-stories/…/STORY-AMARW-*.md` (`input_mode=backlog_story`)                            |
+| `$backlogIndex` | `amanita/arweave-uploader/docs/tasks/backlog-stories/INDEX.md`                                                      |
+| Окно flat       | `--write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                      |
+| Pipeline        | `amanita/arweave-uploader/docs/tasks/amanita-arweave-story-execution-pipeline.md`                                      |
+| Layout          | nested peer monorepo under `amanita/` — not client tenancy                                              |
 
 
 ---
@@ -596,6 +640,10 @@ SSOT: guides/builder-artifact-dates.md
 | `alvasar-ui`      | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-ui --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                     |
 | `alvasar-gpt`     | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                    |
 | `telegram`        | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project telegram --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`)                                                                                                                       |
+| `amanita-bot` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-bot --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`) |
+| `amanita-contracts` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-contracts --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`) |
+| `amanita-scripts` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-scripts --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`) |
+| `amanita-arweave` | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project amanita-arweave --write-build-window --window-flat-start 1 --window-flat-end K` (`K` из `--list`) |
 
 
 1. В stdout после `ok build-window`: `**build_window_abs:`** / `**vscode_file_uri:`** — открыть из терминала (Cmd+click); `**quick_open_basename:`** или `**quick_open_pointer:`** (`latest-cursor-build-window.md` в `*-active-packages/`) — для **Cmd+P**; `**cursor_attach:`** — для P3. Symlink обновляется при каждой генерации. **Не** вставлять путь в Go-to-File целиком — `GPT UI/…` обрезается до `UI/docs/…`.
