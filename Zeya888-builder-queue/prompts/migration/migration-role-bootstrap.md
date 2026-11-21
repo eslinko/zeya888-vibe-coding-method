@@ -13,7 +13,7 @@
 | 2 | Нужен старт строго под роль (BLD/VAL/OP), не смешивая фазы | `focus_role` выбирает role-lock и набор артефактов |
 | 3 | Нужен перенос на новый workspace с тем же методом | prompt читает SSOT с диска и выдаёт ready bootstrap |
 
-**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888`, `arweave`, `dogestonia`, `aibridge`, `zeya888-brand`, `threads`, `floou`, `alvasar-backend`, `alvasar-ui`, `telegram` (из `profiles.yaml`; **не** путать `zeya888` / `zeya888.me` с `zeya888-brand` / `zeya888/`; `threads` → `doge-threads/`).
+**Поддерживаемые профили (`builder_project`):** `gateway`, `gpt`, `spa`, `taxonomy`, `identity`, `scripts`, `capybara`, `landing`, `zeya888`, `arweave`, `dogestonia`, `aibridge`, `zeya888-brand`, `threads`, `floou`, `alvasar-backend`, `alvasar-ui`, `alvasar-gpt`, `telegram` (из `profiles.yaml`; **не** путать `zeya888` / `zeya888.me` с `zeya888-brand` / `zeya888/`; `threads` → `doge-threads/`; `alvasar-gpt` → `clients/Alvasar/gpt`).
 
 ---
 
@@ -25,7 +25,7 @@
 @docs/methodology/Zeya888-builder-queue/core/workflow.md
 @docs/methodology/Zeya888-builder-queue/core/session-starter.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888|arweave|dogestonia|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|telegram>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|aibridge|capybara|landing|zeya888|arweave|dogestonia|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|alvasar-gpt|telegram>
 focus_role: <builder|validator|orchestrator>
 workspace_root: /Users/eslinko/Development/DOGEstonia
 
@@ -34,6 +34,14 @@ Migration bootstrap. Restore role-specific context from SSOT files on disk.
 MODE: restore only. No product edits, no commits, no push.
 Claims: Read/Glob only; else Unknown.
 Use profiles.yaml as single source for paths/plan/stack/skill.
+
+## Step 0 — Role skill (auto by focus_role)
+Before Step 1, attach exactly one Cursor skill by focus_role:
+- focus_role: orchestrator → @.cursor/skills/orchestrator/SKILL.md
+- focus_role: validator → @.cursor/skills/validator/SKILL.md
+- focus_role: builder → @.cursor/skills/builder-session/SKILL.md
+If operator already @-attached the matching skill, do not duplicate; still obey its Hard bans.
+Wrappers migration-orchestrator / migration-validator already pin the skill; this Step 0 is for the universal fence when role is chosen via focus_role only.
 
 ## Step 1 — Resolve profile
 From profiles.yaml for builder_project:
@@ -46,10 +54,11 @@ From profiles.yaml for builder_project:
 If unknown/disabled profile: STOP + ask.
 
 ## Step 2 — Role lock
-Apply exactly one role:
+Apply exactly one role (align with Step 0 skill):
 
 ### builder
 - Goal: restore BLD context for P0/P1/P2/P3/P5/P6/P8.
+- Skill: builder-session.
 - Read: bullrun index + active pointer + pipeline doc + plan_file.
 - Run verify command; if FAIL -> report fail path and stop.
 - Output:
@@ -59,6 +68,7 @@ Apply exactly one role:
 
 ### validator
 - Goal: restore VAL context for P4/P7 only **or** point to lightweight follow-up triage.
+- Skill: validator (.cursor/skills/validator/SKILL.md).
 - Read: operator contract for profile + latest audit/reaudit paths from tasks/docs/analysis.
 - No code changes, no pkg edits, no commit actions.
 - Output:
@@ -69,6 +79,7 @@ Apply exactly one role:
 
 ### orchestrator
 - Goal: restore OP context (START/WAVE/RUN routing).
+- Skill: orchestrator (.cursor/skills/orchestrator/SKILL.md).
 - Read: operator guides + session artifacts under
   {tasks_dir}/run-reports/operator-sessions/ and operator-waves/.
 - If no session file: propose START bootstrap.

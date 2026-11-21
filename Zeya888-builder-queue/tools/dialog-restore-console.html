@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dialog console — Zeya888</title>
+<title>Zeya888 Method</title>
 <style>
 :root {
   --bg: #0a1420;
@@ -112,10 +112,26 @@ body.surface-work .toolbar .surface-only-work { display: inline-flex; }
 body.surface-init #init-mode-toggle { display: inline-flex; }
 body.surface-work #init-mode-toggle { display: none; }
 .section-h {
-  margin: 22px 0 8px; font-size: .95rem; color: var(--gold);
-  font-weight: 650; letter-spacing: .03em;
+  margin: 0; font-size: .95rem; color: var(--gold);
+  font-weight: 650; letter-spacing: .03em; flex: 1; min-width: 0;
 }
-.section-h:first-child { margin-top: 4px; }
+.section-bar {
+  display: flex; align-items: center; gap: 8px;
+  margin: 22px 0 8px;
+}
+.section-bar:first-child { margin-top: 4px; }
+.section-jumps {
+  display: inline-flex; gap: 4px; flex-shrink: 0;
+}
+.sec-jump {
+  border: 1px solid var(--border); background: #121820; color: var(--gold);
+  width: 30px; height: 30px; border-radius: 8px; cursor: pointer;
+  font-size: .95rem; line-height: 1; padding: 0;
+}
+.sec-jump:hover:not(:disabled) { border-color: var(--gold); }
+.sec-jump:disabled {
+  opacity: .35; cursor: default; color: var(--muted);
+}
 .meta-block { padding: 12px 14px; border-bottom: 1px solid var(--border); }
 .meta-block .blurb { margin: 0 0 8px; color: var(--text); font-size: .9rem; }
 .meta-block .path { margin: 0 0 8px; color: var(--muted); font-size: .78rem; font-family: var(--mono); word-break: break-all; }
@@ -126,11 +142,48 @@ body.surface-work #init-mode-toggle { display: none; }
   margin: 0; padding: 8px 14px 0; font-size: .72rem; text-transform: uppercase;
   letter-spacing: .06em; color: var(--muted);
 }
+#method-spotlight {
+  max-width: 980px; margin: 16px auto 0; padding: 0 24px;
+}
+#method-spotlight .spotlight {
+  border: 1px solid var(--gold); border-radius: 12px; background: var(--panel);
+  box-shadow: 0 0 0 1px rgba(236,161,37,.12);
+  overflow: hidden;
+}
+#method-spotlight .spotlight-head {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+  padding: 14px 16px; border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(236,161,37,.12) 0%, transparent 100%);
+}
+#method-spotlight .spotlight-title {
+  font-size: 1.15rem; font-weight: 700; color: var(--gold); letter-spacing: .03em; margin: 0;
+}
+#method-spotlight .spotlight-tag {
+  color: var(--muted); font-size: .88rem; flex: 1; min-width: 12rem;
+}
+#method-spotlight .spotlight-body { padding: 12px 16px 14px; }
+#method-spotlight .spotlight-body p { margin: 0 0 10px; color: var(--text); font-size: .9rem; }
+#method-spotlight .spotlight-links {
+  margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px;
+}
+#method-spotlight .spotlight-links a.ms-doc-link {
+  color: var(--gold); text-decoration: none; font-size: .85rem; word-break: break-all;
+  cursor: pointer;
+}
+#method-spotlight .spotlight-links a.ms-doc-link:hover { text-decoration: underline; }
+#method-spotlight .spotlight-links .lbl {
+  color: var(--muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .05em;
+  margin-right: 6px;
+}
+#method-spotlight .paste-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
 </style>
 </head>
 <body>
 <header>
-  <h1>Dialog console</h1>
+  <h1>Zeya888 Method</h1>
   <div class="sub">Рутовый выбор: <strong>Инициализация</strong> диалогов (restore/fresh) или <strong>Рабочие промпты</strong> методологии. Инструкция: <code>tools/dialog-restore-console.md</code>.</div>
   <div class="toolbar">
     <div class="mode-toggle" role="group" aria-label="Поверхность">
@@ -150,10 +203,38 @@ body.surface-work #init-mode-toggle { display: none; }
   <strong>Восстановить</strong> = init + <code>@extract</code> (если есть). <strong>Запустить новый</strong> = только bootstrap.
 </div>
 <div class="how surface-only-work">
-  <strong>Как (work):</strong> частые snip’ы сверху, далее папки <code>prompts/</code>.
+  <strong>Как (work):</strong> сверху spotlight <strong>Markstack</strong>, затем частые snip’ы и папки <code>prompts/</code>.
   В карточке — пояснение параметров + scrollable промпт; ⎘ копирует fence.
   Каталог: <code>dialog-restore-work-catalog.js</code> (rebuild: <code>build-dialog-restore-work-catalog.py</code>).
 </div>
+<section id="method-spotlight" class="surface-only-work" aria-label="Markstack method">
+  <div class="spotlight details-card" data-title="Markstack">
+    <div class="spotlight-head">
+      <h2 class="spotlight-title" id="sec-markstack">Markstack</h2>
+      <span class="badge">Method</span>
+      <span class="spotlight-tag">сырой residual → стори L1→L1.5→L2</span>
+      <div class="section-jumps" role="group" aria-label="Секции">
+        <button type="button" class="sec-jump" data-dir="-1" aria-label="Предыдущая секция" disabled>▴</button>
+        <button type="button" class="sec-jump" data-dir="1" aria-label="Следующая секция">▾</button>
+      </div>
+      <button type="button" class="copy" title="Copy Markstack attach" aria-label="Copy" data-copy="markstack-spotlight">⎘</button>
+    </div>
+    <div class="spotlight-body">
+      <p>Скрины с номерами + комментарии по <code>#</code> → Interview → Sufficiency (UX/REQ/code) → готовые <code>STORY-*</code> до Apply. Это intake качества постановки, не фазы P0–P8.</p>
+      <ul class="spotlight-links">
+        <li><span class="lbl">Guide</span><a class="ms-doc-link" href="../guides/markstack.md" data-ws-path="docs/methodology/Zeya888-builder-queue/guides/markstack.md" title="Клик — копировать @path (+ открыть в новой вкладке)">guides/markstack.md</a></li>
+        <li><span class="lbl">Prompt</span><a class="ms-doc-link" href="../prompts/architect/markstack-intake.md" data-ws-path="docs/methodology/Zeya888-builder-queue/prompts/architect/markstack-intake.md" title="Клик — копировать @path (+ открыть в новой вкладке)">prompts/architect/markstack-intake.md</a></li>
+      </ul>
+      <pre class="paste paste-sr" id="pre-markstack-spotlight">@.cursor/rules/analysis.mdc
+@docs/methodology/Zeya888-builder-queue/guides/markstack.md
+@docs/methodology/Zeya888-builder-queue/prompts/architect/markstack-intake.md
+
+Attach raw residual: numbered screenshots + comments by #.
+Run Markstack intake (docs-only until «запиши»).
+</pre>
+    </div>
+  </div>
+</section>
 <main id="init-main" class="surface-only-init">
 
 <details class="card" data-title="Post-init сверка" data-role="Shared" id="shared-verify">
@@ -1464,6 +1545,238 @@ Load validator skill role-lock; then role-bootstrap restore packet.
 </pre>
   </div>
 </details>
+<details class="card" data-title="Amanita Bot: O" data-role="O" id="amanita-bot-o">
+  <summary>
+    <span class="name">Amanita Bot: O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-bot-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-bot-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-bot
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-bot-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-bot
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Bot: V" data-role="V" id="amanita-bot-v">
+  <summary>
+    <span class="name">Amanita Bot: V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-bot-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-bot-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-bot
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-bot-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-bot
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Contracts: O" data-role="O" id="amanita-contracts-o">
+  <summary>
+    <span class="name">Amanita Contracts: O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-contracts-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-contracts-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-contracts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-contracts-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-contracts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Contracts: V" data-role="V" id="amanita-contracts-v">
+  <summary>
+    <span class="name">Amanita Contracts: V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-contracts-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-contracts-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-contracts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-contracts-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-contracts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Scripts: O" data-role="O" id="amanita-scripts-o">
+  <summary>
+    <span class="name">Amanita Scripts: O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-scripts-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-scripts-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-scripts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-scripts-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-scripts
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Scripts: V" data-role="V" id="amanita-scripts-v">
+  <summary>
+    <span class="name">Amanita Scripts: V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-scripts-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-scripts-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-scripts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-scripts-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-scripts
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Arweave: O" data-role="O" id="amanita-arweave-o">
+  <summary>
+    <span class="name">Amanita Arweave: O</span>
+    <span class="badge">O</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-arweave-o">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-arweave-o">@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-arweave
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-arweave-o-bootstrap" hidden>@.cursor/skills/orchestrator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-arweave
+focus_role: orchestrator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для orchestrator-роли.
+Load orchestrator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
+<details class="card" data-title="Amanita Arweave: V" data-role="V" id="amanita-arweave-v">
+  <summary>
+    <span class="name">Amanita Arweave: V</span>
+    <span class="badge">V</span>
+    <button type="button" class="copy" title="Copy prompt" aria-label="Copy" data-copy="amanita-arweave-v">⎘</button>
+  </summary>
+  <div class="body">
+    <pre class="paste paste-restore" id="pre-amanita-arweave-v">@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-arweave
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+    <pre class="paste paste-bootstrap" id="pre-amanita-arweave-v-bootstrap" hidden>@.cursor/skills/validator/SKILL.md
+@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
+
+builder_project: amanita-arweave
+focus_role: validator
+workspace_root: /Users/eslinko/Development/DOGEstonia
+
+Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
+</pre>
+  </div>
+</details>
 <details class="card" data-title="Threads O" data-role="O" id="threads-o">
   <summary>
     <span class="name">Threads O</span>
@@ -1648,6 +1961,17 @@ function renderWorkCard(item, badge) {
     '</details>'
   );
 }
+function sectionBarHtml(id, titleHtml) {
+  return (
+    '<div class="section-bar">' +
+      '<h2 class="section-h" id="' + esc(id) + '">' + titleHtml + '</h2>' +
+      '<div class="section-jumps" role="group" aria-label="Секции">' +
+        '<button type="button" class="sec-jump" data-dir="-1" aria-label="Предыдущая секция">▴</button>' +
+        '<button type="button" class="sec-jump" data-dir="1" aria-label="Следующая секция">▾</button>' +
+      '</div>' +
+    '</div>'
+  );
+}
 function renderWorkCatalog() {
   const root = document.getElementById('work-main');
   const cat = window.ZEYA888_WORK_CATALOG;
@@ -1658,25 +1982,75 @@ function renderWorkCatalog() {
   }
   const parts = [];
   if (cat.frequent && cat.frequent.length) {
-    parts.push('<h2 class="section-h">Частые (prompts-manual)</h2>');
+    parts.push(sectionBarHtml('sec-frequent', 'Частые (prompts-manual)'));
     cat.frequent.forEach(item => { parts.push(renderWorkCard(item, 'Frequent')); });
   }
   const order = cat.categoryOrder || Object.keys(cat.categories || {});
   order.forEach(key => {
     const list = (cat.categories && cat.categories[key]) || [];
     if (!list.length) return;
-    parts.push('<h2 class="section-h">prompts/' + esc(key) + '/</h2>');
+    parts.push(sectionBarHtml('sec-' + key, 'prompts/' + esc(key) + '/'));
     list.forEach(item => { parts.push(renderWorkCard(item, key)); });
   });
   root.innerHTML = parts.join('\n');
+  updateSectionJumpDisabled();
+}
+function collectSectionEls() {
+  const list = [];
+  const mark = document.getElementById('sec-markstack');
+  if (mark) list.push(mark);
+  document.querySelectorAll('#work-main h2.section-h[id]').forEach(el => list.push(el));
+  return list;
+}
+function sectionJumpButtonsFor(heading) {
+  if (!heading) return [];
+  if (heading.id === 'sec-markstack') {
+    const spot = document.getElementById('method-spotlight');
+    return spot ? Array.from(spot.querySelectorAll('.sec-jump')) : [];
+  }
+  const bar = heading.closest('.section-bar');
+  return bar ? Array.from(bar.querySelectorAll('.sec-jump')) : [];
+}
+function updateSectionJumpDisabled() {
+  const sections = collectSectionEls();
+  const n = sections.length;
+  sections.forEach((sec, i) => {
+    sectionJumpButtonsFor(sec).forEach(btn => {
+      const dir = parseInt(btn.getAttribute('data-dir'), 10);
+      const target = i + dir;
+      btn.disabled = target < 0 || target >= n;
+    });
+  });
+}
+function jumpSection(fromEl, dir) {
+  const sections = collectSectionEls();
+  const idx = sections.indexOf(fromEl);
+  if (idx < 0) return;
+  const next = sections[idx + dir];
+  if (!next) return;
+  const header = document.querySelector('header');
+  const headerH = header ? header.offsetHeight : 0;
+  const y = next.getBoundingClientRect().top + window.scrollY - headerH - 12;
+  window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
 }
 function copyPromptById(id, btn) {
-  let pre;
-  if (currentSurface() === 'work' || id === 'shared-verify') {
-    pre = document.getElementById('pre-' + id);
-  } else {
-    const m = currentMode();
-    pre = document.getElementById(m === 'fresh' ? ('pre-' + id + '-bootstrap') : ('pre-' + id));
+  let pre = null;
+  const card = btn ? (btn.closest('details.card') || btn.closest('.spotlight')) : null;
+  if (card) {
+    const visible = card.querySelector('pre.paste:not([hidden])');
+    if (visible) pre = visible;
+    if (!pre) {
+      const anyPaste = card.querySelector('pre.paste');
+      if (anyPaste) pre = anyPaste;
+    }
+  }
+  if (!pre) {
+    if (currentSurface() === 'work' || id === 'shared-verify' || id === 'markstack-spotlight') {
+      pre = document.getElementById('pre-' + id);
+    } else {
+      const m = currentMode();
+      pre = document.getElementById(m === 'fresh' ? ('pre-' + id + '-bootstrap') : ('pre-' + id));
+    }
   }
   const text = pre ? pre.textContent : '';
   navigator.clipboard.writeText(text).then(() => {
@@ -1704,6 +2078,32 @@ document.querySelectorAll('input[name="surface"]').forEach(inp => {
   inp.addEventListener('change', applySurface);
 });
 document.addEventListener('click', (e) => {
+  const docLink = e.target.closest('a.ms-doc-link');
+  if (docLink) {
+    e.preventDefault();
+    e.stopPropagation();
+    const ws = docLink.getAttribute('data-ws-path') || '';
+    const atPath = ws ? ('@' + ws) : docLink.textContent.trim();
+    navigator.clipboard.writeText(atPath).then(() => flash('Скопировано: ' + atPath));
+    try {
+      const abs = new URL(docLink.getAttribute('href') || '', location.href).href;
+      window.open(abs, '_blank', 'noopener');
+    } catch (_) { /* webview may block; @path already copied */ }
+    return;
+  }
+  const jumpBtn = e.target.closest('button.sec-jump');
+  if (jumpBtn) {
+    e.preventDefault();
+    e.stopPropagation();
+    if (jumpBtn.disabled) return;
+    const dir = parseInt(jumpBtn.getAttribute('data-dir'), 10) || 0;
+    let fromEl = null;
+    const bar = jumpBtn.closest('.section-bar');
+    if (bar) fromEl = bar.querySelector('h2.section-h[id]');
+    else if (jumpBtn.closest('#method-spotlight')) fromEl = document.getElementById('sec-markstack');
+    if (fromEl) jumpSection(fromEl, dir);
+    return;
+  }
   const btn = e.target.closest('button.copy');
   if (btn) {
     e.preventDefault();
@@ -1722,6 +2122,7 @@ document.addEventListener('click', (e) => {
 });
 document.getElementById('q').addEventListener('input', applyFilter);
 renderWorkCatalog();
+updateSectionJumpDisabled();
 document.querySelectorAll('details.card .name').forEach(el => {
   el.title = 'Клик — копировать имя';
 });

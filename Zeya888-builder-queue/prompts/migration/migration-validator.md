@@ -1,22 +1,25 @@
 # Migration bootstrap — Validator role
 
-Обёртка над [`migration-role-bootstrap.md`](./migration-role-bootstrap.md) для роли `validator`.
+Обёртка над [`migration-role-bootstrap.md`](./migration-role-bootstrap.md) для роли `validator`.  
+Role skill: [`.cursor/skills/validator/SKILL.md`](../../../../../.cursor/skills/validator/SKILL.md).
 
 **Ветки VAL:**
 
 | Ветка | Когда | Prompt |
 |-------|-------|--------|
-| Story audit P4/P7 | Очередь / story AC | role-bootstrap `focus_role: validator` |
+| Story audit P4/P7 | Очередь / story AC | role-bootstrap `focus_role: validator` + validator skill |
 | Lightweight follow-up | Done story + small gap; ?STORY | [`../operator/lightweight-followup-triage.md`](../operator/lightweight-followup-triage.md) → author |
 
 ```text
+@.cursor/skills/validator/SKILL.md
 @docs/methodology/Zeya888-builder-queue/prompts/migration/migration-role-bootstrap.md
 
-builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|telegram>
+builder_project: <gateway|gpt|spa|taxonomy|identity|scripts|capybara|landing|zeya888|arweave|dogestonia|aibridge|zeya888-brand|threads|floou|alvasar-backend|alvasar-ui|alvasar-gpt|telegram>
 focus_role: validator
 workspace_root: /Users/eslinko/Development/DOGEstonia
 
 Запусти migration bootstrap строго для validator-роли.
+Load validator skill role-lock; then role-bootstrap restore packet.
 ```
 
 Lightweight (после Done, без новой STORY) — сначала:

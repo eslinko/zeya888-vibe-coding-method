@@ -4,7 +4,7 @@ window.ZEYA888_WORK_CATALOG = {
   "generatedFrom": "prompts/ + architect/prompts-manual.md",
   "frequent": [
     {
-      "id": "frequent-",
+      "id": "frequent-00",
       "title": "Список стори — буллеты по проектам",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -14,7 +14,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-",
+      "id": "frequent-01",
       "title": "Список стори — вертикальный список",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -24,7 +24,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-",
+      "id": "frequent-02",
       "title": "Список стори — пути через запятую",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -34,7 +34,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-req",
+      "id": "frequent-03",
       "title": "Закрытие гапов стори (только REQ-уровень)",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -49,7 +49,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-tech",
+      "id": "frequent-04",
       "title": "Глубокая проработка стори (tech + субтаски)",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -64,7 +64,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-tech",
+      "id": "frequent-05",
       "title": "Субтаски из уже принятой tech-архитектуры",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -74,7 +74,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-ux-auto-accept",
+      "id": "frequent-06",
       "title": "UX auto-accept рекомендаций",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -84,7 +84,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-",
+      "id": "frequent-07",
       "title": "Объясни ситуацию простыми словами",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -94,7 +94,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-sibling-req",
+      "id": "frequent-08",
       "title": "Стыковки после sibling REQ",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -109,7 +109,7 @@ window.ZEYA888_WORK_CATALOG = {
       "hasPaste": true
     },
     {
-      "id": "frequent-",
+      "id": "frequent-09",
       "title": "Стыковки после выполненной стори",
       "category": "frequent",
       "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
@@ -121,6 +121,16 @@ window.ZEYA888_WORK_CATALOG = {
         }
       ],
       "paste": "$story\nвыполнен\nпо фактическому коду выполни стыковки (только где разблокировалось, ничего не выдумывай!) в следующих стори разных проектов из нашего плана",
+      "hasPaste": true
+    },
+    {
+      "id": "frequent-10",
+      "title": "Стыковки в REQ после всех стори",
+      "category": "frequent",
+      "path": "docs/methodology/Zeya888-builder-queue/prompts/architect/prompts-manual.md",
+      "blurb": "все стори пакета Done — стыковки только в открытых/связанных REQ по факту кода.",
+      "params": [],
+      "paste": "все стори выполнены\nпо фактическому коду выполни необходимые стыковки (только где разблокировалось, ничего не выдумывай!) в следующих/открытых/связанных REQ",
       "hasPaste": true
     }
   ],

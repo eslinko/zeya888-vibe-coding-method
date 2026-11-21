@@ -8,7 +8,7 @@
 |-----------|----------------|-------------------------|--------------------|
 | Method docs + CLI + specs + curriculum + training prompts | `docs/methodology/Zeya888-builder-queue/` | **Yes** | Copy/symlink the folder |
 | Operator contracts, templates | inside methodology | **Yes** | — |
-| Cursor skill | Runtime: `.cursor/skills/builder-session/SKILL.md` · Portable: [`cursor-skills/builder-session/SKILL.md`](./cursor-skills/builder-session/SKILL.md) | **Yes** (portable under `integration/cursor-skills/`) | **Dual-sync:** edit both paths on change; restore = copy portable → runtime ([`cursor-skills/README.md`](./cursor-skills/README.md)). Do not invent the skill body |
+| Cursor skill | Runtime: `builder-session` · `zeya888` · `orchestrator` · `validator` · Portable: [`cursor-skills/`](./cursor-skills/) | **Yes** | **Dual-sync** ([`cursor-skills/README.md`](./cursor-skills/README.md)). OP/VAL chats: role skills. Wipe UI: [`../tools/dialog-restore-console.html`](../tools/dialog-restore-console.html) |
 | Cursor rule | `.cursor/rules/builder-operator-habits.mdc` (+ `analysis.mdc`) | **No** (workspace; habits also in cursor-rules git) | Same dual care when editing habits |
 | Runtime builder plan | `.cursor/plans/*_builder.plan.md` | **No** — you create from template | [`../templates/builder-plan-template.md`](../templates/builder-plan-template.md) + [`../guides/add-builder-profile.md`](../guides/add-builder-profile.md) |
 | Profile row | `specs/profiles.yaml` (in methodology) or your own file | Partial | Intake → add-builder-profile |

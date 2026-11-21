@@ -3,7 +3,7 @@
 **Категория:** migration (session / dialog continuity → новый чистый агент)  
 **Output home (default):** [`../../analysis/dialog-bridges/`](../../analysis/dialog-bridges/)  
 **Naming:** `{dialogName}-bridge.md`  
-**Peers:** [`migration-self-restore-zeya888-method.md`](./migration-self-restore-zeya888-method.md) · [`migration-role-bootstrap.md`](./migration-role-bootstrap.md) · [`migration-workspace-chat-export.md`](./migration-workspace-chat-export.md)  
+**Peers:** [`migration-self-restore-zeya888-method.md`](./migration-self-restore-zeya888-method.md) · [`migration-role-bootstrap.md`](./migration-role-bootstrap.md) · [`migration-workspace-chat-export.md`](./migration-workspace-chat-export.md) · [`migration-dialog-restore-extract.md`](./migration-dialog-restore-extract.md) (restore-HTML docking — different out dir)  
 **Метод:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc)
 
 Универсальный handoff: **фокусный проектный** или **кросс-проектный** диалог. Цель — сохранить не только хвост чата, а **мета-понимание фокусных тем** (SSOT на диске) + operative state.  

@@ -1,5 +1,6 @@
-# Dialog restore console — operator manual
+# Zeya888 Method — operator manual (dialog restore console)
 
+**UI brand:** **Zeya888 Method** (HTML `<title>` / `<h1>`).  
 **HTML:** [`dialog-restore-console.html`](./dialog-restore-console.html)  
 **Work catalog:** [`dialog-restore-work-catalog.js`](./dialog-restore-work-catalog.js) (generated)  
 **Rebuild catalog:** `python3 docs/methodology/Zeya888-builder-queue/tools/build-dialog-restore-work-catalog.py`  
@@ -10,7 +11,7 @@
 
 ## Purpose
 
-Один HTML для двух поверхностей:
+Один HTML (**Zeya888 Method**) для двух поверхностей:
 
 1. **Инициализация** — после wipe Cursor `state.vscdb` (или cold-start роли): скопировать paste карточки в новый Agent-чат с тем же именем.
 2. **Рабочие промпты** — каталог methodology `prompts/` + частые snip’ы из `prompts-manual.md`, без беготни по файлам.
@@ -20,7 +21,7 @@
 | Surface | UI label | Contents |
 |---------|----------|----------|
 | `init` (default) | **Инициализация** | Nested restore/fresh + init cards (Method/Root/O/V/…) + Post-init сверка |
-| `work` | **Рабочие промпты** | Frequent (manual) → architect / operator / migration / ux / training |
+| `work` | **Рабочие промпты** | **Markstack spotlight** (top) → Frequent (manual) → architect / operator / migration / ux / training |
 
 ## Init modes (только на surface=init)
 
@@ -35,6 +36,8 @@ Cards without extract (most **O**, `dogestonia-v`, `floou-v`, …): both modes s
 
 ## Work surface
 
+- **Markstack spotlight** (`#method-spotlight`, top of Work only): method pin — residual/screens → L1→L1.5→L2 stories; Guide/Prompt links (`a.ms-doc-link`) **copy** workspace `@path` to clipboard and try `window.open` `_blank` (console stays open); ⎘ copies short attach-fence (not full catalog paste).
+- **Section jumps:** ▴ / ▾ on Markstack head and each Work `section-bar` (`Частые…`, `prompts/<folder>/`) — anchors on headings (`#sec-markstack`, `h2.section-h[id=sec-…]`); smooth scroll with sticky-header offset so the **section title** sits below the toolbar (first card not clipped); ends disabled.
 - Cards rendered from `dialog-restore-work-catalog.js` (`window.ZEYA888_WORK_CATALOG`).
 - Each card: human blurb + `$params` + scrollable Copy-paste fence; ⎘ copies the fence only.
 - **Frequent** order = section order in `prompts-manual.md`.
@@ -82,7 +85,10 @@ After [`add-builder-profile.md`](../guides/add-builder-profile.md) materializes 
 
 ## Smoke
 
-- Toggle surface init ↔ work; work shows Frequent then folder sections.
+- Header shows **Zeya888 Method** (not «Dialog console»).
+- Toggle surface init ↔ work; work shows Markstack → Frequent then folder sections.
+- Markstack Guide/Prompt click: toast with `@docs/methodology/…`; console page not replaced.
+- Work section ▴/▾: jumps to section **heading** below sticky toolbar (title fully visible; first card not clipped); Markstack ↔ Frequent ↔ `prompts/…`; first ▴ / last ▾ disabled.
 - Toggle restore ↔ fresh; V-with-extract: fresh has no `@dialog-restore-extracts`.
 - Copy uses the visible paste for the active mode (init) or work fence (work).
 - New profile: O+V bootstrap cards Copy works in **Запустить новый** before any extract exists.

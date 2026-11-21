@@ -169,6 +169,7 @@ def parse_manual(path: Path) -> list[dict]:
     # Split on ## headings (skip H1)
     parts = re.split(r"(?m)^##\s+", text)
     frequent: list[dict] = []
+    idx = 0
     for part in parts[1:]:
         lines = part.splitlines()
         if not lines:
@@ -192,10 +193,12 @@ def parse_manual(path: Path) -> list[dict]:
                     params.append({"name": f"${pm.group(1)}", "desc": desc})
         if not params:
             params = extract_params_from_fence(paste)
-        slug = re.sub(r"[^a-z0-9]+", "-", title.lower()).strip("-")
+        # Stable unique ids — RU titles strip to empty under ascii-only slug
+        fid = f"frequent-{idx:02d}"
+        idx += 1
         frequent.append(
             {
-                "id": f"frequent-{slug}",
+                "id": fid,
                 "title": title,
                 "category": "frequent",
                 "path": method_rel(path),

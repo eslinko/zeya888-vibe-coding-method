@@ -1,311 +1,175 @@
-# Bridge — Zeya888 profile / tenancy bootstrap (dialog practice)
+# Bridge — Zeya888 method-ops dialog (sidebar title: Zeya888)
 
-**dialogName:** `alvasar-gpt-profile-bootstrap` (filename stable; content = method-first)  
-**dialogKind:** `mixed` (method_ops dominant + Path C/B profile practice)  
+**dialogName:** `alvasar-gpt-profile-bootstrap` (filename stable) · **sidebar / HTML card:** `Zeya888`  
+**dialogKind:** `mixed` (method_ops dominant)  
 **bridgeScope:** `full`  
 **Файл:** `docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md`  
 **Prompt SSOT:** [`../../prompts/migration/migration-dialog-context-bridge.md`](../../prompts/migration/migration-dialog-context-bridge.md) · **Output home:** [`README.md`](./README.md)  
-**UTC foundation:** `2026-11-15T14:32:00Z` · **bridge refreshed:** `2026-11-16T08:21:29Z` (re-check with `--print-utc-now` before new artifact dates)  
+**UTC foundation:** `2026-11-15T14:32:00Z` · **bridge refreshed:** `2026-11-18T11:01:49Z`  
 **Workspace:** `/Users/eslinko/Development/DOGEstonia`  
 **Source dialog (transcript / agent store):** `f002f3d0-08b9-4e9d-8241-4bc30c1b0849`  
 **Rules:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc) · [`.cursor/rules/builder-operator-habits.mdc`](../../../../../.cursor/rules/builder-operator-habits.mdc) · [`.cursor/rules/zeya888-operator-method.mdc`](../../../../../.cursor/rules/zeya888-operator-method.mdc)  
-**Audience:** полностью чистый агент. Читать §0–§4 **до** instance §5–§7. Не сводить весь метод к Alvasar.
+**Audience:** полностью чистый агент. Читать §0–§4 **до** instance §5–§7. Не сводить весь метод к Alvasar product.
 
-**Appendix:** ранний meta-ask «сделай bridge» → prompt + `analysis/dialog-bridges/`; затем profile/tenancy practice; хвост — vendor `builder-session` skill into method pack (**1.4.65**). Operative смысл шире Alvasar: **как поднимать профили / client tenancy + portable Cursor skills dual-sync**.
+**Mission:** method-ops чат **Zeya888** — как поднимать профили/client tenancy, dialog-bridges, dual-sync Cursor skills, UX package bootstrap в method pack, restore Agent-диалогов после wipe `state.vscdb`, triage `docs/analysis`.
 
 ---
 
 ## 0. Как пользоваться
 
-1. Прочитать Method map + Entry paths (§1–§4).
-2. Прочитать Instance practice (§5–§7) — что уже сделано; **не** повторять.
-3. Smoke §10 с диска.
-4. Действовать по paste-packet §11 (режим A–E) или новому ask оператора.
-5. **Name ≠ create** / ask-scoped delivery (`analysis.mdc`).
-6. Method self-restore без диалоговой практики → [`migration-self-restore-zeya888-method.md`](../../prompts/migration/migration-self-restore-zeya888-method.md) (можно `@` рядом).
+1. Method map + entry paths (§1–§4).
+2. Instance (§5–§7) — не повторять Done.
+3. Smoke §10.
+4. Paste-packet §11 или новый ask.
+5. **Name ≠ create** / ask-scoped (`analysis.mdc`).
+6. Product queue → skill [`builder-session`](../../../../../.cursor/skills/builder-session/SKILL.md). Method-ops → skill [`Zeya888`](../../../../../.cursor/skills/zeya888/SKILL.md).
 
 ---
 
-## 1. Method snapshot — Zeya888 Builder Queue
+## 1. Topic meta map
 
-**Что это:** методология вайб-кодинга с жёстким контрактом оператор ↔ агент: Requirement/Epic/Story → immutable `pkg-*.yaml` → Build window → фазы **PA / P0–P8**. SSOT процесса не в памяти чата, а на диске.
+| Theme | Essence | Boundaries | SSOT |
+|-------|---------|------------|------|
+| Builder Queue method | PA / P0–P8, pkg, profiles | Not invent process | [`MANIFEST.md`](../../MANIFEST.md) · [`core/workflow.md`](../../core/workflow.md) |
+| Profile / tenancy bootstrap | Paths A–D; nested `clients/<Client>/` | Name ≠ create instruction corpora | [`guides/add-builder-profile.md`](../../guides/add-builder-profile.md) · [`guides/client-tenancy.md`](../../guides/client-tenancy.md) |
+| Dialog bridges | Handoff → clean agent | Outputs under `analysis/dialog-bridges/` not `docs/analysis/` | [`migration-dialog-context-bridge.md`](../../prompts/migration/migration-dialog-context-bridge.md) |
+| Cursor skills dual-sync | Runtime `.cursor/skills/` ≡ portable `integration/cursor-skills/` | Edit both paths | [`integration/cursor-skills/README.md`](../../integration/cursor-skills/README.md) |
+| UX ADMIN → artboards ZIP | After ADMIN-01 `UX-PROMPTS.md` | Not P3 UI-0..UI-3 | [`ux-package-bootstrap-universal.md`](../../prompts/architect/ux-package-bootstrap-universal.md) · [`req-to-ui-admin-layers.md`](../../prompts/architect/req-to-ui-admin-layers.md) |
+| Dialog restore HTML | Recreate O/V/Root/special chats after wipe | No B / no invent missing chats | [`tools/dialog-restore-console.html`](../../tools/dialog-restore-console.html) |
+| Analysis triage | KEEP/DELETE report | Mode A: no rm until ok | [`analysis-triage-2026-11-18.md`](./analysis-triage-2026-11-18.md) |
 
-**Роли (не смешивать в одном агенте без OP):**
+---
 
-| Роль | Фокус |
+## 2. Method layer (thin)
+
+Pointers: MANIFEST · workflow · session-starter · profiles.yaml · clients.yaml · contracts · `*_builder.plan.md` + fixed-plan rule · CLI `--verify` · VERSION/CHANGELOG · [`migration-self-restore-zeya888-method.md`](../../prompts/migration/migration-self-restore-zeya888-method.md) (optional companion).
+
+---
+
+## 3. Entry paths A–D (appendix — practiced)
+
+| Path | Launch |
 |------|--------|
-| **OP** (orchestrator) | очередь, session, wave / subagent run |
-| **BLD** (builder) | P3/P6 execute по pkg |
-| **VAL** (validator) | P4/P7 audit, lightweight follow-up triage |
-
-**Жёсткие правила мышления:** [`.cursor/rules/analysis.mdc`](../../../../../.cursor/rules/analysis.mdc) — только факты с диска; **ask-scoped** deliverable; **name ≠ create** (путь в REQ ≠ создать файл).
-
-**Фиксированный runtime plan:** `@attach` `*_builder.plan.md` + workflow §P3/P6 — **не** Build/Execute на файле плана ([`guides/fixed-builder-plan-execution.md`](../../guides/fixed-builder-plan-execution.md)).
+| A | [`migration-add-builder-profile.md`](../../prompts/migration/migration-add-builder-profile.md) + guide §1 |
+| B | [`migration-profile-from-checked-out-dir.md`](../../prompts/migration/migration-profile-from-checked-out-dir.md) |
+| C | [`client-tenancy.md`](../../guides/client-tenancy.md) nested MS |
+| D | guide §5 split |
 
 ---
 
-## 2. SSOT map (pointers — не копировать тела)
+## 4. Dialog arc (ordered)
 
-| Слой | Path |
-|------|------|
-| Manifest / что такое BQ | [`MANIFEST.md`](../../MANIFEST.md) |
-| Phases PA/P0–P8 | [`core/workflow.md`](../../core/workflow.md) |
-| Phase 0 / session | [`core/session-starter.md`](../../core/session-starter.md) |
-| Profile registry | [`specs/profiles.yaml`](../../specs/profiles.yaml) · fields [`specs/profiles-fields.md`](../../specs/profiles-fields.md) |
-| Client tenancy registry | [`specs/clients.yaml`](../../specs/clients.yaml) · guide [`guides/client-tenancy.md`](../../guides/client-tenancy.md) |
-| Add profile checklist | [`guides/add-builder-profile.md`](../../guides/add-builder-profile.md) (§0 intake, §1 = 13 steps, §2 Gateway clone, §5 split) |
-| Input packages | [`specs/input-package-spec.md`](../../specs/input-package-spec.md) |
-| Intake pending/done | [`specs/profile-intakes/`](../../specs/profile-intakes/) |
-| Operator contracts | [`contracts/`](../../contracts/) |
-| Useful prompts index | [`prompts/INDEX.md`](../../prompts/INDEX.md) |
-| Console UI | [`tools/workflow-console.html`](../../tools/workflow-console.html) |
-| CLI | `python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project <key> --verify` |
-| Curriculum connect | [`curriculum/05-connect-your-project.md`](../../curriculum/05-connect-your-project.md) |
-| Method version (as of this dialog) | [`VERSION`](../../VERSION) = `1.4.65` · [`CHANGELOG.md`](../../CHANGELOG.md) |
-| Builder session skill (**dual-sync**) | Runtime [`.cursor/skills/builder-session/SKILL.md`](../../../../../.cursor/skills/builder-session/SKILL.md) · Portable [`integration/cursor-skills/builder-session/SKILL.md`](../../integration/cursor-skills/builder-session/SKILL.md) · rule [`integration/cursor-skills/README.md`](../../integration/cursor-skills/README.md) · wiring [`integration/cursor-setup.md`](../../integration/cursor-setup.md) §0/§2 |
-| Structural plan etalon | [`.cursor/plans/Gateway_builder.plan.md`](../../../../../.cursor/plans/Gateway_builder.plan.md) |
+1. Multi-client tenancy + `telegram` (1.4.63) + `alvasar-gpt` Path C (1.4.64, client `b0bf056`)
+2. Dialog-bridge SSOT + prompt materialize
+3. Method push `b5dc8e7` (1.4.64)
+4. Vendor `builder-session` dual-sync **1.4.65** (`b2d2e47`); bridge refresh `38da863`
+5. UX package bootstrap universal **1.4.66** (`afba6bd`); prompts-manual `007a01f`
+6. Dialog restore HTML + skill **Zeya888** dual-sync + analysis triage report (this wave → **1.4.67**)
 
 ---
 
-## 3. Entry paths — как создавать / подключать профиль
-
-Материализация = checklist в [`add-builder-profile.md`](../../guides/add-builder-profile.md) §1 (**не** дублировать 13 шагов здесь). Ниже — **какой prompt запускать**.
-
-| Path | Когда | Launch |
-|------|--------|--------|
-| **A** | Intake YAML уже в `specs/profile-intakes/<key>.yaml` (не в `done/`) | [`migration-add-builder-profile.md`](../../prompts/migration/migration-add-builder-profile.md) + guide §1; plan-only until «запиши» |
-| **B** | Папка уже в workspace **или** нужен `$git_repo` → clone в `$focus_folder`; intake ещё нет | [`migration-profile-from-checked-out-dir.md`](../../prompts/migration/migration-profile-from-checked-out-dir.md) (inspect → intake → затем A materialize) |
-| **C** | Nested MS под `clients/<Client>/` (backend/ui/gpt/…) | [`client-tenancy.md`](../../guides/client-tenancy.md): `focus_folder` с `/`; `clients.yaml` + `CLIENT.yaml`; **dual** `.cursor/plans/*_builder.plan.md` (workspace + `clients/<Client>/.cursor/plans/`); tasks = `{focus}/docs/tasks` (не quirk GPT UI `docs/analysis/tasks` unless flat `gpt`) |
-| **D** | Split от существующего профиля | intake `source_profile` / `source_split` + guide **§5 Split-from-existing**; пример эталон: `capybara` ← `scripts` |
-
-**Derived defaults** (если не override): `tasks_dir={focus}/docs/tasks`, `plan_file=.cursor/plans/{TitleCase}_builder.plan.md`, packages/pointer/pipeline naming от `profile_key` — guide §0.
-
-**После успешного verify:** intake → `specs/profile-intakes/done/`; bump `VERSION`/`CHANGELOG`; **не** Build на plan; **не** commit `docs/tasks/**` / methodology без явного приказа.
-
-**Flat DOGE peers** (`gateway`, `gpt`/`GPT UI`, `identity`, `spa`, …) остаются в корне workspace — **не** переносить в `clients/`.
-
----
-
-## 4. Client tenancy rules (кратко)
-
-- `client_id` (напр. `alvasar`) ≠ `builder_project` (`alvasar-backend` / `alvasar-ui` / `alvasar-gpt`).
-- Parent REQ: `clients/<Client>/docs/requirements/`; child REQ: `{focus}/docs/requirements/` when authored.
-- Portable method: dual plans + `methodology/` pointers в client git ([client-tenancy.md](../../guides/client-tenancy.md)).
-- Architect client root chat: [`prompts/architect/client-product-root-orientation.md`](../../prompts/architect/client-product-root-orientation.md) — не путать с DOGE classic-four orientation.
-
----
-
-## 5. Instance practice — что отработал ЭТОТ диалог
-
-| Wave | Что | Outcome |
-|------|-----|---------|
-| Multi-client tenancy B+C | guides/clients.yaml/training/anti-drift dual plans | Client model Present; DOGE flat peers untouched |
-| `telegram` | Path B-ish (clone `doge-telegram`) + materialize | Profile `telegram`; method **1.4.63** |
-| `alvasar-gpt` | Path C nested `clients/Alvasar/gpt`; skill как flat `gpt` | Profile `alvasar-gpt`; method **1.4.64**; client commit `b0bf056` pushed `dev` |
-| Dialog-bridge SSOT | prompt `migration-dialog-context-bridge` + `analysis/dialog-bridges/` | Output home Present; this file |
-| Method push 1.4.64 | methodology git → `origin/methodology-src` | Commit `b5dc8e7` (alvasar-gpt + dialog-bridge) |
-| Vendor `builder-session` | portable under `integration/cursor-skills/`; dual-sync docs; bump | Method **1.4.65**; commit `b2d2e47` pushed `methodology-src`; bytes runtime ≡ portable |
-
-Plan UI Apply (alvasar-gpt): `/Users/eslinko/.cursor/plans/alvasar_gpt_profile_e3e504e7.plan.md` — Apply done; **не** править без приказа.  
-Plan UI Apply (vendor skill): `/Users/eslinko/.cursor/plans/vend_builder_session_skill_e3c4cb47.plan.md` — Apply done.
-
----
-
-## 6. Instance locked decisions + verified state
-
-### 6.1 `alvasar-gpt` (последний profile bootstrap)
-
-| Field | Value |
-|-------|--------|
-| `profile_key` | `alvasar-gpt` |
-| `focus_folder` | `clients/Alvasar/gpt` |
-| `tasks_dir` | `clients/Alvasar/gpt/docs/tasks` |
-| Skill | `openai-custom-gpt-builder` (как GPT UI) |
-| `test_command` | `cd clients/Alvasar/gpt && ls` |
-| Stories | `STORY-ALVG-*` / `EPIC-ALVG-*` (target; none authored) |
-| Active pkg | `pkg-000000-20261115-bootstrap.yaml` (t00 marker) |
-| Instruction corpora | **Absent** (name ≠ create) |
-
-### 6.2 `telegram` (prior in same dialog)
-
-| Field | Value |
-|-------|--------|
-| `profile_key` | `telegram` |
-| `focus_folder` | `doge-telegram` |
-| Skill | `python-pro` |
-| Boundary | channel → doge-ai-bridge `/v1/channel/*` only |
-
-### 6.3 Re-verify (cold start)
+## 5. Verified state (disk)
 
 ```bash
-python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
-# expect: ok 1 paths … pkg-000000-20261115-bootstrap.yaml
-
-cat docs/methodology/Zeya888-builder-queue/VERSION   # 1.4.65
-test -f docs/methodology/Zeya888-builder-queue/specs/profile-intakes/done/alvasar-gpt.yaml && echo intake=done
-test ! -f clients/Alvasar/gpt/instructions.manifest.json && echo manifest_absent=ok
+cat docs/methodology/Zeya888-builder-queue/VERSION   # expect 1.4.67 after this wave bump
+test -f docs/methodology/Zeya888-builder-queue/tools/dialog-restore-console.html
+test -f .cursor/skills/zeya888/SKILL.md
+cmp -s .cursor/skills/zeya888/SKILL.md \
+  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/zeya888/SKILL.md
 cmp -s .cursor/skills/builder-session/SKILL.md \
-  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md && echo dual_sync_bytes=ok
-cd docs/methodology && git log -1 --oneline
-# expect: b2d2e47 feat(builder-queue): vendor builder-session skill into method pack (1.4.65)
-cd /Users/eslinko/Development/DOGEstonia/clients/Alvasar && git log -1 --oneline -- gpt/ CLIENT.yaml .cursor/plans/Alvasar-GPT_builder.plan.md
-# expect: b0bf056 chore(gpt): bootstrap Builder Queue profile alvasar-gpt
+  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md
+test -f docs/methodology/Zeya888-builder-queue/prompts/architect/ux-package-bootstrap-universal.md
+test -f docs/methodology/Zeya888-builder-queue/analysis/analysis-triage-2026-11-18.md
+python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
 ```
 
-Peers (cheap): `--project alvasar-ui --verify`, `--project telegram --verify`, `--project gpt --verify`.
+Present: profiles include `alvasar-gpt`; dialog-bridges; cursor-skills `builder-session` + `zeya888`; restore HTML; triage report (no deletes done).
 
 ---
 
-## 7. File map (highlights)
+## 6. File map highlights
 
-### Method (workspace; methodology git `docs/methodology` → `origin/methodology-src`)
-
-Present: `VERSION`/`CHANGELOG` **1.4.65** · `profiles.yaml` (`alvasar-gpt`, `telegram`, …) · `clients.yaml` · contracts · console · workflow/session-starter/queue-manual · dual-sync `builder-session` (`.cursor/skills/` ≡ `integration/cursor-skills/`) · habits · `Alvasar-GPT_builder.plan.md` · `Telegram_builder.plan.md` · `prompts/migration/migration-dialog-context-bridge.md` · `analysis/dialog-bridges/` · `integration/cursor-setup.md` §0/§2 dual-sync.  
-Pushed: `b5dc8e7` (1.4.64) · `b2d2e47` (1.4.65 vendor skill).
-
-### Client `alvasar` (`dev`, pushed bootstrap gpt)
-
-Present: `CLIENT.yaml` · `gpt/README.md` · `gpt/docs/tasks/**` (pkg-000000, bullrun, pipeline) · portable `Alvasar-GPT_builder.plan.md` · (also Present under gpt: `docs/requirements/01-questionnaire-instruction-pack.md` — REQ doc, **не** instruction body corpus).
-
-### Explicitly Absent
-
-- `clients/Alvasar/gpt/instructions.manifest.json` and instruction body `*.md` corpora  
-- Product code changes for gpt bootstrap wave  
-- Second checklist forked from `add-builder-profile.md`
+| Item | Status |
+|------|--------|
+| `VERSION` / CHANGELOG | bump **1.4.67** this wave |
+| `tools/dialog-restore-console.html` | Present |
+| `.cursor/skills/zeya888/` + portable | Present dual-sync |
+| `ux-package-bootstrap-universal.md` | Present (1.4.66) |
+| `analysis-triage-2026-11-18.md` | Present; DELETE candidates need operator ok |
+| Alvasar gpt instruction corpora | **Absent** |
 
 ---
 
-## 8. Forbidden
+## 7. Forbidden
 
-- Повторять bootstrap `alvasar-gpt` / `telegram` при зелёном `--verify`.
-- Создавать instruction corpora «под AC».
-- Путать `builder_project: gpt` (GPT UI) с `alvasar-gpt`.
-- Путать `client_id: alvasar` с profile keys.
-- Класть nested client tasks в `docs/analysis/tasks` (quirk только flat `gpt`).
-- Silent methodology / `docs/tasks/**` commit.
-- Scope inflation / plan-over-ask (`analysis.mdc`).
-- Копировать полный `workflow.md` в новые bridges вместо pointers.
-- Править только один путь `builder-session` skill (runtime **или** portable) — dual-sync обязателен ([`integration/cursor-skills/README.md`](../../integration/cursor-skills/README.md)).
-- Искать dialog-bridges в workspace `docs/analysis/` — home = `docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/`.
+- Repeat bootstrap alvasar-gpt / telegram / vendor 1.4.65–66 when green.
+- Create instruction corpora without explicit create ask.
+- Confuse `builder_project: gpt` vs `alvasar-gpt`; `client_id: alvasar` vs profile keys.
+- Put dialog-bridges under workspace `docs/analysis/`.
+- Edit only one side of skill dual-sync.
+- `rm` analysis from triage without explicit ok.
+- Recreate Builder (B) dialogs in restore HTML (operator excluded).
 
 ---
 
-## 9. How to launch next
+## 8. Launch / next recipes
 
-### 9.A — Новый профиль Path A (intake already)
-
-```text
-@.cursor/rules/analysis.mdc
-@docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
-@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-add-builder-profile.md
-@docs/methodology/Zeya888-builder-queue/specs/profile-intakes/<profile_key>.yaml
-@.cursor/plans/Gateway_builder.plan.md
-
-$profile_key=
-$focus_folder=
-Migration: add Builder Queue profile from intake. Plan first; disk only on «запиши».
-```
-
-### 9.B — Path B (folder or clone)
-
-```text
-@.cursor/rules/analysis.mdc
-@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-profile-from-checked-out-dir.md
-@docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
-
-$profile_key=
-$focus_folder=
-$git_repo=
-$git_branch=dev
-Migration: profile from checked-out dir or clone. Inspect → intake → materialize.
-```
-
-### 9.C — Path C (nested client MS)
-
-```text
-@.cursor/rules/analysis.mdc
-@docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
-@docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
-@docs/methodology/Zeya888-builder-queue/specs/clients.yaml
-
-$profile_key=
-$focus_folder=clients/<Client>/<ms>
-$client_id=
-Migration: nested client MS profile. Dual plans + clients.yaml/CLIENT.yaml + tasks under focus/docs/tasks.
-```
-
-### 9.D — Continue Alvasar GPT product (не bootstrap)
-
-Phase 0 + `builder_project: alvasar-gpt` · bullrun · contract · `gpt/README.md` · parent REQ14 §4.5 · **не** P3 на t00 · author `STORY-ALVG-*` only after explicit product ask · instruction bodies only on explicit create.
-
-### 9.E — Methodology commit (next bump)
-
-`1.4.64` / `1.4.65` уже на `methodology-src`. Новый bump — только по явному приказу; только method files; не тащить `.DS_Store` / product / `__pycache__`.
-
-### 9.F — Edit `builder-session` skill
-
-Править **оба** файла в одной волне: `.cursor/skills/builder-session/SKILL.md` **и** `integration/cursor-skills/builder-session/SKILL.md`; затем `cmp` + при приказе method commit/push.
+- method_ops → add-builder-profile / client-tenancy / dual-sync skill edit
+- restore wipe → open dialog-restore-console.html
+- UX → ADMIN-01 → UX-PROMPTS → ux-package-bootstrap → ADMIN-02
+- product → builder-session + profile contract
+- triage → review DELETE? then «ок удаляй» with scope
 
 ---
 
-## 10. Smoke checklist
+## 9. Smoke checklist
 
 ```bash
 cd /Users/eslinko/Development/DOGEstonia
 python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --print-utc-now
-test -f docs/methodology/Zeya888-builder-queue/MANIFEST.md
-test -f docs/methodology/Zeya888-builder-queue/guides/add-builder-profile.md
-test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-add-builder-profile.md
-test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-profile-from-checked-out-dir.md
-test -f docs/methodology/Zeya888-builder-queue/guides/client-tenancy.md
-test -f docs/methodology/Zeya888-builder-queue/prompts/migration/migration-dialog-context-bridge.md
-test -f docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md
-test -f docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
-cmp -s .cursor/skills/builder-session/SKILL.md \
-  docs/methodology/Zeya888-builder-queue/integration/cursor-skills/builder-session/SKILL.md
+test -f docs/methodology/Zeya888-builder-queue/tools/dialog-restore-console.html
+test -f .cursor/skills/zeya888/SKILL.md
+cmp -s .cursor/skills/zeya888/SKILL.md docs/methodology/Zeya888-builder-queue/integration/cursor-skills/zeya888/SKILL.md
+test -f docs/methodology/Zeya888-builder-queue/analysis/analysis-triage-2026-11-18.md
+grep -E '^1\.4\.67$' docs/methodology/Zeya888-builder-queue/VERSION
 python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify
-python3 docs/methodology/Zeya888-builder-queue/cli/builder_resolve_queue.py --project alvasar-gpt --verify --check-dates
-rg -n "^  alvasar-gpt:|^  telegram:" docs/methodology/Zeya888-builder-queue/specs/profiles.yaml
-test ! -f clients/Alvasar/gpt/instructions.manifest.json
-grep -E '^1\.4\.65$' docs/methodology/Zeya888-builder-queue/VERSION
 ```
 
 ---
 
-## 11. Paste-packet — чистому агенту
+## 10. Paste-packet — чистому агенту (карточка HTML **Zeya888**)
 
 ```markdown
 @.cursor/rules/analysis.mdc
+@.cursor/skills/zeya888/SKILL.md
 @docs/methodology/Zeya888-builder-queue/analysis/dialog-bridges/alvasar-gpt-profile-bootstrap-bridge.md
-@docs/methodology/Zeya888-builder-queue/prompts/migration/migration-self-restore-zeya888-method.md
+@docs/methodology/Zeya888-builder-queue/tools/dialog-restore-console.html
 @docs/methodology/Zeya888-builder-queue/integration/cursor-skills/README.md
 
-Ты чистый агент. bridgeScope=full · dialogKind=mixed.
-1) Прочитай bridge §1–§4 (method + entry paths), затем §5–§7 (instance).
-2) Выполни smoke §10; отрапортуй: VERSION(=1.4.65) / dual_sync_bytes / alvasar-gpt verify / intake done / manifest Absent / dialog-bridges Present.
-3) Не повторяй bootstrap alvasar-gpt / telegram / vendor skill 1.4.65.
+Ты чистый агент. Sidebar title = Zeya888. bridgeScope=full · dialogKind=mixed · skill Zeya888 (method-ops).
+1) Прочитай bridge §1–§7, затем skill Zeya888.
+2) Smoke §9; отрапортуй: VERSION(=1.4.67) / zeya888 dual_sync / dialog-restore HTML Present / triage report Present / alvasar-gpt verify.
+3) Не повторяй Done волны 1.4.64–1.4.67.
 
 Дальше — один режим по моей следующей строке (если нет — STOP и спроси):
-A) Bootstrap NEW profile — Path A (intake already): $profile_key= $focus_folder=
-B) Bootstrap NEW profile — Path B (folder/clone): $profile_key= $focus_folder= $git_repo=
-C) Bootstrap NEW nested client MS — Path C: $client_id= $profile_key= $focus_folder=
-D) Continue alvasar-gpt product (Phase 0 + next STORY/REQ proposal; no instruction bodies)
-E) Methodology commit next bump (method files only; after dual-sync if skill touched)
-F) Edit builder-session skill (both paths) / restore skill from portable
+A) Bootstrap NEW profile Path A/B/C: $profile_key= $focus_folder= …
+B) Open/use dialog-restore-console for other chats
+C) UX package bootstrap / ADMIN layers
+D) Analysis DELETE after explicit ok + scope
+E) Edit skill dual-sync (zeya888 or builder-session)
+F) Methodology commit/push
 G) Other: <ask>
 ```
 
 ---
 
-## 12. Unknowns
+## 11. Unknowns
 
-- Когда materialize Alvasar instruction pack (manifest + bodies) — до явного приказа.
-- Exact Alvasar env keys for instruction DIR/MANIFEST — lock later (gpt README).
-- Нужен ли Path D split в ближайшей волне — Unknown.
-- Нужен ли отдельный `{dialogName}-bridge` только под product `alvasar-gpt` (сейчас method-first filename) — Unknown.
+- Operator ok scope for analysis DELETE candidates.
+- Whether rename bridge filename away from `alvasar-gpt-profile-bootstrap` — Unknown (filename stable for now).
 
 ---
 
-## 13. End state one-liner
+## 12. End state one-liner
 
-Method + entry paths A–D + dual-sync Cursor skills documented; dialog practiced multi-client tenancy, `telegram` (1.4.63), `alvasar-gpt` Path C (1.4.64, client `b0bf056`), dialog-bridges SSOT, method push `b5dc8e7`, vendor `builder-session` **1.4.65** (`b2d2e47`); instruction corpora remain Absent.
+Method-ops dialog **Zeya888** practiced tenancy + alvasar-gpt + dialog-bridges + skill dual-sync (builder-session 1.4.65, Zeya888 skill 1.4.67) + UX bootstrap 1.4.66 + dialog-restore HTML + analysis triage report (no rm yet).

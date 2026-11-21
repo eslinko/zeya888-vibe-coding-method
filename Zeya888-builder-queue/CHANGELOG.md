@@ -1,5 +1,33 @@
 # Changelog — Zeya888 Builder Queue
 
+## 1.4.80 — 2026-11-21
+
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — section jump anchors on `h2` (`sec-*`); scroll offset = sticky `header` height (заголовок не под тулбаром)
+- Sync: [`dialog-restore-console.md`](./tools/dialog-restore-console.md)
+
+## 1.4.79 — 2026-11-21
+
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — UI brand **Zeya888 Method**; Markstack links copy `@path` + open `_blank`; Work section ▴/▾ jump (no collapse)
+- Sync: [`dialog-restore-console.md`](./tools/dialog-restore-console.md)
+
+## 1.4.78 — 2026-11-20
+
+- Profiles: `amanita-bot` / `amanita-contracts` / `amanita-scripts` / `amanita-arweave` — nested peer under `amanita/` (**not** `clients.yaml`)
+- Guides: nested ≠ only client tenancy (`add-builder-profile` §0, `profiles-fields` §Nested)
+- Contracts + Gateway-clone plans + tasks SSOT bootstrap ×4; restore O/V cards (no Root)
+- Sync: workflow / session-starter / queue-manual / MANIFEST / builder-session SKILL / habits / workflow-console / input-package-spec
+
+## 1.4.77 — 2026-11-20
+
+- Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — Work surface **Markstack** spotlight (links + attach ⎘); not Init
+- Sync: [`dialog-restore-console.md`](./tools/dialog-restore-console.md)
+
+## 1.4.76 — 2026-11-20
+
+- Tools: fix Work Frequent copy — unique `frequent-{idx}` ids (RU slug collision); `copyPromptById` uses `pre` inside card
+- Prompts: [`architect/prompts-manual.md`](./prompts/architect/prompts-manual.md) — snip «Стыковки в REQ после всех стори» → Frequent via catalog rebuild
+- Sync: regenerate [`dialog-restore-work-catalog.js`](./tools/dialog-restore-work-catalog.js)
+
 ## 1.4.75 — 2026-11-19
 
 - Tools: [`dialog-restore-console.html`](./tools/dialog-restore-console.html) — root surface **Инициализация** / **Рабочие промпты**; init keeps restore/fresh
